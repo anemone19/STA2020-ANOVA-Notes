@@ -1,0 +1,24 @@
+# Experiments and experimental design
+
+There are two fundamental ways to obtain information in research: by *observation* or by *experimentation*. In an observational study the observer watches and records information about the subject of interest. In an experiment the experimenter actively manipulates variables hypothesized to affect the response. Although both are important ways of understanding the world around us, only through experiments can we **infer causality**. 
+
+That is, by designing and conducting an experiment properly, if we observe a result such as a change in variable A leads to a change in our response (say variable B), we can conclude that A **caused** this change in B. If we were to merely study variable B and saw that as variable A changes B also changes without conducting an experiment (i.en conducting an observational study) then we can only say that variable A and B are associated. We could not conclude that any change in B is due to A, it could be some other factor that is correlated with A. The key is that a well-designed experiment controls and holds constant (as best we can) all other factors that might affect the response, so we can be sure the result is caused by the variable we manipulated.
+
+
+Imagine a company wants to determine whether their voluntary employee training program (explanatory variable) increases productivity (response). They decide to track the productivity of employees who chose to complete the training and those who did not. They note that, on average, trained employees are more productive. Can we confidently conclude that the training program caused increased productivity?
+
+This is an observational study since no variable was actively manipulated, they merely observed and recorded the productivity of two groups of employees. So, we cannot conclude that completing the training program increases productivity - we cannot infer causality. It could be due to many other factors, either observed or unobserved, such as maybe employees who chose to do the training program are inherently more motivated and thus productive. Can you think of other factors?
+
+If they actively manipulate the variable, training program, by randomly assigning employees to complete the training program or not and control other factors by ensuring the employees are as similar as possible (i.e. conducted an experiment). Any differences in productivity between the two groups could then be ascribed to the training program. If they happen to find that the employees who were assigned the training program are more productive, they can confidently say that the training program caused increased productivity (and perhaps make it compulsory for all employees!).
+
+Experimental studies are extremely important in research and in practice. They are almost the only way in which one can control all factors to such an extent as to eliminate any other possible explanation for a change in a response other than variable actively manipulated, allowing us to infer causality. Here are some other reasons for conducting experiments:
+
+1. They are easy to analyse. A well designed experiment results in independent estimates of treatment effects which allow us to easily interpret the effects. EXPAND - independent treatment effects and/or independent treatment variables? 
+
+2. Experiments are frequently used to find optimal levels of settings (treatment variables) which will maximise (or minimise) the response. Such experiments can save enormous amounts of time and money. Imagine trying to find the optimal settings for producing electricity from coal without proper experimentation. Such a trial and error process would be extremely costly, wasteful and time consuming. In a similar vein, what if the fictional company in our previous example decided to invest a bunch of money in fine-tuning their training program based solely of a observational study but in reality it turns out that adjusting their hiring process to identify more keen candidates would have been much more efficient and inexpensive. 
+
+3. In an experiment we can choose exactly those settings or treatment levels we are interested in, e.g. we can investigate the effect of different shift lengths (6, 8 or 9 hours) on employee productivity or test specific price points (R100, R150, R200) to determine which price maximises sales or revenue. We can actively manipulate our variable to the levels we are interested in. 
+
+Experimental studies and their design are fundamental to Science, allowing us to further knowledge and test theories. So lets define them more rigorously. 
+
+This course will only deal with experimental studies where the aim is to compare the effects of a number of treatments.

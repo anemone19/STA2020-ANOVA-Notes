@@ -2,14 +2,22 @@ project:
   type: book
 
 book:
-  title: "STA2020_ANOVA"
-  author: "Norah Jones"
+  title: "STA2020 ANOVA Notes"
+  author: "Ané Cloete"
   date: "12/17/2024"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
+    - part: "Experimental Design"
+      chapters:
+        - 01_ExpDesign_Why.qmd
+        - 02_ExpDesign_Term.qmd
+        - 03_ExpDesign_RRR.qmd
+    - part: "Completely Randomised Designs"
+
+    - part: "Randomised Block Designs"
+
+    - part: "Factorial Experiments"
+
 
 bibliography: references.bib
 
