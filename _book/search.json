@@ -1,43 +1,68 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STA2020 ANOVA Notes",
+    "objectID": "02_ExpDesign_Term.html",
+    "href": "02_ExpDesign_Term.html",
+    "title": "2  Terminology",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "Treatment factors, treatment levels and treatments:\nThe treatment factor is the factor or variable that the experimenter actively manipulates to measure its effect on the response. All factors/variables that are investigated, controlled, manipulated, thought to influence the response, are called the treatment factors. They become the explanatory variables (mostly categorical) in the model. For each treatment factor, we actively choose a set of levels. For example, the treatment factor “temperature” can have levels 10, 20, and 50°C. If temperature is the only treatment factor in the experiment, the treatments will also be 10, 20, and 50°C.\nIf we manipulate more than one factor (e.g., temperature and pressure), we have two treatment factors. When several treatment factors are manipulated, the experiment is called factorial and the treatments are all possible combinations of the factor levels. If we have pressure levels “low” and “high,” there are 6 treatments in total:\nFigure 2.1: Visualization of how treatments are formed as combinations of treatment levels.\nIn the figure above, there are two treatment factors: Temperature (on the y-axis) and Pressure (on the x-axis). The axis ticks represent the levels of each treatment factor, and the blocks within the grid represent the treatments, which are specific combinations of the levels of Temperature and Pressure. Each treatment is labeled with the corresponding combination of levels (e.g., ‘50, Low’ or ‘10, High’).\nWhen faced with a text like this, it is useful to identify the treatment factors, their levels and the treatments, as well the response. Clearly, from the question, we are interested in the effect of therapy on test anxiety. A statement like this can generally be read as the effect of the treatment factor on the response. Nowhere is another treatment factor mentioned, so we only have one in this example. What are the levels of therapy we set? The levels are 5, 10 and 15 hours of therapy and since we only have one factor these are also the treatments. Let’s summarise this as follows:",
     "crumbs": [
       "Experimental Design",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
     ]
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
+    "objectID": "02_ExpDesign_Term.html#treatment-factors-treatment-levels-and-treatments",
+    "href": "02_ExpDesign_Term.html#treatment-factors-treatment-levels-and-treatments",
+    "title": "2  Terminology",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "text": "Example 1\n\n\n\nThree groups of students, 5 in each group, were receivng therapy for severe test anxiety. Group 1 recieved 5 hours, group 2 received 10 hours and group 3 received 15 hours. At the end of therapy each subject completed an evaulation of test anxiety. Did the amount of therapy have an effect on the level of test anxiety?\nThe three groups of studnets received the scores on the Test Anxiety index (TAI) at the end of treatment shown in the table below.\n\n\n\nGroup 1\nGroup 2\nGroup 3\n\n\n\n\n48\n55\n51\n\n\n50\n52\n52\n\n\n53\n53\n50\n\n\n52\n55\n53\n\n\n50\n53\n50\n\n\n\n\n\n\n\n\n\nResponse: Test Anxiety\n\nTreatment Factor: Therapy\n\nTreatment Levels: 5, 10, and 15 hours of therapy\n\nTreatments: 5, 10, and 15",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+      "Experimental Design",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "objectID": "02_ExpDesign_Term.html#experimental-unit",
+    "href": "02_ExpDesign_Term.html#experimental-unit",
+    "title": "2  Terminology",
+    "section": "Experimental unit",
+    "text": "Experimental unit\nThe experimental unit is the entity (e.g., material, object, or individual) to which a treatment is assigned or that receives the treatment. The experimental unit may differ from the observational unit, which is the entity from which a measurement is taken. This distinction is very important because it is the experimental units which determine how often the treatment has been replicated and therefore the precision with which we can measure the treatment effect. In the methods that we cover in this course, we require that in the end there is only one ‘observation’ (response value) per experimental. If several measurements have been taken on an experimental unit, we will combine these into one observation by taking the mean. Very often, the experimental unit is also the observational unit.\nFor Example 1, what are the experiemental units? To determine this, revisit the text of Example 1 and ask yourself: what entity received the treatments or to what were treatments applied? Most of you, will probably answer the students and this is correct. Each student received the respective treatment assigned to their group and so there are \\(5 \\times 3 = 15\\) experimental units. :\nThere is an argument to be made that it is not clear whether the students received therapy on their own or that the groups of students received therapy together. In that case, treatments were applied to groups of students and so there would be three experimental units.\nWe also need to know what the observational units are. The text states that at the end of therapy, each student completed an evaluation to determine their level of test anxiety. So the response, test anxiety, was measured on the student level which means students are the observational units. In the first case we looked at above, the students are both the experimental units and observtional units. But this would not be the case if groups are the experimental unit.\nWe also require that there is only one observation per experimental unit, the first scenario meets this requirement. For the second scenario, we have 5 observations per group and so we would have to take the mean of these values to end up wth one response value per group.\nLet’s add to the summary assuming students are the experimental units:\n\nExperimental unit (no): Student (15)\n\nObservational unit (no): Student (15)",
     "crumbs": [
-      "References"
+      "Experimental Design",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
+    ]
+  },
+  {
+    "objectID": "02_ExpDesign_Term.html#homogeneity-of-experimental-units",
+    "href": "02_ExpDesign_Term.html#homogeneity-of-experimental-units",
+    "title": "2  Terminology",
+    "section": "Homogeneity of experimental units",
+    "text": "Homogeneity of experimental units\nWhen the set of experimental units are as similar as possible such that there are no distinguishable differences between them, they are said to be homogeneous (a fancy word for saying they are of the same kind). The more homogeneous the units are, the smaller the experimental error variance (natural variation between between observations of the same treatments) will be. It is super important to have fairly homogeneous units because it allows us to detect differences between treatments more easily.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
+    ]
+  },
+  {
+    "objectID": "02_ExpDesign_Term.html#blocking",
+    "href": "02_ExpDesign_Term.html#blocking",
+    "title": "2  Terminology",
+    "section": "Blocking",
+    "text": "Blocking\nIf the experimental units are not fairly similar but are heterogeneous (the opposite of homogeneous), we can group them into sets of similar units. This process is called blocking and the groups are considred “blocks”. We compare the treatments within each block as if each block is its own mini-experiment. This way we account for the differences between blocks and can better isolate the effect of the treatments.\n\n\n\n\n\n\nExample 2.2 EDIT THIS STILL\n\n\n\nImagine you’re testing the effectiveness of two marketing strategies (A and B) to increase sales at a chain of coffee shops. The coffee shops are located in different neighborhoods, where factors like income levels might influence sales. To prevent these differences from skewing the results, you group the coffee shops into “blocks” based on neighborhood income level (e.g., low, medium, high).\nWithin each block, you randomly assign coffee shops to either Strategy A or Strategy B. This approach allows you to compare the strategies while controlling for variability caused by differences in neighborhood income levels.\nWithout blocking, would you be able to confidently attribute differences in sales to the strategies alone? Likely not, as any observed differences could be due to neighborhood-specific factors rather than the strategies themselves.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
+    ]
+  },
+  {
+    "objectID": "02_ExpDesign_Term.html#replication",
+    "href": "02_ExpDesign_Term.html#replication",
+    "title": "2  Terminology",
+    "section": "Replication",
+    "text": "Replication\nIf a treatment is applied independently to more than one experimental unit it is said to be replicated. Treatments must be replicated! Making more than one observation on the same experimental unit is not replication, but pseudoreplication. Pseudoreplication is a common fallacy (REF?). The problem is that without true replication, we don’t have an estimate of uncertainty, of how repeatable, or how variable the result is if the same treatment were to be applied repeatedly.\nIn Example 1, if experimental units were the groups and we didn’t take the average of the observations per group, we would have pseudoreplication as each student would not be an independent replicate of a treatment - effectively, we have only applied the each treatment once. You might notice that we then only have one true replicate per treatment group and this is problematic. To get an estimate of uncertainty, we would have to repeat this experiment a few more times to get more than one true replicate.\nThe first scenario, however, did not have this problem and each treatment was replicated five times. After going through all this, we have the following summary:\n\nResponse: Test Anxiety\n\nTreatment Factor: Therapy\n\nTreatment Levels: 5, 10, and 15 hours of therapy\n\nTreatments: 5, 10, and 15\n\nExperimental unit (no): Student (15)\n\nObservational unit (no): Student (15)\n\nReplicates: 5\n\n\n\n\n\n\n\nTip\n\n\n\nCreating a summary like this, is a handy exercise for any experiment you come across, and we’ll keep doing it for every example in this book. As we go along, we’ll also add information about the type of experiment that was conducted.\n\n\nNext, we talk a bit more about experimental design.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
     ]
   },
   {
@@ -45,21 +70,173 @@
     "href": "01_ExpDesign_Why.html",
     "title": "1  Experiments and experimental design",
     "section": "",
-    "text": "There are two fundamental ways to obtain information in research: by observation or by experimentation. In an observational study the observer watches and records information about the subject of interest. In an experiment the experimenter actively manipulates variables hypothesized to affect the response. Although both are important ways of understanding the world around us, only through experiments can we infer causality.\nThat is, by designing and conducting an experiment properly, if we observe a result such as a change in variable A leads to a change in our response (say variable B), we can conclude that A caused this change in B. If we were to merely study variable B and saw that as variable A changes B also changes without conducting an experiment (i.en conducting an observational study) then we can only say that variable A and B are associated. We could not conclude that any change in B is due to A, it could be some other factor that is correlated with A. The key is that a well-designed experiment controls and holds constant (as best we can) all other factors that might affect the response, so we can be sure the result is caused by the variable we manipulated.\nImagine a company wants to determine whether their voluntary employee training program (explanatory variable) increases productivity (response). They decide to track the productivity of employees who chose to complete the training and those who did not. They note that, on average, trained employees are more productive. Can we confidently conclude that the training program caused increased productivity?\nThis is an observational study since no variable was actively manipulated, they merely observed and recorded the productivity of two groups of employees. So, we cannot conclude that completing the training program increases productivity - we cannot infer causality. It could be due to many other factors, either observed or unobserved, such as maybe employees who chose to do the training program are inherently more motivated and thus productive. Can you think of other factors?\nIf they actively manipulate the variable, training program, by randomly assigning employees to complete the training program or not and control other factors by ensuring the employees are as similar as possible (i.e. conducted an experiment). Any differences in productivity between the two groups could then be ascribed to the training program. If they happen to find that the employees who were assigned the training program are more productive, they can confidently say that the training program caused increased productivity (and perhaps make it compulsory for all employees!).\nExperimental studies are extremely important in research and in practice. They are almost the only way in which one can control all factors to such an extent as to eliminate any other possible explanation for a change in a response other than variable actively manipulated, allowing us to infer causality. Here are some other reasons for conducting experiments:\n\nThey are easy to analyse. A well designed experiment results in independent estimates of treatment effects which allow us to easily interpret the effects. EXPAND - independent treatment effects and/or independent treatment variables?\nExperiments are frequently used to find optimal levels of settings (treatment variables) which will maximise (or minimise) the response. Such experiments can save enormous amounts of time and money. Imagine trying to find the optimal settings for producing electricity from coal without proper experimentation. Such a trial and error process would be extremely costly, wasteful and time consuming. In a similar vein, what if the fictional company in our previous example decided to invest a bunch of money in fine-tuning their training program based solely of a observational study but in reality it turns out that adjusting their hiring process to identify more keen candidates would have been much more efficient and inexpensive.\nIn an experiment we can choose exactly those settings or treatment levels we are interested in, e.g. we can investigate the effect of different shift lengths (6, 8 or 9 hours) on employee productivity or test specific price points (R100, R150, R200) to determine which price maximises sales or revenue. We can actively manipulate our variable to the levels we are interested in.\n\nExperimental studies and their design are fundamental to Science, allowing us to further knowledge and test theories. So lets define them more rigorously.\nThis course will only deal with experimental studies where the aim is to compare the effects of a number of treatments.",
+    "text": "There are two fundamental ways to obtain information in research: by observation or by experimentation. In an observational study the observer watches and records information about the subject of interest. In an experiment, the experimenter actively manipulates variables hypothesized to affect the response (insert small example). Although both are important ways of understanding the world around us, only through experiments can we infer causality.\nThat is, by designing and conducting an experiment properly, if we observe a result such as a change in variable A leads to a change in our response (say variable B), we can conclude that A caused this change in B. If we were to merely study variable B and observe that as variable A changes, B also changes without conducting an experiment, then we can only say that variable A and B are associated. We could not conclude that any change in B is due to A. It could be some other factor that is correlated with A or it could be that B caused the change in A! The key is that a well-designed experiment controls and holds constant (as best we can) all other factors that might affect the response, so we can be sure the result is caused by the variable we manipulated.\nImagine a company wants to determine whether their voluntary employee training program (the explanatory variable) increases productivity (the response). They decide to track the productivity of employees who chose to complete the training and those who did not. They note that, on average, trained employees are more productive. Can we confidently conclude that the training program caused increased productivity?\nThis is an observational study since no variable was actively manipulated, they merely observed and recorded the productivity of two groups of employees. So, we cannot conclude that completing the training program increases productivity - we cannot infer causality. It could be due to many other factors, either observed or unobserved, such as maybe employees who choose to do the training program are inherently more motivated and thus productive. Can you think of any other factors?\nIf they actively manipulate the explanatory variable, training program, by randomly assigning employees to complete the training program or not and control other factors by ensuring the employees are as similar as possible accross the groups (i.e. conducted an experiment). Any differences in productivity between the two groups could then be ascribed to the training program. If they happen to find that the employees who were assigned the training program are more productive, they can confidently say that the program caused increased productivity (and perhaps make it compulsory for all employees!).\nExperimental studies are extremely important in research and in practice. They are almost the only way in which one can control all factors to such an extent as to eliminate any other possible explanation for a change in a response other than the variable actively manipulated. In this course, we only consider experimental studies and those which aim to compare the effects of a number of treatments.\nHere are some other reasons for conducting experiments:\n\nThey are easy to analyse. A well designed experiment results in independent estimates of treatment effects which allow us to easily interpret the effects. EXPAND - independent treatment effects and/or independent treatment variables?\nExperiments are frequently used to find optimal levels of variables which will maximise (or minimise) the response. Such experiments can save enormous amounts of time and money. Imagine trying to find the optimal settings for producing electricity from coal without proper experimentation. Such a trial and error process would be extremely costly, wasteful and time consuming. In a similar vein, what if the fictional company in our previous example decided to invest a bunch of money in fine-tuning their training program based solely on the results of an observational study. In reality though, it turns out that adjusting their hiring process to identify more keen candidates would have been much more efficient and inexpensive.\nIn an experiment we can choose exactly those settings or treatment levels we are interested in, e.g. we can investigate the effect of different shift lengths (6, 8 or 9 hours) on employee productivity or test specific price points (R100, R150, R200) to determine which price maximizes sales or revenue. We can actively manipulate the variable(s) to the levels we are interested in.\n\nExperimental studies and their design are fundamental to science, allowing us to further knowledge and test theories. So lets define them more rigorously. We’ll start by introducing some terminology.\nINSERT WHAT THEY NEED TO KNOW / MAIN TAKEAWAYS Perhaps?",
     "crumbs": [
       "Experimental Design",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Experiments and experimental design</span>"
     ]
   },
   {
-    "objectID": "02_ExpDesign_Term.html",
-    "href": "02_ExpDesign_Term.html",
-    "title": "2  Terminology",
+    "objectID": "03_ExpDesign_RRR.html",
+    "href": "03_ExpDesign_RRR.html",
+    "title": "3  The three R’s of experimental design",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "3.1 Replication\nLet’s define it again: replication is when each treatment is applied to several experimental units. This ensures that the variation between two or more units receiving the same treatment can be estimated and valid comparisons can be made between treatments. In other words, replication allows us to separate variation due to differences between treatments from variation within treatments. For true replication, each treatment should be independently applied to several experimental units. If this is not the case, treatment effects become confounded with other factors.\nConfounding means that is not possible to separate the effects of two (or more) factors on the response, i.e. it is not possible to say which of the two factors is responsible for any changes in the response. This is what happened in the Example 1 when groups are the experimental units. With only one observation per experimental unit, the effect of therapy is confounded with the experimental unit or the effect of group on test anxiety. The reason why this is a problem is that any difference between the treatments could be due to any differences between the groups and not just the number of therapy hours. The same would be true if we only had one student per group, why? Take a moment to think about this.\nConsider the first row of the data from Example 1. It looks like the student in group 2 scored the highest, followed by group 3 and then group 1. So does longer therapy sessions lead to higher test anxiety? Likely not! With only one student per treatment, we are not able to say that any differences in the response are due to the treatments. It could be due to any differences between the individuals. Maybe the student in group 3 tends to score higher on anxiety tests regardless of the treatment, or perhaps the student in group 1 was unusually calm that day. Without replication, these individual differences could mask (or mimic) the true effects of the treatments.\nBy replicating the treatments across multiple students, we can average out these individual differences and gain a clearer picture of whether therapy duration truly impacts test anxiety. With five students per group, we might observe that group 1 consistently scores lower than group 3. This consistency would provide stronger evidence that the treatments, and not just individual variation, are responsible for the observed differences. So by replication, we can compare within treatment variation to variation between treatments.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>The three R's of experimental design</span>"
+    ]
+  },
+  {
+    "objectID": "03_ExpDesign_RRR.html#replication",
+    "href": "03_ExpDesign_RRR.html#replication",
+    "title": "3  The three R’s of experimental design",
+    "section": "",
+    "text": "Treatment 1\nTreatment 2\nTreatment 3\n\n\n\n\n48\n55\n51\n\n\n50\n52\n52\n\n\n53\n53\n50\n\n\n52\n55\n53\n\n\n50\n53\n50\n\n\n\n\n\n\n\n\n\n\nExample 3.1\n\n\n\nMaybe the co2 uptake data?",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>The three R's of experimental design</span>"
+    ]
+  },
+  {
+    "objectID": "03_ExpDesign_RRR.html#randomisation",
+    "href": "03_ExpDesign_RRR.html#randomisation",
+    "title": "3  The three R’s of experimental design",
+    "section": "3.2 Randomisation",
+    "text": "3.2 Randomisation\nRandomisation refers to the process of randomly assigning treatments to experimental units such that each experimental unit has equal chance of receiving a specific treatment. Randomisation ensures that:\n\nThere is no bias on the part of the experimenter, either conscious or unconscious, when assigning treatments to experimental units.\nNo experimental unit is favored to receive a particular treatment.\nPossible differences between units are equally distributed amongst treatments. If there are clear differences between units, then blocking should be performed and randomisation occurs within blocks. We’ll talk more about this in Chapter INSERT\nWe can assume independence between observations.\n\nRandomisation is not haphazard. In statistics (and here in the context of experimental design), randomisation has a specific meaning: namely that each experimental unit has the same chance of being allocated any of the treatments. This can be done using random number generators such as with software packgaes, dice or drawing number from a hat (provided the number have been shuffled adequately and have equal chance to be picked).\nLet’s have a look at randomisation in R. Suppose we have 4 treatments (A, B, C, and D) and 32 experimental units. There are no differences between the units, so we don’t have to block, and we can equally split the units across the treatments, which means we have 8 units per treatment, i.e., 8 replicates. In R, we first create a long vector of 8 As, 8 Bs, 8 Cs, and 8 Ds called all.treat. Then shuffle the vector to obtain a randomisation using the function sample.\n\n# repeat the vector A, B, C, D 8 times \nall.treats &lt;- rep(c(\"A\",\"B\",\"C\",\"D\"), times = 8)\n\n# permutation of all.treats (sample withut replacement)\nrand1 &lt;- sample(all.treats)\n\n# example output\nrand1\n\n [1] \"B\" \"D\" \"A\" \"C\" \"D\" \"B\" \"A\" \"D\" \"A\" \"A\" \"D\" \"D\" \"A\" \"B\" \"A\" \"A\" \"B\" \"D\" \"C\"\n[20] \"C\" \"C\" \"B\" \"C\" \"C\" \"B\" \"D\" \"B\" \"B\" \"C\" \"D\" \"A\" \"C\"\n\n\nExperimental unit 1 recipes the first treatment that appears as the first element in the shuffled vector, experimental unit 2 receives the second and so on.\nNotes on randomisation?",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>The three R's of experimental design</span>"
+    ]
+  },
+  {
+    "objectID": "03_ExpDesign_RRR.html#reduce-unexplained-variation-blocking",
+    "href": "03_ExpDesign_RRR.html#reduce-unexplained-variation-blocking",
+    "title": "3  The three R’s of experimental design",
+    "section": "3.3 Reduce Unexplained Variation (Blocking)",
+    "text": "3.3 Reduce Unexplained Variation (Blocking)",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>The three R's of experimental design</span>"
+    ]
+  },
+  {
+    "objectID": "02_ExpDesign_Term.html#experimental-and-observational-unit",
+    "href": "02_ExpDesign_Term.html#experimental-and-observational-unit",
+    "title": "2  Terminology",
+    "section": "Experimental and observational unit",
+    "text": "Experimental and observational unit\nThe experimental unit is the entity (e.g. material, object, or individual) to which a treatment is assigned or that receives the treatment. By contrast, the observational unit is the entity from which the response is recorded. This distinction is very important because it is the experimental units which determine how often the treatment has been replicated and therefore the precision with which we can measure the treatment effect. In the methods that we cover in this course, we require that in the end there is only one ‘observation’ (response value) per experimental unit. If several measurements have been taken on an experimental unit, we will combine these into one observation, typically by taking the mean. Very often, the experimental unit is also the observational unit.\nFor See Example (example-box?) for more details, what are the experiemental units? To determine this, revisit the text of Example 1 and ask yourself: what entity received the treatments or to what were treatments applied? Most of you, will probably answer the students and this is correct. Each student received the respective treatment (number of hours in therapy) assigned to their group and so there are \\(5 \\times 3 = 15\\) experimental units.\nThere is an argument to be made that it is not clear whether the students received therapy on their own or that the groups of students received therapy together. In that case, treatments were applied to groups of students and so there would be three experimental units. This will usually be clear from the text, but we’ll use this scenario to illustrate some concepts as we go.\nWe also need to know what the observational units are. The text states that at the end of therapy, each student completed an evaluation to determine their level of test anxiety. So the response, test anxiety, was measured on the student level which means students are the observational units. In the first scenario, the students are both the experimental units and observational units. But this would not be the case if groups are the experimental unit.\nWe also require that there is only one observation per experimental unit, the first scenario meets this requirement. For the second scenario, we have 5 observations per group and so we would have to take the mean of these values to end up wth one response value per group.\nLet’s add to the summary assuming students are the experimental units:\n\nExperimental unit (no): Student (15)\n\nObservational unit (no): Student (15)",
     "crumbs": [
       "Experimental Design",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
+    ]
+  },
+  {
+    "objectID": "02_ExpDesign_Term.html#example-1-title-of-your-example",
+    "href": "02_ExpDesign_Term.html#example-1-title-of-your-example",
+    "title": "2  Terminology",
+    "section": "2.1 Example 1: Title of Your Example",
+    "text": "2.1 Example 1: Title of Your Example\nThis is the content of the example box. You can reference this example using @example-box.\n\nPoint 1\nPoint 2\nAdd more content as needed.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
+    "section": "",
+    "text": "Experimental Design\n\nA systematic method to plan experiments in a way that ensures valid and unbiased results.\n\nANOVA (Analysis of Variance)\n\nA statistical method used to compare the means of three or more groups to determine if at least one differs significantly.\n\nReplication\n\nWhen treatments are applied to more than one experimental unit. The number of experimental units per treatment is the number of replicates an experiment has.\n\nRandomization\n\nA process of randomly assigning subjects or experimental units to treatments.\n\nBlocking\n\nA technique to account for variability by grouping similar experimental units.\n\nTreatment Factor\n\nAn independent variable in an experiment.\n\nTreatment Level\n\nThe specific values or categories of a factor.\n\n\n[Treatments]",
+    "crumbs": [
+      "Glossary"
+    ]
+  },
+  {
+    "objectID": "02_ExpDesign_Term.html#replication-and-pseudoreplication",
+    "href": "02_ExpDesign_Term.html#replication-and-pseudoreplication",
+    "title": "2  Terminology",
+    "section": "Replication and pseudoreplication",
+    "text": "Replication and pseudoreplication\nIf a treatment is applied independently to more than one experimental unit it is said to be replicated. Treatments must be replicated! Making more than one observation on the same experimental unit is not replication, but pseudoreplication. Pseudoreplication is a common fallacy (REF?). The problem is that without true replication, we don’t have an estimate of uncertainty, of how repeatable, or how variable the result is if the same treatment were to be applied repeatedly.\nIn Example 1, if experimental units were the groups and we didn’t take the average of the observations per group, we would have pseudoreplication as each student would not be an independent replicate of a treatment - effectively, we have only applied each treatment once. You might notice that we then only have one true replicate per treatment group and this is problematic. To get an estimate of uncertainty, we would have to repeat this experiment a few more times to get more than one proper replicate.\nThe first scenario, however, did not have this problem and each treatment was replicated five times. After going through all this, we have the following summary:\n\nResponse: Test Anxiety\n\nTreatment Factor: Therapy\n\nTreatment Levels: 5, 10, and 15 hours of therapy\n\nTreatments: 5, 10, and 15\n\nExperimental unit (no): Student (15)\n\nObservational unit (no): Student (15)\n\nReplicates: 5\n\n\n\n\n\n\n\nTip\n\n\n\nCreating a summary like this, is a handy exercise for any experiment you come across, and we’ll keep doing it for every experiment in this book. As we go along, we’ll also add information about the type of experiment that was conducted.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Terminology</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STA2020 ANOVA Notes",
+    "section": "",
+    "text": "Preface\nThis book is not an exhaustive guide for designing an experiment or conducting ANOVA’s, it has been tailored specifically for the learning outcomes and methods covered in STA2020. If you are interested in a more general text on experimental design, please see:\nInstructions:\n\nExamples\nR code\nTips",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "03_ExpDesign_RRR.html#reduction-of-unexplained-variation-blocking",
+    "href": "03_ExpDesign_RRR.html#reduction-of-unexplained-variation-blocking",
+    "title": "3  The three R’s of experimental design",
+    "section": "3.3 Reduction of Unexplained Variation (Blocking)",
+    "text": "3.3 Reduction of Unexplained Variation (Blocking)\nUnexplained variation (or experimental error variance or within treatment variance) is largely due to inherent differences between experimental units. The larger this unexplained variation, the more difficult it becomes to detect treatment differences (a treatment signal). To minimise experimental error variance we can control extraneous factors (i.e. keeping all else constant) and by choosing homogeneous experimental units. Otherwise, we can block experimental units to reduce the variation.\nBlocking variables are nuisance factors that might affect your response or introduce systematic variation in the response and we are typically, not interested in these. Often, they are factors that cannot be randomised, e.g. biological sex of a person, time of day, location of a warehouse etc. We control the effect of such variables on the response by blocking for them so that we can investigate the possible effect of a variable that we are interested in. Usually, in a complete block experiment, there are as many experimental units per block as there are treatments, so that each treatment is applied once in every block. Treatments are randomized to the experimental units in the blocks. We can then compare the effects of treatments on similar experimental units, and we can estimate the variation induced in the response due to the differences between blocks. This variation due to blocks can then be removed from the unexplained variation.\nEXAMPLE\nBlocking also offers the oopurutnity to test treatments over a wider range of conditions, e.g. if I only use people of one age in my experiment (say students) I cannot generalize my results to older people. However, if i use different age blocks I will be able to tell whether the treatments have similar effects in all age groups or not.\nLastly, if blocking is not feasible, randomization will ensure that at least treatments and nuisance factors are not confounded.\n\n“Block what you can, randomize what you cannot.”\n— Box, Hunter & Hunter (1978)",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>The three R's of experimental design</span>"
+    ]
+  },
+  {
+    "objectID": "04_ExpDesign_DesigningExp.html",
+    "href": "04_ExpDesign_DesigningExp.html",
+    "title": "4  Designing an Experiment",
+    "section": "",
+    "text": "When planning an experiment we need to decide on:\n\ntreatment factors and their levels\nthe response\nexperimental material / units\nblocking factors\nnumber of replicates\n\nSome of these will be determined by the research question and how experimental units are assigned to treatments are determined by the design. The design that will be chosen for a particular experiment depends on the treatment structure (determined by the research question) and the blocking structure (determined by the available experimental units).\nHere are two ways the treatments can be structured:\n\nSingle factor: the treatments are the levels of a single treatment factor.\nFactorial: when more than one factor are of interest, then the experiment is said to be a factorial experiment. The treatments are constructed by crossing the treatment factors like we did in Figure 2.1 such that the treatments are all possible combinations of the treatment levels. For example, if factor A has \\(a\\) levels and factor B has \\(b\\) levels, there are \\(a \\times b\\) treatments. Such an experiment would then be called an \\(a \\times b\\) factorial experiment.\n\nThe blocking structure is determined the set of experimental units chosen or available for the experiment.are there any structures/differences that need to be blocked? Do I want to include experimental units of different types to make the results more general? How many experimental units are available in each block? For the simplest design in this course, the number of experimental units in each block corresponds to the number of treatments. This is called a complete block experiment. There are several other blocking structures, such as incomplete blocks and blocks with missing values, all with specific analysis which we will not cover here.\nIn this course, we cover two basic designs: Completely Randomized Designs (CRD) and Randomized Block Designs (RBD). For both designs, the treatment structure can be single or factorial. Where they differ is in terms of the experimental units and how randomization occurs.\nCompletely Randomized Designs (CRD)\nWhen all experimental units are fairly homogeneous, a CRD is used. Treatments are randomized to all experimental units.\nRandomized Block Design\nThis design is used when all experimental units are not homogeneous or blocking is required to control a nuisance factor. The treatments are randomized to the units within blocks.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Designing an Experiment</span>"
+    ]
+  },
+  {
+    "objectID": "04_ExpDesign_DesigningExp.html#randomised-block-design",
+    "href": "04_ExpDesign_DesigningExp.html#randomised-block-design",
+    "title": "4  Designing an Experiment",
+    "section": "4.1 Randomised Block Design",
+    "text": "4.1 Randomised Block Design\nThe treatment structure can be either single or factorial, but we only cover RBD where we have a single treatment factor and blocking factor. The design is used when not all experimental units are homogeneous or blocking is required to control a nuisance factor. The treatments are randomized to the units within blocks.",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Designing an Experiment</span>"
+    ]
+  },
+  {
+    "objectID": "04_ExpDesign_DesigningExp.html#factorial-designs",
+    "href": "04_ExpDesign_DesigningExp.html#factorial-designs",
+    "title": "4  Designing an Experiment",
+    "section": "4.3 Factorial Designs",
+    "text": "4.3 Factorial Designs",
+    "crumbs": [
+      "Experimental Design",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Designing an Experiment</span>"
+    ]
+  },
+  {
+    "objectID": "05_CRD_Intro.html",
+    "href": "05_CRD_Intro.html",
+    "title": "5  Introduction",
+    "section": "",
+    "text": "5.1 EDA & Assumptions",
+    "crumbs": [
+      "Single Factor Completely Randomised Designs",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "07_CRD_ANOVA.html",
+    "href": "07_CRD_ANOVA.html",
+    "title": "7  Analysis of Variance",
+    "section": "",
+    "text": "8 Case Study",
+    "crumbs": [
+      "Single Factor Completely Randomised Designs",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Analysis of Variance</span>"
     ]
   }
 ]

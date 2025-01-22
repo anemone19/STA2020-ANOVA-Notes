@@ -12,11 +12,20 @@ book:
         - 01_ExpDesign_Why.qmd
         - 02_ExpDesign_Term.qmd
         - 03_ExpDesign_RRR.qmd
-    - part: "Completely Randomised Designs"
-
+        - 04_ExpDesign_DesigningExp.qmd
+        
+    - part: "Single Factor Completely Randomised Designs"
+      chapters:
+      - 05_CRD_Intro.qmd
+      - 06_CRD_Model.qmd
+      - 07_CRD_ANOVA.qmd
+      - 08_CRD_Contrasts.qmd
+    
     - part: "Randomised Block Designs"
 
     - part: "Factorial Experiments"
+    
+    - glossary.qmd
 
 
 bibliography: references.bib
@@ -24,8 +33,15 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    fig_caption: true
+    number-sections: true
+    number-figures: true
+    css: styles.css
   pdf:
     documentclass: scrreprt
+    number-sections: true
+    number-figures: true
+    keep_tex: true
 
 editor: visual
 
