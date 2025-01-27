@@ -1,18 +1,70 @@
 
+
+
+library(broom)
+
+
 # Method 1 -------------------------------------
 # Simulating dataset for the experimental design
-set.seed(2) # For reproducibility
+
+set.seed(123) # For reproducibility
+
+# Number of simulations
+nsims <- 100 # Adjust the number of simulations as needed
+
+# Initialize an empty vector to store p-values
+pvals <- c()
 
 # Sample sizes
 n_per_group <- 40
 
-Group <- rep(c("Control","Exp1","Exp2"), each=40)
-Posttest <- c(rnorm(n_per_group, 75, 10),
-              rnorm(n_per_group, 65, 10),
-              rnorm(n_per_group, 55, 10))
+# Group labels
+Group <- rep(c("Control", "Exp1", "Exp2"), each = n_per_group)
+
+# Loop over the number of simulations
+for (i in 1:nsims) {
+  
+  # Simulate Posttest scores for each group
+  Posttest <- c(
+    rnorm(n_per_group, 74.82, 11.60), # Control group
+    rnorm(n_per_group, 63.90, 15.03), # Experiment 1
+    rnorm(n_per_group, 54.90, 16.75)  # Experiment 2
+  )
+  
+  # Create a data frame
+  sim_df1 <- data.frame(Group, Posttest)
+  
+  # Perform ANOVA
+  mod1 <- aov(Posttest ~ Group, data = sim_df1)
+  anova_summary <- summary(mod1)
+  
+  # Extract p-value and append to pvals vector
+  p_value <- tidy(mod1)$p.value[1]
+  pvals <- c(pvals, p_value)
+}
+
+# Inspect the first few p-values
+head(pvals)
+
+# Optional: summary of the p-values
+summary(pvals)
+
+hist(pvals)
 
 
-sim_df1<-data.frame(Groups,Posttest)
+Posttest <- c(
+  rnorm(n_per_group, 74.82, 11.60), # Control group
+  rnorm(n_per_group, 63.90, 15.03), # Experiment 1
+  rnorm(n_per_group, 54.90, 16.75)  # Experiment 2
+)
+
+# Create a data frame
+sim_df1 <- data.frame(Group, Posttest)
+
+# Perform ANOVA
+mod1 <- aov(Posttest ~ Group, data = sim_df1)
+summary(mod1)
+
 
 # Checking assumptions
 
@@ -23,6 +75,7 @@ sort(tapply(sim_df1$Posttest,sim_df1$Group,sd))
 
 sim_df1 <- sim_df1[sample(nrow(sim_df1)), ]
 dotchart(sim_df1$Posttest)
+
 
 summary(sim_df1)
 write.csv(sim_df1,file="multitask_performance.csv", row.names = F)

@@ -292,7 +292,13 @@ window.Quarto = {
   <ul>
   <li><a href="#example-the-effect-of-social-media-multitasking-on-classroom-performance." id="toc-example-the-effect-of-social-media-multitasking-on-classroom-performance." class="nav-link active" data-scroll-target="#example-the-effect-of-social-media-multitasking-on-classroom-performance."><span class="header-section-number">5.1</span> Example: The effect of social media multitasking on classroom performance.</a></li>
   <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">5.2</span> Exploratory data analysis</a></li>
-  <li><a href="#model-checking" id="toc-model-checking" class="nav-link" data-scroll-target="#model-checking"><span class="header-section-number">5.3</span> Model checking</a></li>
+  <li><a href="#model-checking" id="toc-model-checking" class="nav-link" data-scroll-target="#model-checking"><span class="header-section-number">5.3</span> Model checking</a>
+  <ul class="collapse">
+  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
+  <li><a href="#equal-population-variances" id="toc-equal-population-variances" class="nav-link" data-scroll-target="#equal-population-variances">Equal population variances</a></li>
+  <li><a href="#normally-distributed-errors" id="toc-normally-distributed-errors" class="nav-link" data-scroll-target="#normally-distributed-errors">Normally distributed errors</a></li>
+  <li><a href="#independent-erros" id="toc-independent-erros" class="nav-link" data-scroll-target="#independent-erros">Independent erros</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -381,47 +387,47 @@ Example 5.1
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(multitask) <span class="co"># check first 5 rows </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Groups Posttest
-1 Control 45.01153
-2    Exp2 51.13050
-3 Control 85.31243
-4    Exp1 71.07305
-5 Control 76.84849
-6    Exp2 44.72619</code></pre>
+<pre><code>    Group Posttest
+1    Exp1 86.39427
+2    Exp1 64.19996
+3    Exp2 52.75394
+4 Control 67.81147
+5    Exp1 52.39911
+6    Exp1 56.58150</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(multitask) <span class="co"># check last 5 rows </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     Groups Posttest
-115    Exp2 67.30954
-116    Exp1 83.78605
-117    Exp1 55.78724
-118 Control 48.98840
-119    Exp1 45.40897
-120    Exp2 81.71619</code></pre>
+<pre><code>      Group Posttest
+115 Control 77.94344
+116 Control 63.58444
+117    Exp1 55.17758
+118    Exp2 67.16150
+119    Exp2 32.58373
+120    Exp2 49.58119</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multitask)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    Groups             Posttest    
- Length:120         Min.   :32.92  
- Class :character   1st Qu.:54.94  
- Mode  :character   Median :65.79  
-                    Mean   :65.32  
-                    3rd Qu.:75.39  
-                    Max.   :95.91  </code></pre>
+<pre><code>    Group              Posttest    
+ Length:120         Min.   :23.38  
+ Class :character   1st Qu.:52.67  
+ Mode  :character   Median :65.01  
+                    Mean   :63.59  
+                    3rd Qu.:76.32  
+                    Max.   :98.78  </code></pre>
 </div>
 </div>
-<p>The dataset consits of 120 rows (each row representing a student) and two columns (<code>Groups</code> and <code>Posttest</code>). The first column, <code>Groups</code>, contains the treatment the student was assigned and the <code>Posttest</code> column contains the response measure. Using the functions <code>head</code> and <code>tail</code>, we can look at the first and last 5 rows and the function <code>summary</code> provies us with a descrption of each column. We do this to check that R has read in our data correctly (you can view the whole data set by running <code>view(multitask)</code> as well). The summary tells us that the <code>Groups</code> column is of the class “character”. For our analysis, we want it to be read as a factor:</p>
+<p>The dataset consits of 120 rows (each row representing a student) and two columns (<code>Group</code> and <code>Posttest</code>). The first column, <code>Groups</code>, contains the treatment the student was assigned and the <code>Posttest</code> column contains the response measure. Using the functions <code>head</code> and <code>tail</code>, we can look at the first and last 5 rows and the function <code>summary</code> provies us with a descrption of each column. We do this to check that R has read in our data correctly (you can view the whole data set by running <code>view(multitask)</code> as well). The summary tells us that the <code>Group</code> column is of the class “character”. For our analysis, we want it to be read as a factor:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>multitask<span class="sc">$</span>Groups <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(multitask<span class="sc">$</span>Groups)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>multitask<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(multitask<span class="sc">$</span>Group)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multitask)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     Groups      Posttest    
- Control:40   Min.   :32.92  
- Exp1   :40   1st Qu.:54.94  
- Exp2   :40   Median :65.79  
-              Mean   :65.32  
-              3rd Qu.:75.39  
-              Max.   :95.91  </code></pre>
+<pre><code>     Group       Posttest    
+ Control:40   Min.   :23.38  
+ Exp1   :40   1st Qu.:52.67  
+ Exp2   :40   Median :65.01  
+              Mean   :63.59  
+              3rd Qu.:76.32  
+              Max.   :98.78  </code></pre>
 </div>
 </div>
 <p>Now, we can see that there are 40 replicates per treatment group, confirming that the experiment was balanced. I have assumed that based on the resuts shown that the <code>Posttest</code> scores were stored as percentages and using the sumamry we can quickly checked whether there are any observations that are not on the appropriate scale. Looks good so far!</p>
@@ -441,13 +447,18 @@ Chen, Ashley, Suchita E Kumar, Rhea Varkhedi, and Dillon H Murphy. 2024. <span>�
 <li>The errors are normally distributed.</li>
 <li>The errors are independent.</li>
 </ol>
-<ul>
-<li><p>why are outliers bad</p></li>
-<li><p>to check for outliers:</p></li>
-</ul>
+<section id="outliers" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="outliers">Outliers</h3>
+<p>Outliers are unusual observations (response values) that deviate substantially from the remaining data points. They can have a large influence on the estimates of our model. Think of statistics such as means and variances, outlying observations will shift the mean towards them and distort the variance of the data.</p>
+<p>Sometimes outliers are artefacts of data recording/entering issues, such as a missing decimal points or incorrect scaling (called error outliers). These types of outliers can be corrected and the analysis can be done as usual. If, however, there are freak observations that are not clearly due to anything like data inputting, then they are likely unusual responses and should not be discarded (interesting outliers). There are many ways of identifying and dealing with outliers (<span class="citation" data-cites="outlier">(<a href="#ref-outlier" role="doc-biblioref"><strong>outlier?</strong></a>)</span> found 29 different ways). Here, it is recommended that the analyses should then be run with and without the outliers to see whether the conclusion depends on their inclusion. When dealing with outliers, it is best to be transparent and clear about how they were handled. Simply removing outliers with no explanation is questionable research practice.</p>
+<p>A good way to check for outliers, is to inspect the data visually with a boxplot of your data grouped by treatment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Posttest<span class="sc">~</span>Groups, <span class="at">data=</span>multitask)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(Posttest<span class="sc">~</span>Groups,<span class="at">data=</span>multitask,<span class="at">vertical=</span><span class="cn">TRUE</span>, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Posttest <span class="sc">~</span> Group, <span class="at">data =</span> multitask, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"skyblue"</span>, <span class="st">"lightgreen"</span>, <span class="st">"pink"</span>), </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Posttest Scores by Group"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Group"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Posttest Scores"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(Posttest<span class="sc">~</span>Group, <span class="at">data =</span> multitask, <span class="at">vertical =</span> <span class="cn">TRUE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -456,10 +467,33 @@ Chen, Ashley, Suchita E Kumar, Rhea Varkhedi, and Dillon H Murphy. 2024. <span>�
 </div>
 </div>
 </div>
-<ul>
-<li><p>explain code</p></li>
-<li><p>typical reasons for outliers and what to do</p></li>
-</ul>
+<p>The first line of code plots the boxplot and by inputting <code>Posttest~Groups</code> as the first argument we are say plot the values of <code>Posttest</code> by <code>Groups</code>. There are extra graphical parameters specfied to make the plot look a bit nicer. Then the function <code>stripchart</code> is used to overlay the data points. Based on these plots, there aren’t any obvious outlying observations.</p>
+</section>
+<section id="equal-population-variances" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="equal-population-variances">Equal population variances</h3>
+<p>Since we only have sample data, we would not expect that the variance in each treatment are the same, so just because they are different does not mean the population variances are different. We expect them to differ a bit due to chance simply because we are sampling from a population and everytime we take a sample, the dataset will be different. The sample variances need to be similar enough so that our assumption of qual population variances is reasonable. To check this assumption, we can inspect the boxplots again and their respective heights. More specifically, we look at the interquartile ranges. From looking at the plot, the IQRs do not vary widely. If you prefer to look at the actual values, we can use R to obtain them:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">tapply</span>(multitask<span class="sc">$</span>Posttest,multitask<span class="sc">$</span>Group,IQR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Control     Exp2     Exp1 
+14.01068 20.94529 21.97001 </code></pre>
+</div>
+</div>
+<p>Another measure of variability we can look at, are the standard deviations (sd’s). With the same line of code but just replacing the function we want to apply, we obtain the sd’s of each group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">tapply</span>(multitask<span class="sc">$</span>Posttest,multitask<span class="sc">$</span>Group,sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Control     Exp1     Exp2 
+10.82887 14.60601 16.42678 </code></pre>
+</div>
+</div>
+<p>The rule of thumb is to use the ratio of the smallest to largest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group)n .</p>
+</section>
+<section id="normally-distributed-errors" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="normally-distributed-errors">Normally distributed errors</h3>
+</section>
+<section id="independent-erros" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="independent-erros">Independent erros</h3>
 <p>TIPS:</p>
 <ul>
 <li>increase focus, improve studying</li>
@@ -467,6 +501,7 @@ Chen, Ashley, Suchita E Kumar, Rhea Varkhedi, and Dillon H Murphy. 2024. <span>�
 
 
 
+</section>
 </section>
 
 
