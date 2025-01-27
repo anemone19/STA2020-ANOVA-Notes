@@ -27,7 +27,6 @@ book:
     
     - glossary.qmd
 
-
 bibliography: references.bib
 
 format:
@@ -42,6 +41,7 @@ format:
     number-sections: true
     number-figures: true
     keep_tex: true
-
+reference-location: margin
+citation-location: margin
 editor: visual
 

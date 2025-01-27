@@ -8,3 +8,4 @@ Instructions:
 - Examples
 - R code
 - Tips
+- Footnotes 

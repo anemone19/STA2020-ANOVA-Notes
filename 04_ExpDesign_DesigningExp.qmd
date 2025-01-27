@@ -21,7 +21,7 @@ In this course, we cover two basic designs: Completely Randomized Designs (CRD) 
 
 ***Completely Randomized Designs (CRD)***
 
-When all experimental units are fairly homogeneous, a CRD is used. Treatments are randomized to all experimental units. 
+When all experimental units are fairly homogeneous, a CRD is used. Treatments are randomized to all experimental units.
 
 ***Randomized Block Design***
 

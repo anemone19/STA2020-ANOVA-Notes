@@ -1,4 +1,3 @@
-
 # Glossary {.unnumbered}
 
 [Experimental Design]{#glossary-experimental-design}
@@ -15,7 +14,7 @@
 
 [Randomization]{#glossary-randomization}
 
-:   A process of randomly assigning subjects or experimental units to treatments. 
+:   A process of randomly assigning subjects or experimental units to treatments.
 
 [Blocking]{#glossary-blocking}
 
@@ -29,4 +28,4 @@
 
 :   The specific values or categories of a factor.
 
-[Treatments]
+\[Treatments\]

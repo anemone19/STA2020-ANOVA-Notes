@@ -1,1 +1,8 @@
-# Analysis of Variance 
+# Analysis of Variance
+
+
+Although, I like the following description: 
+
+> "Analysis of variance is better defined as a method of dividing (analysing) a total variance into at least two components...Using a liberal definition of variances, analysis of variance can be said to consist of estimating variances, and possibly of testing hypotheses about them."
+>
+> — Paul Seeger (1966)
