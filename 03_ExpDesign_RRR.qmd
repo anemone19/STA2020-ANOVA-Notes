@@ -20,7 +20,6 @@ By replicating the treatments across multiple students, we can average out these
 |     52      |     55      |     53      |
 |     50      |     53      |     50      |
 
-\
 
 ::: {.callout-tip icon="false"}
 ## Example 3.1

@@ -102,7 +102,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -245,7 +245,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_ExpDesign_Why.html">Experimental Design</a></li><li class="breadcrumb-item"><a href="./02_ExpDesign_Term.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Terminology</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -266,10 +266,10 @@ window.Quarto = {
 </header>
 
 
-<section id="treatment-factors-treatment-levels-and-treatments" class="level2 unnumbered">
+<section id="treatment-factors-treatment-levels-and-treatments" class="level2 unnumbered page-columns page-full">
 <h2 class="unnumbered anchored" data-anchor-id="treatment-factors-treatment-levels-and-treatments"><strong>Treatment factors, treatment levels and treatments:</strong></h2>
 <p>The <strong>treatment factor</strong> is the factor or variable that the experimenter actively manipulates to measure its effect on the response. All factors/variables that are investigated, controlled, manipulated, thought to influence the response, are called the treatment factors. They become the <strong>explanatory variables</strong> (mostly categorical) in the model. For each treatment factor, we actively choose a set of <strong>levels</strong>. For example, the treatment factor “temperature” can have levels 10, 20, and 50°C. If temperature is the only treatment factor in the experiment, the <strong>treatments</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> will also be 10, 20, and 50°C.</p>
-<p>If we manipulate more than one factor (e.g., temperature and pressure), we have two treatment factors. When several treatment factors are manipulated, the experiment is called factorial and the <strong>treatments</strong> are all possible combinations of the factor levels. If we have pressure levels “low” and “high,” there are 6 treatments in total:</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The terminology of treatments can be traced back to 1920’s when it was first applied by Ronald Fisher in the agricultural sciences. He is often refered to as the Founder of Statistics! Have a look at the very first application of ANOVA <a href="https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/abs/studies-in-crop-variation-i-an-examination-of-the-yield-of-dressed-grain-from-broadbalk/882CB236D1EC608B1A6C74CA96F82CC3">here</a> and also a very <a href="https://www.jstor.org/stable/2245989">nice article</a> describng the history of statistics and his contribution to the field.</p></div></div><p>If we manipulate more than one factor (e.g., temperature and pressure), we have two treatment factors. When several treatment factors are manipulated, the experiment is called factorial and the <strong>treatments</strong> are all possible combinations of the factor levels. If we have pressure levels “low” and “high,” there are 6 treatments in total:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-vistreat" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -295,7 +295,7 @@ Example 1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Three groups of students, 5 in each group, were receivng therapy for severe test anxiety. Group 1 recieved 5 hours, group 2 received 10 hours and group 3 received 15 hours. At the end of therapy each subject completed an evaulation of test anxiety. Did the amount of therapy have an effect on the level of test anxiety?</p>
+<p>Three groups of students, 5 in each group, were receiving therapy for severe test anxiety. Group 1 recieved 5 hours, group 2 received 10 hours and group 3 received 15 hours. At the end of therapy each subject completed an evaulation of test anxiety. Did the amount of therapy have an effect on the level of test anxiety?</p>
 <p>The three groups of studnets received the scores on the Test Anxiety index (TAI) at the end of treatment shown in the table below.</p>
 <table class="caption-top table">
 <thead>
@@ -421,12 +421,7 @@ Tip
 
 
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>The terminology of treatments can be traced back to 1920’s when it was first applied by Ronald Fisher in the agricultural sciences. He is often refered to as the Founder of Statistics! Have a look at the very first application of ANOVA <a href="https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/abs/studies-in-crop-variation-i-an-examination-of-the-yield-of-dressed-grain-from-broadbalk/882CB236D1EC608B1A6C74CA96F82CC3">here</a> and also a very <a href="https://www.jstor.org/stable/2245989">nice article</a> describng the history of statistics and his contribution to the field.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

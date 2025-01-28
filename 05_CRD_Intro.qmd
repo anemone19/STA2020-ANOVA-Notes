@@ -8,15 +8,17 @@ Remember experimental design is the procedure for how experimental units are gro
 
 ## Example: The effect of social media multitasking on classroom performance.
 
-Can we really multitask? I remember as a student I thought I could multitask in lectures, while studying or driving and listening to a podcast. It felt like I was paying attention but in hindsight I can't remember those podcasts well, I know I had to revisit lectures and restart studying sessions. This extends beyond student life, where in the average workspace, tasks are interspersed with social media or email checks and notifcations (). I think most of us are almost always a little bit tempted by our cellphones when we study or work. 
+As a student, I used to believe I could multitask effectively. I would scroll through my phone during lectures, study while texting friends, or listen to podcasts while driving. It felt like I was paying attention to everything, but in hindsight, I can barely recall the details of those podcasts. I often had to revisit lectures or restart study sessions because my focus wasn’t truly there.
 
-So, if we live in an age of perceived multitasking and getting distracted by our phones and devices, what are the efffects of social media multitasking on our academic performance?  
+This tendency extends beyond student life. In the average workplace, tasks are frequently interrupted by social media, email checks, or notifications. Many of us feel the constant pull of our phones when trying to concentrate, whether we’re working, studying, or even relaxing.
+
+In an era of perceived multitasking, where devices and distractions dominate our attention, it’s worth asking: how does social media multitasking impact academic performance?
 
 ::: {#warning-example1 .callout-warning icon="false"}
 
 ## Example 5.1 
 
-Two researchers from Turkey, @multitask2018, conducted a study to investigate this question. Specifically, they examined the impact of social media multitasking during live lectures on students' academic performance. 
+Two researchers from Turkey, @multitask2018, conducted a study to try and answer this question. Specifically, they examined the impact of social media multitasking during live lectures on students' academic performance. 
 
 A total of 120 undergraduate students were randomly assigned to one of three groups:
 
@@ -24,11 +26,10 @@ A total of 120 undergraduate students were randomly assigned to one of three gro
 2. **Experimental Group 1 (Exp 1):** Students engaged in SMS texting during the lecture.
 3. **Experimental Group 2 (Exp 2):** Students used Facebook during the lecture.
 
-Over a three-week period, participants attended lectures on Microsoft Excel. Pre-tests and post-tests were administered to measure learning outcomes.
-
+Over a three-week period, participants attended the same lectures on Microsoft Excel. To measure academic performance, a standardised test was administered.
 ::: 
 
-**The analysis of experimental data is determined by the design.** The design dictates the terms that we will include in our statistical model and so it is crucial to be able to identify the design and blocking and treatment factors. It is also important to check that randomisation has been done correctly and determine the number of replicates used. In the previous chapter we started doing this by creating a summary of the design and we do the same here. From the description of the study, it is clear that:
+**The analysis of experimental data is determined by the design.** The design dictates the terms that we will include in our statistical model and so it is crucial to be able to identify the design and all factors included (blocking and treatment). It is also important to check that randomisation has been done correctly and determine the number of replicates used. In the previous chapter we started doing this by creating a summary of the design and we do the same here. From the description of the study, it is clear that:
 
 - **Response Variable:** Academic performance, as measured by test scores.
 - **Treatment Factor:** Level of social media multitasking.
@@ -39,7 +40,7 @@ Students were randomly assigned to one of the three groups, and performance was 
 - **Response Variable:** Academic Performance  
 - **Treatment Factor:** Level of Social Media Multitasking  
 - **Treatment Levels:** Control, Experimental 1 (SMS), Experimental 2 (Facebook)  
-- **Treatments:** Control, SMS multitasking, Facebook multitasking  
+- **Treatments:** Control, Experiment 1, Experiment 2  
 - **Experimental Unit:** Student (120)  
 - **Observational Unit:** Student (120)  
 - **Replicates:** 40 students per group  
@@ -50,7 +51,7 @@ Before we continue, now is the time to note that we won't be using the real data
 
 ## Exploratory data analysis
 
-Before we start any analyses, two things need to be done. First, we start by exploring our data to get familar with the format and to get a feel for any patterns. In R, we read in the data set and then peform a few fommands to check the dataset: 
+Before we start any analyses, two things need to be done. First, we start by exploring our data to get familar with the format and to get a feel for any patterns. In R, we read in the data set and then use some commands to inspect the dataset: 
 
 ```{r eda}
 
@@ -70,7 +71,7 @@ The dataset consits of 120 rows (each row representing a student) and two column
 multitask$Group <- as.factor(multitask$Group)
 summary(multitask)
 ```
-Now, we can see that there are 40 replicates per treatment group, confirming that the experiment was balanced. I have assumed that based on the resuts shown that the `Posttest` scores were stored as percentages and using the sumamry we can quickly checked whether there are any observations that are not on the appropriate scale. Looks good so far! 
+Now, we can see that there are 40 replicates per treatment group, confirming that the experiment is balanced. I have assumed that, based on the results shown, that the `Posttest` scores were recorded as percentages and using the summary we can quickly checked whether there are any observations that are not on the appropriate scale or might be outliers. Looks good so far! 
 
 ##  Model checking 
 
@@ -81,19 +82,20 @@ You might think that we could perform three t-tests (Control vs Exp 1, Control v
 [^1]: Can't remember what a $t$-test is and/or need a refresher on hypothesis testing? Have a look <a href="https://www.youtube.com/watch?v=VekJxtk4BYM" target="_blank">this video on t-tests</a>
 and document for a brief reminder. **Also, a quick (and cool) sidenote:** This study by @chen2024effect used a Completely Randomized Design (CRD), randomly assigning undergraduate students to playback speed groups (1x, 1.5x, 2x, and 2.5x) to measure the effect on comprehension of recorded lectures. Using ANOVA they found that comprehension was preserved up to 2x speed. I personally like to increase the playback speed to 1.5px if I just need to revise something quickly. 
 
-When we have more than two groups, we can use a one-way analysis of variance (ANOVA) which can be seen as an extention of $t$-test and is called one-way because there is a single factor being considered. For both of these statistical approaches the data should meet certain distributional assumptions: 
+When we have more than two groups, we can use a one-way analysis of variance (ANOVA) which can be seen as an extention of $t$-test and is called "one-way" because there is a single factor being considered. For both of these statistical approaches, the data should meet certain distributional assumptions: 
 
 1. There are no outliers.
-2. All groups have equal population variances.
+2. The errors are independent. 
 3. The errors are normally distributed. 
-4. The errors are independent. 
+4. All groups have equal population variances.
+
+insert formal vs informal techniques 
 
 ### Outliers {.unnumbered}
 
-Outliers are unusual observations (response values) that deviate substantially from the remaining data points. They can have a large influence on the estimates of our model. Think of statistics such as means and variances, outlying observations will shift the mean towards them and distort the variance of the data. 
+Outliers are unusual observations (response values) that deviate substantially from the remaining data points. They can have a large influence on the estimates of our model. Think of statistics such as means and variances, outlying observations will shift the mean towards them and distort the variability of the data. 
 
-Sometimes outliers are artefacts of data recording/entering issues, such as a missing decimal points or incorrect scaling (called error outliers). These types of outliers can be corrected and the analysis can be done as usual. If, however, there are freak observations that are not clearly due to anything like data inputting, then they are likely unusual responses and should not be discarded (interesting outliers). There are many ways of identifying and dealing with outliers (@outlier found 29 different ways). Here, it is recommended that the analyses should then be run with and without the outliers to see whether the conclusion depends on their inclusion. When dealing with outliers, it is best to be transparent and clear about how they were handled. Simply removing outliers with no explanation is questionable research practice. 
-
+If we're luckly, outliers are artefacts of data recording/entering issues, such as a missing decimal points or incorrect scaling (called error outliers). These types of outliers can be corrected and the analysis can be done as usual. If, however, there are freak observations that are not clearly due to anything like data inputting, then they are likely unusual responses and should not be discarded (interesting outliers). There are many ways of identifying and dealing with outliers (@outlier found 29 different ways in the literature). Here, it is recommended that the analyses should be run with and without the outliers to see whether the conclusion depends on their inclusion. When dealing with outliers, it is best to be transparent and clear about how they were handled. Simply removing outliers with no explanation is questionable research practice. 
 
 A good way to check for outliers, is to inspect the data visually with a boxplot of your data grouped by treatment. 
 
@@ -108,12 +110,11 @@ stripchart(Posttest~Group, data = multitask, vertical = TRUE, add = TRUE, method
 
 ```
 
-The first line of code plots the boxplot and by inputting `Posttest~Groups` as the first argument we are say plot the values of `Posttest` by `Groups`. There are extra graphical parameters specfied to make the plot look a bit nicer. Then the function `stripchart` is used to overlay the data points. Based on these plots, there aren't any obvious outlying observations. 
-
+The first line of code plots the boxplot and by inputting `Posttest~Groups` as the first argument we are say plot the values of `Posttest` by `Groups`. There are extra graphical parameters specified to make the plot look a bit nicer. The function `stripchart` is used to overlay the data points. Based on these plots, there aren't any obvious outlying observations. 
 
 ### Equal population variances {.unnumbered}
 
-Since we only have sample data, we would not expect that the variance in each treatment are the same, so just because they are different does not mean the population variances are different. We expect them to differ a bit due to chance simply because we are sampling from a population and everytime we take a sample, the dataset will be different. The sample variances need to be similar enough so that our assumption of qual population variances is reasonable. To check this assumption, we can inspect the boxplots again and their respective heights. More specifically, we look at the interquartile ranges. From looking at the plot, the IQRs do not vary widely. If you prefer to look at the actual values, we can use R to obtain them: 
+Since we only have sample data, we would not expect that the variances to be the same, so just because they are different does not mean the population variances are different. We expect them to differ a bit due to chance simply because we are sampling from a population and everytime we take a sample, the dataset will be different. The sample variances need to be similar enough so that our assumption of equal population variances is reasonable. To check this assumption, we can inspect the boxplots again and compare the heights. More specifically, we look at the interquartile ranges (IQR). From looking at the plot, the IQRs do not vary widely. If you prefer to look at the actual values, we can use R to obtain them: 
 
 ```{r}
 sort(tapply(multitask$Posttest,multitask$Group,IQR))
@@ -125,11 +126,37 @@ Another measure of variability we can look at, are the standard deviations (sd's
 sort(tapply(multitask$Posttest,multitask$Group,sd))
 ```
 
-The rule of thumb is to use the ratio of the smallest to largest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group)n . 
+The rule of thumb is to use the ratio of the smallest to largest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group) which is acceptable. 
 
 
 ### Normally distributed errors {.unnumbered}
+
+
 ### Independent erros {.unnumbered}
+
+In statistics, if one observation influences another in some way or another, they are said to be dependent. For the type of data considered here, there are two types of independence we require. Firstly, observations within treatments should be independent and second, observations between samples should be independent. Another way of saying this, is **there should independence within and among groups.** Depending on the direction of any violations, the within treatment variance or among treatment variance can either be deflated or inflated and treatment effects can be biased. This has considerable impact on the test statistic (F-ratio for ANOVAs, more on this later) which could lead to misleading results. [^2] 
+
+Violations of independence typically occur when the experimental units within or among treatments are connected in some way. One way in which dependence between observations within a sample occurs, is if they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool's reading gradually changes over time), physical effects of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected. 
+
+Dependence bewteen treatments can occur if we apply the treatments to the same group of experimental units or experimental units being able to interact in some way during treatment. These types of violations including those mentioned above, are ones that we can avoid or control by properly designing experiments so that we can either avoid dependence or account for it as a factor in our model. 
+
+Other sources of dependence may not be as obvious or easy to eliminate as we will see below. In the end, they may not have a strong impact on our estimates but it is important to carefully scrutinise your design and the system you are studying to identify possible sources of dependence so that these can be either addressed or dealt with properly. 
+
+[^2]: @underwood_1996 has a very detailed explanation of the independence assumption (and the others) in the context of ANOVA. The book is for ecological experiments, but much of it pertains to all types of experiments.
+
+In our example, within and among group dependence could be casued by the students interacting or influencing each other in some way (by sharing notes for example). During the lectures, this can be controlled by careful monitoring and randomising their position in the lecture theathre, but otuside of lectures, it is less easy to control. Here we can argue that if students interacted outside of lectures the impact on their academic performance (as neasured by the test) would likely be neglibile. Here the integrity of the students is at play. 
+
+An informal check we could do is the plot the data in order in which they were taken (if this information is available) whether that is temporally or spatially to see if any patterns emerge. To do this in R, we can plot a Cleveland dot plot. 
+
+```{r}
+dotchart(multitask$Posttest, ylab = "Order of observation", xlab ="Post treatment test score")
+```
+
+We have assumed that the order in which the observations appear in the dataset are the order in which they were recorded. If there were any factors that caused sytematic trends, (i.e. dependence) in the observations, then there would be some kind of pattern in the dot chart. For our example, there is no clear pattern. After fitting the model, we can also plot the residuals against spatial coordinate or againt order to check for obvious patterns. This method only detects violations of independence if observations are related to time or space. 
+
+Other types of dependence are more difficult to detect and require careful consideration of the experimental design and how data was collected. It is the onus of the experimenter to design and conduct experiments that ensure independence. With more thought (and if we're lucky, funding) all well-designed experiments lead should to independent data. If violations are found after the fact, they cannot typically be corrected and then methods that deal specifically with dependent data (if appropriate) should be used. 
+
+In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be as exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated). 
 
 TIPS: 
 
