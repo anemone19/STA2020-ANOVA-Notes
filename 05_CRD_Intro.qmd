@@ -2,7 +2,7 @@
 
 Completely Randomized Designs (CRDs) are the simplest experimental designs. They are used when experimental units are uniform enough and we expect them to react simirlary to a given treatment. In other words, we have no reason to suspect that a group of experimental units might react differently to the treatments. We also don't expect any effects (besides possibly a treatment effect) to cause any systematic changes in the response. So, we don't have to block for differeing experimental units or any nuisance factors.
 
-Remember experimental design is the procedure for how experimental units are grouped and treatments are applied. We have already said that there are no blocks in CRDs. So randomisation occurs without restriction and to all experimental units. More generally, the $a$ treatments are randomly assigned to $r$ experimental units, such that each experimental unit is equally likely to receive any of the treatments. This means that there are $N = r \times a$ experimentnal units in total. We only consider designs that are *balanced* meaning that there an equal number of experimental units per treatment, i.e. a treatment is applied to $r$ units. The experiment is then said to have $r$ replicates. 
+Remember experimental design is the procedure for how experimental units are grouped and treatments are applied. We have already said that there are no blocks in CRDs. So randomisation occurs without restriction and to all experimental units. More generally, the $a$ treatments are randomly assigned to $r$ experimental units, such that each experimental unit is equally likely to receive any of the treatments. This means that there are $N = r \times a$ experimentnal units in total. We only consider designs that are *balanced* meaning that there an equal number of experimental units per treatment, i.e. a treatment is applied to $r$ units. The experiment is then said to have $r$ replicates.
 
 ## Example: The effect of social media multitasking on classroom performance.
 
@@ -45,7 +45,7 @@ Before we continue, now is the time to note that we won't be using the real data
 
 ## Exploratory data analysis (EDA)
 
-Before we start any analyses, we have to conduct some exploratory data analysis to get a feel for our data. We start by checking whether it has been read in correctly and then look at some descriptive statsitics. 
+Before we start any analyses, we have to conduct some exploratory data analysis to get a feel for our data. We start by checking whether it has been read in correctly and then look at some descriptive statsitics.
 
 In R, we read in the data set and then use some commands to inspect the dataset:
 
@@ -68,7 +68,7 @@ multitask$Group <- as.factor(multitask$Group)
 summary(multitask)
 ```
 
-Now, we can see that there are 40 replicates per treatment group, confirming that the experiment is balanced. I have assumed that, based on the results shown, that the `Posttest` scores were recorded as percentages and using the summary we can quickly checked whether there are any observations that are not on the appropriate scale or might be outliers. Looks good so far! 
+Now, we can see that there are 40 replicates per treatment group, confirming that the experiment is balanced. I have assumed that, based on the results shown, that the `Posttest` scores were recorded as percentages and using the summary we can quickly checked whether there are any observations that are not on the appropriate scale or might be outliers. Looks good so far!
 
 ## Checking assumptions
 
@@ -85,7 +85,7 @@ When we have more than two groups, we can use a one-way analysis of variance (AN
 3.  The errors are normally distributed.
 4.  All groups have equal population variances.
 
-We need to check the validity of these assumptions. There are both formal and informal techniques. Formal techniques (i.e. hypothesis tests) are not always appropriate for several reasons such as small datasets or that testing one assumption usually requires that the other two hold, complicating the order of tests. Informal techniques are more than sufficient and in this course, we stick with them. 
+We need to check the validity of these assumptions. There are both formal and informal techniques. Formal techniques (i.e. hypothesis tests) are not always appropriate for several reasons such as small datasets or that testing one assumption usually requires that the other two hold, complicating the order of tests. Informal techniques are more than sufficient and in this course, we stick with them.
 
 ### Outliers {.unnumbered}
 
@@ -121,12 +121,12 @@ Another measure of variability we can look at, are the standard deviations (sd's
 ```{r}
 sort(tapply(multitask$Posttest,multitask$Group,sd))
 ```
+
 The rule of thumb is to use the ratio of the smallest to largest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group) which is acceptable.
 
 ### Normally distributed errors {.unnumbered}
 
-We can check this assumption by looking at the residuals after model fitting. A common misconception is to think that the response needs to be normally distributed. However, it is only the unexplained variation, i.e. the errors or rasiduals, that we assume to be normally distributed. of course, if the response has a clearly non-normal distribution (e.g. Binomial), then the residuals are likely to be non-normal as well. So, we can check our response values before hand for obivous deviation from normality, but we have to check this assumption again after fitting our model. Things to look for are assymetric boxplots which indicate skew distributions. We also want to check that the data points tend to cluster around the median. 
-In @fig-socialboxplot, there are no signs of any clear deviation from normality. Other graphs we coudl look at are histograms or Quantile-Quantile (Q-Q) plots. Q-Q plots show the theoretical quantiles of the standard normal distribution against the actual quantiles of our data. We want our data to be as close to the xy line as possible (deviations in the tails are expected). 
+We can check this assumption by looking at the residuals after model fitting. A common misconception is to think that the response needs to be normally distributed. However, it is only the unexplained variation, i.e. the errors or rasiduals, that we assume to be normally distributed. of course, if the response has a clearly non-normal distribution (e.g. Binomial), then the residuals are likely to be non-normal as well. So, we can check our response values before hand for obivous deviation from normality, but we have to check this assumption again after fitting our model. Things to look for are assymetric boxplots which indicate skew distributions. We also want to check that the data points tend to cluster around the median. In @fig-socialboxplot, there are no signs of any clear deviation from normality. Other graphs we coudl look at are histograms or Quantile-Quantile (Q-Q) plots. Q-Q plots show the theoretical quantiles of the standard normal distribution against the actual quantiles of our data. We want our data to be as close to the xy line as possible (deviations in the tails are expected).
 
 ```{r qq}
 
@@ -135,7 +135,7 @@ qqline(multitask$Posttest, col = "red")
 
 ```
 
-The `qqnorm` function plots the theoretical quantiles on the x-axis and the sample quantile son the y-axis. So each point on the plot corresponds to a quantile from the sample plooted against the expected quantile from the standard normal distribution. As a reference we add a straight 45-degree line (in red) using the `qqline` function to indicate what perfect normality would look like. 
+The `qqnorm` function plots the theoretical quantiles on the x-axis and the sample quantile son the y-axis. So each point on the plot corresponds to a quantile from the sample plooted against the expected quantile from the standard normal distribution. As a reference we add a straight 45-degree line (in red) using the `qqline` function to indicate what perfect normality would look like.
 
 ### Independent erros {.unnumbered}
 
@@ -143,30 +143,31 @@ In statistics, if one observation influences another in some way or another, the
 
 [^05_crd_intro-2]: @underwood_1996 has a very detailed explanation of the independence assumption (and the others) in the context of ANOVA. The book is for ecological experiments, but much of it pertains to all types of experiments.
 
-Violations of independence typically occur when the experimental units within or among treatments are connected in some way. One way in which dependence between observations within a sample occurs, is if they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool's reading gradually changes over time), physical effects (e.g. temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected.
+Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Deependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool's reading gradually changes over time), physical effects (e.g. temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected.
 
-An informal check we could do, is the plot the data in order in which they were taken (if this information is available) whether that is temporally or spatially to see if any patterns emerge. To do this in R, we can plot a Cleveland dot plot.
+An informal check we could do, is to plot the data in the order in which they were collected (if this information is available) whether that is temporally or spatially to see if any patterns emerge. To do this in R, we can create a Cleveland dot plot.
 
 ```{r}
 dotchart(multitask$Posttest, ylab = "Order of observation", xlab ="Post treatment test score")
 ```
 
-We have assumed that the order in which the observations appear in the dataset are the order in which they were recorded. If there were any factors that caused sytematic trends, (i.e. dependence) in the observations, then there would be some kind of pattern in the dot chart. For our example, there is no clear pattern. After fitting the model, we can also plot the residuals against spatial coordinate or againt order to check for obvious patterns. This method only detects violations of independence if observations are related to time or space.
+We have assumed that the order in which the observations appear in the dataset are the order in which they were recorded. If there were any factors that caused systematic trends, (i.e. dependence) in the observations, then there would be some kind of pattern in the dot chart. For our example, there is no clear pattern. After fitting the model, we can also plot the residuals against spatial coordinate or against order to check for obvious patterns. This method, however, only detects violations of independence if observations are related to time or space.
 
-Dependence between treatments can occur if we apply the treatments to the same group of experimental units or if experimental units from different treatments are able to interact in some way during the experiment. These types of violations including those mentioned above, are ones that we can prevent or control by properly designing the experiment. When we control for factors that might induce dependence, we can include them in our model.
+Dependence between treatments can occur if we apply the treatments to the same group of experimental units or if experimental units from different treatments are able to interact in some way during the experiment. These types of violations including those mentioned above, are ones that we can mostly prevent or control by properly designing the experiment. When we control for factors that might induce dependence, we can include them in our model.
 
 Other reasons for dependence may not be as obvious or easy to eliminate as we will see below. In the end, they may not have a strong impact on our estimates but it is important to carefully scrutinise your design and the system you are studying to identify possible sources of dependence so that these can be either addressed and dealt with properly.
 
-In our example, within and among group dependence could be casued by the students interacting or influencing each other in some way (by sharing notes for example). During the lectures, this can be controlled by careful monitoring and randomising their position in the lecture theatre, but outside of lectures, it is less easy to control. Here we can argue that if students interacted outside of lectures the impact on their academic performance (as measured by the test) would likely be neglibile. Here the integrity of the students is at play. It is not really possible to diagnose this type of dependence after the fact, only with careful design and implementation can these be avoided. 
+In our example, within and among group dependence could be casued by the students interacting or influencing each other in some way (by sharing notes for example). During the lectures, this can be controlled by careful monitoring and randomising their position in the lecture theatre, but outside of lectures, it is less easy to control. Here we can argue that if students interacted outside of lectures the impact on their academic performance (as measured by the test) would likely be neglibile. Here the integrity of the students is at play. It is not really possible to diagnose this type of dependence after the fact, only with careful design and implementation can these be avoided.
 
-It is the onus of the experimenter to design and conduct experiments that ensure independence. With more thought (and if we're lucky, funding) all well-designed experiments should lead to independent data. If violations are found after the fact, they cannot typically be corrected and then methods that deal specifically with dependent data (if appropriate) should be used.
+It is the onus of the experimenter to design and conduct experiments that ensure independence. With more thought (and if we're lucky, funding) all well-designed experiments should lead to independent data. If violations are found after the fact, they cannot typically be corrected and then methods that deal specifically with dependent data (if appropriate) should be used[^05_crd_intro-3].
 
-:::{.callout-tip}
+[^05_crd_intro-3]: A few of these methods are repeated measures ANOVA, mixed-models or hierarchical models.
 
-## Note 
+::: callout-tip
+## Note
+
 In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated).
-::: 
-
+:::
 
 TIPS:
 
