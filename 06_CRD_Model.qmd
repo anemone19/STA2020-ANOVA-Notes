@@ -252,7 +252,7 @@ and when we fit the model to the data, the predicted means for the treatments ar
 To fit this model in R, we use the `aov` function and then use another function to extract the estimated parameters. By specifying type = "effects", the function returns the $\hat{A_i}$'s
 
 ```{r, echo = FALSE}
-multitask <- read.csv("multitask_performance.csv")
+multitask <- read.csv("Datasets/multitask_performance.csv")
 ```
 
 ```{r modelfit}

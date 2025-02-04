@@ -22,7 +22,4 @@ Here are some other reasons for conducting experiments:
 
 Experimental studies and their design are fundamental to science, allowing us to further knowledge and test theories. So lets define them more rigorously. We'll start by introducing some terminology.
 
-INSERT WHAT THEY NEED TO KNOW / MAIN TAKEAWAYS Perhaps? 
-
-
-
+INSERT WHAT THEY NEED TO KNOW / MAIN TAKEAWAYS Perhaps?

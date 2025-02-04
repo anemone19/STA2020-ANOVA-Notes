@@ -51,7 +51,7 @@ In R, we read in the data set and then use some commands to inspect the dataset:
 
 ```{r eda}
 
-multitask <- read.csv("multitask_performance.csv")
+multitask <- read.csv("Datasets/multitask_performance.csv")
 nrow(multitask) # check number of rows
 head(multitask) # check first 5 rows 
 tail(multitask) # check last 5 rows 
@@ -166,8 +166,15 @@ It is the onus of the experimenter to design and conduct experiments that ensure
 ::: callout-tip
 ## Note
 
-In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated).
+1. In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated).
+
+2. No real data set ever meets all assumptions of a model perfectly (remember "all models are wrong..."). Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from **experience**. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That's best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn't change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.
 :::
+
+Note:
+
+
+
 
 TIPS:
 

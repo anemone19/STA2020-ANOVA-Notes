@@ -387,7 +387,7 @@ Example 5.1
 <p>Before we start any analyses, we have to conduct some exploratory data analysis to get a feel for our data. We start by checking whether it has been read in correctly and then look at some descriptive statsitics.</p>
 <p>In R, we read in the data set and then use some commands to inspect the dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>multitask <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"multitask_performance.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>multitask <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Datasets/multitask_performance.csv"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(multitask) <span class="co"># check number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 120</code></pre>
@@ -550,9 +550,13 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated).</p>
+<ol type="1">
+<li><p>In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated).</p></li>
+<li><p>No real data set ever meets all assumptions of a model perfectly (remember “all models are wrong…”). Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from <strong>experience</strong>. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That’s best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn’t change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.</p></li>
+</ol>
 </div>
 </div>
+<p>Note:</p>
 <p>TIPS:</p>
 <ul>
 <li>increase focus, improve studying</li>

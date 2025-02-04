@@ -37,9 +37,9 @@ In the figure above, there are two treatment factors: Temperature (on the y-axis
 ::: {#warning-example1 .callout-warning icon="false"}
 ## Example 1
 
-Three groups of students, 5 in each group, were receiving therapy for severe test anxiety. Group 1 recieved 5 hours, group 2 received 10 hours and group 3 received 15 hours. At the end of therapy each subject completed an evaulation of test anxiety. Did the amount of therapy have an effect on the level of test anxiety?
+Three groups of students, 5 in each group, were receiving therapy for severe test anxiety. Group 1 received 5 hours, group 2 received 10 hours and group 3 received 15 hours. At the end of therapy each subject completed an evaluation of test anxiety. Did the amount of therapy have an effect on the level of test anxiety?
 
-The three groups of studnets received the scores on the Test Anxiety index (TAI) at the end of treatment shown in the table below.
+The three groups of students received the scores on the Test Anxiety index (TAI) at the end of treatment shown in the table below.
 
 | Group 1 | Group 2 | Group 3 |
 |:-------:|:-------:|:-------:|
@@ -69,7 +69,7 @@ There is an argument to be made that it is not clear whether the students receiv
 
 We also need to know what the observational units are. The text states that at the end of therapy, each student completed an evaluation to determine their level of test anxiety. So the response, test anxiety, was measured on the student level which means students are the observational units. In the first scenario, the students are both the experimental units and observational units. But this would not be the case if groups are the experimental unit.
 
-We also require that there is only one observation per experimental unit, the first scenario meets this requirement. For the second scenario, we have 5 observations per group and so we would have to take the mean of these values to end up wth one response value per group.
+We also require that there is only one observation per experimental unit, the first scenario meets this requirement. For the second scenario, we have 5 observations per group and so we would have to take the mean of these values to end up with one response value per group.
 
 Let's add to the summary assuming students are the experimental units:
 
@@ -82,7 +82,7 @@ When the set of experimental units are as similar as possible such that there ar
 
 ## **Blocking** {.unnumbered}
 
-If the experimental units are not fairly similar but are heterogeneous (the opposite of homogeneous), we can group them into sets of similar units. This process is called **blocking** and the groups are considred "blocks". We compare the treatments within each block as if each block is its own mini-experiment. This way we account for the differences between blocks and can better isolate the effect of the treatments.
+If the experimental units are not fairly similar but are heterogeneous (the opposite of homogeneous), we can group them into sets of similar units. This process is called **blocking** and the groups are considered "blocks". We compare the treatments within each block as if each block is its own mini-experiment. This way we account for the differences between blocks and can better isolate the effect of the treatments.
 
 ::: {.callout-warning icon="false"}
 ## Example 2.2 EDIT THIS STILL
