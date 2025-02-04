@@ -616,10 +616,50 @@ Control    Exp1    Exp2
 </div></div><p><span class="math display">\[Var(\mu_i) = \frac{\sigma^2}{n_i} \]</span></p>
 <p>Remember that the sampling distribution of the mean is <span class="math inline">\(N(\mu,\frac{\sigma^2}{n})\)</span> and here we assumed that the groups have equal population variances.</p>
 <p>If we assume that two treatment means are independent, the variance of the difference between two means is:</p>
-<p>$$</p>
-<p>Var(_i - _j) = Var(_i) + Var(_j) = + </p>
-<p>$$ To estimate these variances we substitute the MSE for <span class="math inline">\(\sigma^2\)</span> as it is an unbiased estimate of the error variance (the variability within each group). The standard errors of the estimates are found by taking the square root of the variances. The standard error is the standard deviation of an estimated quantity, and is a measure of its precision (uncertainty); how much it would vary in repeated sampling.</p>
-<p>CONF INTERVAL</p>
+<p><span class="math display">\[
+Var(\hat{\mu}_i - \hat{\mu}_j) = Var(\hat{\mu}_i) + Var(\hat{\mu}_j) = \frac{\sigma^2}{n_i} + \frac{\sigma^2}{n_j}
+\]</span> To estimate these variances we substitute the MSE for <span class="math inline">\(\sigma^2\)</span> as it is an unbiased estimate of the error variance (the variability within each group). The standard errors of the estimates are found by taking the square root of the variances. The standard error is the standard deviation of an estimated quantity, and is a measure of its precision (uncertainty); how much it would vary in repeated sampling.</p>
+<p>We can assume normal distributions for our estimates because we have assumed a normal linear model and because they are means (or differences between means). This means that confidence intervals for the population treatment means are of the form:</p>
+<p><span class="math display">\[ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)\]</span> where <span class="math inline">\(t^{\alpha/2}_v\)</span> is the <span class="math inline">\({\alpha/2}^{th}\)</span> percentile of the Student’s t distribution with <span class="math inline">\(v\)</span> degrees of freedom. The degrees of freedom are the error degrees of freedom, <span class="math inline">\(N-a\)</span> for CRD.</p>
+<p>What are the standard errors associated with the parameter estimates in the social media example? We can easily extract this by specifying an extra argument to the model.tables function.</p>
+<p>Standard error of the effects:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"effects"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of effects
+
+ Group 
+Group
+Control    Exp1    Exp2 
+ 12.049  -0.703 -11.345 
+
+Standard errors of effects
+        Group
+        2.237
+replic.    40</code></pre>
+</div>
+</div>
+<p>and for the treatment means:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"means"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of means
+Grand mean
+         
+63.58527 
+
+ Group 
+Group
+Control    Exp1    Exp2 
+  75.63   62.88   52.24 
+
+Standard errors for differences of means
+        Group
+        3.163
+replic.    40</code></pre>
+</div>
+</div>
+<p>So, now we have parameter estimated and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we diited and the parameters we estimated, how do we test this? The answer is with an ANOVA table.</p>
 
 
 </section>

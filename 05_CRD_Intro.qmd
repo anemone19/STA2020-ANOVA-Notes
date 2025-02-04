@@ -8,7 +8,7 @@ Remember experimental design is the procedure for how experimental units are gro
 
 As a student, I used to believe I could multitask effectively. I would scroll through my phone during lectures, study while texting friends, or listen to podcasts while driving. It felt like I was paying attention to everything, but in hindsight, I can barely recall the details of those podcasts. I often had to revisit lectures or restart study sessions because my focus wasn’t truly there. This tendency extends beyond student life. In the average workplace, tasks are frequently interrupted by social media, email checks, or notifications. Many of us feel the constant pull of our phones when trying to concentrate, whether we’re working, studying, or even relaxing.
 
-In an era of perceived multitasking, where devices and distractions dominate our attention, it’s worth asking: how does social media multitasking impact academic performance of students?
+In an era of perceived multitasking, where devices and distractions dominate our attention, it’s worth asking: Does social media multitasking impact academic performance of students?
 
 ::: {#warning-example1 .callout-warning icon="false"}
 ## Example 5.1

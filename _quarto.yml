@@ -23,8 +23,15 @@ book:
       - 08_CRD_Contrasts.qmd
     
     - part: "Randomised Block Designs"
+      chapters:
+      - 09_RCBD_Model.qmd
+      - 10_RCBD_ANOVA.qmd
+      - 11_RCBD_Contrasts.qmd
 
     - part: "Factorial Experiments"
+      chapters:
+      - 12_FE_Model.qmd
+      - 13_FE_ANOVA.qmd
     
     - glossary.qmd
 

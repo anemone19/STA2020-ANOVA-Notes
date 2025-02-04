@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -190,12 +219,56 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Randomised Block Designs</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Randomised Block Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model for RCDB</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Factorial Experiments</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Factorial Experiments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -208,8 +281,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#example-no_3-removal-in-stormwater" id="toc-example-no_3-removal-in-stormwater" class="nav-link active" data-scroll-target="#example-no_3-removal-in-stormwater"><span class="header-section-number">7.1</span> Example: NO<span class="math inline">\(_3\)</span> Removal in Stormwater</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">7.2</span> Mathematical Formulation</a></li>
+  <li><a href="#anova-table" id="toc-anova-table" class="nav-link" data-scroll-target="#anova-table"><span class="header-section-number">7.3</span> ANOVA Table</a></li>
+  <li><a href="#real-experiment-stormwater-treatment" id="toc-real-experiment-stormwater-treatment" class="nav-link" data-scroll-target="#real-experiment-stormwater-treatment"><span class="header-section-number">8</span> Real Experiment: Stormwater Treatment</a></li>
+  <li><a href="#another-example-can-playing-tetris-reduce-bad-memories" id="toc-another-example-can-playing-tetris-reduce-bad-memories" class="nav-link" data-scroll-target="#another-example-can-playing-tetris-reduce-bad-memories"><span class="header-section-number">9</span> Another example: Can playing tetris reduce bad memories?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -233,13 +316,58 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Although, I like the following description:</p>
-<blockquote class="blockquote">
-<p>“Analysis of variance is better defined as a method of dividing (analysing) a total variance into at least two components…Using a liberal definition of variances, analysis of variance can be said to consist of estimating variances, and possibly of testing hypotheses about them.”</p>
-<p>— Paul Seeger (1966)</p>
-</blockquote>
+<p>The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment as us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of sqaures into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiqously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is typically called a one-way ANOVA.</p>
+<section id="example-no_3-removal-in-stormwater" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="example-no_3-removal-in-stormwater"><span class="header-section-number">7.1</span> Example: NO<span class="math inline">\(_3\)</span> Removal in Stormwater</h2>
+<p>Two experiments were conducted to study the removal of NO<span class="math inline">\(_3\)</span> by three species (A, B, and C), each with three replicates per treatment. The obtained data were:</p>
+<p>Both experiments yielded the same treatment means: A = 40, B = 50, C = 60. However, Experiment 2 showed greater variability within treatments compared to Experiment 1.</p>
+</section>
+<section id="mathematical-formulation" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">7.2</span> Mathematical Formulation</h2>
+<p>A completely randomized design (CRD) is represented by the model:</p>
+<p><span class="math display">\[
+Y_{ij} = \mu + \alpha_i + e_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the overall mean, <span class="math inline">\(\alpha_i\)</span> are the treatment effects, and <span class="math inline">\(e_{ij}\)</span> are the error terms. Rearranging:</p>
+<p><span class="math display">\[
+Y_{ij} - \bar{Y} = (\bar{Y}_i - \bar{Y}) + (Y_{ij} - \bar{Y}_i)
+\]</span></p>
+<p>Squaring and summing both sides gives the decomposition:</p>
+<p><span class="math display">\[
+\sum_i \sum_j (Y_{ij} - \bar{Y})^2 = \sum_i \sum_j (\bar{Y}_i - \bar{Y})^2 + \sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2
+\]</span></p>
+<p>where:</p>
+<p><span class="math display">\[
+SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
+\]</span></p>
+</section>
+<section id="anova-table" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="anova-table"><span class="header-section-number">7.3</span> ANOVA Table</h2>
+<p>The test statistic is:</p>
+<p><span class="math display">\[
+F = \frac{MS_{\text{treatment}}}{MS_E}
+\]</span></p>
+<p>with degrees of freedom <span class="math inline">\((a-1, N-a)\)</span>.</p>
+<p>For Experiment 1:</p>
+<p><span class="math display">\[
+F = \frac{300}{4} = 75, \quad p &lt; 0.001
+\]</span></p>
+<p>For Experiment 2:</p>
+<p><span class="math display">\[
+F = \frac{300}{225} = 1.33, \quad p = 0.332
+\]</span></p>
+<p>The F-ratio in Experiment 1 suggests strong evidence against <span class="math inline">\(H_0\)</span>, while Experiment 2 shows no significant difference between species in NO<span class="math inline">\(_3\)</span> removal.</p>
+</section>
+<section id="real-experiment-stormwater-treatment" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Real Experiment: Stormwater Treatment</h1>
+<p>A stormwater experiment with three treatments (Control, Ficinia, Phragmites) was conducted. The ANOVA table is:</p>
+<p>Since <span class="math inline">\(F = \frac{3422}{113} = 30.2\)</span>, and <span class="math inline">\(p &lt; 0.001\)</span>, we conclude that the species differ significantly in nitrate removal performance.</p>
+</section>
+<section id="another-example-can-playing-tetris-reduce-bad-memories" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Another example: Can playing tetris reduce bad memories?</h1>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -342,12 +342,34 @@ Remember that the sampling distribution of the mean is $N(\mu,\frac{\sigma^2}{n}
 If we assume that two treatment means are independent, the variance of the difference between two means is:
 
 $$
-
 Var(\hat{\mu}_i - \hat{\mu}_j) = Var(\hat{\mu}_i) + Var(\hat{\mu}_j) = \frac{\sigma^2}{n_i} + \frac{\sigma^2}{n_j}
-
 $$ 
 To estimate these variances we substitute the MSE for $\sigma^2$ as it is an unbiased estimate of the error variance (the variability within each group). The standard errors of the estimates are found by taking the square root of the variances. The standard error is the standard deviation of an estimated quantity, and is a measure of its precision (uncertainty); how much it would vary in repeated sampling.
 
+We can assume normal distributions for our estimates because we have assumed a normal linear model and because they are means (or differences between means). This means that confidence intervals for the population treatment means are of the form: 
 
-CONF INTERVAL 
+$$ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)$$ 
+where $t^{\alpha/2}_v$ is the ${\alpha/2}^{th}$ percentile of the Student's t distribution with $v$ degrees of freedom. The degrees of freedom are the error degrees of freedom, $N-a$ for CRD. 
+
+What are the standard errors associated with the parameter estimates in the social media example? We can easily extract this by specifying an extra argument to the model.tables function.
+
+Standard error of the effects:
+
+```{r}
+model.tables(m1, type = "effects", se = TRUE)
+```
+
+and for the treatment means: 
+
+```{r}
+model.tables(m1, type = "means", se = TRUE)
+```
+
+So, now we have parameter estimated and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we diited and the parameters we estimated, how do we test this? The answer is with an ANOVA table. 
+
+
+
+
+
+
 

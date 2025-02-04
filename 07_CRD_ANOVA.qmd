@@ -1,7 +1,69 @@
 # Analysis of Variance
 
-Although, I like the following description:
+The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment as us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of sqaures into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiqously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is typically called a one-way ANOVA.
 
-> "Analysis of variance is better defined as a method of dividing (analysing) a total variance into at least two components...Using a liberal definition of variances, analysis of variance can be said to consist of estimating variances, and possibly of testing hypotheses about them."
->
-> — Paul Seeger (1966)
+
+## Example: NO$_3$ Removal in Stormwater
+Two experiments were conducted to study the removal of NO$_3$ by three species (A, B, and C), each with three replicates per treatment. The obtained data were:
+
+
+Both experiments yielded the same treatment means: A = 40, B = 50, C = 60. However, Experiment 2 showed greater variability within treatments compared to Experiment 1.
+
+## Mathematical Formulation
+A completely randomized design (CRD) is represented by the model:
+
+$$
+Y_{ij} = \mu + \alpha_i + e_{ij}
+$$
+
+where $\mu$ is the overall mean, $\alpha_i$ are the treatment effects, and $e_{ij}$ are the error terms. Rearranging:
+
+$$
+Y_{ij} - \bar{Y} = (\bar{Y}_i - \bar{Y}) + (Y_{ij} - \bar{Y}_i)
+$$
+
+Squaring and summing both sides gives the decomposition:
+
+$$
+\sum_i \sum_j (Y_{ij} - \bar{Y})^2 = \sum_i \sum_j (\bar{Y}_i - \bar{Y})^2 + \sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2
+$$
+
+where:
+
+$$
+SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
+$$
+
+## ANOVA Table
+
+
+The test statistic is:
+
+$$
+F = \frac{MS_{\text{treatment}}}{MS_E}
+$$
+
+with degrees of freedom $(a-1, N-a)$.
+
+For Experiment 1:
+
+$$
+F = \frac{300}{4} = 75, \quad p < 0.001
+$$
+
+For Experiment 2:
+
+$$
+F = \frac{300}{225} = 1.33, \quad p = 0.332
+$$
+
+The F-ratio in Experiment 1 suggests strong evidence against $H_0$, while Experiment 2 shows no significant difference between species in NO$_3$ removal.
+
+# Real Experiment: Stormwater Treatment
+A stormwater experiment with three treatments (Control, Ficinia, Phragmites) was conducted. The ANOVA table is:
+
+
+Since $F = \frac{3422}{113} = 30.2$, and $p < 0.001$, we conclude that the species differ significantly in nitrate removal performance.
+
+
+# Another example: Can playing tetris reduce bad memories?
