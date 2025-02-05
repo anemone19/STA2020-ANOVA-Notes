@@ -8,6 +8,7 @@ book:
   chapters:
     - index.qmd
     - 00_ModelConcepts.qmd
+    - 00_HypoTesting.qmd
     - part: "Experimental Design"
       chapters:
         - 01_ExpDesign_Why.qmd

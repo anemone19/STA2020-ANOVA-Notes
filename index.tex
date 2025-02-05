@@ -613,15 +613,15 @@ represent the treatments, which are specific combinations of the levels
 of Temperature and Pressure. Each treatment is labeled with the
 corresponding combination of levels (e.g., `50, Low' or `10, High').
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Example 1}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Example 1}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 Three groups of students, 5 in each group, were receiving therapy for
-severe test anxiety. Group 1 recieved 5 hours, group 2 received 10 hours
+severe test anxiety. Group 1 received 5 hours, group 2 received 10 hours
 and group 3 received 15 hours. At the end of therapy each subject
-completed an evaulation of test anxiety. Did the amount of therapy have
+completed an evaluation of test anxiety. Did the amount of therapy have
 an effect on the level of test anxiety?
 
-The three groups of studnets received the scores on the Test Anxiety
+The three groups of students received the scores on the Test Anxiety
 index (TAI) at the end of treatment shown in the table below.
 
 \begin{longtable}[]{@{}ccc@{}}
@@ -711,7 +711,7 @@ case if groups are the experimental unit.
 We also require that there is only one observation per experimental
 unit, the first scenario meets this requirement. For the second
 scenario, we have 5 observations per group and so we would have to take
-the mean of these values to end up wth one response value per group.
+the mean of these values to end up with one response value per group.
 
 Let's add to the summary assuming students are the experimental units:
 
@@ -747,12 +747,12 @@ treatments more easily.
 If the experimental units are not fairly similar but are heterogeneous
 (the opposite of homogeneous), we can group them into sets of similar
 units. This process is called \textbf{blocking} and the groups are
-considred ``blocks''. We compare the treatments within each block as if
+considered ``blocks''. We compare the treatments within each block as if
 each block is its own mini-experiment. This way we account for the
 differences between blocks and can better isolate the effect of the
 treatments.
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Example 2.2 EDIT THIS STILL}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Example 2.2 EDIT THIS STILL}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 Imagine you're testing the effectiveness of two marketing strategies (A
 and B) to increase sales at a chain of coffee shops. The coffee shops
@@ -820,7 +820,7 @@ have the following summary:
   \textbf{Replicates:} 5
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 Creating a summary like this, is a handy exercise for any experiment you
 come across, and we'll keep doing it for every experiment in this book.
@@ -855,13 +855,12 @@ Confounding means that is not possible to separate the effects of two
 (or more) factors on the response, i.e.~it is not possible to say which
 of the two factors is responsible for any changes in the response. This
 is what happened in the Example 1 when groups are the experimental
-units. With only one observation per experimental unit, the effect of
-therapy is confounded with the experimental unit or the effect of group
-on test anxiety. The reason why this is a problem is that any difference
-between the treatments could be due to any differences between the
-groups and not just the number of therapy hours. The same would be true
-if we only had one student per group, why? Take a moment to think about
-this.
+units. With only one replicate per treatment, the effect of therapy is
+confounded with the experimental unit or the effect of group on test
+anxiety. The reason why this is a problem is that any difference between
+the treatments could be due to any differences between the groups and
+not just the number of therapy hours. The same would be true if we only
+had one student per group. Why? Take a moment to think about this.
 
 Consider the first row of the data from Example 1. It looks like the
 student in group 2 scored the highest, followed by group 3 and then
@@ -897,7 +896,7 @@ Treatment 1 & Treatment 2 & Treatment 3 \\
 50 & 53 & 50 \\
 \end{longtable}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Example 3.1}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Example 3.1}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 Maybe the co2 uptake data?
 
@@ -956,8 +955,8 @@ obtain a randomisation using the function \texttt{sample}.
 \end{Shaded}
 
 \begin{verbatim}
- [1] "A" "A" "B" "A" "C" "D" "D" "D" "D" "D" "B" "C" "A" "B" "A" "C" "C" "A" "B"
-[20] "A" "B" "B" "C" "B" "B" "D" "C" "D" "D" "C" "A" "C"
+ [1] "C" "A" "A" "D" "A" "A" "D" "B" "B" "A" "B" "B" "A" "D" "C" "D" "D" "A" "B"
+[20] "B" "C" "B" "C" "A" "D" "D" "C" "C" "C" "D" "B" "C"
 \end{verbatim}
 
 Experimental unit 1 recipes the first treatment that appears as the
@@ -1121,10 +1120,10 @@ constant pull of our phones when trying to concentrate, whether we're
 working, studying, or even relaxing.
 
 In an era of perceived multitasking, where devices and distractions
-dominate our attention, it's worth asking: how does social media
+dominate our attention, it's worth asking: Does social media
 multitasking impact academic performance of students?
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-warning-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Example 5.1}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Example 5.1}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 Two researchers from Turkey, Demirbilek and Talan
 (2018)\marginpar{\begin{footnotesize}
@@ -1232,7 +1231,7 @@ dataset:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{multitask }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"multitask\_performance.csv"}\NormalTok{)}
+\NormalTok{multitask }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"Datasets/multitask\_performance.csv"}\NormalTok{)}
 \FunctionTok{nrow}\NormalTok{(multitask) }\CommentTok{\# check number of rows}
 \end{Highlighting}
 \end{Shaded}
@@ -1628,16 +1627,37 @@ corrected and then methods that deal specifically with dependent data
 (if appropriate) should be used\sidenote{\footnotesize A few of these methods are
   repeated measures ANOVA, mixed-models or hierarchical models.}.
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Note}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Note}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
-In this course, you will always encounter data that has already been
-collected and the description of the experiment will likely not be very
-exhaustive. You might be task then with thinking about how the
-assumption of independence could have been violated, but for the most
-part we will assume the data are independent, both within and among
-samples (unless otherwise stated).
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  In this course, you will always encounter data that has already been
+  collected and the description of the experiment will likely not be
+  very exhaustive. You might be task then with thinking about how the
+  assumption of independence could have been violated, but for the most
+  part we will assume the data are independent, both within and among
+  samples (unless otherwise stated).
+\item
+  No real data set ever meets all assumptions of a model perfectly
+  (remember ``all models are wrong\ldots{}''). Judging whether a
+  particular data set meets our assumptions reasonably well is therefore
+  a bit of an art. You will likely read and hear that being able to
+  identify violations comes from \textbf{experience}. The best way to
+  get experience is to look at lots of data sets where you know how well
+  they meet the assumptions. That's best done via simulation. We
+  therefore encourage you to use the attached R code to simulate data
+  where various assumptions are violated. Run the code a number of times
+  to get a feeling for how variable your actual sample can be even if
+  the data generating mechanism doesn't change. You may also want to
+  play around with the sample sizes and you can change the degree to
+  which the assumptions are violated to get a feeling for how these
+  violations show up in the plots.
+\end{enumerate}
 
 \end{tcolorbox}
+
+Note:
 
 TIPS:
 
@@ -1661,7 +1681,7 @@ of tests (if you want to know more see the box below). To avoid this, we
 will use the ANOVA method which was specifically developed for comparing
 multiple means.
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-caution-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Multiple Testing / Comparisons}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Multiple Testing / Comparisons}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 When we conduct a test, there is always a possibility that a significant
 result is due to chance and not actually a real difference. In first
@@ -1758,7 +1778,7 @@ overall mean and the part that we attribute to the particular treatment
 
 where \(\sum A_i = 0\).
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-caution-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Why the \(\sum A_i = 0\) constraint?}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Why the \(\sum A_i = 0\) constraint?}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 This constraint ensures that the treatment effects are expressed as
 deviations from the overall mean. To see why this holds, take the sum of
@@ -1827,7 +1847,7 @@ e_{ij} & = \text{random error with } e_{ij} \sim N(0, \sigma^2)
 \end{aligned}
 \end{equation}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-caution-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Comparison to regression}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Comparison to regression}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 If you wanted to you could rewrite this with the regression notation
 you've encountered before as a regression model with a single
@@ -1956,7 +1976,7 @@ observations and have estimated \(a\) means. If you look at the formula
 you'll notice that it is an average of the observed variance estimates
 from the different treatment groups.
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, titlerule=0mm, left=2mm, opacitybacktitle=0.6, opacityback=0, breakable, colback=white, colbacktitle=quarto-callout-caution-color!10!white, coltitle=black, arc=.35mm, toprule=.15mm, bottomtitle=1mm, bottomrule=.15mm, title={Compare this with regression}, leftrule=.75mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, toptitle=1mm, left=2mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, titlerule=0mm, breakable, opacitybacktitle=0.6, colback=white, coltitle=black, opacityback=0, bottomtitle=1mm, title={Compare this with regression}, rightrule=.15mm, arc=.35mm, leftrule=.75mm]
 
 Compare this with the equations you saw in the regression section.
 Barring the extra subscript, the only difference is the equation for
@@ -2127,13 +2147,13 @@ coming
 So, \(\hat{\sigma^2} = s^2 = 200\) (rounded off to the nearest integer)
 and \(\hat{\sigma} = s = 14\).
 
-\section{Standard erros and confidence
-intervals}\label{standard-erros-and-confidence-intervals}
+\section{Standard errors and confidence
+intervals}\label{standard-errors-and-confidence-intervals}
 
 In the previous section we saw how the parameters of the ANOVA model are
 estimated. We also need a measure of uncertainty for each of these
 estimates (in the form of a standard error, variance, or confidence
-interval). Let's start with the variance for a treatment mean estimate:
+interval). Let's start with the variance of a treatment mean estimate:
 
 \marginnote{\begin{footnotesize}
 
@@ -2154,34 +2174,352 @@ equal population variances.
 If we assume that two treatment means are independent, the variance of
 the difference between two means is:
 
-\$\$
+\[
+Var(\hat{\mu}_i - \hat{\mu}_j) = Var(\hat{\mu}_i) + Var(\hat{\mu}_j) = \frac{\sigma^2}{n_i} + \frac{\sigma^2}{n_j}
+\] To estimate these variances we substitute the MSE for \(\sigma^2\) as
+it is an unbiased estimate of the error variance (the variability within
+each group). The standard errors of the estimates are found by taking
+the square root of the variances. The standard error is the standard
+deviation of an estimated quantity, and is a measure of its precision
+(uncertainty); how much it would vary in repeated sampling.
 
-Var(\hat{\mu}\_i - \hat{\mu}\_j) = Var(\hat{\mu}\_i) + Var(\hat{\mu}\_j)
-= \frac{\sigma^2}{n_i} + \frac{\sigma^2}{n_j}
+We can assume normal distributions for our estimates because we have
+assumed a normal linear model and because they are means (or differences
+between means). This means that confidence intervals for the population
+treatment means are of the form:
 
-\$\$ To estimate these variances we substitute the MSE for \(\sigma^2\)
-as it is an unbiased estimate of the error variance (the variability
-within each group).
+\[ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)\] where
+\(t^{\alpha/2}_v\) is the \({\alpha/2}^{th}\) percentile of the
+Student's t distribution with \(v\) degrees of freedom. The degrees of
+freedom are the error degrees of freedom, \(N-a\) for CRD.
+
+What are the standard errors associated with the parameter estimates in
+the social media example? We can easily extract this by specifying an
+extra argument to the model.tables function.
+
+Standard error of the effects:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{model.tables}\NormalTok{(m1, }\AttributeTok{type =} \StringTok{"effects"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Tables of effects
+
+ Group 
+Group
+Control    Exp1    Exp2 
+ 12.049  -0.703 -11.345 
+
+Standard errors of effects
+        Group
+        2.237
+replic.    40
+\end{verbatim}
+
+and for the treatment means:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{model.tables}\NormalTok{(m1, }\AttributeTok{type =} \StringTok{"means"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Tables of means
+Grand mean
+         
+63.58527 
+
+ Group 
+Group
+Control    Exp1    Exp2 
+  75.63   62.88   52.24 
+
+Standard errors for differences of means
+        Group
+        3.163
+replic.    40
+\end{verbatim}
+
+So, now we have parameter estimated and their standard errors. Equipped
+with these, we are closer to answering the original question: Does
+social media multitasking impact academic performance of students? Based
+on the model we diited and the parameters we estimated, how do we test
+this? The answer is with an ANOVA table.
 
 \chapter{Analysis of Variance}\label{analysis-of-variance}
 
-Although, I like the following description:
+The ANOVA model we have introduced is identical to a regression model
+with categorical variables, it is just parameterised differently. So why
+the different names and emphasis on variance - ANalysis Of Variance? A
+well designed experiment as us to estimate the within-treatment
+variability and between treatment variability. More specifically, it
+enables the partitioning of the total sum of squares\sidenote{\footnotesize In
+  statistics, sums of squares is a measure of variability and refers to
+  squared deviations from a mean or expected value. For example, the
+  residual sums of squares (sum of squared deviations of the
+  observations from the fitted values).} into independent parts, one for
+each factor in the model (treatment and blocking factors). This allows
+us unambiqously to estimate the variability in the response contributed
+by each factor and the experimental error variance! We can then use this
+partitioning to perform hypothesis tests. In other words: by looking at
+the variation we can find out if the response differs due to the
+treatments. An ANOVA applied to a single factor CRD is typically called
+a one-way ANOVA. A one-way ANOVA is a generalization of the `two-sample
+t-test assuming equal variances' to the case of more than two
+populations.
 
-\begin{quote}
-``Analysis of variance is better defined as a method of dividing
-(analysing) a total variance into at least two components\ldots Using a
-liberal definition of variances, analysis of variance can be said to
-consist of estimating variances, and possibly of testing hypotheses
-about them.''
+\section{An Intuitive Explanation}\label{an-intuitive-explanation}
 
---- Paul Seeger (1966)
-\end{quote}
+Before we consider real data, we first want to look at a constructed
+example to explain the main ideas behind ANOVA. Assume that we carried
+out two experiments on plants removing nitrate (NO\(_3\)) from
+stormwater. In both experiments, we consider three plant species
+(uncreatively called `A', `B', and `C'). In both experiments, we have
+three replicates per treatment. We are only interested in comparing the
+species so there is no control treatment. We obtained the following
+data:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lccc}
+        \toprule
+        Species & A & B & C \\
+        \midrule
+        40 & 48 & 58 \\
+        42 & 50 & 62 \\
+        38 & 52 & 60 \\
+        \midrule
+        Average & 40 & 50 & 60 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Experiment 1}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lccc}
+        \toprule
+        Species & A & B & C \\
+        \midrule
+        40 & 65 & 45 \\
+        25 & 35 & 75 \\
+        55 & 50 & 60 \\
+        \midrule
+        Average & 40 & 50 & 60 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Experiment 2}
+\end{table}
+
+If you look at these datasets carefully, you will see that each of the
+three species had the same mean in the two experiments. However, the
+measurements were much more variable in Experiment 2 than in Experiment
+1.
+
+\textbf{Which experiment has better evidence that the true mean NO₃
+removal rate differs between species?} Intuitively, we would say that
+Experiment 1 shows much stronger evidence for a true effect than
+Experiment 2. Why? Both experiments show the same differences among the
+treatment (species) means. So the variability in the treatment means is
+the same. However, the variability among the observations within
+treatments differs between the two experiments. In Experiment 1, the
+variability within treatments is much less than the variability among
+treatments. In Experiment 2, the variability within treatments is about
+the same as the variability among treatments.
+
+The basic idea of ANOVA relies on the ratio of the among-treatment-means
+variation to the within-treatment variation. This is the F-ratio. The
+F-ratio can be thought of as a signal-to-noise ratio:
+
+\begin{itemize}
+\item
+  Large ratios imply the signal (difference among the means) is large
+  relative to the noise (variation within groups), providing evidence of
+  a difference in the means.
+\item
+  Small ratios imply the signal (difference among the means) is small
+  relative to the noise, indicating no evidence that the means differ.
+\end{itemize}
+
+\section{Analysis of Variance for
+CRD}\label{analysis-of-variance-for-crd}
+
+Let's go back to the linear model for the single-factor completely
+randomized design that we examined earlier:
+
+\[
+Y_{ij} = \mu + \alpha_i + e_{ij}
+\]
+
+where \(\mu\) is the overall mean, \(\alpha_i\) are the treatment
+effects (that is the difference between treatment means and the overall
+mean), and \(e_{ij}\) are the error terms (the differences between the
+observation and the fotted value, i.e.~treatment mean). Remember that
+the estimated values for these parameters are the observed values:
+
+\[
+\begin{aligned}
+\hat{\mu} &= \bar{Y}_{..} \\
+\hat{\alpha}_i &= \bar{Y}_{i.} - \bar{Y}_{..}\\
+\hat{e}_{ij} &= Y_{ij} -  \bar{Y}_{i.}
+\end{aligned}
+\]
+
+By taking \(\mu\) over to the left-hand-side in the equation, and
+substituting the above observed values we obtain:
+
+\[
+\begin{aligned}
+Y_{ij} - \mu &= (\mu_i - \mu) + (Y_{ij} - \mu)\\
+Y_{ij} - \bar{Y} &= (\bar{Y}_i - \bar{Y}) + (Y_{ij} - \bar{Y}_i) \\
+\end{aligned}
+\]
+
+Squaring and summing both sides gives the decomposition:
+
+\[
+\sum_i \sum_j (Y_{ij} - \bar{Y})^2 = \sum_i \sum_j (\bar{Y}_i - \bar{Y})^2 + \sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2
+\]
+
+Each term represents squared deviations:
+
+\begin{itemize}
+\tightlist
+\item
+  The first term is of observsations around the overall mean
+  representing the total variation in the response.
+\item
+  The second is of the group means around the overall mean represeting
+  the explained variation or variation between treatments and,
+\item
+  The last term represents the deviations of observations from their
+  treatment means (unexplained or within treatment variation).
+\end{itemize}
+
+We could also call these:
+
+\[
+SS_{\text{total}} = SS_{\text{between groups}} + SS_{\text{within groups}}
+\] or
+
+\[
+SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
+\]
+
+\textbf{The analysis of variance is based on this identity}. The total
+sums of squares equals the sum of squares between groups plus the sum of
+squares within groups.
+
+Back to our constructed example. What are the different sums of squares?
+For Experiment 1, we get:
+\(SS_{\text{total}} = 624; SS_{\text{between groups}} = 600; SS_{\text{within groups}} = 24\).
+Verify these numbers and do the same for Experiment 2.
+
+\section{ANOVA Table}\label{anova-table}
+
+This division of the total sums of sqaures is typically summarised in an
+analysis of variance table. The first column contains the ``source'' of
+the varibility with the first one here (the order is not important,
+although this is the typical order) is the treatment (explained
+variation), second the error (unexplained variation) and lastly the
+total variation. The second column gives the sums of squares of each
+source. The third column contains the degrees of freedom.
+
+INSERT MORE ABOUT DEGREES OF FREEDOM
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1263}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.4316}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0526}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3053}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0842}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Source
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sums of Squares (SS)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+df
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Means Squares (MS)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+F
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Treatment & \(\sum_i n_i(\bar{Y}_i - \bar{Y})^2\) & \(a-1\) &
+\(MS_A = SS_A / (a-1)\) & \(MS_A / MS_E\) \\
+Residuals (Error) & \(\sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2\) & N-a &
+\(MS_E = SS_E / (N-a)\) & \\
+Total & \(\sum_i \sum_j (Y_{ij} - \bar{Y})^2\) & \(N-1\) & & \\
+\end{longtable}
+
+The fourth column contains the Mean Sqaures. This is what we get when we
+divide sums of sqaures by the appropriate degrees of freedom.
+
+\[ \text{MS} = \frac{SS}{df}\]
+
+This is simply an average and may be seen as an estimate of variance. So
+when we divide the treatment SS by its degrees of freedom, we get an
+estimate of the variation due to treatments and simirlary, for the the
+residual SS, we get an estimate of the error variance. You've seen this
+before!
+
+\[\text{MSE} = \hat{\sigma}^2 = \frac{1}{N-a}\sum_i\sum_j(Y_{ij} - Y_{i.})^2\]
+
+constructed example
+
+\section{The F-distribution}\label{the-f-distribution}
+
+So now we have two estimates of variances. One for variance due to
+treatments and one for error variance. When we take the ratio of two
+variances, it can be shown that the ratio has an F-distribution.
+
+The test statistic is:
+
+\[
+F = \frac{MS_{\text{treatment}}}{MS_E}
+\]
+
+with degrees of freedom \((a-1, N-a)\).
+
+For Experiment 1:
+
+\[
+F = \frac{300}{4} = 75, \quad p < 0.001
+\]
+
+For Experiment 2:
+
+\[
+F = \frac{300}{225} = 1.33, \quad p = 0.332
+\]
+
+\chapter{Another example: Can playing tetris reduce bad
+memories?}\label{another-example-can-playing-tetris-reduce-bad-memories}
 
 \chapter{Contrasts}\label{contrasts}
 
 \part{Randomised Block Designs}
 
+\chapter{Model for RCDB}\label{model-for-rcdb}
+
+\chapter{ANOVA}\label{anova}
+
+\chapter{Contrasts}\label{contrasts-1}
+
 \part{Factorial Experiments}
+
+\chapter{Model for Factorial
+Experiments}\label{model-for-factorial-experiments}
+
+\chapter{ANOVA}\label{anova-1}
 
 \bookmarksetup{startatroot}
 

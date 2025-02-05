@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -102,7 +136,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,6 +180,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -286,16 +326,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#example-no_3-removal-in-stormwater" id="toc-example-no_3-removal-in-stormwater" class="nav-link active" data-scroll-target="#example-no_3-removal-in-stormwater"><span class="header-section-number">7.1</span> Example: NO<span class="math inline">\(_3\)</span> Removal in Stormwater</a></li>
-  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">7.2</span> Mathematical Formulation</a></li>
-  <li><a href="#anova-table" id="toc-anova-table" class="nav-link" data-scroll-target="#anova-table"><span class="header-section-number">7.3</span> ANOVA Table</a></li>
-  <li><a href="#real-experiment-stormwater-treatment" id="toc-real-experiment-stormwater-treatment" class="nav-link" data-scroll-target="#real-experiment-stormwater-treatment"><span class="header-section-number">8</span> Real Experiment: Stormwater Treatment</a></li>
-  <li><a href="#another-example-can-playing-tetris-reduce-bad-memories" id="toc-another-example-can-playing-tetris-reduce-bad-memories" class="nav-link" data-scroll-target="#another-example-can-playing-tetris-reduce-bad-memories"><span class="header-section-number">9</span> Another example: Can playing tetris reduce bad memories?</a></li>
+  <li><a href="#an-intuitive-explanation" id="toc-an-intuitive-explanation" class="nav-link active" data-scroll-target="#an-intuitive-explanation"><span class="header-section-number">7.1</span> An Intuitive Explanation</a></li>
+  <li><a href="#the-f-test" id="toc-the-f-test" class="nav-link" data-scroll-target="#the-f-test"><span class="header-section-number">7.2</span> The F-test</a></li>
+  <li><a href="#analysis-of-variance-for-crd" id="toc-analysis-of-variance-for-crd" class="nav-link" data-scroll-target="#analysis-of-variance-for-crd"><span class="header-section-number">7.3</span> Analysis of Variance for CRD</a></li>
+  <li><a href="#anova-table" id="toc-anova-table" class="nav-link" data-scroll-target="#anova-table"><span class="header-section-number">7.4</span> ANOVA Table</a>
+  <ul class="collapse">
+  <li><a href="#what-are-degrees-of-freedom" id="toc-what-are-degrees-of-freedom" class="nav-link" data-scroll-target="#what-are-degrees-of-freedom"><span class="header-section-number">7.4.1</span> What Are Degrees of Freedom?</a></li>
+  </ul></li>
+  <li><a href="#back-to-the-constructed-example" id="toc-back-to-the-constructed-example" class="nav-link" data-scroll-target="#back-to-the-constructed-example"><span class="header-section-number">7.5</span> Back to the constructed example</a></li>
+  <li><a href="#the-f-test-in-anova" id="toc-the-f-test-in-anova" class="nav-link" data-scroll-target="#the-f-test-in-anova"><span class="header-section-number">7.6</span> The F-test in ANOVA</a></li>
+  <li><a href="#conclusion-does-social-media-multitasking-impact-academic-performance-of-students" id="toc-conclusion-does-social-media-multitasking-impact-academic-performance-of-students" class="nav-link" data-scroll-target="#conclusion-does-social-media-multitasking-impact-academic-performance-of-students"><span class="header-section-number">8</span> Conclusion: Does social media multitasking impact academic performance of students?</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./07_CRD_ANOVA.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -316,58 +361,495 @@ window.Quarto = {
 </header>
 
 
-<p>The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment as us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of sqaures into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiqously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is typically called a one-way ANOVA.</p>
-<section id="example-no_3-removal-in-stormwater" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="example-no_3-removal-in-stormwater"><span class="header-section-number">7.1</span> Example: NO<span class="math inline">\(_3\)</span> Removal in Stormwater</h2>
-<p>Two experiments were conducted to study the removal of NO<span class="math inline">\(_3\)</span> by three species (A, B, and C), each with three replicates per treatment. The obtained data were:</p>
-<p>Both experiments yielded the same treatment means: A = 40, B = 50, C = 60. However, Experiment 2 showed greater variability within treatments compared to Experiment 1.</p>
+<p>The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment as us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of squares<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiqously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is called a one-way ANOVA or between-subjects ANOVA or an independent factor ANOVA. It is a generalization of the ‘two-sample t-test assuming equal variances’ to the case of more than two populations.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;In statistics, sums of squares is a measure of variability and refers to squared deviations from a mean or expected value. For example, the residual sums of squares (sum of squared deviations of the observations from the fitted values).</p></div></div><section id="an-intuitive-explanation" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="an-intuitive-explanation"><span class="header-section-number">7.1</span> An Intuitive Explanation</h2>
+<p>Before we consider real data, we first want to look at a constructed example to explain the main ideas behind ANOVA. Assume that we carried out two experiments on plants removing nitrate (NO<span class="math inline">\(_3\)</span>) from stormwater. In both experiments, we consider three plant species (uncreatively called ‘A’, ‘B’, and ‘C’). In both experiments, we have three replicates per treatment. We are only interested in comparing the species so there is no control treatment. We obtained the following data:</p>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.1: Hypothetical Experiment
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-first" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Experiment 1
+</figcaption>
+<div aria-describedby="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Species</th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">42</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">52</td>
+<td style="text-align: center;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Average</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">60</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-second" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Experiment 2
+</figcaption>
+<div aria-describedby="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Species</th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Average</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">60</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>If you look at these datasets carefully, you will see that each of the three species had the same mean in the two experiments. However, the measurements were much more variable in Experiment 2 than in Experiment 1.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Which experiment has better evidence that the true mean NO₃ removal rate differs between species? <strong>Pause and think about this before reading on.</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Intuitively, we would say that Experiment 1 shows much stronger evidence for a true effect than Experiment 2. Why? Both experiments show the same differences among the treatment (species) means. So the variability in the treatment means is the same. However, <strong>the variability among the observations within treatments differs</strong> between the two experiments. In Experiment 1, the variability within treatments is much less than the variability among treatments. In Experiment 2, the variability within treatments is about the same as the variability among treatments.</p>
+</div>
+</div>
+</div>
+<p>The basic idea of ANOVA relies on the ratio of the among-treatment-means variation to the within-treatment variation. This is the F-ratio. The F-ratio can be thought of as a signal-to-noise ratio:</p>
+<ul>
+<li><p>Large ratios imply the signal (difference among the means) is large relative to the noise (variation within groups), providing evidence of a difference in the means.</p></li>
+<li><p>Small ratios imply the signal (difference among the means) is small relative to the noise, indicating no evidence that the means differ.</p></li>
+</ul>
 </section>
-<section id="mathematical-formulation" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">7.2</span> Mathematical Formulation</h2>
-<p>A completely randomized design (CRD) is represented by the model:</p>
+<section id="the-f-test" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="the-f-test"><span class="header-section-number">7.2</span> The F-test</h2>
+<p>When we take the ratio of two variances, it can be shown that the ratio follows an F-distribution with degrees of freedom equal to those of the two variances.</p>
+<p>So, for example, say we want to compare the variability between two independent groups, each with normally distributed observations. We define the test statistic as the ratio of the two sample variances:</p>
+<p><span class="math display">\[
+F = \frac{s_1^2}{s_2^2}
+\]</span></p>
+<p>where <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span> are the variances of the two groups. The resulting statistic follows an F-distribution with degrees of freedom:</p>
+<ul>
+<li><span class="math inline">\(df_1 = n_1 - 1\)</span> for the numerator (corresponding to variance <span class="math inline">\(s_1^2\)</span>)</li>
+<li><span class="math inline">\(df_2 = n_2 - 1\)</span> for the denominator (corresponding to variance <span class="math inline">\(s_2^2\)</span>)</li>
+</ul>
+<p>The F-distribution is a probability distribution that arises frequently in hypothesis testing, particularly in ANOVA and regression analysis. It is defined only for positive values and is right-skewed. The shape of the distribution depends on the degrees of freedom in the numerator and denominator.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the range of F-values</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define degrees of freedom pairs</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df_pairs <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Define colors for different lines</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"purple"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty plot</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">df</span>(x, df_pairs[[<span class="dv">1</span>]][<span class="dv">1</span>], df_pairs[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="at">type=</span><span class="st">"n"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"F value"</span>, <span class="at">ylab=</span><span class="st">"Density"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"F-distribution for Varying Degrees of Freedom"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through df pairs and add lines</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(df_pairs)) {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(x, <span class="fu">df</span>(x, df_pairs[[i]][<span class="dv">1</span>], df_pairs[[i]][<span class="dv">2</span>]), <span class="at">col=</span>colors[i], <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend=</span><span class="fu">paste</span>(<span class="st">"df1 ="</span>, <span class="fu">sapply</span>(df_pairs, <span class="st">`</span><span class="at">[[</span><span class="st">`</span>, <span class="dv">1</span>), <span class="st">", df2 ="</span>, <span class="fu">sapply</span>(df_pairs, <span class="st">`</span><span class="at">[[</span><span class="st">`</span>, <span class="dv">2</span>)), </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span>colors, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">bty=</span><span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07_CRD_ANOVA_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Key properties of the F-distribution:</p>
+<ul>
+<li>It is always non-negative: <span class="math inline">\(F \geq 0\)</span>.</li>
+<li>It is asymmetric and skewed to the right, particularly for small degrees of freedom.</li>
+<li>As the degrees of freedom increase, the F-distribution approaches a normal shape.</li>
+<li>The mean of an F-distribution with <span class="math inline">\((df_1, df_2)\)</span> degrees of freedom is approximately:</li>
+</ul>
+<p><span class="math display">\[
+E[F] = \frac{df_2}{df_2 - 2}, \quad \text{for } df_2 &gt; 2
+\]</span></p>
+</section>
+<section id="analysis-of-variance-for-crd" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="analysis-of-variance-for-crd"><span class="header-section-number">7.3</span> Analysis of Variance for CRD</h2>
+<p>Let’s go back to the linear model for the single-factor completely randomized design that we examined earlier:</p>
 <p><span class="math display">\[
 Y_{ij} = \mu + \alpha_i + e_{ij}
 \]</span></p>
-<p>where <span class="math inline">\(\mu\)</span> is the overall mean, <span class="math inline">\(\alpha_i\)</span> are the treatment effects, and <span class="math inline">\(e_{ij}\)</span> are the error terms. Rearranging:</p>
+<p>where <span class="math inline">\(\mu\)</span> is the overall mean, <span class="math inline">\(\alpha_i\)</span> are the treatment effects (that is the difference between treatment means and the overall mean), and <span class="math inline">\(e_{ij}\)</span> are the error terms (the differences between the observation and the fotted value, i.e.&nbsp;treatment mean). Remember that the estimated values for these parameters are the observed values:</p>
 <p><span class="math display">\[
-Y_{ij} - \bar{Y} = (\bar{Y}_i - \bar{Y}) + (Y_{ij} - \bar{Y}_i)
+\begin{aligned}
+\hat{\mu} &amp;= \bar{Y}_{..} \\
+\hat{\alpha}_i &amp;= \bar{Y}_{i.} - \bar{Y}_{..}\\
+\hat{e}_{ij} &amp;= Y_{ij} -  \bar{Y}_{i.}
+\end{aligned}
+\]</span></p>
+<p>By taking <span class="math inline">\(\mu\)</span> over to the left-hand-side in the equation, and substituting the above observed values we obtain:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_{ij} - \mu &amp;= (\mu_i - \mu) + (Y_{ij} - \mu)\\
+Y_{ij} - \bar{Y} &amp;= (\bar{Y}_i - \bar{Y}) + (Y_{ij} - \bar{Y}_i) \\
+\end{aligned}
 \]</span></p>
 <p>Squaring and summing both sides gives the decomposition:</p>
 <p><span class="math display">\[
 \sum_i \sum_j (Y_{ij} - \bar{Y})^2 = \sum_i \sum_j (\bar{Y}_i - \bar{Y})^2 + \sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2
 \]</span></p>
-<p>where:</p>
+<p>Each term represents squared deviations:</p>
+<ul>
+<li>The first term is of observsations around the overall mean representing the total variation in the response.</li>
+<li>The second is of the group means around the overall mean represeting the explained variation or variation between treatments and,</li>
+<li>The last term represents the deviations of observations from their treatment means (unexplained or within treatment variation).</li>
+</ul>
+<p>We could also call these:</p>
+<p><span class="math display">\[
+SS_{\text{total}} = SS_{\text{between groups}} + SS_{\text{within groups}}
+\]</span> or</p>
 <p><span class="math display">\[
 SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
 \]</span></p>
+<p><strong>The analysis of variance is based on this identity</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The total sums of squares equals the sum of squares between groups plus the sum of squares within groups.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;In mathematics, an identity is an equation that is always true, regardless of the values of it’s variables. In other words, the identity is true for all observations.</p></div></div><p>Back to our constructed example. What are the different sums of squares? For Experiment 1, we get: <span class="math inline">\(SS_{\text{total}} = 624; SS_{\text{between groups}} = 600; SS_{\text{within groups}} = 24\)</span>. Verify these numbers and do the same for Experiment 2.</p>
 </section>
-<section id="anova-table" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="anova-table"><span class="header-section-number">7.3</span> ANOVA Table</h2>
-<p>The test statistic is:</p>
+<section id="anova-table" class="level2 page-columns page-full" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="anova-table"><span class="header-section-number">7.4</span> ANOVA Table</h2>
+<p>This division of the total sums of sqaures is typically summarised in an analysis of variance table. The first column contains the “source” of the varibility with the first entry (the order is not important, although this is the typical order) representing the between treatment variability (explained variation), second the error (unexplained variation) and lastly the total variation. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 32%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Sums of Squares (SS)</th>
+<th>df</th>
+<th>Means Squares (MS)</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treatment</td>
+<td><span class="math inline">\(\sum_i n_i(\bar{Y}_i - \bar{Y})^2\)</span></td>
+<td><span class="math inline">\(a-1\)</span></td>
+<td><span class="math inline">\(MS_A = SS_A / (a-1)\)</span></td>
+<td><span class="math inline">\(MS_A / MSE\)</span></td>
+</tr>
+<tr class="even">
+<td>Residuals (Error)</td>
+<td><span class="math inline">\(\sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2\)</span></td>
+<td><span class="math inline">\(N-a\)</span></td>
+<td><span class="math inline">\(MSE = SS_E / (N-a)\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><span class="math inline">\(\sum_i \sum_j (Y_{ij} - \bar{Y})^2\)</span></td>
+<td><span class="math inline">\(N-1\)</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The fourth column contains the Mean Sqaures. This is what we get when we divide sums of sqaures by the appropriate degrees of freedom.</p>
+<p><span class="math display">\[ \text{MS} = \frac{SS}{df}\]</span></p>
+<p>This is simply an average and may be seen as an estimate of variance. So when we divide the treatment SS by its degrees of freedom, we get an estimate of the variation due to treatments and simirlary, for the the residual SS, we get an estimate of the error variance. You’ve seen this before!</p>
+<p><span class="math display">\[\text{MSE} = \hat{\sigma}^2 = \frac{1}{N-a}\sum_i\sum_j(Y_{ij} - Y_{i.})^2\]</span></p>
+<section id="what-are-degrees-of-freedom" class="level3 page-columns page-full" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="what-are-degrees-of-freedom"><span class="header-section-number">7.4.1</span> What Are Degrees of Freedom?</h3>
+<p>Degrees of freedom (df) represent the number of independent pieces of information available for estimating a parameter. When making statistical calculations, we typically lose one degree of freedom for every estimated parameter before the current calculation.</p>
+<p>For example, when estimating the standard deviation of a dataset, we first estimate the mean, thereby reducing the number of independent observations available to calculate variability. This is why the denominator in the variance formula is <span class="math inline">\(N-1\)</span>:</p>
+<p><span class="math display">\[ s^2 = \frac{\sum(Y_i - \bar{Y})^2}{N -1} \]</span> You can think of degrees of freedom as the number of independent deviations around a mean. If we have <span class="math inline">\(n\)</span> observations and their mean, once we know <span class="math inline">\(n-1\)</span> of the values, the last one is fixed—it must take on a specific value to satisfy the mean equation. Therefore, only <span class="math inline">\(n-1\)</span> observations are truly free to vary.</p>
+<p><strong>Example: Three Numbers Summing to a Fixed Mean</strong></p>
+<p>Say we have three (<span class="math inline">\(n=3\)</span>) numbers: (4, 6, 8). The mean of these three numbers is 6. If we only knew the first two numbers (4,6) and the mean, the third number must be 8:</p>
 <p><span class="math display">\[
-F = \frac{MS_{\text{treatment}}}{MS_E}
+\begin{aligned}
+\bar{x} &amp;= \frac{\sum x_i}{n}\\
+6 &amp;= \frac{4+6+x_3}{3}\\
+18 &amp;= 10 + x_3 \\
+x_3 &amp;= 8
+\end{aligned}
 \]</span></p>
-<p>with degrees of freedom <span class="math inline">\((a-1, N-a)\)</span>.</p>
-<p>For Experiment 1:</p>
-<p><span class="math display">\[
-F = \frac{300}{4} = 75, \quad p &lt; 0.001
-\]</span></p>
-<p>For Experiment 2:</p>
-<p><span class="math display">\[
-F = \frac{300}{225} = 1.33, \quad p = 0.332
-\]</span></p>
-<p>The F-ratio in Experiment 1 suggests strong evidence against <span class="math inline">\(H_0\)</span>, while Experiment 2 shows no significant difference between species in NO<span class="math inline">\(_3\)</span> removal.</p>
+<p>Since the third number is uniquely determined by the first two and the mean, we only have <span class="math inline">\(n-1\)</span> (i.e., 2) degrees of freedom.</p>
+<p><strong>Another Intuitive Analogy</strong></p>
+<p>Imagine you are distributing a fixed amount of money among friends. If you have R100 and four friends, you can freely allocate money to three friends, but whatever is left must go to the fourth friend to ensure the total remains R100. Similarly, once the first <span class="math inline">\(n-1\)</span> values are chosen, the last value is determined, limiting the degrees of freedom.</p>
+<p><strong>In ANOVA</strong></p>
+<p>If you look at the treatment sums of squares: <span class="math inline">\(\sum_i n_i (\bar{Y}_{i.} - \bar{Y}_{..})^2\)</span>. We have <span class="math inline">\(a\)</span> deviations around the grand mean. But once we know <span class="math inline">\(a-1\)</span> of the treatment means and the grand mean<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, the last mean is fixed. So we have <span class="math inline">\(a-1\)</span> independent deviations around the overall mean.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Remember, <span class="math inline">\(\mu = \frac{\sum \mu_i}{a}\)</span>.</p></div></div><p>If you look at the treatment sums of squares: <span class="math inline">\(\sum_i \sum_j (Y_{ij} - \bar{Y}_{..})^2\)</span>. We are using <span class="math inline">\(N\)</span> observations and calculating the deviations of these observations around the overall mean. So, only <span class="math inline">\(N-1\)</span> observations are free to vary, the last observation is fixed for the calculated mean to hold true.</p>
 </section>
-<section id="real-experiment-stormwater-treatment" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Real Experiment: Stormwater Treatment</h1>
-<p>A stormwater experiment with three treatments (Control, Ficinia, Phragmites) was conducted. The ANOVA table is:</p>
-<p>Since <span class="math inline">\(F = \frac{3422}{113} = 30.2\)</span>, and <span class="math inline">\(p &lt; 0.001\)</span>, we conclude that the species differ significantly in nitrate removal performance.</p>
 </section>
-<section id="another-example-can-playing-tetris-reduce-bad-memories" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Another example: Can playing tetris reduce bad memories?</h1>
+<section id="back-to-the-constructed-example" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="back-to-the-constructed-example"><span class="header-section-number">7.5</span> Back to the constructed example</h2>
+<p>What does the ANOVA table look like for our constructed example? You’ve already worked out the sums of squares. What are the df’s and Mean Sqaures?</p>
+<p>Let’s have a look at Experiment 1 first.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Experiment 1 data </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>exp1data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">species =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>), <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">response =</span> <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">42</span>,<span class="dv">38</span>,<span class="dv">48</span>,<span class="dv">50</span>,<span class="dv">52</span>,<span class="dv">58</span>,<span class="dv">62</span>,<span class="dv">60</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>exp1_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(response<span class="sc">~</span>species, <span class="at">data =</span> exp1data)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(exp1_anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+species      2    600     300      75 5.69e-05 ***
+Residuals    6     24       4                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>And then Experiment 2:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Experiment 2 data </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>exp2data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">species =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>), <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">response =</span> <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">25</span>,<span class="dv">55</span>,<span class="dv">65</span>,<span class="dv">35</span>,<span class="dv">50</span>,<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">60</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>exp2_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(response<span class="sc">~</span>species, <span class="at">data =</span> exp2data)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(exp2_anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
+species      2    600     300   1.333  0.332
+Residuals    6   1350     225               </code></pre>
+</div>
+</div>
+<p>Since the overall mean and the treatment means were the same in both experiment, we expected the <span class="math inline">\(SS_{\text{treatment}}\)</span> to be the same in both experiments. This was indeed the case – they are 600 in both experiments. The sample sizes were also the same in both experiments, so we would expect the df to be the same. With 9 observations, we have 8 df in total. Three treatments (Species) leads to 2 treatment df and 6 df remain for the residuals. The difference between the two experiments is that the observations were much more variable in Experiment 2 than in Experiment 1. Accordingly, we find that <span class="math inline">\(SS_{\text{error}}\)</span> was much larger in Experiment 2, and this led to larger MSE in Experiment 2. How does this affect the conclusions we draw from each of the experiments? This is where the F-ratio comes in.</p>
+</section>
+<section id="the-f-test-in-anova" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="the-f-test-in-anova"><span class="header-section-number">7.6</span> The F-test in ANOVA</h2>
+<p>We first set up the null and alternate hypothesis. The null hypothesis is that all treatments have the same mean, or equivalently, that all treatment effects are zero.</p>
+<p><span class="math display">\[H_0: \mu_1 = \mu_2 = \ldots = \mu_a\]</span> And the alternate hypothesis is the opposite of that:</p>
+<p><span class="math display">\[H_A: \text{At least one } \mu_i \text{ is different.}\]</span> :::{.column-margin} Read that again. The alternative is that at least one treatment is different. It is not that all treatment means are different. :::</p>
+<p>If <span class="math inline">\(H_0\)</span> is true, the among-treatment-means variation should equal the within-treatment variation. We can use the F-ratio to test <span class="math inline">\(H_0\)</span>:</p>
+<p><span class="math display">\[ F = \frac{MS_A}{MSE} \]</span></p>
+<p>This ratio has an F-distribution with <span class="math inline">\(a-1\)</span> numerator degrees of freedom and <span class="math inline">\(N-a\)</span> denominator degrees of freedom.</p>
+<p>You can think of the <em>F-ratio</em> as a signal-to-noise ratio. If <span class="math inline">\(H_0\)</span> is true, <span class="math inline">\(F\)</span> is expected to be close to 1. If <span class="math inline">\(H_0\)</span> is false, <span class="math inline">\(F\)</span> is expected to be much larger than 1. This means that the F-test we conduct is a one-sided upper tailed test. If <span class="math inline">\(H_0\)</span> is false, the means squares for treatment will be much larger than the MSE, resulting in large F-values. We are only interested in this one side of possible outcomes therefore, a one-sided test.</p>
+<p>In Experiment 1, <span class="math inline">\(F = \frac{300}{4} = 75\)</span>, which leads to a very small <span class="math inline">\(p\)</span>-value (<span class="math inline">\(&lt; 0.001\)</span>). The signal was much larger than the noise, and our data are very unlikely if <span class="math inline">\(H_0\)</span> were true. So we have good evidence that the treatments differ.</p>
+<p>In Experiment 2, <span class="math inline">\(F = \frac{300}{225} = 1.33\)</span>, which leads to a large <span class="math inline">\(p\)</span>-value (<span class="math inline">\(0.33\)</span>). Signal and noise were of similar magnitude, and our data are not unlikely if <span class="math inline">\(H_0\)</span> were true. So we have no evidence against <span class="math inline">\(H_0\)</span>, i.e., no evidence that nitrate extraction differs between species.</p>
+<p>How did we get these p-values? This is the same as in any hypothesis test. We have a test statistic (which quantifies the strength of …) and to say somehting about how likely this test statistic (or more extreme is) under the null hypothesis, we need the null distribution of the test statistic (that is the sampling distribution of the test statistic as if the null hypothesis were true). We then compared the observed value of the test statistic to that null distribution and asked ourselves how unusual it is in light of that distribution. Does out test statistic belong to this null distribution?</p>
+<p>For the F-value of test statistic follows an F distribution as specified above.</p>
+<p><span class="math display">\[\text{F}^* \sim \text{F}_{(a-1),\;(N-a)}\]</span></p>
+<p>For both experiment, this equates to an F distribution with 2 numerator and 6 denominator degrees of freedom which looks like this:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the range of F-values</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">df</span>(x, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">6</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type=</span><span class="st">"l"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"F value"</span>, <span class="at">ylab=</span><span class="st">"Density"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07_CRD_ANOVA_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can plot the test statistics on the graph as well and highlight the area under the curve to the right of each of these test statistics:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define x values</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">df</span>(x, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">6</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define test_stats</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>test_stats <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="fl">1.33</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the F-distribution density curve</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"F value"</span>, <span class="at">ylab =</span> <span class="st">"Density"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Add vertical lines at test_stats</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> test_stats, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Shade the areas to the right of the test_stats</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(<span class="fu">c</span>(test_stats[<span class="dv">1</span>], x[x <span class="sc">&gt;=</span> test_stats[<span class="dv">1</span>]], <span class="fu">max</span>(x)), </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="dv">0</span>, y[x <span class="sc">&gt;=</span> test_stats[<span class="dv">1</span>]], <span class="dv">0</span>), <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.3</span>), <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(<span class="fu">c</span>(test_stats[<span class="dv">2</span>], x[x <span class="sc">&gt;=</span> test_stats[<span class="dv">2</span>]], <span class="fu">max</span>(x)), </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="dv">0</span>, y[x <span class="sc">&gt;=</span> test_stats[<span class="dv">2</span>]], <span class="dv">0</span>), <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.3</span>), <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Add points at the critical values</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(test_stats, <span class="fu">df</span>(test_stats, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">6</span>), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07_CRD_ANOVA_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Remember sampling distributions are probability distributions. For continuous random variables, the area under the curve represents probability. Specifically, the probability of a random variable taking on a specific value or larger, is the area udner the curve to the right of that value. For test statistics and their probability distribution, that probability is the p-value. The p-value is the probability of observing a test statistic at least as extreme as we did if the null hypothesis was in fact true. The smaller the p-value, the stronger the evidence against <span class="math inline">\(H_0\)</span>.</p>
+<p>We can obtain the p-value in two ways (you will need to be able to do both):</p>
+<ol type="1">
+<li>Using Software.</li>
+</ol>
+<p>In R, there are several built-in functions for certain probability distributions. These functions typically follow a naming convention:</p>
+<ul>
+<li><code>d&lt;dist&gt;()</code> for density functions</li>
+<li><code>p&lt;dist&gt;()</code> for cumulative probability functions</li>
+<li><code>q&lt;dist&gt;()</code> for quantile functions</li>
+<li><code>r&lt;dist&gt;()</code> for random sampling</li>
+</ul>
+<p>For example, when working with the F-distribution, we use:</p>
+<ul>
+<li><code>df(x, df1, df2)</code> for the probability density function (PDF)</li>
+<li><code>pf(x, df1, df2)</code> for the cumulative distribution function (CDF)</li>
+<li><code>qf(p, df1, df2)</code> for quantiles</li>
+<li><code>rf(n, df1, df2)</code> for random sampling</li>
+</ul>
+<p>To obtain a p-value, we often use the cumulative probability functions (<code>p&lt;dist&gt;()</code>) with returns <span class="math inline">\(Pr[X&lt;x]\)</span> so <span class="math inline">\(Pr[X&gt;x] = 1 - Pr[X&lt;x]\)</span>. Below is how to obtain the p-value for the second experiment:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>f_statistic <span class="ot">&lt;-</span> <span class="fl">1.33</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Numerator degrees of freedom</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="dv">6</span>  <span class="co"># Denominator degrees of freedom</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Upper-tail probability (right-tailed test)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pf</span>(f_statistic, df1, df2)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.332583</code></pre>
+</div>
+</div>
+<p>This value is quite large and corresponds to the area to the right of an F value of 1.33 for the distribution above. We interpret this p-value as the test statistic is quite likely to have come from this null distribution, there is a 33% chance of observing this test statistic or more exteme if the null hypothesis is true. We do not have strong evidence against the null hypothesis of equal means.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A large p-value does not mean that <span class="math inline">\(H_0\)</span> is true!</p>
+<ul>
+<li>The p-value is not the probability that the null hypothesis is true.</li>
+<li>The p-value is not the probability that the alternative hypothesis is false.</li>
+<li>The p-value is a statement about the relation of the data to the null hypothesis.</li>
+<li>The p-value does not indicate the size or biological importance of the observed pattern.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can round the p-value if you need to enter the value to a certian number of decimals in a quiz or test using the function <code>round</code>.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Using tables.</li>
+</ol>
+<p>Before the days of programming, statisticians used tablse..</p>
+</section>
+<section id="conclusion-does-social-media-multitasking-impact-academic-performance-of-students" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Conclusion: Does social media multitasking impact academic performance of students?</h1>
+<p>Let’s revisit this experiment by .</p>
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

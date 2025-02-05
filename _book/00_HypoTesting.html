@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Glossary – STA2020 ANOVA Notes</title>
+<title>A brief guideline to hypothesis testing – STA2020 ANOVA Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./13_FE_ANOVA.html" rel="prev">
+<link href="./01_ExpDesign_Why.html" rel="next">
+<link href="./00_ModelConcepts.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -81,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Glossary</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_HypoTesting.html">A brief guideline to hypothesis testing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,6 +146,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -242,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glossary.html" class="sidebar-item-text sidebar-link active">
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossary</span></a>
   </div>
 </li>
@@ -251,15 +287,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-general-framework" id="toc-the-general-framework" class="nav-link active" data-scroll-target="#the-general-framework">The General Framework</a></li>
+  <li><a href="#one-sided-vs.-two-sided-tests" id="toc-one-sided-vs.-two-sided-tests" class="nav-link" data-scroll-target="#one-sided-vs.-two-sided-tests">One-Sided vs.&nbsp;Two-Sided Tests</a></li>
+  <li><a href="#decision-making-in-hypothesis-testing" id="toc-decision-making-in-hypothesis-testing" class="nav-link" data-scroll-target="#decision-making-in-hypothesis-testing">Decision Making in Hypothesis Testing</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Glossary</h1>
+<h1 class="title">A brief guideline to hypothesis testing</h1>
 </div>
 
 
@@ -276,39 +320,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<dl>
-<dt><span id="glossary-experimental-design">Experimental Design</span></dt>
-<dd>
-<p>A systematic method to plan experiments in a way that ensures valid and unbiased results.</p>
-</dd>
-<dt><span id="glossary-anova-analysis-of-variance">ANOVA (Analysis of Variance)</span></dt>
-<dd>
-<p>A statistical method used to compare the means of three or more groups to determine if at least one differs significantly.</p>
-</dd>
-<dt><span id="glossary-replication">Replication</span></dt>
-<dd>
-<p>When treatments are applied to more than one experimental unit. The number of experimental units per treatment is the number of replicates an experiment has.</p>
-</dd>
-<dt><span id="glossary-randomization">Randomization</span></dt>
-<dd>
-<p>A process of randomly assigning subjects or experimental units to treatments.</p>
-</dd>
-<dt><span id="glossary-blocking">Blocking</span></dt>
-<dd>
-<p>A technique to account for variability by grouping similar experimental units.</p>
-</dd>
-<dt><span id="glossary-factor">Treatment Factor</span></dt>
-<dd>
-<p>An independent variable in an experiment.</p>
-</dd>
-<dt><span id="glossary-level">Treatment Level</span></dt>
-<dd>
-<p>The specific values or categories of a factor.</p>
-</dd>
-</dl>
-<p>[Treatments]</p>
+<p>These notes have been adapted from the STA1007 notes (authored by Dr Res Altwegg and Dr Greg Distiller and some other texbooks.</p>
+<p>Hypothesis testing is a statistical procedure of using sample data to make inferences about populations. Unlike estimation, where the goal is to quantify a parameter, hypothesis testing assesses whether an observed effect is statistically significant. More specifically, a hypothesis test evaluates two mutally exclusive statements about the population and determines which statement the data supports</p>
+<section id="the-general-framework" class="level3">
+<h3 class="anchored" data-anchor-id="the-general-framework">The General Framework</h3>
+<p>Hypothesis testing follows a structured process:</p>
+<ol type="1">
+<li><strong>State the Hypotheses</strong>: Define the null hypothesis (H₀) and the alternative hypothesis (H₁).</li>
+</ol>
+<p>The basic idea of hypothesis testing is that we set up a so-called null hypothesis and then ask how likely our data are if the null hypothesis were true. If they are unlikely, we conclude that we have found evidence against the null hypothesis, i.e.&nbsp;the null hypothesis is probably not true.</p>
+<p>The alternative hypothesis covers all the possibilities not covered by the null hypothesis. If we conclude that the null hypothesis is probably not true, that means that the alternative hypothesis is probably true. Notice that these two hypotheses are not on equal footing. You can think of the null hypothesis as representing a baseline against which the data are compared, whereas the alternative hypothesis is what we really care about, worry about or want to demonstrate. This is an important asymmetry and will need some careful reflection.</p>
+<p>Below is an example:</p>
+<p>Null Hypothesis (<span class="math inline">\(H_0\)</span>): “The average weight of chocolate bars is 100g.”</p>
+<p>Null Hypothesis (<span class="math inline">\(H_A\)</span>): “The average weight of chocolate bars is less than 100g.”</p>
+<p>Lack of evidence against <span class="math inline">\(H_0\)</span> is not the same as evidence for <span class="math inline">\(H_0\)</span>. We never say that we have evidence for <span class="math inline">\(H_0\)</span> or that we accept <span class="math inline">\(H_0\)</span> as true.</p>
+<ol start="2" type="1">
+<li><strong>Choose a Test Statistic</strong>: Select an appropriate statistic to measure the observed effect.</li>
+</ol>
+<p>A numerical function of the data that quantifies the strength of the observed effect, whose valye determines the result of the test. Examples include the mean difference, proportion difference, or z-score.</p>
+<ol start="3" type="1">
+<li><strong>Determine the Null Distribution:</strong> Establish what the test statistic would look like if H₀ were true.</li>
+</ol>
+<p>In order to say something about the .. The expected distribution of the test statistic under (<span class="math inline">\(H_0\)</span>).</p>
+<ol start="4" type="1">
+<li><strong>Compute the P-value:</strong> Calculate the probability of obtaining a test statistic as extreme as the observed one under H₀.</li>
+</ol>
+<p>The probability of obtaining a result as extreme as the observed one if H₀ is true. A small P-value (typically &lt;0.05) suggests strong evidence against (<span class="math inline">\(H_0\)</span>).</p>
+<ol start="5" type="1">
+<li><strong>Make a Decision:</strong> Compare the P-value to a predefined significance level () and conclude whether to reject H₀.</li>
+</ol>
+</section>
+<section id="one-sided-vs.-two-sided-tests" class="level2">
+<h2 class="anchored" data-anchor-id="one-sided-vs.-two-sided-tests">One-Sided vs.&nbsp;Two-Sided Tests</h2>
+<p>Two-sided test: Tests for deviations in both directions. Example: “The average human body temperature is different from 37°C.”</p>
+<p>One-sided test: Tests for deviations in a single direction. Example: “Students who study more than an hour score higher.”</p>
+</section>
+<section id="decision-making-in-hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="decision-making-in-hypothesis-testing">Decision Making in Hypothesis Testing</h2>
+<p>A small P -value constitutes evidence against <span class="math inline">\(H_0\)</span>. But how small is small enough? Sometimes, we want to make a firm decision about whether we can believe that the observed pattern is real or not. This requires us to choose a threshold for P. This threshold is called the significance level and denoted by <span class="math inline">\(\alpha\)</span>. If we obtain a P -value that is smaller than <span class="math inline">\(\alpha\)</span>, we say that we have obtained a “statistically significant result” or that “<span class="math inline">\(H_0\)</span> is rejected”. If our P -value is larger than <span class="math inline">\(\alpha\)</span>, we say that our result is “not significant” or that “<span class="math inline">\(H_0\)</span> is not rejected”. In most situations, researchers choose a significance level of <span class="math inline">\(\alpha\)</span> = 0.05, which roughly corresponds to the probability of obtaining five heads in a row when tossing a fair coin, as we have seen. Different values for <span class="math inline">\(\alpha\)</span> are also sometimes used; the next most common significance level is <span class="math inline">\(\alpha\)</span> = 0.01.</p>
+<p>Before we go further, we want to emphasize that there is nothing magic about a specific value of <span class="math inline">\(\alpha\)</span>. This threshold is an arbitrary choice and should not be taken too seriously. You understand now that there is not much difference between a P-value of 0.051 and 0.049. Both constitute about the same strength of evidence against <span class="math inline">\(H_0\)</span>. Yet, when we apply <span class="math inline">\(\alpha\)</span> = 0.05, we would reach opposite conclusions in the two cases. It is always better to report the exact P-value rather than just state P &gt; 0.05 or P &lt; 0.05 or state that a result is “not significant” or “significant”. And it is particularly important not to imply that a “non-significant” result means that there is no effect (that would be saying <span class="math inline">\(H_0\)</span> is true when we might in fact have some evidence against it)!</p>
+<p>Alas, dividing results into “significant” vs “not significant” is very entrenched in many fields and you will encounter these terms a lot. And used wisely, this distinction can have its merits. So we’ll stick with it.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -730,11 +784,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./13_FE_ANOVA.html" class="pagination-link" aria-label="ANOVA">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ANOVA</span></span>
+      <a href="./00_ModelConcepts.html" class="pagination-link" aria-label="Statistical Modelling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Modelling</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./01_ExpDesign_Why.html" class="pagination-link" aria-label="Experiments and experimental design">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Experiments and experimental design</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
