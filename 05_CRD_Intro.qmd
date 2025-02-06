@@ -15,7 +15,7 @@ In an era of perceived multitasking, where devices and distractions dominate our
 
 Two researchers from Turkey, @multitask2018, conducted a study to try and answer this question. Specifically, they examined the impact of social media multitasking during live lectures on students' academic performance.
 
-A total of 120 undergraduate students were randomly assigned to one of three groups:
+A total of 120 first-year undergraduate students from the same Turkish University were randomly assigned to one of three groups:
 
 1.  **Control Group:** Students used traditional pen-and-paper note-taking.
 2.  **Experimental Group 1 (Exp 1):** Students engaged in SMS texting during the lecture.
@@ -145,7 +145,7 @@ In statistics, if one observation influences another in some way or another, the
 
 [^05_crd_intro-2]: @underwood_1996 has a very detailed explanation of the independence assumption (and the others) in the context of ANOVA. The book is for ecological experiments, but much of it pertains to all types of experiments.
 
-Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Deependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool's reading gradually changes over time), physical effects (e.g. temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected (this is what we check after model fitting). 
+Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Deependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool's reading gradually changes over time), physical effects (e.g. temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected (this is what we check after model fitting).
 
 An informal check we could do, is to plot the data in the order in which they were collected (if this information is available) whether that is temporally or spatially to see if any patterns emerge. To do this in R, we can create a Cleveland dot plot.
 
@@ -173,27 +173,24 @@ It is the onus of the experimenter to design and conduct experiments that ensure
 2.  No real data set ever meets all assumptions of a model perfectly. As the famous (at least in the world of statistics) quote by George Box goes: "All models are wrong but some are useful." Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from **experience**. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That's best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn't change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.
 
 {{< downloadthis assumptioncheckingsim.R class=styled id=btn1 label="R code">}}
-
 :::
-
 
 ## Summary
 
-Completely Randomized Designs (**CRDs**) are the simplest experimental designs, used when experimental units are **uniform** and expected to react similarly to treatments. Since no nuisance factors are controlled, randomization occurs **without restriction**, and treatments are **evenly assigned** across experimental units (**balanced design**).  
+Completely Randomized Designs (**CRDs**) are the simplest experimental designs, used when experimental units are **uniform** and expected to react similarly to treatments. Since no nuisance factors are controlled, randomization occurs **without restriction**, and treatments are **evenly assigned** across experimental units (**balanced design**).
 
-The social media multitasking study served as an example, where 120 students were randomly assigned to three groups (Control, SMS, Facebook) to measure their academic performance. This setup represents a single-factor CRD, where students are both the experimental and observational units with 40 replicates per group.  
+The social media multitasking study served as an example, where 120 students were randomly assigned to three groups (Control, SMS, Facebook) to measure their academic performance. This setup represents a single-factor CRD, where students are both the experimental and observational units with 40 replicates per group.
 
 Before conducting ANOVA, we:
 
-- Checked the dataset for correct structure (120 observations, treatment groups as factors).  
-- Inspected summary statistics and visualized distributions (boxplots, histograms, Q-Q plots).  
+-   Checked the dataset for correct structure (120 observations, treatment groups as factors).\
+-   Inspected summary statistics and visualized distributions (boxplots, histograms, Q-Q plots).
 
 For ANOVA, the following assumptions were examined:
 
-1. **Outliers**: Check via boxplots.  
-2. **Equal variance**: Assess using interquartile ranges and ratio of sample standard deviations.
-3. **Normality of errors**: Verified using Q-Q plots.  
-4. **Independence within and between treatment groups**: Considered through study design. 
+1.  **Outliers**: Check via boxplots.\
+2.  **Equal variance**: Assess using interquartile ranges and ratio of sample standard deviations.
+3.  **Normality of errors**: Verified using Q-Q plots.\
+4.  **Independence within and between treatment groups**: Considered through study design.
 
-Proper experimental design ensures valid conclusions. Identifying violations of assumptions early helps prevent biased results. 
-
+Proper experimental design ensures valid conclusions. Identifying violations of assumptions early helps prevent biased results.
