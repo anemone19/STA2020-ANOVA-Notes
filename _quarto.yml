@@ -25,14 +25,16 @@ book:
     
     - part: "Randomised Block Designs"
       chapters:
-      - 09_RCBD_Model.qmd
-      - 10_RCBD_ANOVA.qmd
-      - 11_RCBD_Contrasts.qmd
+      - 09_RCBD_Intro.qmd
+      - 10_RCBD_Model.qmd
+      - 11_RCBD_ANOVA.qmd
+      - 12_RCBD_Contrasts.qmd
 
     - part: "Factorial Experiments"
       chapters:
-      - 12_FE_Model.qmd
-      - 13_FE_ANOVA.qmd
+      - 13_FE_Intro.qmd
+      - 14_FE_Model.qmd
+      - 15_FE_ANOVA.qmd
     
     - glossary.qmd
 
@@ -41,10 +43,9 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
-    fig_caption: true
     number-sections: true
     number-figures: true
-    css: styles.css
+    css: custom.css
   pdf:
     documentclass: scrreprt
     number-sections: true

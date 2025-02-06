@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09_RCBD_Model.html" rel="next">
+<link href="./09_RCBD_Intro.html" rel="next">
 <link href="./07_CRD_ANOVA.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -69,8 +103,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -117,6 +180,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -200,20 +269,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model for RCDB</span></span></a>
+  <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The model for RCBD</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  <a href="./11_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -229,14 +304,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -252,8 +333,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#contrasting-pairs-of-treatment-means" id="toc-contrasting-pairs-of-treatment-means" class="nav-link active" data-scroll-target="#contrasting-pairs-of-treatment-means">Contrasting pairs of treatment means</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -277,8 +364,108 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>The aim in many experiments is to compare treatments. To do this we contrast one group of means with another, i.e.&nbsp;we compare means, or groups of means, to see if treatments differ, and by how much they differ. A comparison of (groups of) treatments is called a contrast. If the experiment has been conducted as a result of specific research hypotheses, these will already define the contrasts we should construct first.</p>
+<p>For single-factor completely randomised designs with only two treatments, we could conduct a t-test to compare the two means or construct a confidence interval to estimate the difference. But we know that with more than two treatments, we encounter problems of multiple testing. How do we contrast treatments when we have a factor with more than two levels?</p>
+<section id="contrasting-pairs-of-treatment-means" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="contrasting-pairs-of-treatment-means">Contrasting pairs of treatment means</h2>
+<p>We wrote the ANOVA model as:</p>
+<p><span class="math display">\[Y_{ij} = \mu + A_i + e_{ij}\]</span></p>
+<p>with overall mean and the treatment effects as the parameters (as well as the error variance). Because the effects are constrained to sum to zero, i.e.&nbsp;<span class="math inline">\(\sum_i^a A_i = 0\)</span> we call this ANOVA model the <em>sum-to-zero</em> parameterisation.</p>
+<p>The above parameterisation is useful for constructing ANOVA tables. For estimating differences between treatments, however, a different parameterisation is more useful:</p>
+<p><span class="math display">\[Y_{ij} = A_i + e_{ij}\]</span> In this version, we no longer have the overall mean as a parameter but use only the treatment effects αi. Remember that any model ultimately needs to describe the treatment means. There are a number of different ways in which to do this. One is the so-called <em>treatment contrast</em> parameterisation, which R uses as default for regression models. In this parameterisation, <span class="math inline">\(A_1\)</span> estimates the mean of the baseline treatment (by default, R orders the treatments alphabetically and takes the first one as baseline). The other parameters then estimate the difference between each treatment and the baseline treatment: <span class="math inline">\(A_2\)</span> estimates the difference between the second and the first treatment, <span class="math inline">\(A_3\)</span> estimates the difference between the third and the first, etc.</p>
+<p>To get a better understanding of this, let’s fit the model to the social media data with this parameterisation. In R, this is done by using the <code>lm</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>m1.tc <span class="ot">&lt;-</span> <span class="fu">lm</span>(Posttest <span class="sc">~</span> Group, <span class="at">data =</span> multitask)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1.tc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Posttest ~ Group, data = multitask)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-32.964 -10.175   0.583   8.550  37.408 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   75.634      2.237  33.812  &lt; 2e-16 ***
+GroupExp1    -12.752      3.163  -4.031 9.92e-05 ***
+GroupExp2    -23.394      3.163  -7.395 2.32e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.15 on 117 degrees of freedom
+Multiple R-squared:  0.3191,    Adjusted R-squared:  0.3075 
+F-statistic: 27.42 on 2 and 117 DF,  p-value: 1.717e-10</code></pre>
+</div>
+</div>
+<p>This is exactly the same output as you have seen before in the regression section! The intercept measures the mean of the baseline treatment (here it is the Control group). The next estimate <code>GroupExp1</code> is the difference between the mean of Experiment 1 and the mean of the Control group. Simirlarly, the last one is the difference between the mean of the Control Group and that of Experiment 2. You cn verify this by using the mean estimates we obatin when we fit the model previously:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of means
+Grand mean
+         
+63.58527 
+
+ Group 
+Group
+Control    Exp1    Exp2 
+  75.63   62.88   52.24 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">62.88</span> <span class="sc">-</span> <span class="fl">75.63</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -12.75</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fl">52.24</span> <span class="sc">-</span> <span class="fl">75.63</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -23.39</code></pre>
+</div>
+</div>
+<p>Why is this useful? Now, we can formally test whether these differences are statistically significant using a hypothesis test!</p>
+<p>Think back to regression—what was the null hypothesis for the coefficients in the output?</p>
+<p>It was:</p>
+<p><span class="math display">\[\beta_i = 0\]</span>.</p>
+<p>The same principle applies here. We test whether the treatment effects (<span class="math inline">\(A_i\)</span>) are equal to zero:</p>
+<p><span class="math display">\[H_0: A_i = 0\]</span></p>
+<p>Since we are interested in testing differences between groups, and the control group serves as the baseline, we are specifically testing:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0: A_2 &amp;= 0 \\
+H_0: A_3 &amp;= 0
+\end{aligned}
+\]</span></p>
+<p>This is the test that R conducts in the output above. It tests, for the last two parameters, the hypothesis that the difference between Experiment 1 and the Control is zero an that the difference between Experiment 2 and the Control is zero. In both cases, the p-values are extremely small which suggets that there are differences (the effects are not equal to zero). What about the intercept? This is testing that the mean of the Control group is zero. So, it tests whether the students in the control group scored zero on average. This doesn’t really make sense and it is not a useful test. So not all tests that R carries out are necessarily useful or informative! Very often testing whether the intercept is different from zero is not interesting.</p>
+<p>What if we are intersted in the contrast R perform by default? but we wanted to know whetehr there is a difference between the other two groups? We simply need to change the baseline treatment that R uses and we can do this easily using the <code>relevel</code> command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>m1.tc <span class="ot">&lt;-</span> <span class="fu">lm</span>(Posttest <span class="sc">~</span> <span class="fu">relevel</span>(Group, <span class="at">ref =</span><span class="st">"Exp1"</span>), <span class="at">data =</span> multitask)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1.tc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Posttest ~ relevel(Group, ref = "Exp1"), data = multitask)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-32.964 -10.175   0.583   8.550  37.408 
+
+Coefficients:
+                                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                           62.882      2.237  28.111  &lt; 2e-16 ***
+relevel(Group, ref = "Exp1")Control   12.752      3.163   4.031 9.92e-05 ***
+relevel(Group, ref = "Exp1")Exp2     -10.642      3.163  -3.364  0.00104 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.15 on 117 degrees of freedom
+Multiple R-squared:  0.3191,    Adjusted R-squared:  0.3075 
+F-statistic: 27.42 on 2 and 117 DF,  p-value: 1.717e-10</code></pre>
+</div>
+</div>
+<p>Notice that the residual standard error, F-value and other statistics at the end of the output are exactly the same as for Model m1.tc above. The two models are equivalent and provide the same fit to the data. The only difference is that the parameters have different interpretations.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -705,8 +892,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09_RCBD_Model.html" class="pagination-link" aria-label="Model for RCDB">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model for RCDB</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./09_RCBD_Intro.html" class="pagination-link" aria-label="Introduction">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

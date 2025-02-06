@@ -137,13 +137,15 @@ qqline(multitask$Posttest, col = "red")
 
 The `qqnorm` function plots the theoretical quantiles on the x-axis and the sample quantile son the y-axis. So each point on the plot corresponds to a quantile from the sample plooted against the expected quantile from the standard normal distribution. As a reference we add a straight 45-degree line (in red) using the `qqline` function to indicate what perfect normality would look like.
 
-### Independent erros {.unnumbered}
+### Independent errors {.unnumbered}
+
+The assumption is that the errors are independent. While we can check for certain types of dependence in the residuals (estimates of errors) after fitting the ANOVA (as we will see later), dependence among observations generally results in dependent residuals. Therefore, before fitting any models, we examine the observations and the experimental design to identify potential violations of independence.
 
 In statistics, if one observation influences another in some way or another, they are said to be dependent. For the type of data considered here, there are two types of independence we require. Firstly, observations within treatments should be independent and second, observations between samples should be independent. Another way of saying this, is **there should be independence within and among treatments.** Depending on the direction of any violations, the within treatment variance or among treatment variance can either be deflated or inflated and treatment effects can be biased. This has considerable impact on the test statistic (F-ratio for ANOVAs, more on this later) which could lead to misleading results. [^05_crd_intro-2]
 
 [^05_crd_intro-2]: @underwood_1996 has a very detailed explanation of the independence assumption (and the others) in the context of ANOVA. The book is for ecological experiments, but much of it pertains to all types of experiments.
 
-Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Deependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool's reading gradually changes over time), physical effects (e.g. temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected.
+Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Deependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool's reading gradually changes over time), physical effects (e.g. temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected (this is what we check after model fitting). 
 
 An informal check we could do, is to plot the data in the order in which they were collected (if this information is available) whether that is temporally or spatially to see if any patterns emerge. To do this in R, we can create a Cleveland dot plot.
 
@@ -168,11 +170,30 @@ It is the onus of the experimenter to design and conduct experiments that ensure
 
 1.  In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated).
 
-2.  No real data set ever meets all assumptions of a model perfectly (remember "all models are wrong..."). Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from **experience**. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That's best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn't change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.
+2.  No real data set ever meets all assumptions of a model perfectly. As the famous (at least in the world of statistics) quote by George Box goes: "All models are wrong but some are useful." Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from **experience**. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That's best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn't change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.
+
+{{< downloadthis assumptioncheckingsim.R class=styled id=btn1 label="R code">}}
+
 :::
 
-Note:
 
-TIPS:
+## Summary
 
--   increase focus, improve studying
+Completely Randomized Designs (**CRDs**) are the simplest experimental designs, used when experimental units are **uniform** and expected to react similarly to treatments. Since no nuisance factors are controlled, randomization occurs **without restriction**, and treatments are **evenly assigned** across experimental units (**balanced design**).  
+
+The social media multitasking study served as an example, where 120 students were randomly assigned to three groups (Control, SMS, Facebook) to measure their academic performance. This setup represents a single-factor CRD, where students are both the experimental and observational units with 40 replicates per group.  
+
+Before conducting ANOVA, we:
+
+- Checked the dataset for correct structure (120 observations, treatment groups as factors).  
+- Inspected summary statistics and visualized distributions (boxplots, histograms, Q-Q plots).  
+
+For ANOVA, the following assumptions were examined:
+
+1. **Outliers**: Check via boxplots.  
+2. **Equal variance**: Assess using interquartile ranges and ratio of sample standard deviations.
+3. **Normality of errors**: Verified using Q-Q plots.  
+4. **Independence within and between treatment groups**: Considered through study design. 
+
+Proper experimental design ensures valid conclusions. Identifying violations of assumptions early helps prevent biased results. 
+

@@ -1,3 +1,0 @@
----
-title: "Model for Factorial Experiments"
----

@@ -1,0 +1,45 @@
+---
+title: "Introduction"
+---
+---
+title: "Introduction"
+---
+
+So far, we have examined completely randomised designs where randomisation of experimental units to treatments was completely unrestricted. With complete randomisation, all other variables (the environment that we can never control completely) that might affect the response are, on average, equal in all treatment groups. This allows us to be confident that differences in group means are due to the treatments.  
+
+However, there is often important variation in additional variables that we are not directly interested in. If we can group our experimental units with respect to these variables to make them more similar, we achieve a more powerful design. This is the idea of blocking.  
+
+If blocks are used effectively, we can separate variability due to treatments, blocks, and errors, reducing unexplained variability. That is, variability between blocks can be estimated and removed from the residual error. Essentially, we compare treatments over more similar experimental units than in a completely randomised design. With reduced error variance, our test becomes more powerful.
+
+Blocking is also useful when we want to demonstrate that treatment differences hold over a wider range of conditions. For example, suppose you wanted to test the effect of different grazing regimes on grassland biodiversity. You could set up your experiment on one field using a completely randomised design. Strictly speaking, your results would then only apply to that particular field, limiting broader conclusions about grasslands. Alternatively, you could choose multiple fields and apply one replicate of each treatment within every field. In this case, field would be the blocking factor.  
+
+More generally, we often want to show that our results hold for different species, age groups, or  biological sexes. In such cases, we could use species, age, or sex as blocks. While blocks are typically used to control for variation in variables we are not directly interested in, sometimes these factors may also be of interest in their own right.  
+
+### Treatments vs. Blocks  
+
+When is a factor a treatment, and when is it a block?  
+
+A good way to distinguish them is by asking whether we can manipulate the factor and randomly assign experimental units to its levels.  
+
+- We generally cannot manipulate the age or sex of an individual, but we can manipulate the food they receive. So, age and sex are blocking factors, whereas food type is a treatment. 
+
+- We can manipulate grazing regime, but we cannot manipulate field. So, grazing regime is a treatment, while field is a block.  
+
+Although we can always estimate differences between blocks, we need to be much more cautious when inferring causality from block-level differences.  
+
+For example, if we are studying the growth of different varieties of a plant species, we cannot randomly assign variety to seeds. However, variety is still the main factor of interest. We would analyze differences between varieties as we would for any treatment factor. Still, we must be careful when attributing differences solely to variety. Other factors, such as seed batch age, previous sun exposure, or other pre-treatment conditions, could also influence growth. Since we cannot randomly assign variety, we cannot be certain that observed differences are only due to variety.  
+
+### Choosing Blocking Factors  
+
+Any variable that might affect the response should be considered for blocking. Common blocking factors include:  
+
+- Space: field, site, placement within a field, greenhouse.  
+- Time: experimental replication over different days or weeks.  
+- Subject: person, animal, plant, genotype.  
+- Equipment: container types, growth chambers.  
+
+For example, if experimental units are tubs in a field, it is useful to arrange them into spatial blocks to control for field gradients. If an experiment spans multiple days, a good practice is to replicate all treatments on the first day, another set on the second day, and so on. In this case, day serves as the blocking factor, absorbing any environmental changes (e.g., temperature, humidity) rather than inflating the error variance.
+
+Similarly, if experimental units must be distributed across multiple greenhouses or involve different container types, one approach is to assign a block per greenhouse or container type. This ensures that equipment effects are accounted for in the block variance rather than being mistaken for treatment effects.  
+
+The key takeaway is that reducing error variance increases the power of the experiment. Thoughtful blocking design helps achieve this by accounting for known sources of variation.  

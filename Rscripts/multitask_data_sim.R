@@ -65,6 +65,7 @@ sim_df1 <- data.frame(Group, Posttest)
 mod1 <- aov(Posttest ~ Group, data = sim_df1)
 summary(mod1)
 
+plot(m1)
 
 # Checking assumptions
 
@@ -78,6 +79,7 @@ dotchart(sim_df1$Posttest)
 
 
 summary(sim_df1)
+sim_df1
 write.csv(sim_df1,file="multitask_performance.csv", row.names = F)
 
 # Method 2 -------------------------------------

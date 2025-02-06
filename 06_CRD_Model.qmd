@@ -358,3 +358,20 @@ model.tables(m1, type = "means", se = TRUE)
 ```
 
 So, now we have parameter estimated and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we diited and the parameters we estimated, how do we test this? The answer is with an ANOVA table.
+
+## Summary
+
+This chapter introduces the Completely Randomized Design (CRD) model and explains why ANOVA is preferred over multiple t-tests, which inflate the Type 1 Error rate.
+
+In ANOVA, each observation is modeled as:
+
+$$
+Y_{ij} = \mu + A_{i} + e_{ij}
+$$
+
+
+where $\mu$ is the overall mean, $A_{i}$ is the treatment effect (difference between treatment mean $\mu_i$ and the overall mean), and $e_{ij}$ is random error which normally distributed with mean 0 and variance ($\sigma^2$).
+
+Parameters are estimated using least squares, with the mean squares error (MSE) providing an estimate of variance ($\sigma^2$).
+
+Applying ANOVA to the social media multitasking study, we estimated treatment means and effects together with their standard errors, setting the stage for hypothesis testing using an ANOVA table.

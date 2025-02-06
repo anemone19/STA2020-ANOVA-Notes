@@ -95,6 +95,7 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -153,7 +154,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="nav-sidebar floating slimcontent">
@@ -200,6 +201,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -283,20 +290,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model for RCDB</span></span></a>
+  <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The model for RCBD</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  <a href="./11_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -312,14 +325,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -347,8 +366,9 @@ window.Quarto = {
   <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
   <li><a href="#equal-population-variance" id="toc-equal-population-variance" class="nav-link" data-scroll-target="#equal-population-variance">Equal population variance</a></li>
   <li><a href="#normally-distributed-errors" id="toc-normally-distributed-errors" class="nav-link" data-scroll-target="#normally-distributed-errors">Normally distributed errors</a></li>
-  <li><a href="#independent-erros" id="toc-independent-erros" class="nav-link" data-scroll-target="#independent-erros">Independent erros</a></li>
+  <li><a href="#independent-errors" id="toc-independent-errors" class="nav-link" data-scroll-target="#independent-errors">Independent errors</a></li>
   </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.4</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -562,12 +582,13 @@ Figure&nbsp;5.1: Boxplots of Post treatment scores by group.
 </div>
 <p>The <code>qqnorm</code> function plots the theoretical quantiles on the x-axis and the sample quantile son the y-axis. So each point on the plot corresponds to a quantile from the sample plooted against the expected quantile from the standard normal distribution. As a reference we add a straight 45-degree line (in red) using the <code>qqline</code> function to indicate what perfect normality would look like.</p>
 </section>
-<section id="independent-erros" class="level3 unnumbered page-columns page-full">
-<h3 class="unnumbered anchored" data-anchor-id="independent-erros">Independent erros</h3>
+<section id="independent-errors" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="independent-errors">Independent errors</h3>
+<p>The assumption is that the errors are independent. While we can check for certain types of dependence in the residuals (estimates of errors) after fitting the ANOVA (as we will see later), dependence among observations generally results in dependent residuals. Therefore, before fitting any models, we examine the observations and the experimental design to identify potential violations of independence.</p>
 <p>In statistics, if one observation influences another in some way or another, they are said to be dependent. For the type of data considered here, there are two types of independence we require. Firstly, observations within treatments should be independent and second, observations between samples should be independent. Another way of saying this, is <strong>there should be independence within and among treatments.</strong> Depending on the direction of any violations, the within treatment variance or among treatment variance can either be deflated or inflated and treatment effects can be biased. This has considerable impact on the test statistic (F-ratio for ANOVAs, more on this later) which could lead to misleading results. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;<span class="citation" data-cites="underwood_1996">Underwood (<a href="#ref-underwood_1996" role="doc-biblioref">1996</a>)</span> has a very detailed explanation of the independence assumption (and the others) in the context of ANOVA. The book is for ecological experiments, but much of it pertains to all types of experiments.</p><div id="ref-underwood_1996" class="csl-entry" role="listitem">
 Underwood, A. J. 1996. <span>“Analysis of Variance.”</span> In <em>Experiments in Ecology: Their Logical Design and Interpretation Using Analysis of Variance</em>, 140–97. Cambridge University Press.
-</div></div></div><p>Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Deependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool’s reading gradually changes over time), physical effects (e.g.&nbsp;temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected.</p>
+</div></div></div><p>Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Deependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool’s reading gradually changes over time), physical effects (e.g.&nbsp;temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to autocorrelated residuals; observations made closer together in time or space are more similar to each other than expected (this is what we check after model fitting).</p>
 <p>An informal check we could do, is to plot the data in the order in which they were collected (if this information is available) whether that is temporally or spatially to see if any patterns emerge. To do this in R, we can create a Cleveland dot plot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dotchart</span>(multitask<span class="sc">$</span>Posttest, <span class="at">ylab =</span> <span class="st">"Order of observation"</span>, <span class="at">xlab =</span><span class="st">"Post treatment test score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -596,19 +617,44 @@ Note
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated).</p></li>
-<li><p>No real data set ever meets all assumptions of a model perfectly (remember “all models are wrong…”). Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from <strong>experience</strong>. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That’s best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn’t change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.</p></li>
+<li><p>No real data set ever meets all assumptions of a model perfectly. As the famous (at least in the world of statistics) quote by George Box goes: “All models are wrong but some are useful.” Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from <strong>experience</strong>. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That’s best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn’t change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.</p></li>
 </ol>
+<p><a href="#btn1" onclick="fetch('data:text/plain;base64,CiMgVGhpcyBzY3JpcHQgd2FzIGNyZWF0ZWQgYnkgUmVzIEFsdHdlZ2csIEJpcmdpdCBFcm5pIGFuZCBHcmVnIERpc3RpbGxlciAKCiMgVGhlIHBpZWNlcyBvZiBjb2RlIGJlbG93IGdlbmVyYXRlIGRhdGEgd2l0aCBwYXJ0aWN1bGFyIHByb2JsZW1zLiAKIyBFYWNoIHBpZWNlIGNvbnNpc3RzIG9mIHR3byBwYXJ0czogZmlyc3Qgd2UgZ2VuZXJhdGUgdGhlIGRhdGEgYW5kIHRoZW4gd2UgZXhwbG9yZSB0aGVtIChzZWUgaG93IHRoZSBwcm9ibGVtcyBsb29rIGxpa2UgaW4gdGhlIHBsb3RzKQoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQojIHRvIHN0YXJ0IHdpdGg6IGFsbCBhc3N1bXB0aW9ucyBhcmUgbWV0ICh0aGUgaWRlYWwgd29ybGQuLi4pCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0Kc2FtcGxlcyA8LSAxMCAgIyBudW1iZXIgb2YgcmVwbGljYXRlcyBwZXIgdHJlYXRtZW50CnRyZWF0IDwtIHJlcChjKCJBIiwiQiIsIkMiLCJEIiwiRSIpLCBlYWNoPXNhbXBsZXMpICAjIHZlY3RvciB3aXRoIHRyZWF0bWVudCBsYWJlbHMKcG9wdWxhdGlvbi5tZWFucyA8LSBjKDExLDE4LDEzLDE3LDE1KSAgIyBwb3B1bGF0aW9uIG1lYW5zCnBvcHVsYXRpb24uc2RzIDwtYyg0LDQsNCw0LDQpICAjIHBvcHVsYXRpb24gc3RhbmRhcmQgZGV2aWF0aW9ucwpyZXNwIDwtIHJub3JtKHNhbXBsZXMqNSwgcmVwKHBvcHVsYXRpb24ubWVhbnMsIGVhY2g9c2FtcGxlcyksIHJlcChwb3B1bGF0aW9uLnNkcywgZWFjaD1zYW1wbGVzKSkgIyBzaW11bGF0ZSByZXNwb25zZQoKZGF0IDwtIGRhdGEuZnJhbWUodHJlYXQsIHJlc3ApICMgcHV0IHRyZWF0bWVudCBsYWJlbHMgYW5kIHNpbXVsYXRlZCByZXNwb25zZSBpbnRvIGEgZGF0YSBmcmFtZQoKIyAtLS0gZGF0YSBleHBsb3JhdGlvbiAtLS0KCmJveHBsb3QoIHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIHJhbmdlPTAsbGFzPTEsCiAgICAgICAgIG5vdGNoPUYsICMgaGVscHMgdG8gY29tcGFyZSBwb3AgbWVhbnMKICAgICAgICAgeGxhYj0nUG90aW9uJywgeWxhYj0nUGVyZm9ybWFuY2UnKQoKc3RyaXBjaGFydChyZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCBhZGQ9VFJVRSwgCiAgICAgICAgICAgdmVydGljYWw9VFJVRSwgbWV0aG9kPSJqaXR0ZXIiLCBqaXR0ZXI9LjEpCgptMSA8LSBhb3YocmVzcH50cmVhdCwgZGF0YT1kYXQpICAjIGZpdCBBTk9WQQpvcDwtcGFyKG1mcm93PWMoMiwyKSkgICMgc2V0IHVwIGdyYXBoIHRvIHBsb3QgNCBwYW5lbHMKcGxvdChtMSkgICMgZGlhZ25vc3RpYyBwbG90cwpwYXIob3ApICAjIHJlc2V0IGdyYXBoaWNhbCBwYXJhbWV0ZXJzIHRvIHdoYXQgdGhleSB3ZXJlIGJlZm9yZQojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQojIHVuZXF1YWwgcG9wdWxhdGlvbiB2YXJpYW5jZXMKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpzYW1wbGVzIDwtIDEwICAjIG51bWJlciBvZiByZXBsaWNhdGVzIHBlciB0cmVhdG1lbnQKdHJlYXQgPC0gcmVwKGMoIkEiLCJCIiwiQyIsIkQiLCJFIiksIGVhY2g9c2FtcGxlcykgICMgdmVjdG9yIHdpdGggdHJlYXRtZW50IGxhYmVscwpwb3B1bGF0aW9uLm1lYW5zIDwtIGMoMTEsMTgsMTMsMTcsMTUpICAjIHBvcHVsYXRpb24gbWVhbnMKcG9wdWxhdGlvbi5zZHMgPC1jKDEsMTAsNSw3LDIpICAjIHBvcHVsYXRpb24gc3RhbmRhcmQgZGV2aWF0aW9ucwpyZXNwIDwtIHJub3JtKHNhbXBsZXMqNSwgcmVwKHBvcHVsYXRpb24ubWVhbnMsIGVhY2g9c2FtcGxlcyksIHJlcChwb3B1bGF0aW9uLnNkcywgZWFjaD1zYW1wbGVzKSkgIyBzaW11bGF0ZSByZXNwb25zZQoKZGF0IDwtIGRhdGEuZnJhbWUodHJlYXQsIHJlc3ApICMgcHV0IHRyZWF0bWVudCBsYWJlbHMgYW5kIHNpbXVsYXRlZCByZXNwb25zZSBpbnRvIGEgZGF0YSBmcmFtZQoKIyAtLS0gZGF0YSBleHBsb3JhdGlvbiAtLS0KCmJveHBsb3QoIHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIHJhbmdlPTAsbGFzPTEsCiAgICAgICAgIG5vdGNoPUYsICMgaGVscHMgdG8gY29tcGFyZSBwb3AgbWVhbnMKICAgICAgICAgeGxhYj0nUG90aW9uJywgeWxhYj0nUGVyZm9ybWFuY2UnKQoKc3RyaXBjaGFydChyZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCBhZGQ9VFJVRSwgCiAgICAgICAgICAgdmVydGljYWw9VFJVRSwgbWV0aG9kPSJqaXR0ZXIiLCBqaXR0ZXI9LjEpCgptMSA8LSBhb3YocmVzcH50cmVhdCwgZGF0YT1kYXQpICAjIGZpdCBBTk9WQQpvcDwtcGFyKG1mcm93PWMoMiwyKSkgICMgc2V0IHVwIGdyYXBoIHRvIHBsb3QgNCBwYW5lbHMKcGxvdChtMSkgICMgZGlhZ25vc3RpYyBwbG90cwpwYXIob3ApICAjIHJlc2V0IGdyYXBoaWNhbCBwYXJhbWV0ZXJzIHRvIHdoYXQgdGhleSB3ZXJlIGJlZm9yZQojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKIyBvdXRsaWVycwojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCnNhbXBsZXMgPC0gMTAgICMgbnVtYmVyIG9mIHJlcGxpY2F0ZXMgcGVyIHRyZWF0bWVudAp0cmVhdCA8LSByZXAoYygiQSIsIkIiLCJDIiwiRCIsIkUiKSwgZWFjaD1zYW1wbGVzKSAgIyB2ZWN0b3Igd2l0aCB0cmVhdG1lbnQgbGFiZWxzCnBvcHVsYXRpb24ubWVhbnMgPC0gYygxMSwxOCwxMywxNywxNSkgICMgcG9wdWxhdGlvbiBtZWFucwpwb3B1bGF0aW9uLnNkcyA8LWMoNCw0LDQsNCw0KSAgIyBwb3B1bGF0aW9uIHN0YW5kYXJkIGRldmlhdGlvbnMKcmVzcCA8LSBybm9ybShzYW1wbGVzKjUsIHJlcChwb3B1bGF0aW9uLm1lYW5zLCBlYWNoPXNhbXBsZXMpLCByZXAocG9wdWxhdGlvbi5zZHMsIGVhY2g9c2FtcGxlcykpICMgc2ltdWxhdGUgcmVzcG9uc2UKCmRhdCA8LSBkYXRhLmZyYW1lKHRyZWF0LCByZXNwKSAjIHB1dCB0cmVhdG1lbnQgbGFiZWxzIGFuZCBzaW11bGF0ZWQgcmVzcG9uc2UgaW50byBhIGRhdGEgZnJhbWUKZGF0JHJlc3BbYyg1LDE2LDE3KV0gPC0gZGF0JHJlc3BbYyg1LDE2LDE3KV0gKiAzICAjIGNoYW5nZSBzb21lIGRhdGEgcG9pbnRzIHNvIHRoZXkgYmVjb21lIG91dGxpZXJzCgojIC0tLSBkYXRhIGV4cGxvcmF0aW9uIC0tLQoKYm94cGxvdCggcmVzcCB+IHRyZWF0LCBkYXRhPWRhdCwgcmFuZ2U9MCxsYXM9MSwKICAgICAgICAgbm90Y2g9RiwgIyBoZWxwcyB0byBjb21wYXJlIHBvcCBtZWFucwogICAgICAgICB4bGFiPSdQb3Rpb24nLCB5bGFiPSdQZXJmb3JtYW5jZScpCgpzdHJpcGNoYXJ0KHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIGFkZD1UUlVFLCAKICAgICAgICAgICB2ZXJ0aWNhbD1UUlVFLCBtZXRob2Q9ImppdHRlciIsIGppdHRlcj0uMSkKCm0xIDwtIGFvdihyZXNwfnRyZWF0LCBkYXRhPWRhdCkgICMgZml0IEFOT1ZBCm9wPC1wYXIobWZyb3c9YygyLDIpKSAgIyBzZXQgdXAgZ3JhcGggdG8gcGxvdCA0IHBhbmVscwpwbG90KG0xKSAgIyBkaWFnbm9zdGljIHBsb3RzCnBhcihvcCkgICMgcmVzZXQgZ3JhcGhpY2FsIHBhcmFtZXRlcnMgdG8gd2hhdCB0aGV5IHdlcmUgYmVmb3JlCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCgojIHNrZXcgZGlzdHJpYnV0aW9ucyAobm9ybWFsaXR5IGFzc3VtcHRpb24gdmlvbGF0ZWQpCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0Kc2FtcGxlcyA8LSAyMCAgIyBudW1iZXIgb2YgcmVwbGljYXRlcyBwZXIgdHJlYXRtZW50CnRyZWF0IDwtIHJlcChjKCJBIiwiQiIsIkMiLCJEIiwiRSIpLCBlYWNoPXNhbXBsZXMpICAjIHZlY3RvciB3aXRoIHRyZWF0bWVudCBsYWJlbHMKcG9wdWxhdGlvbi5tZWFucyA8LSBsb2coYygxMSwxOCwxMywxNywxNSkpICAjIHBvcHVsYXRpb24gbWVhbnMKcG9wdWxhdGlvbi5zZHMgPC1jKDEsMSwxLDEsMSkgICMgcG9wdWxhdGlvbiBzdGFuZGFyZCBkZXZpYXRpb25zCnJlc3AgPC0gZXhwKHJub3JtKHNhbXBsZXMqNSwgcmVwKHBvcHVsYXRpb24ubWVhbnMsIGVhY2g9c2FtcGxlcyksIHJlcChwb3B1bGF0aW9uLnNkcywgZWFjaD1zYW1wbGVzKSkpICMgc2ltdWxhdGUgcmVzcG9uc2UKCmRhdCA8LSBkYXRhLmZyYW1lKHRyZWF0LCByZXNwKSAjIHB1dCB0cmVhdG1lbnQgbGFiZWxzIGFuZCBzaW11bGF0ZWQgcmVzcG9uc2UgaW50byBhIGRhdGEgZnJhbWUKCiMgLS0tIGRhdGEgZXhwbG9yYXRpb24gLS0tCgpib3hwbG90KCByZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCByYW5nZT0wLGxhcz0xLAogICAgICAgICBub3RjaD1GLCAjIGhlbHBzIHRvIGNvbXBhcmUgcG9wIG1lYW5zCiAgICAgICAgIHhsYWI9J1BvdGlvbicsIHlsYWI9J1BlcmZvcm1hbmNlJykKCnN0cmlwY2hhcnQocmVzcCB+IHRyZWF0LCBkYXRhPWRhdCwgYWRkPVRSVUUsIAogICAgICAgICAgIHZlcnRpY2FsPVRSVUUsIG1ldGhvZD0iaml0dGVyIiwgaml0dGVyPS4xKQoKbTEgPC0gYW92KHJlc3B+dHJlYXQsIGRhdGE9ZGF0KSAgIyBmaXQgQU5PVkEKb3A8LXBhcihtZnJvdz1jKDIsMikpICAjIHNldCB1cCBncmFwaCB0byBwbG90IDQgcGFuZWxzCnBsb3QobTEpICAjIGRpYWdub3N0aWMgcGxvdHMKcGFyKG9wKSAgIyByZXNldCBncmFwaGljYWwgcGFyYW1ldGVycyB0byB3aGF0IHRoZXkgd2VyZSBiZWZvcmUKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKCiMgZXJyb3JzIG5vdCBpbmRlcGVuZGVudCAoaW4gdGhpcyBleGFtcGxlOiBkcmlmdCBpbiB0aGUgbWVhc3VyZW1lbnRzIG92ZXIgdGltZSkKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpzYW1wbGVzIDwtIDIwICAjIG51bWJlciBvZiByZXBsaWNhdGVzIHBlciB0cmVhdG1lbnQKdHJlYXQgPC0gcmVwKGMoIkEiLCJCIiwiQyIsIkQiLCJFIiksIGVhY2g9c2FtcGxlcykgICMgdmVjdG9yIHdpdGggdHJlYXRtZW50IGxhYmVscwpwb3B1bGF0aW9uLm1lYW5zIDwtIGMoMTEsMTgsMTMsMTcsMTUpICAjIHBvcHVsYXRpb24gbWVhbnMKcG9wdWxhdGlvbi5zZHMgPC1jKDEsMSwxLDEsMSkgICMgcG9wdWxhdGlvbiBzdGFuZGFyZCBkZXZpYXRpb25zCnJlc3AgPC0gcm5vcm0oc2FtcGxlcyo1LCByZXAocG9wdWxhdGlvbi5tZWFucywgZWFjaD1zYW1wbGVzKSwgcmVwKHBvcHVsYXRpb24uc2RzLCBlYWNoPXNhbXBsZXMpKSAjIHNpbXVsYXRlIHJlc3BvbnNlCgpkYXQgPC0gZGF0YS5mcmFtZSh0cmVhdCwgcmVzcCkgIyBwdXQgdHJlYXRtZW50IGxhYmVscyBhbmQgc2ltdWxhdGVkIHJlc3BvbnNlIGludG8gYSBkYXRhIGZyYW1lCnRpbWUgPC0gc2FtcGxlKDE6bGVuZ3RoKHRyZWF0KSkgICMgYSB2ZWN0b3IgZ2l2aW5nIHRoZSBvcmRlciBpbiB3aGljaCB0aGUgZGF0YSB3ZXJlIGNvbGxlY3RlZCAod2UgYXNzdW1lIHRoYXQgb3JkZXIgd2FzIHJhbmRvbWlzZWQgaW4gdGhpcyBleHBlcmltZW50KQpkYXQkcmVzcCA8LSBkYXQkcmVzcCAqICgxK3RpbWUvMTAwKSAgIyBhZGQgdGVtcG9yYWwgZHJpZnQgZWZmZWN0IHRvIG9ic2VydmF0aW9ucwoKIyAtLS0gZGF0YSBleHBsb3JhdGlvbiAtLS0KCiMgaGFyZCB0byBzZWUgdGhhdCBhbnl0aGluZyBpcyB3cm9uZyBpbiB0aGUgYm94cGxvdHM6CmJveHBsb3QoIHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIHJhbmdlPTAsbGFzPTEsCiAgICAgICAgIG5vdGNoPUYsICMgaGVscHMgdG8gY29tcGFyZSBwb3AgbWVhbnMKICAgICAgICAgeGxhYj0nUG90aW9uJywgeWxhYj0nUGVyZm9ybWFuY2UnKQoKc3RyaXBjaGFydChyZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCBhZGQ9VFJVRSwgCiAgICAgICAgICAgdmVydGljYWw9VFJVRSwgbWV0aG9kPSJqaXR0ZXIiLCBqaXR0ZXI9LjEpCgojIGRvdHBsb3QgKHdlIHBsb3QgdGhlIGRhdGEgaW4gc2VxdWVuY2Ugb2Ygb2JzZXJ2YXRpb24sIGkuZS4gdGltZSk6Cm9kPC1vcmRlcih0aW1lKSAgIyB0aGlzIGdpdmVzIHVzIHRoZSBvcmRlciBvZiB0aGUgb2JzZXJ2YXRpb25zIGluIHRpbWUsIHdoaWNoIHdlJ2xsIHVzZSB0byBzb3J0IHRoZSBvYnNlcnZhdGlvbnMgZm9yIHRoZSBwbG90CmRvdGNoYXJ0KGRhdCRyZXNwW29kXSx5bGFiPSJPcmRlciBvZiBvYnNlcnZhdGlvbiIsIHhsYWI9IlBlcmZvcm1hbmNlIikKCm0xIDwtIGFvdihyZXNwfnRyZWF0LCBkYXRhPWRhdCkgICMgZml0IEFOT1ZBCm9wPC1wYXIobWZyb3c9YygyLDIpKSAgIyBzZXQgdXAgZ3JhcGggdG8gcGxvdCA0IHBhbmVscwpwbG90KG0xKSAjIHJlZ3VsYXIgZGlhZ25vc3RpYyBwbG90cyBhbHNvIGRvbid0IHNob3cgdGhhdCB0aGVyZSBpcyBhIHByb2JsZW0KcGFyKG9wKSAgIyByZXNldCBncmFwaGljYWwgcGFyYW1ldGVycyB0byB3aGF0IHRoZXkgd2VyZSBiZWZvcmUKCnBsb3QodGltZSwgcmVzaWQobTEpKSAgIyBwbG90dGluZyByZXNpZHVhbHMgYWdhaW5zdCB0ZW1wb3JhbCBzZXF1ZW5jZSBzaG93cyB0aGUgcHJvYmxlbTogYSBjbGVhciB0cmVuZCBvdmVyIHRpbWUKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoK').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'file.R'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  styled" id="btn1"><i class="bi bi-download"></i> R code </button></a></p>
 </div>
 </div>
-<p>Note:</p>
-<p>TIPS:</p>
-<ul>
-<li>increase focus, improve studying</li>
-</ul>
-
-
-
 </section>
+</section>
+<section id="summary" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.4</span> Summary</h2>
+<p>Completely Randomized Designs (<strong>CRDs</strong>) are the simplest experimental designs, used when experimental units are <strong>uniform</strong> and expected to react similarly to treatments. Since no nuisance factors are controlled, randomization occurs <strong>without restriction</strong>, and treatments are <strong>evenly assigned</strong> across experimental units (<strong>balanced design</strong>).</p>
+<p>The social media multitasking study served as an example, where 120 students were randomly assigned to three groups (Control, SMS, Facebook) to measure their academic performance. This setup represents a single-factor CRD, where students are both the experimental and observational units with 40 replicates per group.</p>
+<p>Before conducting ANOVA, we:</p>
+<ul>
+<li>Checked the dataset for correct structure (120 observations, treatment groups as factors).<br>
+</li>
+<li>Inspected summary statistics and visualized distributions (boxplots, histograms, Q-Q plots).</li>
+</ul>
+<p>For ANOVA, the following assumptions were examined:</p>
+<ol type="1">
+<li><strong>Outliers</strong>: Check via boxplots.<br>
+</li>
+<li><strong>Equal variance</strong>: Assess using interquartile ranges and ratio of sample standard deviations.</li>
+<li><strong>Normality of errors</strong>: Verified using Q-Q plots.<br>
+</li>
+<li><strong>Independence within and between treatment groups</strong>: Considered through study design.</li>
+</ol>
+<p>Proper experimental design ensures valid conclusions. Identifying violations of assumptions early helps prevent biased results.</p>
+
+
+
 </section>
 
 
