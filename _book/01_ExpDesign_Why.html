@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./02_ExpDesign_Term.html" rel="next">
-<link href="./00_ModelConcepts.html" rel="prev">
+<link href="./00_HypoTesting.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -117,6 +117,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -200,19 +206,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model for RCDB</span></span></a>
+  <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear model &amp; ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+  <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
@@ -229,14 +241,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -282,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Imagine a company wants to determine whether their voluntary employee training program (the explanatory variable) increases productivity (the response). They decide to track the productivity of employees who chose to complete the training and those who did not. They note that, on average, trained employees are more productive. Can we confidently conclude that the training program caused increased productivity?</p>
 <p>This is an observational study since no variable was actively manipulated, they merely observed and recorded the productivity of two groups of employees. So, we cannot conclude that completing the training program increases productivity - we cannot infer causality. It could be due to many other factors, either observed or unobserved, such as maybe employees who choose to do the training program are inherently more motivated and thus productive. Can you think of any other factors?</p>
 <p>If they actively manipulate the explanatory variable, training program, by randomly assigning employees to complete the training program or not and control other factors by ensuring the employees are as similar as possible accross the groups (i.e.&nbsp;conducted an experiment). Any differences in productivity between the two groups could then be ascribed to the training program. If they happen to find that the employees who were assigned the training program are more productive, they can confidently say that the program caused increased productivity (and perhaps make it compulsory for all employees!).</p>
-<p>Experimental studies are extremely important in research and in practice. They are almost the only way in which one can control all factors to such an extent as to eliminate any other possible explanation for a change in a response other than the variable actively manipulated. In this course, we only consider experimental studies and those which aim to compare the effects of a number of <strong>treatments</strong>.</p>
+<p>Experimental studies are extremely important in research and in practice. They are almost the only way in which one can control all factors to such an extent as to eliminate any other possible explanation for a change in a response other than the variable actively manipulated. In this course, we only consider experimental studies and those which aim to compare the effects of a number of <strong>treatments</strong> (comparative experiments).</p>
 <p>Here are some other reasons for conducting experiments:</p>
 <ol type="1">
 <li><p>They are easy to analyse. A well designed experiment results in independent estimates of treatment effects which allow us to easily interpret the effects. EXPAND - independent treatment effects and/or independent treatment variables?</p></li>
@@ -714,8 +732,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./00_ModelConcepts.html" class="pagination-link" aria-label="Statistical Modelling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Modelling</span>
+      <a href="./00_HypoTesting.html" class="pagination-link" aria-label="A brief guideline to hypothesis testing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">A brief guideline to hypothesis testing</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

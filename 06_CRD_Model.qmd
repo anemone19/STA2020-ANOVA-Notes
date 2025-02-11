@@ -369,7 +369,6 @@ $$
 Y_{ij} = \mu + A_{i} + e_{ij}
 $$
 
-
 where $\mu$ is the overall mean, $A_{i}$ is the treatment effect (difference between treatment mean $\mu_i$ and the overall mean), and $e_{ij}$ is random error which normally distributed with mean 0 and variance ($\sigma^2$).
 
 Parameters are estimated using least squares, with the mean squares error (MSE) providing an estimate of variance ($\sigma^2$).

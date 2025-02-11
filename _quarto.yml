@@ -26,8 +26,8 @@ book:
     - part: "Randomised Block Designs"
       chapters:
       - 09_RCBD_Intro.qmd
+      - 11_RCBD_Assump.qmd
       - 10_RCBD_Model.qmd
-      - 11_RCBD_ANOVA.qmd
       - 12_RCBD_Contrasts.qmd
 
     - part: "Factorial Experiments"

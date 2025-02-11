@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./13_FE_Intro.html" rel="next">
-<link href="./11_RCBD_ANOVA.html" rel="prev">
+<link href="./10_RCBD_Model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,11 +103,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -212,14 +275,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The model for RCBD</span></span></a>
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -274,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_RCBD_Intro.html">Randomised Block Designs</a></li><li class="breadcrumb-item"><a href="./12_RCBD_Contrasts.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -295,6 +358,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>After finding that there evidence to suggest that at least two of the treatments differed from each other, we want to find out which ones and estimate the differences. In the Pygmalion experiment, there was only two treatments so we know the difference is between them. In fact, we could have used a paired t-test to analyse the data and we would get the same results. Generally though, there will be more than two treatments and then after concluding there are differences, the treatment had an effect, we want to know where the differences lie.</p>
+<p>To do that, we use the coefficients from fitting a linear regression model to estimate the difference between the two treatments (as we did for CRD experiments as well). The null hypothesis is again:</p>
+<p><span class="math display">\[H_0: \mu_C - \mu_P = 0 \]</span></p>
+<p>where C stands for Control and P for Pygmalion. We use the <code>lm</code> function as in regression.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>We use the <code>lm</code> function when we are primarily interested in the coefficient estimates and difference. We use <code>aov()</code> when we want a breakdown of how much each factor can explain of the overall variation in the response, and when we want a general test for ‘are there <em>any</em> difference between the treatments’.</p>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pyg_model_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Score <span class="sc">~</span> Treat <span class="sc">+</span> Company, <span class="at">data =</span> pyg_data)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pyg_model_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Score ~ Treat + Company, data = pyg_data)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-9.390 -3.217  0.000  3.217  9.390 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      66.210      5.184  12.771 4.52e-07 ***
+TreatPygmalion   10.780      3.126   3.448  0.00729 ** 
+CompanyC10        2.100      6.990   0.300  0.77069    
+CompanyC2         1.900      6.990   0.272  0.79191    
+CompanyC3         0.600      6.990   0.086  0.93348    
+CompanyC4        -3.600      6.990  -0.515  0.61897    
+CompanyC5         9.250      6.990   1.323  0.21839    
+CompanyC6        12.750      6.990   1.824  0.10147    
+CompanyC7        -3.250      6.990  -0.465  0.65303    
+CompanyC8        -1.950      6.990  -0.279  0.78659    
+CompanyC9        -0.700      6.990  -0.100  0.92243    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.99 on 9 degrees of freedom
+Multiple R-squared:  0.7127,    Adjusted R-squared:  0.3936 
+F-statistic: 2.233 on 10 and 9 DF,  p-value: 0.1211</code></pre>
+</div>
+</div>
+<p>A few things to note here.</p>
+<ol type="1">
+<li><p>We are only interested in the second line starting with <code>TreatPygmalion</code>. R pasted the name of the factor and the name of the treatment level together.</p></li>
+<li><p>The Control treatment was taken as the baseline (it comes first in the alphabet).</p></li>
+<li><p>The remaining lines are not of interest to us. It estimates the differences between each block and the first and test whether these effects are different from zero. R doesn’t know we aren’t interested in these, so it computes the effects and hypothesis test as if we are. We ignore this part.</p></li>
+<li><p>If we didn’t know that this code was for analysing a RCBD we would probably think that it is linear regression with two categorical variables. Think back to the regression module, what does this intercept represent? It represents the mean score for some treatment level and company. Since ‘C’ comes before ‘P’ in the alphabet and C1 is before everything else, the intercept is the average score for the control group in the first block. This is because R uses the <em>treatment contrast</em> parameterisation by default for all the factors. We can change this by letting R know that the block effects sum to zero.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pyg_model_reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Score <span class="sc">~</span> Treat <span class="sc">+</span> <span class="fu">C</span>(<span class="fu">as.factor</span>(Company), contr.sum), <span class="at">data =</span> pyg_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pyg_model_reg2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Score ~ Treat + C(as.factor(Company), contr.sum), 
+    data = pyg_data)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-9.390 -3.217  0.000  3.217  9.390 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                         67.920      2.211  30.725 2.01e-10 ***
+TreatPygmalion                      10.780      3.126   3.448  0.00729 ** 
+C(as.factor(Company), contr.sum)1   -1.710      4.689  -0.365  0.72379    
+C(as.factor(Company), contr.sum)2    0.390      4.689   0.083  0.93554    
+C(as.factor(Company), contr.sum)3    0.190      4.689   0.041  0.96857    
+C(as.factor(Company), contr.sum)4   -1.110      4.689  -0.237  0.81818    
+C(as.factor(Company), contr.sum)5   -5.310      4.689  -1.132  0.28675    
+C(as.factor(Company), contr.sum)6    7.540      4.689   1.608  0.14232    
+C(as.factor(Company), contr.sum)7   11.040      4.689   2.354  0.04300 *  
+C(as.factor(Company), contr.sum)8   -4.960      4.689  -1.058  0.31775    
+C(as.factor(Company), contr.sum)9   -3.660      4.689  -0.780  0.45514    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.99 on 9 degrees of freedom
+Multiple R-squared:  0.7127,    Adjusted R-squared:  0.3936 
+F-statistic: 2.233 on 10 and 9 DF,  p-value: 0.1211</code></pre>
+</div>
+</div>
+<p>Now, the intercept is what we expect, the mean score for the control treatment across all blocks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(pyg_data<span class="sc">$</span>Score[pyg_data<span class="sc">$</span>Treat <span class="sc">==</span> <span class="st">"Control"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 67.92</code></pre>
+</div>
+</div>
+<p>Let’s interpret the hypothesis test for the difference between treatment means. The estimated difference is 10.78 with a standard error of 3.126. The test statistic is 3.448 which has a p-value of 0.00729. Look familiar? It’s the exact same p-value we found with the ANOVA! That is because the ANOVA is an extension of the t-test to more than two groups and when we only have two treatments, they are equivalent. In fact, the test statistics have the following relationship:</p>
+<p><span class="math display">\[ t^2 = F\]</span></p>
+<p>Test it out to see that it holds. Back to the interpretation. The test tells us that the difference between the control and Pygmalion treatment is significant since the p-value is extremely small indicating that we have strong evidence against the null hypothesis of equal means.</p>
 
 
 
@@ -718,8 +872,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./11_RCBD_ANOVA.html" class="pagination-link" aria-label="ANOVA">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVA</span></span>
+      <a href="./10_RCBD_Model.html" class="pagination-link" aria-label="Linear model &amp; ANOVA">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

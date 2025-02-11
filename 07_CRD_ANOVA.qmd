@@ -167,7 +167,7 @@ Back to our constructed example. What are the different sums of squares? For Exp
 This division of the total sums of squares is typically summarised in an analysis of variance table. The first column contains the "source" of the varibility with the first entry (the order is not important, although this is the typical order) representing the between treatment variability (explained variation), second the error (unexplained variation) and lastly the total variation. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.
 
 | Source | Sums of Squares (SS) | df | Means Squares (MS) | F |
-|--------------|------------------|--------------|--------------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | Treatment | $\sum_i n_i(\bar{Y}_i - \bar{Y})^2$ | $a-1$ | $MS_A = SS_A / (a-1)$ | $MS_A / MSE$ |
 | Residuals (Error) | $\sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2$ | $N-a$ | $MSE = SS_E / (N-a)$ |  |
 | Total | $\sum_i \sum_j (Y_{ij} - \bar{Y})^2$ | $N-1$ |  |  |

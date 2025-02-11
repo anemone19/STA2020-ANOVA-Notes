@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Introduction – STA2020 ANOVA Notes</title>
+<title>10&nbsp; Assumptions – STA2020 ANOVA Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./14_FE_Model.html" rel="next">
-<link href="./12_RCBD_Contrasts.html" rel="prev">
+<link href="./10_RCBD_Model.html" rel="next">
+<link href="./09_RCBD_Intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,11 +103,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -82,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_FE_Intro.html">Factorial Experiments</a></li><li class="breadcrumb-item"><a href="./13_FE_Intro.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_RCBD_Intro.html">Randomised Block Designs</a></li><li class="breadcrumb-item"><a href="./11_RCBD_Assump.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -212,14 +275,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -235,20 +304,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -268,11 +337,11 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_FE_Intro.html">Factorial Experiments</a></li><li class="breadcrumb-item"><a href="./13_FE_Intro.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_RCBD_Intro.html">Randomised Block Designs</a></li><li class="breadcrumb-item"><a href="./11_RCBD_Assump.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></h1>
 </div>
 
 
@@ -289,10 +358,163 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Data from randomised block designs are analysed with two-way ANOVAs. The assumptions of a two-way ANOVA are the same as a one-way. That is,</p>
+<ol type="1">
+<li>Equal population variance.</li>
+<li>Normal errors.</li>
+<li>Independent errors.</li>
+<li>No outliers.</li>
+</ol>
+<p>With the addition of a block variable comes a new assumption:</p>
+<ol start="5" type="1">
+<li>The effects of the blocks and treatments are additive.</li>
+</ol>
+<p>Simply put, it means that the we assume the treatment effects are similar in all blocks. That if a treatment is applied in one block, the effect is the same as in another block. For example, if we applied had a treatment factor: marketing strategy with two treatments A and B, and we want to apply it to stores in different economic regions (blocks), the effect of, for example, marketing strategy A should be the same in both regions. We will check this assumption visually as well. One way, is to plot the response against the block for each treatment. But first! Some exploratory data analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in data </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pyg_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"pygmalion_data.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># look at first and last few rows </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pyg_data); <span class="fu">tail</span>(pyg_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Company     Treat Score
+1      C1 Pygmalion  80.0
+2      C1   Control  63.2
+3      C2 Pygmalion  83.9
+4      C2   Control  63.1
+5      C3 Pygmalion  68.2
+6      C3   Control  76.2</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Company     Treat Score
+15      C8 Pygmalion  71.5
+16      C8   Control  67.8
+17      C9 Pygmalion  69.5
+18      C9   Control  72.3
+19     C10 Pygmalion  83.7
+20     C10   Control  63.7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pyg_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Company             Treat               Score      
+ Length:20          Length:20          Min.   :59.50  
+ Class :character   Class :character   1st Qu.:66.78  
+ Mode  :character   Mode  :character   Median :73.10  
+                                       Mean   :73.31  
+                                       3rd Qu.:79.17  
+                                       Max.   :89.80  </code></pre>
+</div>
+</div>
+<p>Ah! We need to convert both the company and Treat variable to factors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pyg_data<span class="sc">$</span>Company <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pyg_data<span class="sc">$</span>Company)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pyg_data<span class="sc">$</span>Treat <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pyg_data<span class="sc">$</span>Treat)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pyg_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Company        Treat        Score      
+ C1     :2   Control  :10   Min.   :59.50  
+ C10    :2   Pygmalion:10   1st Qu.:66.78  
+ C2     :2                  Median :73.10  
+ C3     :2                  Mean   :73.31  
+ C4     :2                  3rd Qu.:79.17  
+ C5     :2                  Max.   :89.80  
+ (Other):8                                 </code></pre>
+</div>
+</div>
+<p>Nice, now we can see that we had ten replicates per treatment, two observations per block which means 20 observations in total. Let’s go ahead and check the the first four assumptions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Score<span class="sc">~</span>Treat, <span class="at">data =</span> pyg_data)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(Score<span class="sc">~</span>Treat, <span class="at">data =</span> pyg_data, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">vertical =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"jitter"</span>, <span class="at">jitter =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_RCBD_Assump_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Okay, the boxplots look relatively symmetric, there are no clear signs of non-normality. They also look very similar in terms of height, the assumption of homogeneity seems reasonable as well. Let’s have a look at the sample standard deviations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(pyg_data<span class="sc">$</span>Score[pyg_data<span class="sc">$</span>Treat <span class="sc">==</span> <span class="st">"Pygmalion"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.587124</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(pyg_data<span class="sc">$</span>Score[pyg_data<span class="sc">$</span>Treat <span class="sc">==</span> <span class="st">"Control"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.927209</code></pre>
+</div>
+</div>
+<p>Then, we need to check the independence assumption. This is often the hardest assumption to verify because it requires knowledge about how the data were collected. In practice, you will need to assess independence in one of two ways:</p>
+<ol type="1">
+<li>Before conducting an experiment – Ideally, you would discuss the study design with the researchers before data collection to ensure that independence is maintained.</li>
+<li>When analyzing existing data – If you are reviewing a published study, you must rely on the authors’ description of the experimental setup to determine whether independence is reasonable.</li>
+</ol>
+<p>In this study, the researchers assumed platoons operated independently and took steps to prevent treatment contamination:</p>
+<ul>
+<li>Randomization ensured that each platoon was independently assigned to the Pygmalion or control condition, reducing bias.</li>
+<li>Leaders were instructed not to discuss their treatment condition, preventing expectation spillover.</li>
+<li>Each platoon was analyzed separately, ensuring observations within treatments were treated as independent.</li>
+</ul>
+<p>After fitting the model, and assuming the order in which the response was measured in the order in which it appears in the data set, we can check for any pattern in the residuals that may indicate dependence.</p>
+<p>Now, let’s check the new assumption of additivity. We can add colour-coded lines connecting the experimental units from the same block to the boxplots and look for signs of non-additivity. This is a bit tedious to do with base R (don’t worry, we won’t expect you to code this manually) but you have to understand and interpret the plot it produces.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure Treat is a factor with proper order</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pyg_data<span class="sc">$</span>Treat <span class="ot">&lt;-</span> <span class="fu">factor</span>(pyg_data<span class="sc">$</span>Treat, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Pygmalion"</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Treat to numeric for plotting (1 = Control, 2 = Pygmalion)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>pyg_data<span class="sc">$</span>Treat_numeric <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pyg_data<span class="sc">$</span>Treat)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define colors for companies</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>company_colors <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(<span class="fu">unique</span>(pyg_data<span class="sc">$</span>Company)))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(company_colors) <span class="ot">&lt;-</span> <span class="fu">unique</span>(pyg_data<span class="sc">$</span>Company)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create base plot</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pyg_data<span class="sc">$</span>Treat_numeric, pyg_data<span class="sc">$</span>Score, </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Treatment"</span>, <span class="at">ylab =</span> <span class="st">"Score"</span>, </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Pygmalion Effect by Company"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> company_colors[pyg_data<span class="sc">$</span>Company], <span class="at">xaxt =</span> <span class="st">"n"</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add custom x-axis labels</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Pygmalion"</span>))</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Add lines connecting observations from the same company</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(block <span class="cf">in</span> <span class="fu">unique</span>(pyg_data<span class="sc">$</span>Company)){</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  temp <span class="ot">&lt;-</span> pyg_data[pyg_data<span class="sc">$</span>Company <span class="sc">==</span> block, ]</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  temp <span class="ot">&lt;-</span> temp[<span class="fu">order</span>(temp<span class="sc">$</span>Treat_numeric), ]  <span class="co"># Order by treatment for correct line drawing</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(temp<span class="sc">$</span>Treat_numeric, temp<span class="sc">$</span>Score, <span class="at">col =</span> company_colors[block], <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_RCBD_Assump_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If the assumption of additivity is met, we would expect relatively few lines to cross, i.e.&nbsp;we would expect mostly parallel lines. In the plot above, it seems that for most blocks, a low value in the control treatment is associated with a high value in the Pygmalion treatment. There are three lines (i.e.&nbsp;companies) that don’t conform to this pattern, where it seems that Pygmalion treatment did not alter the scores. It’s important to remember that <strong>sampling variability</strong> prevents us from observing perfectly parallel lines in practice. The observed treatment means are always subject to <strong>random variation</strong>, which can introduce some deviations from the expected pattern.</p>
+<p>What happens if this assumption is wrong, i.e.&nbsp;the blocking and treatment factors do interact? That is the treatment effect depends on which block it is in. Consider the following plots depicting an experiment with three treatments and three blocks. The first panel shows an example where treatments and blocks are additive – the lines connecting the same treatment in all blocks are parallel. Due to variability, we would of course never actually observe such parallel lines. In reality, the observed treatment means would be subject to random deviations from the true population means, and with lots of variability, the lines could cross and look more like the second panel, which is showing an example where the additivity assumption is violated.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11_RCBD_Assump_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With only one experimental unit per treatment in each block, as in a typical randomised complete block design, it is difficult to know which situation we have: the additivity assumption is violated, or there is simply a lot of random error. The interaction effect between treatment and block is confounded with the random error term. That is, <span class="math inline">\(e_{ij}\)</span> in the model equation is actually the sum of the interaction effect and the random error. So if the additivity assumption is violated, <span class="math inline">\(e_{ij}\)</span> is inflated and it will be harder to find differences between treatments.</p>
 
 
 
-</main> <!-- /main -->
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>With some replication of treatments within blocks, as in generalised randomised complete block designs (which we don’t cover here), w can separatel estimate the interaction effects. This is similar to what we will see when we talk about Factorial Experiment sin the next section.</p>
+</div></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -712,13 +934,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./12_RCBD_Contrasts.html" class="pagination-link" aria-label="Contrasts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span>
+      <a href="./09_RCBD_Intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./14_FE_Model.html" class="pagination-link" aria-label="Model for Factorial Experiments">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10_RCBD_Model.html" class="pagination-link" aria-label="Linear model &amp; ANOVA">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

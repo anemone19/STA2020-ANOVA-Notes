@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./10_RCBD_Model.html" rel="next">
+<link href="./11_RCBD_Assump.html" rel="next">
 <link href="./08_CRD_Contrasts.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -102,6 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -136,7 +138,7 @@ window.Quarto = {
 <link rel="stylesheet" href="custom.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -275,14 +277,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The model for RCBD</span></span></a>
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -338,14 +340,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#treatments-vs.-blocks" id="toc-treatments-vs.-blocks" class="nav-link active" data-scroll-target="#treatments-vs.-blocks"><span class="header-section-number">9.0.1</span> Treatments vs.&nbsp;Blocks</a></li>
-  <li><a href="#choosing-blocking-factors" id="toc-choosing-blocking-factors" class="nav-link" data-scroll-target="#choosing-blocking-factors"><span class="header-section-number">9.0.2</span> Choosing Blocking Factors</a></li>
-  <li><a href="#randomised-complete-block-design" id="toc-randomised-complete-block-design" class="nav-link" data-scroll-target="#randomised-complete-block-design"><span class="header-section-number">9.0.3</span> Randomised Complete Block Design</a></li>
+  <li><a href="#treatments-vs.-blocks" id="toc-treatments-vs.-blocks" class="nav-link active" data-scroll-target="#treatments-vs.-blocks"><span class="header-section-number">9.1</span> Treatments vs.&nbsp;Blocks</a></li>
+  <li><a href="#choosing-blocking-factors" id="toc-choosing-blocking-factors" class="nav-link" data-scroll-target="#choosing-blocking-factors"><span class="header-section-number">9.2</span> Choosing Blocking Factors</a></li>
+  <li><a href="#randomised-complete-block-design" id="toc-randomised-complete-block-design" class="nav-link" data-scroll-target="#randomised-complete-block-design"><span class="header-section-number">9.3</span> Randomised Complete Block Design</a></li>
+  <li><a href="#example-the-pygmalion-effect" id="toc-example-the-pygmalion-effect" class="nav-link" data-scroll-target="#example-the-pygmalion-effect"><span class="header-section-number">9.4</span> Example: The Pygmalion Effect</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_RCBD_Intro.html">Randomised Block Designs</a></li><li class="breadcrumb-item"><a href="./09_RCBD_Intro.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -371,15 +374,27 @@ window.Quarto = {
 <p>If blocks are used effectively, we can separate variability due to treatments, blocks, and errors, reducing unexplained variability. That is, variability between blocks can be estimated and removed from the residual error. Essentially, we compare treatments over more similar experimental units than in a completely randomised design. With reduced error variance, our test becomes more powerful.</p>
 <p>Blocking is also useful when we want to demonstrate that treatment differences hold over a wider range of conditions. For example, in the social media multitasking example, the experiment was conducted on first year students. Strictly speaking, the results then only apply to first year students and extrapolation to students in different years of their degree is limited. Alternatively, we could choose students from first, second and third year (for example) and apply one replicate of each treatment within year. In this case, year of study would be the blocking factor.</p>
 <p>More generally, we often want to show that our results hold for different species, age groups, or biological sexes. In such cases, we could use species, age, or sex as blocks. While blocks are typically used to control for variation in variables we are not directly interested in, sometimes these factors may also be of interest in their own right.</p>
-<section id="treatments-vs.-blocks" class="level3" data-number="9.0.1">
-<h3 data-number="9.0.1" class="anchored" data-anchor-id="treatments-vs.-blocks"><span class="header-section-number">9.0.1</span> Treatments vs.&nbsp;Blocks</h3>
+<section id="treatments-vs.-blocks" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="treatments-vs.-blocks"><span class="header-section-number">9.1</span> Treatments vs.&nbsp;Blocks</h2>
 <p>When is a factor a treatment, and when is it a block?</p>
-<p>One way to distinguish between them is by asking whether we can manipulate the factor and randomly assign experimental units to its levels.</p>
+<p>A good way to distinguish between them is by asking whether we can manipulate the factor and randomly assign experimental units to its levels.</p>
 <ul>
 <li><p>We generally cannot manipulate the age or sex of an individual, but we can manipulate, for example, the food they receive. So, age and sex are blocking factors, whereas food type is a treatment.</p></li>
 <li><p>We can manipulate the level of social media multitasking, but we cannot manipulate the year of study of students. So, level of social media multitasking is a treatment, while year of study is a block.</p></li>
 </ul>
-<p>Although we can always estimate differences between blocks, we need to be much more cautious when inferring causality from block-level differences or rather from factors that we cannot randomise. The reason i add this last bit is because sometimes (and I know this is annoying), the treatment factor is also something that cannot be randomised!</p>
+<p>Although we can always estimate differences between blocks, we need to be much more cautious when inferring causality from block-level differences or from any factor that we cannot randomise (as is the case in observational studies).</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example of observational study
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Suppose we are studying whether different music streaming platforms (e.g., Spotify, Apple Music, YouTube Music) influence a song’s popularity. We cannot randomly assign a song to a particular streaming platform because artists typically release their music on multiple platforms simultaneously. However, platform choice is still the main factor of interest.</p>
 <p>We would analyze differences in song popularity (e.g., number of streams, chart position) across platforms as we would for any treatment factor. However, we must be cautious when attributing differences solely to the platform itself because other factors could also play a role. For instance:</p>
 <ul>
@@ -388,40 +403,313 @@ window.Quarto = {
 <li>Release timing: Songs released during peak listening hours or days may perform better.</li>
 <li>Platform demographics: Different platforms cater to different audiences, which might influence engagement.</li>
 </ul>
-<p>Since we cannot randomly assign songs to platforms, we cannot be certain that observed differences in popularity are only due to the platform. Instead, they may be influenced by a combination of these external factors.</p>
-<p>Okay, so sometimes factors we cannot randomise are also treatment factors?! Yes, in the above example and in that constructed example about species and nitrate removal (can’t randomise species to plants). The real difference is interest. We are not interested block effects on the response, only treatment effects.</p>
+<p>Since we cannot randomly assign songs to platforms, we cannot be certain that observed differences in popularity are only due to the platform. Instead, they may be influenced by a combination of these external factors. This is an observational study.</p>
+</div>
+</div>
+</div>
+<p>Suppose we study whether different teaching methods (interactive vs.&nbsp;traditional) affect student performance, conducted in public and private schools.</p>
+<ul>
+<li>Teaching method is the treatment (assigned to students).<br>
+</li>
+<li>School type is a blocking factor (cannot be randomly assigned).</li>
+</ul>
+<p>If private school students perform better, we cannot conclude school type caused the difference due to potential confounders such as socioeconocmic background or teacher quality.</p>
+<p>Even though we control for school type, observed differences may be due to these external factors, not just the school itself. We cannot be sure that the observed differences are really only due to school type.</p>
+<p>Sometimes, however, blocking variables can also be randomised. Suppose a study is testing two medications (A vs.&nbsp;B) for blood pressure, experiments are conducted in two labs (Lab 1 &amp; Lab 2).</p>
+<ul>
+<li>Medication is the treatment (randomly assigned).<br>
+</li>
+<li>Lab is a blocking factor (controls lab-related variability).</li>
+</ul>
+<p>Patients could have been randomly assigned to labs, but if logistical constraints prevent this, lab is used as a block. Since we only care about medication effects, lab differences are treated as a nuisance variable. The real difference is interest. We are not interested block effects on the response, only treatment effects. Blocking factors are used to control for known sources of variation that might obscure the treatment effect.</p>
 </section>
-<section id="choosing-blocking-factors" class="level3" data-number="9.0.2">
-<h3 data-number="9.0.2" class="anchored" data-anchor-id="choosing-blocking-factors"><span class="header-section-number">9.0.2</span> Choosing Blocking Factors</h3>
+<section id="choosing-blocking-factors" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="choosing-blocking-factors"><span class="header-section-number">9.2</span> Choosing Blocking Factors</h2>
 <p>Any variable that might affect the response besides treatment factor should be considered for blocking. Common blocking factors include:</p>
 <ul>
-<li>Space: field, site, placement within a field, greenhouse.<br>
-</li>
-<li>Time: experimental replication over different days or weeks.<br>
-</li>
-<li>Subject: person, animal, plant, genotype.<br>
+<li>Geographic location: field, site, regions or cities that share similar economic conditions.</li>
+<li>Time: experimental replication over different days or weeks. Blocking for economic cycles or seasonal effects.</li>
+<li>Subject: person, plant, bussinesses, genotype.</li>
+<li>Demographic groups: age, gender, income or education level, consumer behaviour segments.<br>
 </li>
 <li>Equipment: container types, growth chambers.</li>
 </ul>
-<p>For example, if experimental units are tubs in a field, it is useful to arrange them into spatial blocks to control for field gradients. If an experiment spans multiple days, a good practice is to replicate all treatments on the first day, another set on the second day, and so on. In this case, day serves as the blocking factor, absorbing any environmental changes (e.g., temperature, humidity) rather than inflating the error variance.</p>
-<p>Similarly, if experimental units must be distributed across multiple greenhouses, involve different container types or organisations, one approach is to assign a block per greenhouse or container type or organisation. This ensures that block effects are accounted for in the block variance rather than being mistaken for treatment effects.</p>
+<p>For example, if we are testing the effectiveness of a new advertising campaign, it would be useful to block by city or region to control for differences in local economies, purchasing behavior, or media consumption. Similarly, if an experiment measures the impact of dynamic pricing on sales, it is a good practice to replicate the price changes across multiple days, blocking for daily or weekly variations in consumer spending habits. This way time accounts for these differences rather inflating the error variance.</p>
+<p>Likewise, if we are studying the effect of sports training programs on player performance, and athletes train in different facilities with varying equipment, we could assign a block to each training center to ensure that facility-related differences are accounted for. This prevents training location from being mistaken as a treatment effect, allowing a clearer evaluation of the actual program’s impact.</p>
 <p>The key takeaway is that reducing error variance increases the power of the experiment. Thoughtful blocking design helps achieve this by accounting for known sources of variation.</p>
 </section>
-<section id="randomised-complete-block-design" class="level3" data-number="9.0.3">
-<h3 data-number="9.0.3" class="anchored" data-anchor-id="randomised-complete-block-design"><span class="header-section-number">9.0.3</span> Randomised Complete Block Design</h3>
-<p>There are a few different types of randomised block designs depending on the availity of experimental units and size of the blocks. Here we will consider the best case scenario, where blocks are big enough to contain an equal amount of experimental units such that each treatment coccurs exactly once within a block. If we have a single treatment factor with <span class="math inline">\(a\)</span> levels, then we have <span class="math inline">\(a\)</span> experimental units per block. This design is said to be <em>balanced</em>, each block is the same with respect to treatments. In balanced block designs, the treatment and block effects can be completely separated (are independent) . This greatly simplifies the interpretation of results.</p>
-<p>As in CRD, randomisation is still a crucial component of the design. The difference is that now <span class="math inline">\(a\)</span> treatments are assinged randomly to the <span class="math inline">\(a\)</span> experimental units within a block, i.e.&nbsp;randomisation is not complete over ALL experimental units but restricted within each block. Within each block, the experimental units are equally likely to recive any of the <span class="math inline">\(a\)</span> treatments. You can see this as CRD within each block!</p>
+<section id="randomised-complete-block-design" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="randomised-complete-block-design"><span class="header-section-number">9.3</span> Randomised Complete Block Design</h2>
+<p>There are a few different types of randomised block designs depending on the availability of experimental units and size of the blocks. Here we will consider the best case scenario, where blocks are big enough to contain an equal amount of experimental units such that <em>each treatment occcurs exactly once within a block</em>. If we have a single treatment factor with <span class="math inline">\(a\)</span> levels, then we have <span class="math inline">\(a\)</span> experimental units per block. This design is said to be <em>balanced</em>, each block is the same with respect to treatments. In balanced block designs, the treatment and block effects can be completely separated (are independent) . This greatly simplifies the interpretation of results.</p>
+<p>As in CRD, randomisation is still a crucial component of the design. The difference is that now <span class="math inline">\(a\)</span> treatments are assigned randomly to the <span class="math inline">\(a\)</span> experimental units within a block, i.e.&nbsp;randomisation is not complete over ALL experimental units but restricted within each block. Within each block, the experimental units are equally likely to receive any of the <span class="math inline">\(a\)</span> treatments. You can see this as CRD within each block!</p>
 <p>Let’s see how we could randomise treatment within blocks using R. Imagine we had four treatments (A,B,C and D). We randomise the treatments to the units within one block like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">sample</span>(units,<span class="dv">4</span>), <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4]
-[1,] "2"  "4"  "1"  "3" 
+[1,] "4"  "1"  "3"  "2" 
 [2,] "A"  "B"  "C"  "D" </code></pre>
 </div>
 </div>
 <p>The third unit receive treatment A, the second receives B and so on. We then repeat this for every block.</p>
+</section>
+<section id="example-the-pygmalion-effect" class="level2 page-columns page-full" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="example-the-pygmalion-effect"><span class="header-section-number">9.4</span> Example: The Pygmalion Effect</h2>
+<p>The <strong>Pygmalion effect</strong> is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell inlove with as sculpture he created of his ideal woman.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>This article explains the concept nicely and also briefly discusses the study we will use later. https://thedecisionlab.com/biases/the-pygmalion-effect</p>
+</div></div><p>Many experiments have found results to support this type of self-fulfilling prophecy. Typically, they involve putting someone in charge of a group of people, then privately telling the leader that say a few of these people are exceptional (these people were randomly selected though). Then, later the performance of the group is measured and if the Pygmalion effect is present, the individuals who were marked as exceptional should have performed better.</p>
+<p>Back in 1990, one researcher in this field, noticed that experiments like these might involve something that is called interpersonal contrasts. When some individuals are singled out for high expectations, other might feel neglected. This could potentially skew the results by making the others look good even though it was just the rest that perfomred poorly. The researcher wanted to conduct an experiment to test the Pygmalion effect without interpersonal contrasts.</p>
+<p>The reasearcher achieved this by applying the high expectation to an entire group and not selected individuals within a group. Let’s have a look the exact experiment!</p>
+<div id="warning-example1" class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: The Pygmalion Effect in Military Training
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A study conducted by Eden (1990) examined whether raising leaders’ expectations of their trainees would enhance performance, without creating interpersonal contrast effects.</p>
+<p>A total of 10 army companies consisting of 2 platoons each were used in the study. Within each company, one randomly assigned platoon received the Pygmalion treatment, while the other two served as controls. The idea is that the assignment of the Pygmalion treatment to an entire platoon prevents interpersonal contrasts.</p>
+<ol type="1">
+<li><strong>Pygmalion Group:</strong> Platoon leaders were informed that their trainees had exceptionally high command potential based on pre-existing evaluations.<br>
+</li>
+<li><strong>Control Group:</strong> Platoon leaders received no expectation-enhancing information.</li>
+</ol>
+<p>Over the training period, leaders in both conditions met biweekly with a psychologist to reinforce expectations. At the end of the program, soldiers took multiple tests which measured their performance in four areas:</p>
+<ul>
+<li>Theoretical specialty knowledge (taught by platoon leaders)<br>
+</li>
+<li>Practical specialty skills (taught by platoon leaders)<br>
+</li>
+<li>Physical fitness (assessed independently)<br>
+</li>
+<li>Target shooting (assessed independently)</li>
+</ul>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>A platoon is a military unit typically consisting of 30 to 50 soldiers, led by a platoon leader (usually a lieutenant). Several platoons form a company, which is a larger military unit consisting of three to five platoons, commanded by a company leader (usually a captain).</p>
+</div></div><p>First things first! We need to determine the design so we can use the appropriate analysis. The researcher was interested in determining the effect of the Pygmalion effect on performance. This indicates to use that there is a single treatment factor and that it is whether or not the Pygmalion effect was applied (we’ll call this the Pygmalion Treatment) and the response is some measure of performance. The text gives four possible responses! The four areas in which the performance was tested. We’ll start with the first one as our response. So far we know:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>The name of the treatment factor is not always obvious. It is usually something that describes the collection of similar treatments created in response to some research hypothesis or what has been manipulated. In biological or ecological studies, it can be quite clear. For example, if we had treatments high, medium and low rainfall, “Rainfall” is the variable we manipulated.</p>
+<p>Also, as before, I’ve modifed the example slightly. In the original study, there three platoons per compancy with two serving as control and one company only had two. So we have simplied the design so that it is balanced.</p>
+</div></div><ul>
+<li><strong>Response Variable:</strong> Theoretical specialty knowledge.</li>
+<li><strong>Treatment Factor:</strong> Pygmalion Treatment.</li>
+<li><strong>Treatment Levels (Groups):</strong> Control, Pygmalion</li>
+<li><strong>Treatments:</strong> Control, Pygmalion</li>
+</ul>
+<p>Now, the treatments were randomly assigned to platoons within a company. This gives away two things, (1) the experimental unit is an entire platoon and (2) treatments were assigned randomly within a company, i.e.&nbsp;a block! They were not interested in the effect of company on performance but merely wanted to account for possible differences between platoons in companies. So here Company is a blocking variable and the 10 companies are the blocks. Finally, on what was the response measured? The soldiers! They are then the observational units. The paper doesn’t state how many soldiers were in each platoon and it doesn’t really matter since the scores have to be combine to have one measurement per experimental unit.</p>
+<p>Here is the final summary of the design:</p>
+<ul>
+<li><strong>Response Variable:</strong> Theoretical specialty knowledge.</li>
+<li><strong>Treatment Factor:</strong> Pygmalion Treatment.</li>
+<li><strong>Treatment Levels (Groups):</strong> Control, Pygmalion</li>
+<li><strong>Treatments:</strong> Control, Experiment 1, Experiment 2<br>
+</li>
+<li><strong>Experimental Unit:</strong> Platoon (20)<br>
+</li>
+<li><strong>Observational Unit:</strong> Soldier<br>
+</li>
+<li><strong>Replicates:</strong> 10 platoons received each treatment<br>
+</li>
+<li><strong>Randomisation:</strong> To platoons within companies, i.e.&nbsp;restricted to within blocks.</li>
+<li><strong>Design Type:</strong> Randomised Complete Block Design (CRD)</li>
+</ul>
+<p>You will typically have access to the data as well to help you identify some aspects of the design. There are two ways the data might be represented, in long format:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:350px; ">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Company</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Treat</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C1</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">80.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C1</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">63.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C2</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">83.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C2</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">63.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C3</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">68.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C3</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">76.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C4</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">76.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C4</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">59.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C5</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">87.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C5</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">73.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C6</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">89.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C6</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">78.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C7</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">76.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C7</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">60.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C8</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">71.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C8</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">67.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C9</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">69.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C9</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">72.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C10</td>
+<td style="text-align: left;">Pygmalion</td>
+<td style="text-align: right;">83.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C10</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">63.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+<p>or in wide format:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Company</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pygmalion</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Control</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C1</td>
+<td style="text-align: right;">80.0</td>
+<td style="text-align: right;">63.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C2</td>
+<td style="text-align: right;">83.9</td>
+<td style="text-align: right;">63.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C3</td>
+<td style="text-align: right;">68.2</td>
+<td style="text-align: right;">76.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C4</td>
+<td style="text-align: right;">76.5</td>
+<td style="text-align: right;">59.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C5</td>
+<td style="text-align: right;">87.8</td>
+<td style="text-align: right;">73.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C6</td>
+<td style="text-align: right;">89.8</td>
+<td style="text-align: right;">78.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C7</td>
+<td style="text-align: right;">76.1</td>
+<td style="text-align: right;">60.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C8</td>
+<td style="text-align: right;">71.5</td>
+<td style="text-align: right;">67.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C9</td>
+<td style="text-align: right;">69.5</td>
+<td style="text-align: right;">72.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C10</td>
+<td style="text-align: right;">83.7</td>
+<td style="text-align: right;">63.7</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
 
 
 </section>
@@ -851,8 +1139,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./10_RCBD_Model.html" class="pagination-link" aria-label="The model for RCBD">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The model for RCBD</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./11_RCBD_Assump.html" class="pagination-link" aria-label="Assumptions">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

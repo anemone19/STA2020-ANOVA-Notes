@@ -24,7 +24,7 @@ A total of 120 first-year undergraduate students from the same Turkish Universit
 Over a three-week period, participants attended the same lectures on Microsoft Excel. To measure academic performance, a standardised test was administered.
 :::
 
-**The analysis of experimental data is determined by the design.** The design dictates the terms that we will include in our statistical model and so it is crucial to be able to identify the design and all factors included (blocking and treatment). It is also important to check that randomisation has been done correctly and determine the number of replicates used. In the previous chapter we started doing this by creating a summary of the design and we do the same here. From the description of the study, it is clear that:
+**The analysis of experimental data is determined by the design.** This is the first thing we need to investigate. The design dictates the terms that we will include in our statistical model and so it is crucial to be able to identify the design and all factors included (blocking and treatment). It is also important to check that randomisation has been done correctly and determine the number of replicates used. In the previous chapter we started doing this by creating a summary of the design and we do the same here. From the description of the study, it is clear that:
 
 -   **Response Variable:** Academic performance, as measured by test scores.
 -   **Treatment Factor:** Level of social media multitasking.
@@ -164,6 +164,18 @@ In our example, within and among group dependence could be casued by the student
 It is the onus of the experimenter to design and conduct experiments that ensure independence. With more thought (and if we're lucky, funding) all well-designed experiments should lead to independent data. If violations are found after the fact, they cannot typically be corrected and then methods that deal specifically with dependent data (if appropriate) should be used[^05_crd_intro-3].
 
 [^05_crd_intro-3]: A few of these methods are repeated measures ANOVA, mixed-models or hierarchical models.
+
+### A quick note on the robustness of ANOVA {.unnumbered}
+
+A statistical procedure is said to be robust to departures from a assumption if it is valid even when the assumption is not met. The robustness of ANOVA is as follows:
+
+1.  The assumpiton of normality is not crucial. Only severe departures from normality such long-tailed distributions or skewed distributions when sample sizes are unqeual and small are particurlarly problematic.
+
+2.  Independence within and among groups is extremely important. ANOVA does not handle dependent data and other analyses should be attempted if there is dependence.
+
+3.  The assumption of equal standard deviations is important as well. ??
+
+4.  ANOVA is not very resistant to severly outlying observations either.
 
 ::: callout-tip
 ## Note

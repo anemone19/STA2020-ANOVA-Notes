@@ -297,19 +297,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The model for RCBD</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11_RCBD_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +320,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -367,6 +361,7 @@ window.Quarto = {
   <li><a href="#equal-population-variance" id="toc-equal-population-variance" class="nav-link" data-scroll-target="#equal-population-variance">Equal population variance</a></li>
   <li><a href="#normally-distributed-errors" id="toc-normally-distributed-errors" class="nav-link" data-scroll-target="#normally-distributed-errors">Normally distributed errors</a></li>
   <li><a href="#independent-errors" id="toc-independent-errors" class="nav-link" data-scroll-target="#independent-errors">Independent errors</a></li>
+  <li><a href="#a-quick-note-on-the-robustness-of-anova" id="toc-a-quick-note-on-the-robustness-of-anova" class="nav-link" data-scroll-target="#a-quick-note-on-the-robustness-of-anova">A quick note on the robustness of ANOVA</a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.4</span> Summary</a></li>
   </ul>
@@ -411,7 +406,7 @@ Example 5.1
 </div>
 <div class="callout-body-container callout-body">
 <p>Two researchers from Turkey, <span class="citation" data-cites="multitask2018">Demirbilek and Talan (<a href="#ref-multitask2018" role="doc-biblioref">2018</a>)</span>, conducted a study to try and answer this question. Specifically, they examined the impact of social media multitasking during live lectures on students’ academic performance.</p>
-<p>A total of 120 undergraduate students were randomly assigned to one of three groups:</p>
+<p>A total of 120 first-year undergraduate students from the same Turkish University were randomly assigned to one of three groups:</p>
 <ol type="1">
 <li><strong>Control Group:</strong> Students used traditional pen-and-paper note-taking.</li>
 <li><strong>Experimental Group 1 (Exp 1):</strong> Students engaged in SMS texting during the lecture.</li>
@@ -420,7 +415,7 @@ Example 5.1
 <p>Over a three-week period, participants attended the same lectures on Microsoft Excel. To measure academic performance, a standardised test was administered.</p>
 </div>
 </div>
-<div class="no-row-height column-margin column-container"></div><p><strong>The analysis of experimental data is determined by the design.</strong> The design dictates the terms that we will include in our statistical model and so it is crucial to be able to identify the design and all factors included (blocking and treatment). It is also important to check that randomisation has been done correctly and determine the number of replicates used. In the previous chapter we started doing this by creating a summary of the design and we do the same here. From the description of the study, it is clear that:</p>
+<div class="no-row-height column-margin column-container"></div><p><strong>The analysis of experimental data is determined by the design.</strong> This is the first thing we need to investigate. The design dictates the terms that we will include in our statistical model and so it is crucial to be able to identify the design and all factors included (blocking and treatment). It is also important to check that randomisation has been done correctly and determine the number of replicates used. In the previous chapter we started doing this by creating a summary of the design and we do the same here. From the description of the study, it is clear that:</p>
 <ul>
 <li><strong>Response Variable:</strong> Academic performance, as measured by test scores.</li>
 <li><strong>Treatment Factor:</strong> Level of social media multitasking.</li>
@@ -605,7 +600,17 @@ Underwood, A. J. 1996. <span>“Analysis of Variance.”</span> In <em>Experimen
 <p>Other reasons for dependence may not be as obvious or easy to eliminate as we will see below. In the end, they may not have a strong impact on our estimates but it is important to carefully scrutinise your design and the system you are studying to identify possible sources of dependence so that these can be either addressed and dealt with properly.</p>
 <p>In our example, within and among group dependence could be casued by the students interacting or influencing each other in some way (by sharing notes for example). During the lectures, this can be controlled by careful monitoring and randomising their position in the lecture theatre, but outside of lectures, it is less easy to control. Here we can argue that if students interacted outside of lectures the impact on their academic performance (as measured by the test) would likely be neglibile. Here the integrity of the students is at play. It is not really possible to diagnose this type of dependence after the fact, only with careful design and implementation can these be avoided.</p>
 <p>It is the onus of the experimenter to design and conduct experiments that ensure independence. With more thought (and if we’re lucky, funding) all well-designed experiments should lead to independent data. If violations are found after the fact, they cannot typically be corrected and then methods that deal specifically with dependent data (if appropriate) should be used<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;A few of these methods are repeated measures ANOVA, mixed-models or hierarchical models.</p></div></div><div class="callout callout-style-default callout-tip callout-titled">
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;A few of these methods are repeated measures ANOVA, mixed-models or hierarchical models.</p></div></div></section>
+<section id="a-quick-note-on-the-robustness-of-anova" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-quick-note-on-the-robustness-of-anova">A quick note on the robustness of ANOVA</h3>
+<p>A statistical procedure is said to be robust to departures from a assumption if it is valid even when the assumption is not met. The robustness of ANOVA is as follows:</p>
+<ol type="1">
+<li><p>The assumpiton of normality is not crucial. Only severe departures from normality such long-tailed distributions or skewed distributions when sample sizes are unqeual and small are particurlarly problematic.</p></li>
+<li><p>Independence within and among groups is extremely important. ANOVA does not handle dependent data and other analyses should be attempted if there is dependence.</p></li>
+<li><p>The assumption of equal standard deviations is important as well. ??</p></li>
+<li><p>ANOVA is not very resistant to severly outlying observations either.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
