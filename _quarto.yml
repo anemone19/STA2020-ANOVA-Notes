@@ -33,8 +33,9 @@ book:
     - part: "Factorial Experiments"
       chapters:
       - 13_FE_Intro.qmd
+      - 15_FE_Inter.qmd
       - 14_FE_Model.qmd
-      - 15_FE_ANOVA.qmd
+      - 16_FE_ANOVA.qmd
     
     - glossary.qmd
 

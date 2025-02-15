@@ -275,14 +275,20 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -299,19 +305,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,7 +374,7 @@ window.Quarto = {
 </header>
 
 
-<p>To analyse data collected from a Completely Randomised Design we could use t-tests and compare the samples two at a time. This approach is problematic for two reasons. Firstly, the test statistic of a t-test is calculated with a standard deviation based only on the two samples it considers. We want our test statistic to consider the variability in all samples collected. Second, when we conduct multiple tests the overall Type 1 Error rate increases. That is, when doing many tests, the chance of making <em>at least one wrong conclusion</em> increases with the number of tests (if you want to know more see the box below). To avoid this, we will use the ANOVA method which was specifically developed for comparing multiple means.</p>
+<p>To analyse data collected from a Completely Randomised Design we could use <span class="math inline">\(t\)</span>-tests and compare the samples two at a time. This approach is problematic for two reasons. Firstly, the test statistic of a <span class="math inline">\(t\)</span>-test is calculated with a standard deviation based only on the two samples it considers. We want our test statistic to consider the variability in all samples collected. Second, when we conduct multiple tests the overall Type 1 Error rate increases. That is, when doing many tests, the chance of making <em>at least one wrong conclusion</em> increases with the number of tests (if you want to know more see the box below). To avoid this, we will use the ANOVA method which was specifically developed for comparing multiple means.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -387,7 +399,7 @@ Multiple Testing / Comparisons
 <section id="the-model" class="level2 page-columns page-full" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="the-model"><span class="header-section-number">6.1</span> The model</h2>
 <p>When we collect samples, we usually want to learn something about the populations from which they were drawn. To do this, we can develop a model for the observations that reflects the different sources of variation believed to be at play.</p>
-<p>For Completely Randomised Designs (CRDs), we have <span class="math inline">\(a\)</span> treatment with population means <span class="math inline">\(\mu_1, \mu_2, \mu_3, \ldots, \mu_a\)</span>. We are interested in modelling the means of the treatments and the differences between them. Ultimately we want to test whether they are equal which we’ll get to in the next section. First, we construct a simple model for each observation <span class="math inline">\(Y_{ij}\)</span>:</p>
+<p>For Completely Randomised Designs (CRDs), we have <span class="math inline">\(a\)</span> treatments with population means <span class="math inline">\(\mu_1, \mu_2, \mu_3, \ldots, \mu_a\)</span>. We are interested in modelling the means of the treatments and the differences between them. Ultimately we want to test whether they are equal which we’ll get to in the next section. First, we construct a simple model for each observation <span class="math inline">\(Y_{ij}\)</span>:</p>
 <p><span class="math display">\[
 Y_{ij} = \mu_{i} + e_{ij},
 \]</span></p>
@@ -401,8 +413,8 @@ Y_{ij} &amp; = \text{observation of the } j^{th} \text{ unit receiving treatment
 e_{ij} &amp; = \text{random error with } e_{ij} \sim N(0, \sigma^2)
 \end{aligned}
 \]</span></p>
-<p>That is, each observation is modelled as the sum of its population mean and some random variation, <span class="math inline">\(e_{ij}\)</span>. This random variation represents unexplained differences between individual observations within the same group which we assume to follow a normal distribution with mean 0 and constant variance across all treatment groups. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;As opposed to non-constant variance across all treatment groups: <span class="math inline">\(e_{ij} \sim N(0, \sigma^2_{i})\)</span> where the <span class="math inline">\(\sigma_i^2\)</span>’s are different.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;<span class="math inline">\(\mu = \frac{\sum\mu_i}{a}\)</span></p></div></div><p>We can change the notation slightly by arbitrarily dividing each mean into a sum of two components: the overall mean <span class="math inline">\(\mu\)</span> (the mean of the entire dataset, which is the same as the mean of the <span class="math inline">\(a\)</span> means<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) and the difference between the population mean and the overall mean. In symbols, this translates to:</p>
+<p>That is, each observation is modeled as the sum of its population mean and some random variation, <span class="math inline">\(e_{ij}\)</span>. This random variation represents unexplained differences between individual observations within the same group which we assume to follow a normal distribution with mean 0 and constant variance across all treatment groups. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;As opposed to non-constant variance across all treatment groups: <span class="math inline">\(e_{ij} \sim N(0, \sigma^2_{i})\)</span> where the <span class="math inline">\(\sigma_i^2\)</span>’s are different.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;<span class="math inline">\(\mu = \frac{\sum\mu_i}{a}\)</span></p></div></div><p>We can change the notation slightly by arbitrarily dividing each mean into a sum of two components: the overall mean <span class="math inline">\(\mu\)</span> (the mean of the entire data set, which is the same as the mean of the <span class="math inline">\(a\)</span> means<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) and the difference between the population mean and the overall mean. In symbols, this translates to:</p>
 <p><span class="math display">\[\begin{equation}
 \begin{aligned}
 \mu_1 &amp;= \mu + (\mu_1 - \mu) \\
@@ -483,9 +495,9 @@ Comparison to regression
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>If you wanted to you could rewrite this with the regression notation you’ve encountered before as a regression model with a single categorical explanatory variable:</p>
+<p>If you wanted to, you could rewrite this with the regression notation you’ve encountered before as a regression model with a single categorical explanatory variable:</p>
 <p><span class="math display">\[ Y_i = \beta_0 + \beta_1 T2_i + \beta_2 T3_i + e_i \]</span></p>
-<p>where <span class="math inline">\(T2\)</span> and <span class="math inline">\(T3\)</span> are indicator variables (i.e.&nbsp;<span class="math inline">\(T2 = 1\)</span> if observation <span class="math inline">\(i\)</span> is from treatment 2 and 0 otherwise). The intercept estimates the mean of the baseline category, here it is T1.</p>
+<p>where <span class="math inline">\(T2\)</span> and <span class="math inline">\(T3\)</span> are indicator variables (i.e.&nbsp;<span class="math inline">\(T2 = 1\)</span> if observation <span class="math inline">\(i\)</span> is from treatment 2 and 0 otherwise). The intercept estimates the mean of the baseline category, here it is <span class="math inline">\(T1\)</span>.</p>
 <p>These two models are equivalent. The data are exactly the same: in both situations we have <span class="math inline">\(a\)</span> groups and we are interested in the mean response of these groups and the difference between them. The model notation is just slightly different. In the ANOVA model we use <span class="math inline">\(\mu\)</span> and <span class="math inline">\(A_i\)</span> instead of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_i\)</span> which have different meanings.</p>
 <table class="caption-top table">
 <colgroup>
@@ -509,15 +521,15 @@ Comparison to regression
 </tr>
 </tbody>
 </table>
-<p>When all the explanatory variables are categorical, which is mostly the case in experimental data, it is more convenient to write the model in the ANOVA form, for two reasons:</p>
+<p>When all the explanatory variables are categorical, which is mostly the case in comparative experimental data, it is more convenient to write the model in the ANOVA form, for two reasons:</p>
 <ol type="1">
 <li><p>The <span class="math inline">\(A_i\)</span> notation is more concise, because we don’t have to add all the dummy variables. This makes it easier to read and understand because there is only one term per factor.</p></li>
-<li><p>Mathematically it is more convenient. In this format all terms are deviations from a mean. This leads directly to sums of squares (squared deviations from a mean) and analysis of variance. We will see later that we can partition the total sum of squares into one part for every factor in the model. This allows us to investigate the variability in the response contributed by every model term (or factor).</p></li>
+<li><p>Mathematically it is more convenient. In this format all terms are deviations from a mean. This leads directly to sums of squares<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> (squared deviations from a mean) and analysis of variance. We will see later that we can partition the total sum of squares into one part for every factor in the model. This allows us to investigate the variability in the response contributed by every model term (or factor).</p></li>
 </ol>
 </div>
 </div>
 </div>
-<p>The model can be interpreted as follows:</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;In statistics, sums of squares is a measure of variability and refers to squared deviations from a mean or expected value. For example, the residual sums of squares (sum of squared deviations of the observations from the fitted values).</p></div></div><p>The model can be interpreted as follows:</p>
 <p>Each observation, <span class="math inline">\(Y_{ij}\)</span>, is the sum of the overall mean (<span class="math inline">\(\mu\)</span>), plus the effect of the treatment it belongs to (<span class="math inline">\(A_i\)</span>), and some random error (<span class="math inline">\(e_{ij}\)</span>). We use two subscripts on the <span class="math inline">\(Y\)</span>. One to identify the group (treatment) and the other to identify the subject (experimental unit) within the group:</p>
 <p><span class="math display">\[\begin{equation}
 \begin{aligned}
@@ -533,10 +545,10 @@ Y_{aj} &amp;= \mu + A_a + e_{aj} \\
 </section>
 <section id="estimation" class="level2 page-columns page-full" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="estimation"><span class="header-section-number">6.2</span> Estimation</h2>
-<p>Okay, so we have a model which we now need to <strong>fit to our data</strong>. When we do this, we estimate the model parameters using our data. The parameters we want to estimate are <span class="math inline">\(\mu\)</span> (the overall mean), the treatment effects (<span class="math inline">\(A_i\)</span>) and <span class="math inline">\(\sigma^2\)</span> (the error variance). As for regression, we find <strong>least squares estimates</strong> for the parameters which minimise the residual or error sum of squares<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>:</p>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;error = observed - fitted.</p></div></div><p><span class="math display">\[ \text{SSE} = \sum_i\sum_j e_{ij}^2 = \sum_i\sum_j (Y_{ij} - \hat{Y}_i)^2 = \sum_i\sum_j (Y_{ij} - \mu - A_i)^2\]</span></p>
-<p>It turns out when we solve for the estimates that minimise the SSE<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, we obtain the following estimators:</p>
-<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Another name for this is the residual sums of squares (RSS).</p></div></div><p><span class="math display">\[
+<p>Okay, so we have a model which we now need to <strong>fit to our data</strong>. When we do this, we estimate the model parameters using our data. The parameters we want to estimate are <span class="math inline">\(\mu\)</span> (the overall mean), the treatment effects (<span class="math inline">\(A_i\)</span>) and <span class="math inline">\(\sigma^2\)</span> (the error variance). As for regression, we find <strong>least squares estimates</strong> for the parameters which minimise the residual or error sum of squares<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>:</p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;error = observed - fitted.</p></div></div><p><span class="math display">\[ \text{SSE} = \sum_i\sum_j e_{ij}^2 = \sum_i\sum_j (Y_{ij} - \hat{Y}_i)^2 = \sum_i\sum_j (Y_{ij} - \mu - A_i)^2\]</span></p>
+<p>It turns out when we solve for the estimates that minimise the SSE<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, we obtain the following estimators:</p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;Another name for this is the residual sums of squares (RSS).</p></div></div><p><span class="math display">\[
 \begin{aligned}
 \hat{\mu} = \bar{Y}_{..} \\
 \hat{\mu}_i = \bar{Y}_{i.}
@@ -544,10 +556,10 @@ Y_{aj} &amp;= \mu + A_a + e_{aj} \\
 \]</span></p>
 <p>and</p>
 <p><span class="math display">\[\hat{A}_i =  \bar{Y}_{i.} - \bar{Y}_{..}\]</span></p>
-<p>From linear model theory we know that the above are unbiased estimates<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> of <span class="math inline">\(\mu\)</span> and the <span class="math inline">\(A_i\)</span>’s. What does this tell you? It tells you that we can use the sample means as estimates for the true means. The estimated mean response for treatment <span class="math inline">\(i\)</span> is the observed sample mean of treatment <span class="math inline">\(i\)</span> and the observed overall mean is the estimated grand mean.</p>
-<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;Unbiased means that the expected value of these statistics equals the parameter being estimated. In other words, the statistic equals the true parameter on average.</p></div></div><p>For the last parameter, the error variance, an unbiased estimator is found by dividing the minimised SSE (i.e.&nbsp;calculated with the least squares estimates) by its degrees of freedom:</p>
+<p>From linear model theory we know that the above are unbiased estimates<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> of <span class="math inline">\(\mu\)</span> and the <span class="math inline">\(A_i\)</span>’s. What does this tell you? It tells you that we can use the sample means as estimates for the true means. The estimated mean response for treatment <span class="math inline">\(i\)</span> is the observed sample mean of treatment <span class="math inline">\(i\)</span> and the observed overall mean is the estimated grand mean.</p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Unbiased means that the expected value of these statistics equals the parameter being estimated. In other words, the statistic equals the true parameter on average.</p></div></div><p>For the last parameter, the error variance, an unbiased estimator is found by dividing the minimised SSE (i.e.&nbsp;calculated with the least squares estimates) by its degrees of freedom:</p>
 <p><span class="math display">\[ s^2 = \frac{1}{N-a}\sum_{ij}(Y_{ij} - \bar{Y}_{i.})^2 \]</span></p>
-<p>This quantity is called the Mean Squares for Error (MSE) or residual mean square. It has <span class="math inline">\((N-a)\)</span> degrees of freedom since we have <span class="math inline">\(N\)</span> observations and have estimated <span class="math inline">\(a\)</span> means. If you look at the formula you’ll notice that it is an average of the observed variance estimates from the different treatment groups.</p>
+<p>This quantity is called the Mean Squares for Error (MSE) or residual mean square. It has <span class="math inline">\((N-a)\)</span> degrees of freedom since we have <span class="math inline">\(N\)</span> observations and have estimated <span class="math inline">\(a\)</span> means. If you look at the formula you’ll notice that it is an average of the observed variability from the different treatment groups.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -564,7 +576,7 @@ Compare this with regression
 <p>In regression, the fitted value is:</p>
 <p><span class="math display">\[ \hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1X_i \]</span></p>
 <p>and here it is:</p>
-<p><span class="math display">\[ \hat{Y}_{ij} = \bar{Y}_{i.} = \hat{\mu} - \hat{A}_i \]</span></p>
+<p><span class="math display">\[ \hat{Y}_{ij} = \bar{Y}_{i.} = \hat{\mu} + \hat{A}_i \]</span></p>
 </div>
 </div>
 </div>
@@ -610,8 +622,8 @@ Control    Exp1    Exp2
  12.049  -0.703 -11.345 </code></pre>
 </div>
 </div>
-<p>This tells us that the average score for students in the control group is roughly 12% higher than the overall average<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. Both experimental groups performed worse, with students in the second group scoring, on average, about 11% less than the mean across all groups. We can also extract the overall mean and the treatment means by specifying type = “means”:</p>
-<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Remember: <span class="math inline">\(\mu_i = \mu + A_i\)</span></p></div></div><div class="cell">
+<p>This tells us that the average score for students in the control group is roughly 12% higher than the overall average<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. Both experimental groups performed worse, with students in the second group scoring, on average, about 11% less than the mean across all groups. We can also extract the overall mean and the treatment means by specifying type = “means”:</p>
+<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp;Remember: <span class="math inline">\(\mu_i = \mu + A_i\)</span></p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Tables of means
@@ -629,14 +641,14 @@ Control    Exp1    Exp2
 <p>The last parameter we need to estimate is the error variance <span class="math inline">\(\sigma^2\)</span>. Have a look at the formula again:</p>
 <p><span class="math display">\[ s^2 = \frac{1}{N-a}\sum_{ij}(Y_{ij} - \bar{Y}_{i.})^2 \]</span></p>
 <p>If we focus on the sum and break into sums of squares for each treatment <span class="math inline">\(i\)</span>, we get for the first treatment (let’s say that is the control group):</p>
-<p><span class="math display">\[ \sum_{j}(Y_{1j} - \bar{Y}_{1.})^2 \]</span> Which is the sum of the squared differences between the observations in the control group and the mean score of the group. We can easily calculated that in R:</p>
+<p><span class="math display">\[ \sum_{j}(Y_{1j} - \bar{Y}_{1.})^2 \]</span> Which is the sum of the squared differences between the observations in the control group and the mean score of the control group. We can easily calculated that in R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>control_scores <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Control"</span>] <span class="co"># extract all scores for control group</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mean_control_scores <span class="ot">&lt;-</span> <span class="fu">mean</span>(control_scores) <span class="co"># calculate bar Y_1. - that is the mean score for control group</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>control_sum_squares <span class="ot">&lt;-</span> <span class="fu">sum</span>((control_scores <span class="sc">-</span> mean_control_scores)<span class="sc">^</span><span class="dv">2</span>) <span class="co"># calculate sum of squares (not square of sum!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>First, we subset the dataset for the scores in the control group. Then we find the mean and calculate the squared differences, which is all summed together to give the sums of squares for treatment group 1. We can repeat this for the remaining treatments and sum of the three sum of squares together and divide by <span class="math inline">\(N-a\)</span> to get the MSE.</p>
+<p>First, we subset the data set for the scores in the control group. Then we find the mean and calculate the squared differences, which is all summed together to give the sums of squares for treatment group 1. We can repeat this for the remaining treatments and sum the three sum of squares together and divide by <span class="math inline">\(N-a\)</span> to get the MSE.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expermiment 1 </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>exp1_scores <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Exp1"</span>]</span>
@@ -660,9 +672,7 @@ Control    Exp1    Exp2
 <pre><code>[1] 200.1463</code></pre>
 </div>
 </div>
-<p>Later we will see that we can extract this quantity easily from the ANOVA table. But for now, this is a useful exercise to make sure you understand the formula.</p>
-<p>INSERT POOLED AVERAGE this will form basis for all variance estimates coming</p>
-<p>So, <span class="math inline">\(\hat{\sigma^2} = s^2 = 200\)</span> (rounded off to the nearest integer) and <span class="math inline">\(\hat{\sigma} = s = 14\)</span>.</p>
+<p>Later we will see that we can extract this quantity easily from the ANOVA table. But for now, this is a useful exercise to make sure you understand the formula. So, <span class="math inline">\(\hat{\sigma^2} = s^2 = 200\)</span> (rounded off to the nearest integer) and <span class="math inline">\(\hat{\sigma} = s = 14\)</span>. This is the estimate of variance we will use to conduct an hypothesis to determine if there are any difference in the treatment means. Now you can see that it takes into account the variability of all our samples.</p>
 </section>
 <section id="standard-errors-and-confidence-intervals" class="level2 page-columns page-full" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="standard-errors-and-confidence-intervals"><span class="header-section-number">6.4</span> Standard errors and confidence intervals</h2>
@@ -675,10 +685,10 @@ Control    Exp1    Exp2
 <p>If we assume that two treatment means are independent, the variance of the difference between two means is:</p>
 <p><span class="math display">\[
 Var(\hat{\mu}_i - \hat{\mu}_j) = Var(\hat{\mu}_i) + Var(\hat{\mu}_j) = \frac{\sigma^2}{n_i} + \frac{\sigma^2}{n_j}
-\]</span> To estimate these variances we substitute the MSE for <span class="math inline">\(\sigma^2\)</span> as it is an unbiased estimate of the error variance (the variability within each group). The standard errors of the estimates are found by taking the square root of the variances. The standard error is the standard deviation of an estimated quantity, and is a measure of its precision (uncertainty); how much it would vary in repeated sampling.</p>
+\]</span>To estimate these variances we substitute the MSE for <span class="math inline">\(\sigma^2\)</span> as it is an unbiased estimate of the error variance (the variability within each group). The standard errors of the estimates are found by taking the square root of the variances. The standard error is the standard deviation of an estimated quantity, and is a measure of its precision (uncertainty); how much it would vary in repeated sampling.</p>
 <p>We can assume normal distributions for our estimates because we have assumed a normal linear model and because they are means (or differences between means). This means that confidence intervals for the population treatment means are of the form:</p>
-<p><span class="math display">\[ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)\]</span> where <span class="math inline">\(t^{\alpha/2}_v\)</span> is the <span class="math inline">\({\alpha/2}^{th}\)</span> percentile of the Student’s t distribution with <span class="math inline">\(v\)</span> degrees of freedom. The degrees of freedom are the error degrees of freedom, <span class="math inline">\(N-a\)</span> for CRD.</p>
-<p>What are the standard errors associated with the parameter estimates in the social media example? We can easily extract this by specifying an extra argument to the model.tables function.</p>
+<p><span class="math display">\[ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)\]</span> where <span class="math inline">\(t^{\alpha/2}_v\)</span> is the <span class="math inline">\({\alpha/2}^{th}\)</span> percentile of the Student’s <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(v\)</span> degrees of freedom. The degrees of freedom are the error degrees of freedom, <span class="math inline">\(N-a\)</span> for CRD.</p>
+<p>What are the standard errors associated with the parameter estimates in the social media example? We can easily extract this by specifying an extra argument to the <code>model.tables</code> function.</p>
 <p>Standard error of the effects:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"effects"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -716,7 +726,7 @@ Standard errors for differences of means
 replic.    40</code></pre>
 </div>
 </div>
-<p>So, now we have parameter estimated and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we diited and the parameters we estimated, how do we test this? The answer is with an ANOVA table.</p>
+<p>So, now we have parameter estimates and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we fitted and the parameters we estimated, how do we test this? The answer is with an ANOVA table.</p>
 </section>
 <section id="summary" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">6.5</span> Summary</h2>

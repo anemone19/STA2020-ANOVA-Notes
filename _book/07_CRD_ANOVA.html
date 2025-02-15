@@ -295,14 +295,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -395,10 +395,10 @@ window.Quarto = {
 </header>
 
 
-<p>The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment allows us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of squares<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiqously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is called a one-way ANOVA or between-subjects ANOVA or an independent factor ANOVA. It is a generalization of the ‘two-sample t-test assuming equal variances’ to the case of more than two populations.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;In statistics, sums of squares is a measure of variability and refers to squared deviations from a mean or expected value. For example, the residual sums of squares (sum of squared deviations of the observations from the fitted values).</p></div></div><section id="an-intuitive-explanation" class="level2" data-number="7.1">
+<p>The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment allows us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of squares into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiguously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is called a one-way ANOVA or between-subjects ANOVA or an independent factor ANOVA. It is a generalization of the ‘two-sample t-test assuming equal variances’ to the case of more than two populations.</p>
+<section id="an-intuitive-explanation" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="an-intuitive-explanation"><span class="header-section-number">7.1</span> An Intuitive Explanation</h2>
-<p>Before we consider real data, we first want to look at a constructed example to explain the main ideas behind ANOVA. Assume that we carried out two experiments on plants removing nitrate (NO<span class="math inline">\(_3\)</span>) from stormwater. In both experiments, we consider three plant species (uncreatively called ‘A’, ‘B’, and ‘C’). In both experiments, we have three replicates per treatment. We are only interested in comparing the species so there is no control treatment. We obtained the following data:</p>
+<p>Before we consider real data, we first want to look at a constructed example to explain the main ideas behind ANOVA. Assume that we carried out two experiments on plants removing nitrate (NO<span class="math inline">\(_3\)</span>) from storm water. In both experiments, we consider three plant species (un-creatively called ‘A’, ‘B’, and ‘C’). In both experiments, we have three replicates per treatment. We are only interested in comparing the species so there is no control treatment. We obtained the following data:</p>
 <div id="tbl-panel" class="quarto-layout-panel anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -504,20 +504,20 @@ Table&nbsp;7.1: Hypothetical Experiment
 </div>
 </figure>
 </div>
-<p>If you look at these datasets carefully, you will see that each of the three species had the same mean in the two experiments. However, the measurements were much more variable in Experiment 2 than in Experiment 1.</p>
+<p>If you look at these data sets carefully, you will see that each of the three species had the same mean in the two experiments. However, the measurements were much more variable in Experiment 2 than in Experiment 1.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Which experiment has better evidence that the true mean NO₃ removal rate differs between species? <strong>Pause and think about this before reading on.</strong>
+Which experiment has better evidence that the true mean NO<span class="math inline">\(_3\)</span> removal rate differs between species? <strong>Pause and think about this before reading on.</strong>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Intuitively, we would say that Experiment 1 shows much stronger evidence for a true effect than Experiment 2. Why? Both experiments show the same differences among the treatment (species) means. So the variability in the treatment means is the same. However, <strong>the variability among the observations within treatments differs</strong> between the two experiments. In Experiment 1, the variability within treatments is much less than the variability among treatments. In Experiment 2, the variability within treatments is about the same as the variability among treatments.</p>
+<p>Intuitively, we would say that Experiment 1 shows much stronger evidence for a true effect than Experiment 2. Why? Both experiments show the same differences among the treatment (species) means. So the variability in the treatment means is the same. However, <strong>the variability among the observations within treatments</strong> differs between the two experiments. In Experiment 1, the variability within treatments is much less than the variability among treatments. In Experiment 2, the variability within treatments is about the same as the variability among treatments.</p>
 </div>
 </div>
 </div>
@@ -588,11 +588,11 @@ F = \frac{s_1^2}{s_2^2}
 </section>
 <section id="analysis-of-variance-for-crd" class="level2 page-columns page-full" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="analysis-of-variance-for-crd"><span class="header-section-number">7.3</span> Analysis of Variance for CRD</h2>
-<p>Let’s go back to the linear model for the single-factor completely randomized design that we examined earlier:</p>
+<p>Let’s go back to the linear model for the single-factor CRD that we examined earlier:</p>
 <p><span class="math display">\[
 Y_{ij} = \mu + \alpha_i + e_{ij}
 \]</span></p>
-<p>where <span class="math inline">\(\mu\)</span> is the overall mean, <span class="math inline">\(\alpha_i\)</span> are the treatment effects (that is the difference between treatment means and the overall mean), and <span class="math inline">\(e_{ij}\)</span> are the error terms (the differences between the observation and the fotted value, i.e.&nbsp;treatment mean). Remember that the estimated values for these parameters are the observed values:</p>
+<p>where <span class="math inline">\(\mu\)</span> is the overall mean, <span class="math inline">\(\alpha_i\)</span> are the treatment effects (that is the difference between treatment means and the overall mean), and <span class="math inline">\(e_{ij}\)</span> are the error terms (the differences between the observation and the fitted value, i.e.&nbsp;treatment mean). Remember that the estimated values for these parameters are the observed values:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \hat{\mu} &amp;= \bar{Y}_{..} \\
@@ -613,8 +613,8 @@ Y_{ij} - \bar{Y} &amp;= (\bar{Y}_i - \bar{Y}) + (Y_{ij} - \bar{Y}_i) \\
 \]</span></p>
 <p>Each term represents squared deviations:</p>
 <ul>
-<li>The first term is of observsations around the overall mean representing the total variation in the response.</li>
-<li>The second is of the group means around the overall mean represeting the explained variation or variation between treatments and,</li>
+<li>The first term is of observations around the overall mean representing the total variation in the response.</li>
+<li>The second is of the group means around the overall mean representing the explained variation or variation between treatments and,</li>
 <li>The last term represents the deviations of observations from their treatment means (unexplained or within treatment variation).</li>
 </ul>
 <p>We could also call these:</p>
@@ -624,12 +624,12 @@ SS_{\text{total}} = SS_{\text{between groups}} + SS_{\text{within groups}}
 <p><span class="math display">\[
 SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
 \]</span></p>
-<p><strong>The analysis of variance is based on this identity</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The total sums of squares equals the sum of squares between groups plus the sum of squares within groups.</p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;In mathematics, an identity is an equation that is always true, regardless of the values of it’s variables. In other words, the identity is true for all observations.</p></div></div><p>Back to our constructed example. What are the different sums of squares? For Experiment 1, we get: <span class="math inline">\(SS_{\text{total}} = 624; SS_{\text{between groups}} = 600; SS_{\text{within groups}} = 24\)</span>. Verify these numbers and do the same for Experiment 2.</p>
+<p><strong>The analysis of variance is based on this identity</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The total sums of squares equals the sum of squares between groups plus the sum of squares within groups.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;In mathematics, an identity is an equation that is always true, regardless of the values of it’s variables. In other words, the identity is true for all observations.</p></div></div><p>Back to our constructed example. What are the different sums of squares? For Experiment 1, we get: <span class="math inline">\(SS_{\text{total}} = 624; SS_{\text{between groups}} = 600; SS_{\text{within groups}} = 24\)</span>. Verify these numbers and do the same for Experiment 2.</p>
 </section>
 <section id="anova-table" class="level2 page-columns page-full" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="anova-table"><span class="header-section-number">7.4</span> ANOVA Table</h2>
-<p>This division of the total sums of squares is typically summarised in an analysis of variance table. The first column contains the “source” of the varibility with the first entry (the order is not important, although this is the typical order) representing the between treatment variability (explained variation), second the error (unexplained variation) and lastly the total variation. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.</p>
+<p>This division of the total sums of squares is typically summarised in an analysis of variance table. The first column contains the “source” of the variability with the first entry (the order is not important, although this is the typical order) representing the between-treatment variability (explained variation), second the error (unexplained variation) and lastly the total variation. Here we have used the notation <span class="math inline">\(SS_A\)</span> to represent the sums of squares for treatment factor A. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -659,7 +659,7 @@ SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
 <td>Residuals (Error)</td>
 <td><span class="math inline">\(\sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2\)</span></td>
 <td><span class="math inline">\(N-a\)</span></td>
-<td><span class="math inline">\(MSE = SS_E / (N-a)\)</span></td>
+<td><span class="math inline">\(MSE = SSE / (N-a)\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -673,12 +673,12 @@ SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
 </table>
 <p>The fourth column contains the Mean squares. This is what we get when we divide sums of squares by the appropriate degrees of freedom.</p>
 <p><span class="math display">\[ \text{MS} = \frac{SS}{df}\]</span></p>
-<p>This is simply an average and may be seen as an estimate of variance. So when we divide the treatment SS by its degrees of freedom, we get an estimate of the variation due to treatments and simirlary, for the the residual SS, we get an estimate of the error variance. You’ve seen this before!</p>
+<p>This is simply an average and may be seen as an estimate of variance. So when we divide the treatment SS by its degrees of freedom, we get an estimate of the variation due to treatments and similarly, for the the residual SS, we get an estimate of the error variance. You’ve seen this before!</p>
 <p><span class="math display">\[\text{MSE} = \hat{\sigma}^2 = \frac{1}{N-a}\sum_i\sum_j(Y_{ij} - Y_{i.})^2\]</span></p>
 <section id="what-are-degrees-of-freedom" class="level3 page-columns page-full" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="what-are-degrees-of-freedom"><span class="header-section-number">7.4.1</span> What Are Degrees of Freedom?</h3>
 <p>Degrees of freedom (df) represent the number of independent pieces of information available for estimating a parameter. When making statistical calculations, we typically lose one degree of freedom for every estimated parameter before the current calculation.</p>
-<p>For example, when estimating the standard deviation of a dataset, we first estimate the mean, thereby reducing the number of independent observations available to calculate variability. This is why the denominator in the variance formula is <span class="math inline">\(N-1\)</span>:</p>
+<p>For example, when estimating the standard deviation of a data set, we first estimate the mean, thereby reducing the number of independent observations available to calculate variability. This is why the denominator in the variance formula is <span class="math inline">\(N-1\)</span>:</p>
 <p><span class="math display">\[ s^2 = \frac{\sum(Y_i - \bar{Y})^2}{N -1} \]</span> You can think of degrees of freedom as the number of independent deviations around a mean. If we have <span class="math inline">\(n\)</span> observations and their mean, once we know <span class="math inline">\(n-1\)</span> of the values, the last one is fixed—it must take on a specific value to satisfy the mean equation. Therefore, only <span class="math inline">\(n-1\)</span> observations are truly free to vary.</p>
 <p><strong>Example: Three Numbers Summing to a Fixed Mean</strong></p>
 <p>Say we have three (<span class="math inline">\(n=3\)</span>) numbers: (4, 6, 8). The mean of these three numbers is 6. If we only knew the first two numbers (4,6) and the mean, the third number must be 8:</p>
@@ -694,8 +694,8 @@ x_3 &amp;= 8
 <p><strong>Another Intuitive Analogy</strong></p>
 <p>Imagine you are distributing a fixed amount of money among friends. If you have R100 and four friends, you can freely allocate money to three friends, but whatever is left must go to the fourth friend to ensure the total remains R100. Similarly, once the first <span class="math inline">\(n-1\)</span> values are chosen, the last value is determined, limiting the degrees of freedom.</p>
 <p><strong>In ANOVA</strong></p>
-<p>If you look at the treatment sums of squares: <span class="math inline">\(\sum_i n_i (\bar{Y}_{i.} - \bar{Y}_{..})^2\)</span>. We have <span class="math inline">\(a\)</span> deviations around the grand mean. But once we know <span class="math inline">\(a-1\)</span> of the treatment means and the grand mean<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, the last mean is fixed. So we have <span class="math inline">\(a-1\)</span> independent deviations around the overall mean.</p>
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Remember, <span class="math inline">\(\mu = \frac{\sum \mu_i}{a}\)</span>.</p></div></div><p>If you look at the treatment sums of squares: <span class="math inline">\(\sum_i \sum_j (Y_{ij} - \bar{Y}_{..})^2\)</span>. We are using <span class="math inline">\(N\)</span> observations and calculating the deviations of these observations around the overall mean. So, only <span class="math inline">\(N-1\)</span> observations are free to vary, the last observation is fixed for the calculated mean to hold true.</p>
+<p>If you look at the treatment sums of squares: <span class="math inline">\(\sum_i n_i (\bar{Y}_{i.} - \bar{Y}_{..})^2\)</span>. We have <span class="math inline">\(a\)</span> deviations around the grand mean. But once we know <span class="math inline">\(a-1\)</span> of the treatment means and the grand mean<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, the last mean is fixed. So we have <span class="math inline">\(a-1\)</span> independent deviations around the overall mean.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Remember, <span class="math inline">\(\mu = \frac{\sum \mu_i}{a}\)</span>.</p></div></div><p>If you look at the treatment sums of squares: <span class="math inline">\(\sum_i \sum_j (Y_{ij} - \bar{Y}_{..})^2\)</span>. We are using <span class="math inline">\(N\)</span> observations and calculating the deviations of these observations around the overall mean. So, only <span class="math inline">\(N-1\)</span> observations are free to vary, the last observation is fixed for the calculated mean to hold true.</p>
 </section>
 </section>
 <section id="back-to-the-constructed-example" class="level2" data-number="7.5">
@@ -742,13 +742,13 @@ Residuals    6   1350     225               </code></pre>
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Read that again. The alternative is that at least one treatment is different. It is not that all treatment means are different.</p>
 </div></div><p>If <span class="math inline">\(H_0\)</span> is true, the among-treatment-means variation should equal the within-treatment variation. We can use the F-ratio to test <span class="math inline">\(H_0\)</span>:</p>
-<p><span class="math display">\[ F = \frac{MS_A}{MSE} \]</span></p>
+<p><span class="math display">\[ F^* = \frac{MS_A}{MSE} \]</span></p>
 <p>This ratio has an F-distribution with <span class="math inline">\(a-1\)</span> numerator degrees of freedom and <span class="math inline">\(N-a\)</span> denominator degrees of freedom.</p>
-<p>You can think of the <em>F-ratio</em> as a signal-to-noise ratio. If <span class="math inline">\(H_0\)</span> is true, <span class="math inline">\(F\)</span> is expected to be close to 1. If <span class="math inline">\(H_0\)</span> is false, <span class="math inline">\(F\)</span> is expected to be much larger than 1. This means that the F-test we conduct is a one-sided upper tailed test. If <span class="math inline">\(H_0\)</span> is false, the means squares for treatment will be much larger than the MSE, resulting in large F-values. We are only interested in this one side of possible outcomes therefore, a one-sided test.</p>
+<p>You can think of the <em>F-ratio</em> as a signal-to-noise ratio. If <span class="math inline">\(H_0\)</span> is true, <span class="math inline">\(F\)</span> is expected to be close to 1. If <span class="math inline">\(H_0\)</span> is false, <span class="math inline">\(F\)</span> is expected to be much larger than 1. This means that the F-test we conduct is a <strong>one-sided upper tailed test</strong>. If <span class="math inline">\(H_0\)</span> is false, the means squares for treatment will be much larger than the MSE, resulting in large F-values. We are only interested in this one side of possible outcomes therefore, a one-sided test.</p>
 <p>In Experiment 1, <span class="math inline">\(F = \frac{300}{4} = 75\)</span>, which leads to a very small <span class="math inline">\(p\)</span>-value (<span class="math inline">\(&lt; 0.001\)</span>). The signal was much larger than the noise, and our data are very unlikely if <span class="math inline">\(H_0\)</span> were true. So we have good evidence that the treatments differ.</p>
 <p>In Experiment 2, <span class="math inline">\(F = \frac{300}{225} = 1.33\)</span>, which leads to a large <span class="math inline">\(p\)</span>-value (<span class="math inline">\(0.33\)</span>). Signal and noise were of similar magnitude, and our data are not unlikely if <span class="math inline">\(H_0\)</span> were true. So we have no evidence against <span class="math inline">\(H_0\)</span>, i.e., no evidence that nitrate extraction differs between species.</p>
-<p>How did we get these p-values? This is the same as in any hypothesis test. We have a test statistic (which quantifies the strength of …) and to say somehting about how likely this test statistic (or more extreme is) under the null hypothesis, we need the null distribution of the test statistic (that is the sampling distribution of the test statistic as if the null hypothesis were true). We then compared the observed value of the test statistic to that null distribution and asked ourselves how unusual it is in light of that distribution. Does out test statistic belong to this null distribution?</p>
-<p>For the F-value of test statistic follows an F distribution as specified above.</p>
+<p>How did we get these p-values? This is the same as in any hypothesis test. We have a test statistic and to say something about how likely this test statistic (or more extreme is) under the null hypothesis, we need the null distribution of the test statistic (that is the sampling distribution of the test statistic as if the null hypothesis were true). We then compared the observed value of the test statistic to that null distribution and asked ourselves how unusual it is in light of that distribution. Does our test statistic belong to this null distribution?</p>
+<p>The <span class="math inline">\(F\)</span> test statistic follows an F distribution as specified above.</p>
 <p><span class="math display">\[\text{F}^* \sim \text{F}_{(a-1),\;(N-a)}\]</span></p>
 <p>For both experiment, this equates to an F distribution with 2 numerator and 6 denominator degrees of freedom which looks like this:</p>
 <div class="cell">
@@ -806,7 +806,7 @@ Residuals    6   1350     225               </code></pre>
 </div>
 </div>
 </div>
-<p>Remember sampling distributions are probability distributions. For continuous random variables, the area under the curve represents probability. Specifically, the probability of a random variable taking on a specific value or larger, is the area udner the curve to the right of that value. For test statistics and their probability distribution, that probability is the p-value. The p-value is the probability of observing a test statistic at least as extreme as we did if the null hypothesis was in fact true. The smaller the p-value, the stronger the evidence against <span class="math inline">\(H_0\)</span>.</p>
+<p>Remember sampling distributions are probability distributions. For continuous random variables, the area under the curve represents probability. Specifically, the probability of a random variable taking on a specific value or larger, is the area under the curve to the right of that value. For test statistics and their probability distribution, that probability is the p-value. The p-value is the probability of observing a test statistic at least as extreme as we did if the null hypothesis was in fact true. The smaller the p-value, the stronger the evidence against <span class="math inline">\(H_0\)</span>.</p>
 <p>We can obtain the p-value in two ways (you will need to be able to do both):</p>
 <ol type="1">
 <li>Using Software.</li>
@@ -838,7 +838,7 @@ Residuals    6   1350     225               </code></pre>
 <pre><code>[1] 0.332583</code></pre>
 </div>
 </div>
-<p>This value is quite large and corresponds to the area to the right of an F value of 1.33 for the distribution above. We interpret this p-value as the test statistic is quite likely to have come from this null distribution, there is a 33% chance of observing this test statistic or more exteme if the null hypothesis is true. We do not have strong evidence against the null hypothesis of equal means.</p>
+<p>This value is quite large and corresponds to the area to the right of an F value of 1.33 for the distribution above. We interpret this p-value as the test statistic is quite likely to have come from this null distribution, there is a 33% chance of observing this test statistic or more extreme if the null hypothesis is true. We do not have strong evidence against the null hypothesis of equal means.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -868,25 +868,25 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can round the p-value if you need to enter the value to a certian number of decimals in a quiz or test using the function <code>round</code>.</p>
+<p>You can round the p-value if you need to enter the value to a certain number of decimals in a quiz or test using the function <code>round</code>.</p>
 </div>
 </div>
 <ol start="2" type="1">
 <li>Using tables.</li>
 </ol>
-<p>Before the days of programming, statisticians used tables to find critical values and p-values for various probability distributions. These tables were precomputed for different significance levels (e.g., 0.05, 0.01) and degrees of freedom. In modern statistical analysis, we no longer rely on static tables, as software like R can compute exact probabilities. But since we have written examinations, we have to learn how to do this and it is a useful exercise to make sure you understand what you are doing and not just spitting out a value.</p>
+<p>Before the days of widespread programming, statisticians used tables to find critical values and p-values for various probability distributions. These tables were pre-computed for different significance levels (e.g., 0.05, 0.01) and degrees of freedom. In modern statistical analysis, we no longer rely on static tables, as software like R can compute exact probabilities. But since we have written examinations, we have to learn how to do this and it is a useful exercise to make sure you understand what you are doing and not just spitting out a value.</p>
 <p>F-tables look like this:</p>
 <p><img src="images/fdist1.png" class="img-fluid"></p>
 <!-- ![](F-dist.pdf){height=400px width=100%} -->
-<p>Read it carefully. The table says: “Entries in the table give F! values, where ! is the area or probability in the upper tail of the F distribution. For example, with four numerator degrees of freedom, eight denominator degrees of freedom, and a.05 area in the upper tail, F.05 = 3.84.” This is important, not all tables look like this. See if you can find the F-value mentioned.</p>
-<p>The numeratir df is in the column and the denominator df is in the row. In the row dimension are different probability values as well. To find an F-value, locate the df in the column and row. Can you find the following:</p>
+<p>Read it carefully. The table says: “Entries in the table give <span class="math inline">\(F_\alpha\)</span> values, where <span class="math inline">\(\alpha\)</span> is the area or probability in the upper tail of the F distribution. For example, with four numerator degrees of freedom, eight denominator degrees of freedom, and 0.05 area in the upper tail, F.05 = 3.84.” This is important, not all tables look like this. See if you can find the F-value mentioned.</p>
+<p>The numerator df is in the column and the denominator df is in the row. In the row dimension are different <span class="math inline">\(\alpha\)</span> values as well. To find an F-value, locate the df in the column and row. Can you find the following:</p>
 <ul>
 <li><span class="math inline">\(F_{4,4}^{0.05} = 6.39\)</span></li>
 <li><span class="math inline">\(F_{10,2}^{0.1} = 9.39\)</span></li>
 <li><span class="math inline">\(F_{1,1}^{0.025} = 647.79\)</span></li>
 <li><span class="math inline">\(F_{7,3}^{0.01} = 27.67\)</span></li>
 </ul>
-<p>This is how we find critical values of F-distributions. If you are asked to compare a test statistic with a critical value at a specific signfiicance level, you will find the value with a table like this. To find the critical values in R, we use the <code>fq</code> function:</p>
+<p>This is how we find critical values of F-distributions. If you are asked to compare a test statistic with a critical value at a specific significance level, you will find the value with a table like this. To find the critical values in R, we use the <code>fq</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F4,4 0.05</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -910,8 +910,8 @@ Tip
 <pre><code>[1] 27.6717</code></pre>
 </div>
 </div>
-<p>Now, how do we use the tables to obtain p-values? The test statistic for the first Experiment was 1.33 and the dfs were 2 (num) and 6 (denom). If we look at the table above, it only goes to 4 denominator degrees of freedom, so we need the continuition of the table.</p>
-<p><img src="images/fdist2.png" class="img-fluid"> Now we locate the F-values with 2 and 6 degrees of freedom and compare the test statistic of the second experiment (1.33) to them. The smallest value is 3.46 where the probability to the right of that value is 0.1. Our test statistic is much smaller than this, so lies further to the right and so logically, the right-hand-side probability of this value with be greater than 0.1. So we conclude that the p-value that our p-value is &gt; 0.1 (which it is, we calculated it to be 0.32). With tables we cannot get exact probabilities, but we can say something about the magntitude of the p-value. Try it for the first experiment which had an F-value of 75.</p>
+<p>Now, how do we use the tables to obtain p-values? The test statistic for the first Experiment was 1.33 and the df’s were 2 (num) and 6 (denom). If we look at the table above, it only goes to 4 denominator degrees of freedom, so we need the continuation of the table.</p>
+<p><img src="images/fdist2.png" class="img-fluid">Now we locate the F-values with 2 and 6 degrees of freedom and compare the test statistic of the second experiment (1.33) to them. The smallest value is 3.46 where the probability to the right of that value is 0.1. Our test statistic is much smaller than this, so lies further to the right and so logically, the right-hand-side probability of this value with be greater than 0.1. So we conclude that the p-value that our p-value is &gt; 0.1 (which it is, we calculated it to be 0.32). With tables we cannot get exact probabilities, but we can say something about the magnitude of the p-value. Try it for the first experiment which had an F-value of 75.</p>
 </section>
 <section id="conclusion-does-social-media-multitasking-impact-academic-performance-of-students" class="level2 page-columns page-full" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="conclusion-does-social-media-multitasking-impact-academic-performance-of-students"><span class="header-section-number">7.7</span> Conclusion: Does social media multitasking impact academic performance of students?</h2>
@@ -942,9 +942,10 @@ Demirbilek, Muhammet, and Tarik Talan. 2018. <span>“The Effect of Social Media
 <p>Does social media multitasking impact academic performance of students?</p>
 <p>We start with the hypotheses:</p>
 <p><span class="math display">\[H_0: \mu_1 = \mu_2 = \ldots = \mu_a\]</span></p>
-<p>In words we say that the average academic performance of students did not different across the treatments (levels of socal media multitasking).</p>
+<p>In words we say that the average academic performance of students did not different across the treatments (levels of social media multitasking).</p>
 <p>And the alternate hypothesis is the opposite of that:</p>
-<p><span class="math display">\[H_A: \text{At least one } \mu_i \text{ is different.}\]</span> At least one of the social media multitasking treatments resulted in a different mean academic performance, they are not all equal.</p>
+<p><span class="math display">\[H_A: \text{At least one } \mu_i \text{ is different.}\]</span></p>
+<p>At least one of the social media multitasking treatments resulted in a different mean academic performance, they are not all equal.</p>
 <p>We have fit the model already (called <code>m1</code>) and call the <code>summary</code> function to obtain the ANOVA table:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m1 &lt;- aov(Posttest ~ Group, data = multitask)</span></span>
@@ -964,14 +965,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>How many observations in total?</li>
 <li>Is there evidence for a treatment effect?</li>
 </ol>
-<p>The first two you can answer with the degrees of freedom and the third is answered by conducting the hypothesis test. With three treatments, we have 2 treatment degrees of freedom. We had 40 studnets per group, the sample size is then 120 which means there are 117 degrees of freedom for the residuals. The treatment MS (5488) wis much larger that the MSE (200). This leads to an F-ratio of 27.42 with a p-value of <span class="math inline">\(1.72\times e^{-10}\)</span> (thats extremely small). We have strong evidence that the treatments did produce different academic performances across students. At least one treatment resulted in a different mean academic performance. In a report, you would write:</p>
+<p>The first two you can answer with the degrees of freedom and the third is answered by conducting the hypothesis test. With three treatments, we have 2 treatment degrees of freedom. We had 40 students per group, the sample size is then 120 which means there are 117 degrees of freedom for the residuals. The treatment MS (5488) was much larger that the MSE (200). This leads to an F-ratio of 27.42 with a p-value of <span class="math inline">\(1.72\times e^{-10}\)</span> (that’s extremely small). We have strong evidence that the treatments did result different academic performances across students At least one treatment resulted in a different mean academic performance. In a report, you would write:</p>
 <p>“The manipulation of social media multitasking affected the academic performance of students in this experiment (<span class="math inline">\(F_{2,117} = 27.42\)</span>, <span class="math inline">\(p&lt;0.001\)</span>).”</p>
-<p>But which treatments differed? <strong>We cannot answer that question with this hypothesis.</strong> it only tells us that there is a difference, there is a treatment effect. <strong>It does not tell us where the difference or possible differences lie.</strong> to determine this, we need to use treatment contrasts. Before we do this or present any results, we need to do one last thing.</p>
+<p>But which treatments differed? <strong>We cannot answer that question with this hypothesis.</strong> It only tells us that there is a difference, there is a treatment effect. <strong>It does not tell us where the difference or possible differences lie.</strong> To determine this, we need to use treatment contrasts. Before we do this or present any results, we need to do one last thing.</p>
 </section>
 <section id="model-checking" class="level2 page-columns page-full" data-number="7.8">
 <h2 data-number="7.8" class="anchored" data-anchor-id="model-checking"><span class="header-section-number">7.8</span> Model Checking</h2>
-<p>Remember that we said some of our assumptions need to be checked after the model is fitted? Our model specifies the error terms are (1) normally distributed, (2) all with the same variance (homoscedastic), and (3) that they are independent. The residuals are estimates of these error terms and we can therefore use them to check the model assumptions. Normally distributed, equal variance and independent really means that there is no discernible pattern or structure left in the residuals. If there is, then the model has failed to pick up an important structure in the data.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;The same concepts apply to linear regression models.</p></div></div><p>We call the function <code>plot</code> on our model object. For our purposes we are only going to look at two of the plots and we inspect them one by one by specifyng the plot number with the argument <code>which</code>:</p>
+<p>Remember that we said some of our assumptions need to be checked after the model is fitted. Our model specifies the error terms are (1) normally distributed, (2) all with the same variance (homoscedastic), and (3) that they are independent. The residuals are estimates of these error terms and we can therefore use them to check the model assumptions. Normally distributed, equal variance and independent really means that there is no discernible pattern or structure left in the residuals. If there is, then the model has failed to pick up an important structure in the data.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;The same concepts apply to linear regression models.</p></div></div><p>We call the function <code>plot</code> on our model object. For our purposes we are only going to look at two of the plots and we inspect them one by one by specifying the plot number with the argument <code>which</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1, <span class="at">which =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -982,8 +983,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </div>
-<p>This is a plot of the residuals (obs - fitted) against the fitted values and we are hoping to see no patterns. We have three lines, one for each treatment group and we want to check that our residuals are centred around zero and have constant variance across the groups. <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Remember we assumed <span class="math inline">\(e_{ij} \sim N(0,\sigma^2)\)</span> and residuals are estimates of the errors.</p></div></div><div class="cell">
+<p>This is a plot of the residuals (obs - fitted) against the fitted values and we are hoping to see no patterns. We have three lines, one for each treatment group and we want to check that our residuals are centered around zero and have constant variance across the groups. <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Remember we assumed <span class="math inline">\(e_{ij} \sim N(0,\sigma^2)\)</span> and residuals are estimates of the errors.</p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1, <span class="at">which =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -993,7 +994,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </div>
-<p>The second plot is a Q-Q plot which we have seen before when we checked the assumptions before model fitting. Now, we plot the standardised residuals aganst the theoretical quantiles of a standard normal distribution. We are looking for the same pattern as before, that the points fall close to the dotted line. As usual, there many be soem deviations at the tails but for the most part, there are no serious problems with this plot. If there is some doubt, we can also look at a histogram of the residuals:</p>
+<p>The second plot is a Q-Q plot which we have seen before when we checked the assumption of normality before model fitting. Now, we plot the standardised residuals against the theoretical quantiles of a standard normal distribution. We are looking for the same pattern as before, that the points fall close to the dotted line. As usual, there many be some deviations at the tails but for the most part, there are no serious problems with this plot. If there is some doubt, we can also look at a histogram of the residuals:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">resid</span>(m1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1004,7 +1005,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </div>
-<p>The assumption of independent errors is mostly checked before model fitting and with considering the experimental design. If we suspected autcorrelated residuals, we could plot the residuals againt order:</p>
+<p>The assumption of independent errors is mostly checked before model fitting and with considering the experimental design. If we suspected auto-correlated residuals, we could plot the residuals against order:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">resid</span>(m1) <span class="sc">~</span> <span class="fu">seq_along</span>(<span class="fu">resid</span>(m1)), </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Order of Observations"</span>, </span>
@@ -1023,18 +1024,17 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section>
 <section id="summary" class="level2" data-number="7.9">
 <h2 data-number="7.9" class="anchored" data-anchor-id="summary"><span class="header-section-number">7.9</span> Summary</h2>
-<p>That’s a alot. So let’s sumamrise what we did in this chapter:</p>
-<p>We introduced Analysis of Variance (ANOVA), which is fundamentally a regression model with categorical variables but parameterized differently. ANOVA allows us to partition total variance into between-treatment and within-treatment variability, helping us determine whether differences in the response variable are due to the treatments.</p>
+<p>That’s a lot. So let’s summarise what we did in this chapter:</p>
+<p>We introduced Analysis of Variance (ANOVA), which is fundamentally a regression model with categorical variables but parameterised differently. ANOVA allows us to partition total variance into between-treatment and within-treatment variability, helping us determine whether observed differences in the response variable are due to the treatments and not just sampling error.</p>
 <p>We explored ANOVA through a constructed experiment on nitrate removal by plants, demonstrating that variation within treatments influences our ability to detect true treatment effects. The F-ratio, a measure of the signal-to-noise ratio, is central to ANOVA. A large F-ratio suggests that between-group variability is greater than within-group variability, providing evidence that at least one treatment differs.</p>
-<p>The F-test determines statistical significance, and its p-value is derived from the F-distribution. A small p-value suggests strong evidence against the null hypothesis (<span class="math inline">\(H_0\)</span>), indicating at least one group mean differs. The ANOVA table summarizes these calculations, including sums of squares (SS), degrees of freedom (df), mean squares (MS), and the F-statistic.</p>
-<p>Applying ANOVA to real experimental data, we analyzed the impact of social media multitasking on student performance. With three treatment groups (control, SMS, Facebook), we found a statistically significant effect (<span class="math inline">\(F_{2,117} = 27.42\)</span>, <span class="math inline">\(p&lt;0.001\)</span>), confirming that at least one treatment influenced academic performance. However, ANOVA does not specify which groups differ—this requires post-hoc tests.</p>
+<p>The F-test determines statistical significance, and its p-value is derived from the F-distribution. A small p-value suggests strong evidence against the null hypothesis (<span class="math inline">\(H_0\)</span>), indicating at least one group mean differs. The ANOVA table summarises these calculations, including sums of squares (SS), degrees of freedom (df), mean squares (MS), and the F-statistic.</p>
+<p>Applying ANOVA to real experimental data, we analyzed the impact of social media multitasking on student performance. With three treatment groups (control, SMS, Facebook), we found a statistically significant effect (<span class="math inline">\(F_{2,117} = 27.42\)</span>, <span class="math inline">\(p&lt;0.001\)</span>), confirming that at least one treatment influenced academic performance. However, ANOVA does not specify which groups differ and how they differ—this requires post-hoc tests.</p>
 <p>Finally, we validated model assumptions:</p>
 <ul>
-<li>Normality: Checked via a Q-Q plot and histogram of residuals.</li>
-<li>Homoscedasticity (equal variance): Examined using a residuals vs.&nbsp;fitted plot.</li>
-<li>Independence: Considered in the experimental design and checked by plotting residuals against observation order.</li>
+<li><p>Normality: Checked via a Q-Q plot and histogram of residuals.</p></li>
+<li><p>Homoscedasticity (equal variance): Examined using a residuals vs.&nbsp;fitted plot.</p></li>
+<li><p>Independence: Considered in the experimental design and checked by plotting residuals against observation order.</p></li>
 </ul>
-<p>These diagnostic checks confirmed that our ANOVA model met assumptions, supporting the validity of our conclusions.</p>
 
 
 

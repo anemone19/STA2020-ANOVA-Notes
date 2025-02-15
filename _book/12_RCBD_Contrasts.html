@@ -358,8 +358,11 @@ window.Quarto = {
 </header>
 
 
-<p>After finding that there evidence to suggest that at least two of the treatments differed from each other, we want to find out which ones and estimate the differences. In the Pygmalion experiment, there was only two treatments so we know the difference is between them. In fact, we could have used a paired t-test to analyse the data and we would get the same results. Generally though, there will be more than two treatments and then after concluding there are differences, the treatment had an effect, we want to know where the differences lie.</p>
-<p>To do that, we use the coefficients from fitting a linear regression model to estimate the difference between the two treatments (as we did for CRD experiments as well). The null hypothesis is again:</p>
+<p>After finding that there is evidence to suggest that at least two of the treatments differed from each other (another way to say there is a treatment effect!), we want to find out which ones differed and estimate these differences. In the Pygmalion experiment, there were only two treatments so we know the difference is between them. In fact, we could have used a paired t-test to analyse the data and we would get the same results. Generally though, there will be more than two treatments and then after concluding that there are differences, we want to know where the differences lie.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>When we have blocks in RCBD, the observations are paired and data from two treatments can be analysed using a paired t-test. When we do not have blocks, the observations are not and data from two treatments can be analysed using a standard t-test.</p>
+</div></div><p>To do that, we use the coefficients from fitting a linear regression model to estimate the difference between the two treatments (as we did for CRD experiments as well). The null hypothesis is again:</p>
 <p><span class="math display">\[H_0: \mu_C - \mu_P = 0 \]</span></p>
 <p>where C stands for Control and P for Pygmalion. We use the <code>lm</code> function as in regression.</p>
 
@@ -402,7 +405,7 @@ F-statistic: 2.233 on 10 and 9 DF,  p-value: 0.1211</code></pre>
 <ol type="1">
 <li><p>We are only interested in the second line starting with <code>TreatPygmalion</code>. R pasted the name of the factor and the name of the treatment level together.</p></li>
 <li><p>The Control treatment was taken as the baseline (it comes first in the alphabet).</p></li>
-<li><p>The remaining lines are not of interest to us. It estimates the differences between each block and the first and test whether these effects are different from zero. R doesn’t know we aren’t interested in these, so it computes the effects and hypothesis test as if we are. We ignore this part.</p></li>
+<li><p>The remaining lines are not of interest to us. It estimates the differences between each block and the first and tests whether these effects are different from zero. R doesn’t know we aren’t interested in these, so it computes the effects and hypothesis test as if we are. We ignore this part.</p></li>
 <li><p>If we didn’t know that this code was for analysing a RCBD we would probably think that it is linear regression with two categorical variables. Think back to the regression module, what does this intercept represent? It represents the mean score for some treatment level and company. Since ‘C’ comes before ‘P’ in the alphabet and C1 is before everything else, the intercept is the average score for the control group in the first block. This is because R uses the <em>treatment contrast</em> parameterisation by default for all the factors. We can change this by letting R know that the block effects sum to zero.</p></li>
 </ol>
 <div class="cell">
@@ -446,9 +449,19 @@ F-statistic: 2.233 on 10 and 9 DF,  p-value: 0.1211</code></pre>
 <pre><code>[1] 67.92</code></pre>
 </div>
 </div>
-<p>Let’s interpret the hypothesis test for the difference between treatment means. The estimated difference is 10.78 with a standard error of 3.126. The test statistic is 3.448 which has a p-value of 0.00729. Look familiar? It’s the exact same p-value we found with the ANOVA! That is because the ANOVA is an extension of the t-test to more than two groups and when we only have two treatments, they are equivalent. In fact, the test statistics have the following relationship:</p>
+<p>Let’s interpret the hypothesis test for the difference between the treatment means. The estimated difference is 10.78 with a standard error of 3.126. The test statistic is 3.448 which has a p-value of 0.00729. Look familiar? It’s the exact same p-value we found in the ANOVA table! That is because the ANOVA is an extension of the t-test to more than two groups and when we only have two treatments, they are equivalent. In fact, the test statistics have the following relationship:</p>
 <p><span class="math display">\[ t^2 = F\]</span></p>
-<p>Test it out to see that it holds. Back to the interpretation. The test tells us that the difference between the control and Pygmalion treatment is significant since the p-value is extremely small indicating that we have strong evidence against the null hypothesis of equal means.</p>
+<p>Test the result to confirm that it holds. Now, let’s return to the interpretation. The test shows that the difference between the control and Pygmalion treatment is statistically significant, as indicated by the extremely small p-value. This provides strong evidence against the null hypothesis of equal means.</p>
+<p>To recall the experiment’s design: The researchers aimed to test the Pygmalion effect while eliminating interpersonal contrasts by assigning treatments to entire groups. Specifically, platoons within companies were used as treatment units, and since there were 10 companies, each with 2 platoons, companies served as blocks. The response variable, theoretical specialty knowledge, was measured through test scores.</p>
+<p>The results of a two-way ANOVA provide evidence of a treatment effect (<span class="math inline">\(F = 11.89\)</span>, <span class="math inline">\(p &lt; 0.01\)</span>). More precisely, the estimated difference between the control and Pygmalion treatment was 10.78 (s.e. = <span class="math inline">\(3.13\)</span>, <span class="math inline">\(t = 3.45\)</span>, <span class="math inline">\(p &lt; 0.01\)</span>). This suggests that the Pygmalion effect was successful, as soldiers in the Pygmalion group scored higher on average than those in the control group.</p>
+<p>Nice! We’re done. Before we move on, I’ll summarise the results of the actual study. The researcher had four different responses:</p>
+<ul>
+<li>Theoretical specialty knowledge (taught by platoon leaders)</li>
+<li>Practical specialty skills (taught by platoon leaders)</li>
+<li>Physical fitness (assessed independently)</li>
+<li>Target shooting (assessed independently)</li>
+</ul>
+<p>Significant treatment effects were found for theoretical and practical specialty scores (<span class="math inline">\(F = 13.74\)</span>, <span class="math inline">\(p &lt; 0.01\)</span> and <span class="math inline">\(F = 6.37\)</span>, <span class="math inline">\(p &lt; 0.05\)</span>, respectively). No significant difference was found for physical fitness or target shooting, confirming that the Pygmalion effect was specific to areas influenced by leader expectations! This suggests that high expectations from others can enhance performance, particularly in areas where they have direct influence. With this in mind, I want you to know that <strong>I believe in your potential to excel in this course and expect nothing less. ;)</strong> On to the next section!</p>
 
 
 

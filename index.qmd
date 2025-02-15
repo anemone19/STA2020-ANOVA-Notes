@@ -1,11 +1,10 @@
 # Preface {.unnumbered}
 
-This book is not an exhaustive guide for designing an experiment or conducting ANOVA's, it has been tailored specifically for the learning outcomes and methods covered in STA2020. If you are interested in a more general text on experimental design, please see: 
+This book is not an exhaustive guide for designing an experiment or conducting ANOVA's, it has been tailored specifically for the learning outcomes and methods covered in STA2020. If you are interested in a more general text on experimental design, please see:
 
+Instructions:
 
-Instructions: 
-
-- Examples
-- R code
-- Tips
-- Footnotes 
+-   Examples
+-   R code
+-   Tips
+-   Footnotes

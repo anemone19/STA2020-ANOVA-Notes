@@ -457,8 +457,8 @@ window.Quarto = {
 <li>Leaders were instructed not to discuss their treatment condition, preventing expectation spillover.</li>
 <li>Each platoon was analyzed separately, ensuring observations within treatments were treated as independent.</li>
 </ul>
-<p>After fitting the model, and assuming the order in which the response was measured in the order in which it appears in the data set, we can check for any pattern in the residuals that may indicate dependence.</p>
-<p>Now, let’s check the new assumption of additivity. We can add colour-coded lines connecting the experimental units from the same block to the boxplots and look for signs of non-additivity. This is a bit tedious to do with base R (don’t worry, we won’t expect you to code this manually) but you have to understand and interpret the plot it produces.</p>
+<p>After fitting the model, and assuming the order in which the response was measured is the order in which it appears in the data set, we can check for any pattern in the residuals that may indicate dependence.</p>
+<p>Now, let’s check the new assumption of additivity. We can plot the response against treatment and add colour-coded lines connecting the experimental units from the same block. This is a bit tedious to do with base R (don’t worry, we won’t expect you to code this manually) but you have to understand and interpret the plot it produces.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -496,7 +496,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>If the assumption of additivity is met, we would expect relatively few lines to cross, i.e.&nbsp;we would expect mostly parallel lines. In the plot above, it seems that for most blocks, a low value in the control treatment is associated with a high value in the Pygmalion treatment. There are three lines (i.e.&nbsp;companies) that don’t conform to this pattern, where it seems that Pygmalion treatment did not alter the scores. It’s important to remember that <strong>sampling variability</strong> prevents us from observing perfectly parallel lines in practice. The observed treatment means are always subject to <strong>random variation</strong>, which can introduce some deviations from the expected pattern.</p>
+<p>If the assumption of additivity is met, we would expect relatively few lines to cross, i.e.&nbsp;we would expect mostly parallel lines. In the plot above, it seems that for most blocks, a low value in the control treatment is associated with a high value in the Pygmalion treatment. There are three lines (i.e.&nbsp;companies) that don’t conform to this pattern, where it seems that Pygmalion treatment did not alter the scores or maybe even caused a reduction. It’s important to remember that <strong>sampling variability</strong> prevents us from observing perfectly parallel lines in practice. The observed treatment means are always subject to <strong>random variation</strong>, which can introduce some deviations from the expected pattern.</p>
 <p>What happens if this assumption is wrong, i.e.&nbsp;the blocking and treatment factors do interact? That is the treatment effect depends on which block it is in. Consider the following plots depicting an experiment with three treatments and three blocks. The first panel shows an example where treatments and blocks are additive – the lines connecting the same treatment in all blocks are parallel. Due to variability, we would of course never actually observe such parallel lines. In reality, the observed treatment means would be subject to random deviations from the true population means, and with lots of variability, the lines could cross and look more like the second panel, which is showing an example where the additivity assumption is violated.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -513,7 +513,7 @@ window.Quarto = {
 
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>With some replication of treatments within blocks, as in generalised randomised complete block designs (which we don’t cover here), w can separatel estimate the interaction effects. This is similar to what we will see when we talk about Factorial Experiment sin the next section.</p>
+<p>With some replication of treatments within blocks, as in generalised randomised complete block designs (which we don’t cover here), we can separately estimate the interaction effects. This is similar to what we will see when we talk about Factorial Experiment sin the next section.</p>
 </div></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

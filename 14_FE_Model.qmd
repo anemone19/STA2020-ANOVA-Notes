@@ -1,3 +1,61 @@
----
-title: "Model for Factorial Experiments"
----
+## Model for Factorial Experiments 
+
+Assuming we have a continuous response variable for which we assume a normal distribution, no blocking factors and a factorial experiment with two treatment factors, the following model is plausible: 
+
+$$
+Y_{ijk} = \mu + A_i + C_j + (AC)_{ij} + e_{ijk}
+$$
+
+where $Y_{ijk}$ is the $k^{th}$ observation on the $(ij)^{th}$ treatment combination and 
+
+$$
+\begin{align*}
+    Y_{ij} &= \text{observation on treatment } i \text{ in block } j \\
+    \mu &= \text{general/overall mean} \\
+    A_i &= \text{main effect of the } i^{th} \text{ level of A} \\
+    A_i &= \text{main effect of the } j^{th} \text{ level of C} \\
+    (AC)_{ij} &= \text{interaction between the }i^{th}\text{ level of A and the }j^{th}\text{ level of C.} \\
+    e_{ijk} &= \text{random error with } e_{ijk} \sim N(0, \sigma^2) \\
+\end{align*}
+$$
+
+**Note that (AC) is a single symbol and does not mean the interpaction is the product of the two main effects.** 
+
+$\mu + A_i + C_j + (AC)_{ij}$ is the structural part of the model which describes the mean or expected response with treatment $ij$, i.e. at the $i^{th}$ level of factor A and $j^{th}$ level of factor C. Depending on the estimates for the main effects, each treatment will have a different estimated mean response. For every level of A there is a main effect, the $A_i$'s. For every level of factor B there is a main effect, $B_i$. For every combination of A and B levels there is an interaction effect, $(AC)_{ij}$. So the model implies that each treatment mean is made up of an overall mean, two main effects and and interaction term. 
+
+## Replication 
+
+Replication is crucial in any experiment! Without replication, we cannot estimate the experimental error variance ($\sigma^2$), which is essential for assessing variability and conducting hypothesis tests.
+
+If we only have one observation per treatment, that observation becomes the treatment mean. Since we cannot compute deviations from the treatment mean, there is no estimate of error variance. This means that while we can technically estimate the model parameters (excluding error variance), the model itself is practically useless—we cannot perform hypothesis tests without an estimate of error variance. And if we can’t test anything, what’s the point? 
+
+In factorial experiments, the situation gets even worse when we don't replicate treatments. Specifically, we can't calculate the interaction effect. In general, the interaction effect is calculated as the difference between the treatment mean and the sum of the main effects and the overall mean:
+
+$$(AB)_{ij} = \bar{Y}_{ij} - (\mu + A_i + B_j) $$
+Now consider the first plot in the series below. There is only one observation in the hypothetical treat $i = 1$ and $j = 3$. That means that the treatment mean $\bar{Y}_{ij}$ is just the mean of this single observation. We can't calculate any deviations from this mean with only one observation as we usually would for the error variance. We always need to calculate an error term and this is always calculated as the deviation of the observation to the next closest mean. With only one observation per treatment, the next closest mean to that observation is the sum of the main effects: $\mu + A_i + B_j$. But wait, that means the error term is also the interaction term since the treatment mean and the observation are the same? Jup! Now you see the problem. With no replication, the error term and the interaction effect are confounded. 
+
+Have a look at the second plot. Now we have five observations within the treatment. We can calculate the 5 error terms: 
+
+$$r_{13k} = Y_{13k} - \bar{Y}_{13}$$ 
+
+and we can calculate the interaction effect: 
+
+$$ (\hat{AB})_{13} = \bar{Y}_{13}- (\hat{\mu} + \hat{A}_1 + \hat{B}_3)$$
+
+They are no longer the same thing, they are separable! The interaction effect for this treatment is quite big if you look at the difference visaully. For the last plot, there are also five observations, but now the deviation of the treatment mean from the sum f the main effects is almost zero; it's just due to random variation. The interaction effect is stoo small to detect statistically. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

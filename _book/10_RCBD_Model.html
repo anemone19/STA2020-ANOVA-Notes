@@ -330,14 +330,20 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -389,7 +395,7 @@ window.Quarto = {
 
 <section id="linear-model" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="linear-model">Linear model</h2>
-<p>We wish to compare <span class="math inline">\(a\)</span> treatments and have <span class="math inline">\(N\)</span> experimental units arranged in <span class="math inline">\(b\)</span> blocks each containing a homogeneous experimental units: <span class="math inline">\(N = ab\)</span>. The <span class="math inline">\(a\)</span> treatments are assigned to the units in the <span class="math inline">\(j^{th}\)</span> block at random. The design (blocking and treatment factors and the randomisation) determine the structural part of the model.</p>
+<p>We wish to compare <span class="math inline">\(a\)</span> treatments and have <span class="math inline">\(N\)</span> experimental units arranged in <span class="math inline">\(b\)</span> blocks each containing <span class="math inline">\(a\)</span> homogeneous experimental units: <span class="math inline">\(N = ab\)</span>. The <span class="math inline">\(a\)</span> treatments are assigned to the units in the <span class="math inline">\(j^{th}\)</span> block at random. The design (blocking and treatment factors and the randomisation) determine the structural part of the model.</p>
 <p>A linear model for the RBD is:</p>
 <p><span class="math display">\[Y_{ij} = \mu + A_i + B_j  +e_{ij}\]</span></p>
 <p>where,</p>
@@ -398,15 +404,15 @@ window.Quarto = {
     Y_{ij} &amp;= \text{observation on treatment } i \text{ in block } j \\
     i &amp;= 1, \dots, a \text{ and } j = 1, \dots, b \\
     \mu &amp;= \text{general/overall mean} \\
-    \alpha_i &amp;= \text{effect of the } i^{th} \text{ treatment} \\
-    \beta_j &amp;= \text{effect of the } j^{th} \text{ block} \\
+    A_i &amp;= \text{effect of the } i^{th} \text{ treatment} \\
+    B_j &amp;= \text{effect of the } j^{th} \text{ block} \\
     e_{ij} &amp;= \text{random error with } e_{ij} \sim N(0, \sigma^2) \\
-    \sum_{i=1}^{a} \alpha_i &amp;= \sum_{j=1}^{b} \beta_j = 0
+    \sum_{i=1}^{a} A_i &amp;= \sum_{j=1}^{b} B_j = 0
 \end{align*}
 \]</span></p>
 <p>This model says that each observation is made up of an overall mean, a treatment effect, a block effect, and an error part. The block effect is interpreted in the same way as the treatment effect, it is the difference between block mean <span class="math inline">\(j\)</span> and the overall mean <span class="math inline">\(\mu\)</span>.</p>
-<p>It also says that these effects are additive. Additivity means that the effect of the <span class="math inline">\(i^{th}\)</span> treatment on the response (<span class="math inline">\(A_i\)</span>) is the same regardless of the block in which the treatment is used. Similarly, the effect of the <span class="math inline">\(j^{th}\)</span> block is the same (<span class="math inline">\(B_j\)</span>) regardless of the treatment. The addiiton <span class="math inline">\(\sum_{j=1}^{b} \beta_j = 0\)</span> follows the same logic as explain before.</p>
-<p>Let’s fit this model to the Pygmalion data. For the pygmalion experiment, the reserachers compared control to pygmalion treatment so we have <span class="math inline">\(a=2\)</span> treatments. The number of blocks, <span class="math inline">\(b\)</span>, was 10. In R, on the right-hand-side of the formula, we have the treatment factor + blocking factor; their effects are assumed to be additive. The code looks exactly the same as before, except we <strong>add</strong> the Company (blocking) variable.</p>
+<p>It also says that these effects are additive. Additivity means that the effect of the <span class="math inline">\(i^{th}\)</span> treatment on the response (<span class="math inline">\(A_i\)</span>) is the same regardless of the block in which the treatment is used. Similarly, the effect of the <span class="math inline">\(j^{th}\)</span> block is the same (<span class="math inline">\(B_j\)</span>) regardless of the treatment. The additional constraint of <span class="math inline">\(\sum_{j=1}^{b} \beta_j = 0\)</span> follows the same logic as explained before.</p>
+<p>Let’s fit this model to the Pygmalion data. For the Pygmalion experiment, the researchers compared control to Pygmalion treatment so we have <span class="math inline">\(a=2\)</span> treatments. The number of blocks, <span class="math inline">\(b\)</span>, was 10. In R, on the right-hand-side of the formula, we have the treatment factor + blocking factor. The code looks exactly the same as before, except we <strong>add</strong> the Company (blocking) variable.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pyg_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Score <span class="sc">~</span> Treat <span class="sc">+</span> Company, <span class="at">data =</span> pyg_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -435,7 +441,7 @@ Standard errors for differences of means
 replic.    10       2</code></pre>
 </div>
 </div>
-<p>First we see the grand mean of 73.31 and the treatment means. Then, we have ten block means, these are the mean scores within each block. Lastly, we see the standard errors for the differences of means.</p>
+<p>First we see the grand mean of 73.31 followed by the treatment means. Then, we have ten block means, these are the mean scores within each block. Lastly, we see the standard errors for the differences of means.</p>
 </section>
 <section id="sums-of-squares-and-analysis-of-variance" class="level2 unnumbered page-columns page-full">
 <h2 class="unnumbered anchored" data-anchor-id="sums-of-squares-and-analysis-of-variance">Sums of squares and Analysis of variance</h2>
@@ -501,8 +507,8 @@ SS_{total} = SS_A + SS_B + SSE
 </tr>
 </tbody>
 </table>
-<p>Much of the table remains the same as in a one-way ANOVA, but now it includes an additional row for the blocking variable. The sum of squares for the blocking factor is calculated similarly to that of the treatment factor—by summing the squared deviations of observations within each block from the block’s mean response. The residual sum of squares is also slightly different, but you don’t need to worry too much about that. Since the total SS is simply the sum of the treatment, block, and residual SS, you can always compute SSE by subtraction.</p>
-<p>From this ANOVA table, we can test the hypothesis of no differences between the treatment means as before.</p>
+<p>Much of the table remains the same as in a one-way ANOVA, but now it includes an additional row for the blocking variable. The sum of squares for the blocking factor is calculated similarly to that of the treatment factor—by summing the squared deviations of observations within each block from the block’s mean response. The residual sum of squares is also slightly different, but you don’t need to worry too much about that<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Since the total SS is simply the sum of the treatment, block, and residual SS, you can always compute SSE by subtraction.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;You can easily get there by rearranging the model equation so that <span class="math inline">\(e_{ij}\)</span> is on the right-hand-side, replacing the effects with the difference in terms of means and simplifying.</p></div></div><p>From this ANOVA table, we can test the hypothesis of no differences between the treatment means as before.</p>
 <p><span class="math display">\[H_0: \mu_! = \mu_2 = \ldots =\mu_a\]</span></p>
 <p>Which is equivalent to testing:</p>
 <p><span class="math display">\[
@@ -513,7 +519,7 @@ H_0 : \alpha_1 = \alpha_2 = \dots = \alpha_a = 0
 F = \frac{MS_A}{MSE} \sim F_{a-1, (a-1)(b-1)}
 \]</span></p>
 <p>Notice the degrees of freedom!</p>
-<p>What does the ANOVA table look like for the Pygmalion data? Again, we use the <code>summary</code> function to obtain the table.</p>
+<p>What does the ANOVA table look like for the Pygmalion data? Again, we use the <code>summary</code> function on the model object to obtain the table.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pyg_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -525,16 +531,31 @@ Residuals    9  439.8    48.9
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>Let’s first look at the degrees of freedom. We had <span class="math inline">\(a \times b = 2 \times 10 = 20\)</span> experimental units, so we should have <span class="math inline">\(a \times b - 1\)</span> total degrees of freedom. The treatment degrees of freedom are <span class="math inline">\(a-1 = 1\)</span> and similarity, there are <span class="math inline">\(b-1\)</span> degrees of freedom of the block effect. That leaves <span class="math inline">\((a-1)(b-1) = 1 \times 9\)</span> degrees of freedom for the error term. It is always a good idea to check that the df’s match with what you expected them to be. One serious error that happens easily is one of the factor is fitted as continuous covariate because the levels were labelled using numbers. Hence why we converted the categorical variables (Treat and Company) to factors.</p>
+<p>Let’s first look at the degrees of freedom:</p>
+<ul>
+<li>We had <span class="math inline">\(a \times b = 2 \times 10 = 20\)</span> experimental units, so we should have <span class="math inline">\(a \times b - 1\)</span> total degrees of freedom.</li>
+<li>The treatment degrees of freedom are <span class="math inline">\(a-1 = 2-1 = 1\)</span> and similarity, there are <span class="math inline">\(b-1 = 10 -1=9\)</span> degrees of freedom of the block effect.</li>
+<li>That leaves <span class="math inline">\((a-1)(b-1) = 1 \times 9\)</span> degrees of freedom for the error term.</li>
+</ul>
+<p>It is always a good idea to check that the df’s match with what you expected them to be. One serious error that happens easily is one of the factor is fitted as continuous covariate because the levels were labelled using numbers. Hence why we converted the categorical variables (Treat and Company) to factors.</p>
 <p>The next column lists the sums of squares for the three components. The mean squares are calculated as <span class="math inline">\(\frac{SS}{df}\)</span>, e.g.&nbsp;<span class="math inline">\(\frac{581}{1} = 581\)</span> for the treatment. The <span class="math inline">\(F\)</span>-value for the treatment variable is the ratio of <span class="math inline">\(MS_{treat}\)</span> to the <span class="math inline">\(MSE\)</span>. This is the same as in the one-way ANOVA. R then looks up the corresponding p-value, which is <span class="math inline">\(0.00729\)</span>.</p>
 <p>So we have an very small p-value which means that we have strong evidence against our null hypothesis of equal treatment means. We cannot conclude that the effects are equal to zero. There is evidence to suggest that at least one treatment resulted in a different mean score. Here, because we have two treatments, the results indicate that the data are not compatible with a null hypothesis of equal means. We make the following conclusion:</p>
 <p>“There is evidence to suggest that the two treatment means are different (<span class="math inline">\(F = 11.89\)</span>, <span class="math inline">\(p &lt; 0.01\)</span>).”</p>
+<p>If we had more than two treatment means as is usually the case, we would conclude:</p>
+<p>“There is evidence to suggest that at least one treatment resulted in a different mean response, there is evidence for a treatment effect (<span class="math inline">\(F = 11.89\)</span>, <span class="math inline">\(p &lt; 0.01\)</span>).”</p>
+<p>There are many different ways to say that there is a difference somewhere. For example:</p>
+<ul>
+<li>One or more treatments had a mean response that differed from the others.</li>
+<li>Not all treatment means are the same; at least one is significantly different.</li>
+<li>The results indicate that not all treatment means are equal.</li>
+</ul>
+<p>You get the idea! As long as it is clear that a ‘significant’ result indicates that there is a difference somewhere, we don’t know where, but there is evidence for a treatment effect.</p>
 </section>
 <section id="what-about-the-f-test-for-the-blocking-variable" class="level2 unnumbered page-columns page-full">
 <h2 class="unnumbered anchored" data-anchor-id="what-about-the-f-test-for-the-blocking-variable">What about the F-test for the blocking variable?</h2>
 <p>We see that the blocks accounted for a similar fraction of the sums of squares as the other two components (just over a third). If we did not block, this variation would be part of the SSE but then the error degrees of freedom would also be larger (the 9 degrees of freedom would be part of the error degrees of freedom). In fact, here, the blocking did not significantly reduce the unexplained variability, since the F-value is close to one. The variability explained by the blocks is close to what would be expected due to random noise.</p>
-<p>Remember, we aren’t particularity interested in formal inference about block effects (we knew or suspected that they were different) and we should always be careful about interpreting the F-test for the blocking variable (as blocks typically cannot be randomised to experimental units - see the previous chapter). We might, however, be interested in whether blocking increased the efficiency of the design by reducing the unexplained variation (SSE). There exists a more thorough method of assesses the relative effciency of blocking - that is, relative to if a CRD was instead<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Here, however, we focus on a simple and quick check of block efficiency using the F-ratio.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="kuehl2000design">Kuehl (<a href="#ref-kuehl2000design" role="doc-biblioref">2000</a>)</span> wrote a great textbook (freely available) that explains the relative efficiency check in detail.</p><div id="ref-kuehl2000design" class="csl-entry" role="listitem">
+<p>Remember, we aren’t particularity interested in formal inference about block effects (we knew or suspected that they were different) and we should always be careful about interpreting the F-test for the blocking variable (as blocks typically cannot be randomised to experimental units - see the previous chapter). We might, however, be interested in whether blocking increased the efficiency of the design by reducing the unexplained variation (SSE). There exists a more thorough method of assessing the relative efficiency of blocking - that is, relative to if a simpler design (i.e.&nbsp;CRD) was used instead<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Here, however, we focus on a simple and quick check of block efficiency using the F-ratio.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;<span class="citation" data-cites="kuehl2000design">Kuehl (<a href="#ref-kuehl2000design" role="doc-biblioref">2000</a>)</span> wrote a great textbook (freely available) that explains the relative efficiency check in detail.</p><div id="ref-kuehl2000design" class="csl-entry" role="listitem">
 Kuehl, Robert O. 2000. <span>“Design of Experiments: Statistical Principles of Research Design and Analysis.”</span> <em>(No Title)</em>.
 </div></div></div><p>We would like the block factor to explain a lot of variation. If the mean square of the blocking variable is larger than the error mean square we conclude that blocking was effective (compared to a CRD).</p>
 <ul>

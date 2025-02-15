@@ -1,0 +1,401 @@
+Participant ID,Condition,Speed,Content Type,Topic,Familiarity,Interest,Accuracy
+945445adf5,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.36
+945445adf5,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,3,0.48
+23afb88ef3,1x Speed Audio Only,1,Audio-Only,Appraisals,2,2,0.64
+23afb88ef3,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,4,0.48
+1bc24e0480,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.6
+1bc24e0480,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,4,0.64
+4fbdbd41a5,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.64
+4fbdbd41a5,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,3,0.24
+442adf227a,1x Speed Audio Only,1,Audio-Only,Appraisals,1,3,0.68
+442adf227a,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,2,0.44
+3ca9d09e2e,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,4,0.64
+3ca9d09e2e,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,4,0.32
+b40d738e28,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.64
+b40d738e28,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,4,0.64
+c3b7ea725e,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,5,0.6
+c3b7ea725e,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,5,0.48
+e223b5ab88,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.64
+e223b5ab88,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,5,0.6
+099e66db76,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,3,0.48
+099e66db76,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,3,0.44
+c9d516830d,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,2,0.4
+c9d516830d,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,2,0.4
+b82e996b09,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.28
+b82e996b09,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,3,0.4
+41053cd634,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,5,0.32
+41053cd634,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.28
+6dc3aab9a9,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.56
+6dc3aab9a9,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,6,0.8
+b17156a564,2x Speed Audio Only,2,Audio-Only,Appraisals,1,4,0.44
+b17156a564,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,1,0.12
+1350151eec,1x Speed Audio Only,1,Audio-Only,Appraisals,4,4,0.6
+1350151eec,1x Speed Audio Only,1,Audio-Only,Roman Empire,6,7,0.72
+e48aacac02,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.48
+e48aacac02,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,4,0.52
+b691574d4e,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,5,0.96
+b691574d4e,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,5,0.8
+db0d11583a,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.48
+db0d11583a,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,1,0.4
+913b6b376d,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,4,0.84
+913b6b376d,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,3,7,0.6
+8cbb77aeb7,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,1,0.6
+8cbb77aeb7,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.08
+5605c92c80,1x Speed Audio Only,1,Audio-Only,Appraisals,1,2,0.52
+5605c92c80,1x Speed Audio Only,1,Audio-Only,Roman Empire,3,2,0.76
+c7b595b475,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.76
+c7b595b475,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.72
+4cacbaa151,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.44
+4cacbaa151,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.52
+245a250f63,1x Speed Audio Only,1,Audio-Only,Appraisals,2,4,0.44
+245a250f63,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,4,0.32
+57e130e134,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,1,0.72
+57e130e134,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.48
+b3815ca121,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,3,1,0.72
+b3815ca121,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,4,5,0.72
+942ecdda65,1x Speed Audio Only,1,Audio-Only,Appraisals,2,1,0.6
+942ecdda65,1x Speed Audio Only,1,Audio-Only,Roman Empire,5,6,0.92
+1fad0c0774,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,2,4,0.68
+1fad0c0774,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.4
+02619038c8,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,3,0.6
+02619038c8,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,4,0.8
+b0036d1024,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,3,0.68
+b0036d1024,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.48
+f4e659fa5a,2x Speed Audio Only,2,Audio-Only,Appraisals,4,3,0.12
+f4e659fa5a,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,5,0.2
+7ca270a4fe,2x Speed Audio Only,2,Audio-Only,Appraisals,1,4,0.6
+7ca270a4fe,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,3,0.68
+0053fd014a,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,2,4,0.84
+0053fd014a,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,1,0.56
+81ee2c468e,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.52
+81ee2c468e,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,2,0.24
+91fae80421,2x Speed Audio Only,2,Audio-Only,Appraisals,5,5,0.48
+91fae80421,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,6,0.56
+cff4031cf7,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,3,2,0.52
+cff4031cf7,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.32
+11108f1897,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,2,0.64
+11108f1897,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,3,0.44
+25abd865e0,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,2,0.6
+25abd865e0,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.56
+f671bd3932,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,4,0.44
+f671bd3932,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,3,5,0.52
+d1c5b50adc,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,2,3,0.8
+d1c5b50adc,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,2,0.6
+7e09c4c76c,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.2
+7e09c4c76c,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,1,0.4
+cbc4749cd1,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,4,2,0.64
+cbc4749cd1,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,2,0.68
+ee3b2e1528,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,2,0.4
+ee3b2e1528,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,4,0.36
+642c746eb6,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,2,0.8
+642c746eb6,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,4,0.84
+1bd918e9f7,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.6
+1bd918e9f7,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,4,0.44
+a7bd2af544,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,3,4,0.72
+a7bd2af544,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.6
+860d9e95a1,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,4,0.52
+860d9e95a1,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,2,0.48
+85812ecb19,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,4,0.84
+85812ecb19,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,4,0.64
+d3ff1e6049,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,4,0.72
+d3ff1e6049,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,6,0.52
+45a59febfa,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.36
+45a59febfa,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,4,0.72
+c951b92bb8,2x Speed Audio Only,2,Audio-Only,Appraisals,4,5,0.64
+c951b92bb8,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,6,0.56
+609a0842ee,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.4
+609a0842ee,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,5,0.48
+d92bf9cdc9,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.48
+d92bf9cdc9,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.36
+801864244d,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.76
+801864244d,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,4,0.72
+d68dfbd6ea,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,1,0.36
+d68dfbd6ea,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.48
+0ce4a371f4,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,4,2,0.48
+0ce4a371f4,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,5,5,0.36
+6f9b9f828b,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,4,0.52
+6f9b9f828b,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,2,0.4
+2f9f87c5be,2x Speed Audio Only,2,Audio-Only,Appraisals,1,2,0.6
+2f9f87c5be,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,4,0.64
+1f4ecd380c,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,3,1,0.56
+1f4ecd380c,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,4,0.24
+e8bc71e6ea,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,2,0.48
+e8bc71e6ea,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.52
+0c4ddbb0b3,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,3,4,0.64
+0c4ddbb0b3,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.4
+be63fb6c55,1x Speed Audio Only,1,Audio-Only,Appraisals,3,1,0.32
+be63fb6c55,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.2
+74bf32d211,2x Speed Audio Only,2,Audio-Only,Appraisals,2,4,0.56
+74bf32d211,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,1,0.24
+6bd0add781,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,3,2,0.48
+6bd0add781,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,1,0.16
+a2bb9f954e,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,2,4,0.88
+a2bb9f954e,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.4
+ca1a2341b2,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.52
+ca1a2341b2,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.28
+a7e5c86f81,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.52
+a7e5c86f81,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,3,0.6
+add3eab839,1x Speed Audio Only,1,Audio-Only,Appraisals,3,3,0.48
+add3eab839,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,4,0.44
+f34b4ad617,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,3,0.6
+f34b4ad617,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,3,0.4
+c714e430d1,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.48
+c714e430d1,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,2,0.52
+e13d7855ab,1x Speed Audio Only,1,Audio-Only,Appraisals,2,1,0.6
+e13d7855ab,1x Speed Audio Only,1,Audio-Only,Roman Empire,5,6,0.72
+9af4176e9f,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,5,3,0.76
+9af4176e9f,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,5,0.64
+a9793549c9,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.64
+a9793549c9,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.6
+acb907a3a6,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,4,0.72
+acb907a3a6,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.56
+966e81e116,1x Speed Audio Only,1,Audio-Only,Appraisals,1,4,0.6
+966e81e116,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,4,0.28
+11bbbc520e,1x Speed Audio Only,1,Audio-Only,Appraisals,1,2,0.48
+11bbbc520e,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,4,0.64
+9f2657fa32,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,2,0.56
+9f2657fa32,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,1,0.32
+64414c03a8,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,2,4,0.88
+64414c03a8,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,3,0.64
+18b9a9c456,1x Speed Audio Only,1,Audio-Only,Appraisals,4,4,0.24
+18b9a9c456,1x Speed Audio Only,1,Audio-Only,Roman Empire,4,4,0.28
+9f07ea9d89,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,6,0.68
+9f07ea9d89,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,2,0.68
+754a154159,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,5,0.76
+754a154159,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,3,6,0.72
+01b53ed3cf,1x Speed Audio Only,1,Audio-Only,Appraisals,1,3,0.56
+01b53ed3cf,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,4,0.52
+64353f6d2a,2x Speed Audio Only,2,Audio-Only,Appraisals,3,4,0.32
+64353f6d2a,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,2,0.56
+3f82588996,1x Speed Audio Only,1,Audio-Only,Appraisals,1,2,0.4
+3f82588996,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,3,0.64
+7b2f85cc1d,1x Speed Audio Only,1,Audio-Only,Appraisals,3,1,0.44
+7b2f85cc1d,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,3,0.52
+09790fee20,2x Speed Audio Only,2,Audio-Only,Appraisals,2,1,0.12
+09790fee20,2x Speed Audio Only,2,Audio-Only,Roman Empire,4,4,0.24
+0d1bdd59fd,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.6
+0d1bdd59fd,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,4,0.56
+53e4d9d578,2x Speed Audio Only,2,Audio-Only,Appraisals,3,1,0.68
+53e4d9d578,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,2,0.56
+b20851452d,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,4,0.8
+b20851452d,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,4,5,0.72
+26ece1ac49,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.52
+26ece1ac49,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,4,0.8
+723cbbb2fb,2x Speed Audio Only,2,Audio-Only,Appraisals,1,3,0.6
+723cbbb2fb,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,3,0.44
+a63ac8baf4,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,3,5,0.8
+a63ac8baf4,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,5,5,0.88
+95ce72cf89,2x Speed Audio Only,2,Audio-Only,Appraisals,1,7,0.52
+95ce72cf89,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,4,0.56
+db5ea7c3b9,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,4,0.36
+db5ea7c3b9,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,2,0.64
+85df7ebd9e,1x Speed Audio Only,1,Audio-Only,Appraisals,3,3,0.6
+85df7ebd9e,1x Speed Audio Only,1,Audio-Only,Roman Empire,3,2,0.56
+37335c5f6c,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.64
+37335c5f6c,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,3,0.92
+549910b006,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,3,0.48
+549910b006,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,6,7,0.28
+99bea657c5,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,2,0.72
+99bea657c5,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,4,0.44
+67b36a7d38,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,4,0.48
+67b36a7d38,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,3,0.4
+5fe0a1819a,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.36
+5fe0a1819a,2x Speed Audio Only,2,Audio-Only,Roman Empire,4,1,0.24
+8f139dd700,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.72
+8f139dd700,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.64
+625046ceea,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,1,0.24
+625046ceea,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.28
+4eb5b3cfe7,2x Speed Audio Only,2,Audio-Only,Appraisals,1,3,0.36
+4eb5b3cfe7,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,1,0.44
+bed31b6959,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.6
+bed31b6959,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.48
+0242de83ad,1x Speed Audio Only,1,Audio-Only,Appraisals,2,1,0.4
+0242de83ad,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.28
+c7a93c4c82,2x Speed Audio Only,2,Audio-Only,Appraisals,3,7,0.48
+c7a93c4c82,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,2,0.44
+958f7f45fb,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,4,2,0.52
+958f7f45fb,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,4,0.48
+3661dd08f2,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,3,0.44
+3661dd08f2,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,4,0.44
+bee225007c,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.92
+bee225007c,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,2,0.72
+17c1cca739,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.6
+17c1cca739,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,2,0.76
+ad6e24a460,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,4,0.68
+ad6e24a460,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,2,0.48
+6d7094006a,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.52
+6d7094006a,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.72
+9eb618ceac,2x Speed Audio Only,2,Audio-Only,Appraisals,4,4,0.48
+9eb618ceac,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,1,0.44
+cee776ab9c,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.12
+cee776ab9c,2x Speed Audio Only,2,Audio-Only,Roman Empire,4,2,0.28
+5fb01c415f,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,4,0.28
+5fb01c415f,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,4,3,0.28
+c65d2e03b7,1x Speed Audio Only,1,Audio-Only,Appraisals,2,1,0.24
+c65d2e03b7,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.4
+ac0c19885d,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.16
+ac0c19885d,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.2
+2f9cf02a74,2x Speed Audio Only,2,Audio-Only,Appraisals,1,3,0.4
+2f9cf02a74,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,2,0.44
+42bbf71267,2x Speed Audio Only,2,Audio-Only,Appraisals,7,7,0.48
+42bbf71267,2x Speed Audio Only,2,Audio-Only,Roman Empire,5,6,0.6
+ce0cbc15c2,2x Speed Audio Only,2,Audio-Only,Appraisals,3,3,0.28
+ce0cbc15c2,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,2,0.28
+6966db630d,1x Speed Audio Only,1,Audio-Only,Appraisals,1,2,0.24
+6966db630d,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.44
+5ae3441e5f,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,3,0.56
+5ae3441e5f,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.52
+1c039eb508,1x Speed Audio Only,1,Audio-Only,Appraisals,1,4,0.48
+1c039eb508,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,4,0.68
+34862eb77f,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,2,0.84
+34862eb77f,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,2,0.88
+605bba3a6a,2x Speed Audio Only,2,Audio-Only,Appraisals,3,2,0.52
+605bba3a6a,2x Speed Audio Only,2,Audio-Only,Roman Empire,5,7,0.16
+d917955880,2x Speed Audio Only,2,Audio-Only,Appraisals,2,3,0.4
+d917955880,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,4,0.24
+af1633e36a,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.64
+af1633e36a,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,1,0.64
+dd7e5b6895,2x Speed Audio Only,2,Audio-Only,Appraisals,1,3,0.64
+dd7e5b6895,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,2,0.36
+4403a4acc5,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,2,0.92
+4403a4acc5,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,3,0.88
+58ba098ce0,1x Speed Audio Only,1,Audio-Only,Appraisals,2,1,0.56
+58ba098ce0,1x Speed Audio Only,1,Audio-Only,Roman Empire,3,2,0.4
+ba776c3037,1x Speed Audio Only,1,Audio-Only,Appraisals,1,4,0.8
+ba776c3037,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,5,0.88
+8492f37595,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,1,0.68
+8492f37595,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,1,0.6
+c8483cd8d9,2x Speed Audio Only,2,Audio-Only,Appraisals,1,4,0.68
+c8483cd8d9,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,5,0.6
+6b70affc8a,1x Speed Audio Only,1,Audio-Only,Appraisals,1,3,0.64
+6b70affc8a,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,4,0.56
+44cb6e7904,1x Speed Audio Only,1,Audio-Only,Appraisals,2,4,0.6
+44cb6e7904,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,3,0.6
+8a64f9daab,2x Speed Audio Only,2,Audio-Only,Appraisals,2,4,0.72
+8a64f9daab,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,4,0.8
+fb88b6bfdd,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.4
+fb88b6bfdd,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,3,0.52
+8e044799b6,2x Speed Audio Only,2,Audio-Only,Appraisals,1,5,0.6
+8e044799b6,2x Speed Audio Only,2,Audio-Only,Roman Empire,4,4,0.56
+d35ef38044,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.52
+d35ef38044,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,2,0.28
+0b9b36cd75,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,4,0.68
+0b9b36cd75,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,4,0.28
+e3445ad52f,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,6,0.28
+e3445ad52f,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,2,0.28
+c5addd3cd3,1x Speed Audio Only,1,Audio-Only,Appraisals,1,4,0.16
+c5addd3cd3,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,2,0.32
+93b56801aa,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,3,0.44
+93b56801aa,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,3,0.32
+422fe1806d,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.56
+422fe1806d,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,2,0.56
+64064617a6,1x Speed Audio Only,1,Audio-Only,Appraisals,3,2,0.4
+64064617a6,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.48
+c66e7d6418,1x Speed Audio Only,1,Audio-Only,Appraisals,4,4,0.44
+c66e7d6418,1x Speed Audio Only,1,Audio-Only,Roman Empire,3,5,0.56
+6ab8e0a31a,2x Speed Audio Only,2,Audio-Only,Appraisals,1,3,0.08
+6ab8e0a31a,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,1,0.2
+cc06c520e2,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,2,0.72
+cc06c520e2,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,3,0.72
+0d268f4ce3,1x Speed Audio Only,1,Audio-Only,Appraisals,3,2,0.6
+0d268f4ce3,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.64
+048a07f984,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.52
+048a07f984,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.48
+272708f2db,2x Speed Audio Only,2,Audio-Only,Appraisals,2,3,0.52
+272708f2db,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,4,0.6
+bb09095107,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,1,0.28
+bb09095107,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,4,0.44
+46cdd9dce9,1x Speed Audio Only,1,Audio-Only,Appraisals,2,1,0.68
+46cdd9dce9,1x Speed Audio Only,1,Audio-Only,Roman Empire,2,1,0.48
+712c4410a0,2x Speed Audio Only,2,Audio-Only,Appraisals,4,5,0.48
+712c4410a0,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,5,0.68
+6dc89c2cd0,2x Speed Audio Only,2,Audio-Only,Appraisals,1,1,0.52
+6dc89c2cd0,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,4,0.72
+5bab032050,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.4
+5bab032050,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,4,0.28
+1db1ad87d0,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.6
+1db1ad87d0,1x Speed Audio Only,1,Audio-Only,Roman Empire,3,4,0.6
+5a8f195471,2x Speed Audio Only,2,Audio-Only,Appraisals,2,2,0.48
+5a8f195471,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,5,0.04
+f499ce245e,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,3,0.56
+f499ce245e,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.76
+fa706f9393,1x Speed Audio Only,1,Audio-Only,Appraisals,2,2,0.36
+fa706f9393,1x Speed Audio Only,1,Audio-Only,Roman Empire,3,5,0.6
+2114fdf223,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,3,6,0.56
+2114fdf223,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,3,3,0.64
+7173b32cab,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,3,0.64
+7173b32cab,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,5,6,0.44
+fce6da317f,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,4,0.44
+fce6da317f,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,4,0.36
+aac8710037,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.84
+aac8710037,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,6,0.76
+8fdd6af1c8,2x Speed Audio Only,2,Audio-Only,Appraisals,4,5,0.4
+8fdd6af1c8,2x Speed Audio Only,2,Audio-Only,Roman Empire,4,4,0.56
+06971a62fc,2x Speed Audio Only,2,Audio-Only,Appraisals,1,3,0.6
+06971a62fc,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,5,0.48
+a05fee677f,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,4,0.88
+a05fee677f,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,5,0.64
+e11a7086bb,2x Speed Audio Only,2,Audio-Only,Appraisals,1,4,0.56
+e11a7086bb,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,3,0.6
+3ccecd3bf7,1x Speed Audio Only,1,Audio-Only,Appraisals,3,2,0.44
+3ccecd3bf7,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,2,0.24
+2d49f7fa53,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.52
+2d49f7fa53,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,2,2,0.52
+81b20d74eb,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.64
+81b20d74eb,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,1,1,0.56
+98aaff229f,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,2,2,0.6
+98aaff229f,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,2,0.64
+1edb8f9197,2x Speed Audio Only,2,Audio-Only,Appraisals,1,4,0.56
+1edb8f9197,2x Speed Audio Only,2,Audio-Only,Roman Empire,1,2,0.8
+d78a27fe42,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,4,5,0.6
+d78a27fe42,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,3,0.68
+499da1c25d,1x Speed Audio Only,1,Audio-Only,Appraisals,1,4,0.28
+499da1c25d,1x Speed Audio Only,1,Audio-Only,Roman Empire,4,2,0.48
+9036711bd7,2x Speed Audio Only,2,Audio-Only,Appraisals,4,3,0.6
+9036711bd7,2x Speed Audio Only,2,Audio-Only,Roman Empire,4,4,0.8
+9049136bc1,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,5,0.44
+9049136bc1,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.2
+0be899394a,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,1,0.28
+0be899394a,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,1,0.32
+eace773882,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,4,0.56
+eace773882,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,6,6,0.68
+b2e5c91dac,1x Speed Audio Only,1,Audio-Only,Appraisals,1,3,0.36
+b2e5c91dac,1x Speed Audio Only,1,Audio-Only,Roman Empire,3,1,0.36
+17361afae8,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,1,0.6
+17361afae8,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,3,1,0.48
+02513afa49,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,3,0.76
+02513afa49,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,5,6,0.68
+e4e15a0c62,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,1,0.6
+e4e15a0c62,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,3,4,0.52
+b797ee3e5f,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.68
+b797ee3e5f,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.6
+7bf062ea6c,1x Speed Audio Only,1,Audio-Only,Appraisals,3,2,0.6
+7bf062ea6c,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,6,0.64
+f4a879b4d5,2x Speed Audio Only,2,Audio-Only,Appraisals,1,2,0.56
+f4a879b4d5,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,6,0.52
+9df5c356e3,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,3,0.44
+9df5c356e3,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,1,4,0.36
+8c4a28c85e,1x Speed Audio Only,1,Audio-Only,Appraisals,1,4,0.56
+8c4a28c85e,1x Speed Audio Only,1,Audio-Only,Roman Empire,4,6,0.52
+367b57c1ba,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,4,1,0.72
+367b57c1ba,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,6,0.68
+69c0a082de,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,4,5,0.76
+69c0a082de,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,2,0.56
+5f3d122c4e,1x Speed Audio Only,1,Audio-Only,Appraisals,4,4,0.48
+5f3d122c4e,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,1,0.32
+5fd2839518,1x Speed Audio Only,1,Audio-Only,Appraisals,1,1,0.32
+5fd2839518,1x Speed Audio Only,1,Audio-Only,Roman Empire,1,2,0.24
+511eb3429a,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,2,3,0.36
+511eb3429a,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,4,4,0.72
+8e722e332b,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,1,1,0.64
+8e722e332b,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,4,5,0.72
+0f0f62ee95,2x Speed Audio Only,2,Audio-Only,Appraisals,4,5,0.56
+0f0f62ee95,2x Speed Audio Only,2,Audio-Only,Roman Empire,3,4,0.56
+7a15ef4baa,1x Speed Both Audio & Video,1,Audio-Visual,Appraisals,2,1,0.6
+7a15ef4baa,1x Speed Both Audio & Video,1,Audio-Visual,Roman Empire,2,4,0.68
+6f09746593,2x Speed Audio Only,2,Audio-Only,Appraisals,1,2,0.76
+6f09746593,2x Speed Audio Only,2,Audio-Only,Roman Empire,2,4,0.64
+c1b285a89b,2x Speed Audio Only,2,Audio-Only,Appraisals,4,5,0.6
+c1b285a89b,2x Speed Audio Only,2,Audio-Only,Roman Empire,4,6,0.28
+d51a0dad32,2x Speed Both Audio & Video,2,Audio-Visual,Appraisals,1,1,0.56
+d51a0dad32,2x Speed Both Audio & Video,2,Audio-Visual,Roman Empire,3,3,0.44

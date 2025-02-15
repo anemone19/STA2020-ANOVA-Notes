@@ -448,7 +448,7 @@ Example of observational study
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">sample</span>(units,<span class="dv">4</span>), <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4]
-[1,] "4"  "1"  "3"  "2" 
+[1,] "4"  "2"  "1"  "3" 
 [2,] "A"  "B"  "C"  "D" </code></pre>
 </div>
 </div>
@@ -456,13 +456,13 @@ Example of observational study
 </section>
 <section id="example-the-pygmalion-effect" class="level2 page-columns page-full" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="example-the-pygmalion-effect"><span class="header-section-number">9.4</span> Example: The Pygmalion Effect</h2>
-<p>The <strong>Pygmalion effect</strong> is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell inlove with as sculpture he created of his ideal woman.</p>
+<p>The <strong>Pygmalion effect</strong> is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell inlove with a sculpture he created of his ideal woman.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>This article explains the concept nicely and also briefly discusses the study we will use later. https://thedecisionlab.com/biases/the-pygmalion-effect</p>
 </div></div><p>Many experiments have found results to support this type of self-fulfilling prophecy. Typically, they involve putting someone in charge of a group of people, then privately telling the leader that say a few of these people are exceptional (these people were randomly selected though). Then, later the performance of the group is measured and if the Pygmalion effect is present, the individuals who were marked as exceptional should have performed better.</p>
-<p>Back in 1990, one researcher in this field, noticed that experiments like these might involve something that is called interpersonal contrasts. When some individuals are singled out for high expectations, other might feel neglected. This could potentially skew the results by making the others look good even though it was just the rest that perfomred poorly. The researcher wanted to conduct an experiment to test the Pygmalion effect without interpersonal contrasts.</p>
-<p>The reasearcher achieved this by applying the high expectation to an entire group and not selected individuals within a group. Let’s have a look the exact experiment!</p>
+<p>Back in 1990, one researcher in this field, noticed that experiments like these might involve something that is called interpersonal contrasts. When some individuals are singled out for high expectations, others might feel neglected. This could potentially skew the results by making the others look good even though it was just the rest that performed poorly. The researcher wanted to conduct an experiment to test the Pygmalion effect without interpersonal contrasts.</p>
+<p>They achieved this by applying the high expectation to an entire group and not selected individuals within a group. Let’s have a look the exact experiment!</p>
 <div id="warning-example1" class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -710,6 +710,9 @@ Example: The Pygmalion Effect in Military Training
 
 </div>
 </div>
+<p>The <strong>long format</strong> represents each observation as a separate row, with treatments recorded in a single column. This format is useful for statistical modeling and visualization since it keeps data structured for comparisons across treatments. You might have noticed that so far alll the datasets we have used when fitting models using <code>aov</code> have been in long format. You will struggle to fit the model with a dataset in wide format!</p>
+<p>The <strong>wide format</strong> organizes data so that each unit (e.g., a company) appears in a single row, with treatments as separate columns. This format is often preferred for paired comparisons and summary tables.</p>
+<p>Both formats contain the same information but serve different purposes depending on the type of analysis being performed.</p>
 
 
 </section>

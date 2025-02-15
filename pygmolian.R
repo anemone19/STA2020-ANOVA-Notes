@@ -17,7 +17,7 @@ pygmalion_data_wide <- reshape(case1302,
                      timevar = "Treat", 
                      direction = "wide")
 
-pyg_model <- aov(Score ~ Treat + Company, data = pyg_data)
+pyg_model <- aov(values ~ ind, data = stack(pygmalion_data_wide))
 summary(pyg_model)
 
 model.tables(pyg_model, type = "effects", se = TRUE)

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Introduction – STA2020 ANOVA Notes</title>
+<title>13&nbsp; Introduction – STA2020 ANOVA Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,11 +123,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -82,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_FE_Intro.html">Factorial Experiments</a></li><li class="breadcrumb-item"><a href="./13_FE_Intro.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_FE_Intro.html">Factorial Experiments</a></li><li class="breadcrumb-item"><a href="./13_FE_Intro.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -212,14 +295,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -236,19 +325,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
       </ul>
@@ -264,15 +359,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#factorial-structure-vs.-experimental-design" id="toc-factorial-structure-vs.-experimental-design" class="nav-link active" data-scroll-target="#factorial-structure-vs.-experimental-design"><span class="header-section-number">13.1</span> Factorial Structure vs.&nbsp;Experimental Design</a></li>
+  <li><a href="#notation-and-structure-of-factorial-experiments" id="toc-notation-and-structure-of-factorial-experiments" class="nav-link" data-scroll-target="#notation-and-structure-of-factorial-experiments"><span class="header-section-number">13.2</span> Notation and Structure of Factorial Experiments</a></li>
+  <li><a href="#randomisation-in-factorial-experiments" id="toc-randomisation-in-factorial-experiments" class="nav-link" data-scroll-target="#randomisation-in-factorial-experiments"><span class="header-section-number">13.3</span> Randomisation in Factorial Experiments</a></li>
+  <li><a href="#is-comprehension-affect-by-playback-speed-and-lecture-modality" id="toc-is-comprehension-affect-by-playback-speed-and-lecture-modality" class="nav-link" data-scroll-target="#is-comprehension-affect-by-playback-speed-and-lecture-modality"><span class="header-section-number">13.4</span> Is comprehension affect by playback speed and lecture modality?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_FE_Intro.html">Factorial Experiments</a></li><li class="breadcrumb-item"><a href="./13_FE_Intro.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_FE_Intro.html">Factorial Experiments</a></li><li class="breadcrumb-item"><a href="./13_FE_Intro.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
 
 
@@ -289,8 +393,132 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>So far, we have explored experiments with a <strong>single treatment factor</strong>. However, in many cases, analyzing factors one at a time does not fully explain the behavior of the response variable. This is particularly true when factors interact, meaning that the effect of one factor depends on the level or setting of another factor.</p>
+<p>A factorial experiment involves more than one treatment factor, allowing us to study how factors interact. In a complete factorial experiment, every possible combination of factor levels is tested. The total number of treatments is the product of the number of levels for each factor. In other words, each treatment is a combination of one level from each factor.</p>
+<section id="factorial-structure-vs.-experimental-design" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="factorial-structure-vs.-experimental-design"><span class="header-section-number">13.1</span> Factorial Structure vs.&nbsp;Experimental Design</h2>
+<p>It is important to note that a <strong>factorial experiment is not a design by itself</strong>—it is a treatment structure. The underlying design can be:</p>
+<ul>
+<li>A Completely Randomized Design (CRD)</li>
+<li>A Randomized Complete Block Design (RCBD)</li>
+</ul>
+<p>In the social media multitasking example, suppose the researchers wanted to know whether the effect of social media multitasking on academic performance is mitigated by lecture format? We would ask:</p>
+<blockquote class="blockquote">
+<p><em>Does the effect of social media multitasking on academic performance depend on lecture format?</em></p>
+</blockquote>
+<p>The experiment would still follow a Completely Randomized Design (CRD) but now with two treatment factors instead of one.</p>
+<p>Similarly, if we extended the Pygmalion experiment to include an additional factor, we would have an RCBD with two treatment factors.</p>
+</section>
+<section id="notation-and-structure-of-factorial-experiments" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="notation-and-structure-of-factorial-experiments"><span class="header-section-number">13.2</span> Notation and Structure of Factorial Experiments</h2>
+<p>In general, if an experiment has two treatment factors with <span class="math inline">\(a\)</span> and <span class="math inline">\(c\)</span> levels, then there are <span class="math inline">\(a \times c\)</span> treatments. This is called an <span class="math inline">\(a \times c\)</span> factorial treatment structure.</p>
+<p>To clarify the terminology:</p>
+<ul>
+<li>A <strong>treatment factor</strong> has <strong>different levels</strong> (e.g., social media multitasking: <em>none, texting, Facebook</em>).</li>
+<li><strong>Treatments</strong> are the <strong>combinations</strong> of factor levels (e.g., <em>no multitasking + lecture format A</em>, <em>texting + lecture format B</em>).</li>
+</ul>
+<p>In factorial experiments, the treatment factors are said to be <em>crossed</em>, meaning that all levels of one factor appear at all levels of the other factor.</p>
+</section>
+<section id="randomisation-in-factorial-experiments" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="randomisation-in-factorial-experiments"><span class="header-section-number">13.3</span> Randomisation in Factorial Experiments</h2>
+<p>Randomization in factorial experiments depends on the chosen design and is carried out similarly to single-factor experiments. In R, it is helpful to number or name the treatments systematically.</p>
+<p>Suppose we have two factors:</p>
+<ul>
+<li>Marketing Strategy (2 levels: <span class="math inline">\(m_0, m_1\)</span>)</li>
+<li>Product Promotion (2 levels: <span class="math inline">\(p_0, p_1\)</span>)</li>
+</ul>
+<p>This creates <strong>four treatments</strong>:</p>
+<p><span class="math inline">\(m_0p_0\)</span>, <span class="math inline">\(m_0p_1\)</span>, <span class="math inline">\(m_1p_0\)</span>, <span class="math inline">\(m_1p_1\)</span></p>
+<p>If we have 12 experimental units and no need for blocking, we conduct a Completely Randomized Design (CRD) as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>treats <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"m0p0"</span>, <span class="st">"m0p1"</span>, <span class="st">"m1p0"</span>, <span class="st">"m1p1"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>treats <span class="ot">&lt;-</span> <span class="fu">rep</span>(treats, <span class="at">each =</span> <span class="dv">3</span>)  <span class="co"># Repeat each treatment 3 times</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>treats </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "m0p0" "m0p0" "m0p0" "m0p1" "m0p1" "m0p1" "m1p0" "m1p0" "m1p0" "m1p1"
+[11] "m1p1" "m1p1"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(treats)  <span class="co"># Randomly assign treatments</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, r1)  <span class="co"># Display the assignments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           r1    
+ [1,] "1"  "m1p1"
+ [2,] "2"  "m0p0"
+ [3,] "3"  "m0p0"
+ [4,] "4"  "m1p0"
+ [5,] "5"  "m0p1"
+ [6,] "6"  "m1p0"
+ [7,] "7"  "m0p0"
+ [8,] "8"  "m1p0"
+ [9,] "9"  "m0p1"
+[10,] "10" "m0p1"
+[11,] "11" "m1p1"
+[12,] "12" "m1p1"</code></pre>
+</div>
+</div>
+<p>This code assigns treatments randomly and prints the experimental unit number alongside its assigned treatment. If we had blocking, we would repeat the randomization separately for each block.</p>
+</section>
+<section id="is-comprehension-affect-by-playback-speed-and-lecture-modality" class="level2 page-columns page-full" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="is-comprehension-affect-by-playback-speed-and-lecture-modality"><span class="header-section-number">13.4</span> Is comprehension affect by playback speed and lecture modality?</h2>
+<p>In keeping with the theme of students, learning and teaching. Have you ever wondered whether playback speed affects your comprehension of a lecture? Or whether your comprehension is better with audio-only lectures such as podcast versus recorded lectures with visuals? What about if you listen to a podcast at double speed versus a recorded lecture at double speed, is there difference in comprehension? to answer this question, researchers from the University of Californa conducted a <span class="math inline">\(2\times2\)</span> factorial experiment.</p>
+<div id="warning-example1" class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lecture modality and playback speed
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="citation" data-cites="chen2024effect">Chen et al. (<a href="#ref-chen2024effect" role="doc-biblioref">2024</a>)</span> conducted an experiment to find out whether visual information improves comprehension when lectures are played at faster speeds. Specifically, they wanted to investigate the effect of <em>lecture modality</em> (audio-only or audio-visual) and <em>playback speed</em> (1x or 2x) on comprehension of students and whether these factors interact. We can summarise the research questions as follows:</p>
+<ol type="1">
+<li>Does lecture modality have an effect on comprehension?</li>
+<li>Does playback speed have an effect on comprehension?</li>
+<li>Is there an interaction effect of modality and playback speed on comprehension?</li>
+</ol>
+<p>A total of 200 undergraduate students were randomly assigned to one of four groups:</p>
+<ol type="1">
+<li>Audio-only at normal speed (1x)</li>
+<li>Audio-visual (with slides) at normal speed (1x)</li>
+<li>Audio-only at double speed (2x)</li>
+<li>Audio-visual (with slides) at double speed (2x)</li>
+</ol>
+<p>The researchers chose two lectures: one about about real estate appraisals and another bout the history of the Roman Empire. The lectures were either presented as audio-visual clips which consisted of presentation slides and instructor images, and no subtitles or captions were provided. All the graphics (maps, figures) in the slides were static. For lectures presented as audio-only clips, only the instructor’s audio was made available.</p>
+<p>Each student was presented both lectures in the modality and speed they were assigned. Afterwards, they completed a comprehension test consisting of 25 mutilple choice questions on each topic. The average of the scores was taken as the final measure of comprehension.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-chen2024effect" class="csl-entry" role="listitem">
+Chen, Ashley, Suchita E Kumar, Rhea Varkhedi, and Dillon H Murphy. 2024. <span>“The Effect of Playback Speed and Distractions on the Comprehension of Audio and Audio-Visual Materials.”</span> <em>Educational Psychology Review</em> 36 (3): 79.
+</div></div><p>Right! Let’s begin with identifying the design. It should be clear that we have two treatment factors: <em>lecture modality</em> and <em>playback speed</em> each with the treatment levels. this means that we have a total of <span class="math inline">\(2 \times 2 = 4\)</span> treatments which are the combinations of the treatment levels. They investigated the effect of these factors on the comprehension of students - that means, comprehension is the response.</p>
+<ul>
+<li><strong>Response Variable:</strong> Comprehension<br>
+</li>
+<li><strong>Treatment Factors:</strong> Lecture modality and playback speed<br>
+</li>
+<li><strong>Treatment Levels:</strong> Lecture modality: Audio-only or Audio-visual; Playback speed: 1x or 2x<br>
+</li>
+<li><strong>Treatments:</strong> Audio-only at normal speed (1x); Audio-visual at normal speed (1x); Audio-only at double speed (2x); Audio-visual at double speed (2x)</li>
+</ul>
+<p>Each student was assigned to one the treatments indicating that students were the experimental units. The response was also measured on each student, they are the observational units as well. Therefore, since we had 200 students and 4 treatment groups, there was 50 students per group, the experiment had 50 replicates.</p>
+<ul>
+<li><strong>Experimental Unit:</strong> Student (200)<br>
+</li>
+<li><strong>Observational Unit:</strong> Student (200)<br>
+</li>
+<li><strong>Replicates:</strong> 50 students per group<br>
+</li>
+</ul>
+<p>Lastly, we need to determine how randomisation was conducted. There is no indication of any blocking and treatments were randomised to the whole group of experimental units. So this is a Completely Randomised Design, specifically it is a <span class="math inline">\(2\times2\)</span> factorial CRD.</p>
+<ul>
+<li><strong>Design Type:</strong> <span class="math inline">\(2\times2\)</span> factorial Completely Randomized Design (CRD)</li>
+</ul>
+<p>Before we do any further analysis, we need to talk a bit about effects!</p>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -713,12 +941,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./12_RCBD_Contrasts.html" class="pagination-link" aria-label="Contrasts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./14_FE_Model.html" class="pagination-link" aria-label="Model for Factorial Experiments">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
