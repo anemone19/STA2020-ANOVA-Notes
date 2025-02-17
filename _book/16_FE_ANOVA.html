@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./glossary.html" rel="next">
-<link href="./15_FE_Inter.html" rel="prev">
+<link href="./14_FE_Model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -247,14 +310,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -276,8 +339,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#anova-table" id="toc-anova-table" class="nav-link active" data-scroll-target="#anova-table">ANOVA Table</a></li>
+  <li><a href="#back-to-the-example" id="toc-back-to-the-example" class="nav-link" data-scroll-target="#back-to-the-example"><span class="header-section-number">16.1</span> Back to the example</a></li>
+  <li><a href="#contrasts" id="toc-contrasts" class="nav-link" data-scroll-target="#contrasts"><span class="header-section-number">16.2</span> Contrasts</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -301,8 +372,171 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>The model for a factorial experiment with two treatment factors was:</p>
+<p><span class="math display">\[
+Y_{ijk} = \mu + A_i + C_j + (AC)_{ij} + e_{ijk}
+\]</span></p>
+<p>If we move <span class="math inline">\(\mu\)</span> to the left-hand side of the equation, we get:</p>
+<p><span class="math display">\[
+Y_{ijk} - \mu = A_i + C_j + (AC)_{ij} + e_{ijk}
+\]</span></p>
+<p>Now, each of the terms on the RHS is a deviation from a mean.</p>
+<ul>
+<li>The main effects come from the overall mean <span class="math inline">\(\mu\)</span>,<br>
+</li>
+<li>The interaction effects from <span class="math inline">\(\mu + A_i + C_j\)</span>,<br>
+</li>
+<li>The error terms from the treatment means.</li>
+</ul>
+<p>We can square and sum the corresponding observed deviations and obtain sums of squares. For a <strong>balanced</strong> factorial experiment, the total sum of squares on the LHS can be split into four parts, corresponding to:</p>
+<ol type="1">
+<li>Main effects of factor <strong>A</strong>,</li>
+<li>Main effects of factor <strong>C</strong>,</li>
+<li>Interaction between <strong>A</strong> and <strong>C</strong> effects,</li>
+<li>Error.</li>
+</ol>
+<p><span class="math display">\[
+SS_{total} = SS_A + SS_C + SS_{AC} + SS_E
+\]</span></p>
+<p>The degrees of freedom for these sums of squares are:</p>
+<p><span class="math display">\[
+abn - 1 = (a - 1) + (b - 1) + (a - 1)(b - 1) + ab(n - 1)
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of replicates per treatment. The degrees of freedom on the right-hand side add up to the total degrees of freedom. Once again, we summarise all this in a table.</p>
+<section id="anova-table" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="anova-table">ANOVA Table</h3>
+<p>The following table summarizes the partitioning of variation:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 34%">
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>SS</th>
+<th>df</th>
+<th>MS</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A Main Effects</td>
+<td><span class="math inline">\(SS_A = nb \sum_i (\bar{Y}_{i..} - \bar{Y}_{...})^2\)</span></td>
+<td><span class="math inline">\((a - 1)\)</span></td>
+<td><span class="math inline">\(MS_A\)</span></td>
+<td><span class="math inline">\(\frac{MS_A}{MS_E}\)</span></td>
+</tr>
+<tr class="even">
+<td>C Main Effects</td>
+<td><span class="math inline">\(SS_C = na \sum_j (\bar{Y}_{.j.} - \bar{Y}_{...})^2\)</span></td>
+<td><span class="math inline">\((b - 1)\)</span></td>
+<td><span class="math inline">\(MS_C\)</span></td>
+<td><span class="math inline">\(\frac{MS_C}{MS_E}\)</span></td>
+</tr>
+<tr class="odd">
+<td>AC Interactions</td>
+<td><span class="math inline">\(SS_{AC} = n \sum_{ij} (\bar{Y}_{ij.} - \bar{Y}_{i..} - \bar{Y}_{.j.} + \bar{Y}_{...})^2\)</span></td>
+<td><span class="math inline">\((a - 1)(b - 1)\)</span></td>
+<td><span class="math inline">\(MS_{AC}\)</span></td>
+<td><span class="math inline">\(\frac{MS_{AC}}{MS_E}\)</span></td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td><span class="math inline">\(SS_E = \sum_{ijk} (Y_{ijk} - \bar{Y}_{ij.})^2\)</span></td>
+<td><span class="math inline">\(ab(n - 1)\)</span></td>
+<td><span class="math inline">\(MSE\)</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><span class="math inline">\(SS_{total} = \sum_{ijk} (Y_{ijk} - \bar{Y}_{...})^2\)</span></td>
+<td><span class="math inline">\(abn - 1\)</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>There are three F-tests in this ANOVA table.</p>
+<ol type="1">
+<li><span class="math inline">\(H_{AB} : (\alpha\beta)_{ij} = 0\)</span> for all <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> (Factors A and B do not interact)</li>
+<li><span class="math inline">\(H_A : \alpha_i = 0 \quad i = 1, \dots, a\)</span> (Factor A has no main effects)</li>
+<li><span class="math inline">\(H_B : \beta_j = 0 \quad j = 1, \dots, b\)</span> (Factor B has no main effects)</li>
+</ol>
+<p>The alternative hypothesis is, in each case, that at least one of the parameters considered is non-zero.</p>
+<p>While discussing interactions, we saw that sometimes, with strong interaction effects, the main effects of a factor may disappear (be close to zero). But this does not mean that the factor has no effect. On the contrary, it has an effect on the response; the effects just differ over the levels of the other factor and may average out.</p>
+<p>Therefore, we usually start by testing the interaction effects. If there is evidence for the presence of interactions, we have to examine the main effects with this in mind, i.e., be careful with the interpretation of the main effects. Some people say that it becomes meaningless to test for main effects if there is evidence of interactions. However, this depends on what we want to know. The main effects still tell us whether or not the average response changes with changing levels of the factor.</p>
+<p>The <strong>F-ratio</strong> always has the mean square for error in the denominator. As before, it is a ratio of two variance estimates, and in each case, it can be seen as a <strong>signal-to-noise ratio</strong>: how large are the effects relative to the experimental error variance?</p>
+</section>
+<section id="back-to-the-example" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="back-to-the-example"><span class="header-section-number">16.1</span> Back to the example</h2>
+<p>Before we inspect the ANOVA table for the working example, we need to check the assumptions about the erros after model fitting. We do this by inspecting the residuals.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">1</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16_FE_ANOVA_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are no clear violations, in the first plot, the residuals appear to be centered around zero and the spread is reasonably equal across groups. The second plot is a Q-Q plot of the residuals which shows nothing worrisome. Remember we can also plot a histogram of the residuals to check normality.</p>
+<p>For the independence assumption, we construct the dot chart once again but with the residuals.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dotchart</span>(model<span class="sc">$</span>residuals) <span class="co"># note the different way of extracting residuals!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16_FE_ANOVA_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The y-axis is messy but we can ignore that, it shows the index of each observation and there are 200 hence why it overlaps so much. The residuals look uniform, there are no systematic patterns or trends in the plot.</p>
+<p>Let’s see what the ANOVA table looks like for our working example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+Speed                1    933   933.1   4.201 0.041724 *  
+Content.Type         1   2708  2708.5  12.195 0.000592 ***
+Speed:Content.Type   1    177   176.7   0.796 0.373485    
+Residuals          196  43532   222.1                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Verify that the degrees of freedom are what you expected! First, we look at the interaction. Th F-value is quite small which leads to a large p-value of 0.37. This means that we really have no evidence against the null hypothesis that the factors interact. There is some evidence for a man effect of Speed but there is much stronger evidence as indicated by the small p-value for a main effect of lecture modality.</p>
+</section>
+<section id="contrasts" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="contrasts"><span class="header-section-number">16.2</span> Contrasts</h2>
+<p>There are two approaches to analysing data from experiments. The first is to construct a set of a-priori contrasts, test these, and perhaps afterwards use unplanned comparisons to see if there are any other interesting treatment effects or differences that we might want to follow up with in a future experiment.</p>
+<p>The second approach is an analysis of variance (ANOVA). This usually tests much more general hypotheses about the presence of main and interaction effects. The two approaches are not mutually exclusive, but if the questions we are interested in are not answered by an analysis of variance, we should concentrate on the contrasts. The two approaches may also give what seem to be different answers.</p>
+<p>For example, from the ANOVA F-test, we may see no evidence for interactions, but if we look at specific contrasts for interactions, there is evidence. This can happen; it is not a mistake in the methods, it is just a difference in the hypotheses that are being tested.</p>
+<p>Often, an ANOVA is expected in journal publications and research reports, even if it does not answer the specific research questions. However, an ANOVA is almost never enough. The more specific questions are answered by constructing confidence intervals or tests for contrasts.</p>
+<p>Let’s revisit the specific research questions for the working example:</p>
+<ol type="1">
+<li>Does lecture modality have an effect on comprehension?</li>
+<li>Does playback speed have an effect on comprehension?</li>
+<li>Is there an interaction effect of modality and playback speed on comprehension?</li>
+</ol>
+<p>With these question, conducting an ANOVA is enough. We simply want to know if there are any main effects or interaction effect. We have answered that with the ANOVA above. But what if the questions were a bit more specific:</p>
+<ol type="1">
+<li>Does audio-visual content increase comprehension?</li>
+<li>Does increased playback speed decrease comprehension?</li>
+<li>Is the effect of playback speed improved by audio visual content?</li>
+</ol>
+<p>Let’s start with the third question, this is the interaction. The contrast for the interaction should compare the <em>difference between audio-visual and audio only in the two levels of playback speed</em>:</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -724,8 +958,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./15_FE_Inter.html" class="pagination-link" aria-label="Interactions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interactions</span></span>
+      <a href="./14_FE_Model.html" class="pagination-link" aria-label="Model for Factorial Experiments">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

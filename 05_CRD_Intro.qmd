@@ -130,10 +130,25 @@ The rule of thumb is to use the ratio of the smallest to largest standard deviat
 
 We can check this assumption by looking at the residuals after model fitting. A common misconception is to think that the response needs to be normally distributed. However, it is only the unexplained variation, i.e. the errors or residuals (estimates of errors), that we assume to be normally distributed. Of course, if the response has a clearly non-normal distribution (e.g. Binomial), then the residuals are likely to be non-normal as well. So, we can check our response values before hand for obvious deviation from normality, but we have to check this assumption again after fitting our model. Things to look for are asymmetric box-plots which indicate skew distributions. We also want to check that the data points tend to cluster around the median. In @fig-socialbox-plot, there are no signs of any clear deviation from normality. Other graphs we could look at are histograms or Quantile-Quantile (Q-Q) plots. Q-Q plots show the theoretical quantiles of the standard normal distribution against the actual quantiles of our data. We want our data to be as close to the xy line as possible (deviations in the tails are expected).
 
-```{r qq}
+```{r qq, fig.height=3}
 
-qqnorm(multitask$Posttest, pty = 4, col ="blue")
-qqline(multitask$Posttest, col = "red")
+par(mfrow = c(1,3))
+
+# First we subset the data for each group
+control <- multitask$Posttest[multitask$Group == "Control"]
+exp1 <- multitask$Posttest[multitask$Group == "Exp1"]
+exp2 <- multitask$Posttest[multitask$Group == "Exp2"]
+
+
+qqnorm(control, pty = 4, col ="blue", main = "Control")
+qqline(control, col = "red")
+
+qqnorm(exp1, pty = 4, col ="blue", main = "Exp 1")
+qqline(exp1, col = "red")
+
+qqnorm(exp2, pty = 4, col ="blue", main = "Exp 2")
+qqline(exp2, col = "red")
+
 
 ```
 

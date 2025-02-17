@@ -83,6 +83,10 @@ The researchers chose two lectures: one about about real estate appraisals and a
 Each student was presented both lectures in the modality and speed they were assigned. Afterwards, they completed a comprehension test consisting of 25 mutilple choice questions on each topic. The average of the scores was taken as the final measure of comprehension.
 :::
 
+::: column-margin
+We will be using the actual data collected but we will only be using a subset of the information they recorded. The authors conducted a different analysis which incoproates this extra information. We will not be doing this as the method they used is outside th scope of this course.
+:::
+
 Right! Let's begin with identifying the design. It should be clear that we have two treatment factors: *lecture modality* and *playback speed* each with the treatment levels. this means that we have a total of $2 \times 2 = 4$ treatments which are the combinations of the treatment levels. They investigated the effect of these factors on the comprehension of students - that means, comprehension is the response.
 
 -   **Response Variable:** Comprehension\
@@ -100,4 +104,4 @@ Lastly, we need to determine how randomisation was conducted. There is no indica
 
 -   **Design Type:** $2\times2$ factorial Completely Randomized Design (CRD)
 
-Before we do any further analysis, we need to talk a bit about effects! 
+Before we do any further analysis, we need to talk a bit about effects!

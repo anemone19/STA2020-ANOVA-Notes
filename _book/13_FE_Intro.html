@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./14_FE_Model.html" rel="next">
+<link href="./15_FE_Inter.html" rel="next">
 <link href="./12_RCBD_Contrasts.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -330,14 +330,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -443,15 +443,15 @@ window.Quarto = {
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, r1)  <span class="co"># Display the assignments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           r1    
- [1,] "1"  "m1p1"
- [2,] "2"  "m0p0"
- [3,] "3"  "m0p0"
- [4,] "4"  "m1p0"
- [5,] "5"  "m0p1"
- [6,] "6"  "m1p0"
- [7,] "7"  "m0p0"
- [8,] "8"  "m1p0"
- [9,] "9"  "m0p1"
+ [1,] "1"  "m1p0"
+ [2,] "2"  "m1p0"
+ [3,] "3"  "m0p1"
+ [4,] "4"  "m0p1"
+ [5,] "5"  "m0p0"
+ [6,] "6"  "m0p0"
+ [7,] "7"  "m1p0"
+ [8,] "8"  "m1p1"
+ [9,] "9"  "m0p0"
 [10,] "10" "m0p1"
 [11,] "11" "m1p1"
 [12,] "12" "m1p1"</code></pre>
@@ -491,7 +491,10 @@ Lecture modality and playback speed
 </div>
 <div class="no-row-height column-margin column-container"><div id="ref-chen2024effect" class="csl-entry" role="listitem">
 Chen, Ashley, Suchita E Kumar, Rhea Varkhedi, and Dillon H Murphy. 2024. <span>“The Effect of Playback Speed and Distractions on the Comprehension of Audio and Audio-Visual Materials.”</span> <em>Educational Psychology Review</em> 36 (3): 79.
-</div></div><p>Right! Let’s begin with identifying the design. It should be clear that we have two treatment factors: <em>lecture modality</em> and <em>playback speed</em> each with the treatment levels. this means that we have a total of <span class="math inline">\(2 \times 2 = 4\)</span> treatments which are the combinations of the treatment levels. They investigated the effect of these factors on the comprehension of students - that means, comprehension is the response.</p>
+</div><div class="">
+<p>We will be using the actual data collected but we will only be using a subset of the information they recorded. The authors conducted a different analysis which incoproates this extra information. We will not be doing this as the method they used is outside th scope of this course.</p>
+</div></div>
+<p>Right! Let’s begin with identifying the design. It should be clear that we have two treatment factors: <em>lecture modality</em> and <em>playback speed</em> each with the treatment levels. this means that we have a total of <span class="math inline">\(2 \times 2 = 4\)</span> treatments which are the combinations of the treatment levels. They investigated the effect of these factors on the comprehension of students - that means, comprehension is the response.</p>
 <ul>
 <li><strong>Response Variable:</strong> Comprehension<br>
 </li>
@@ -945,8 +948,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./14_FE_Model.html" class="pagination-link" aria-label="Model for Factorial Experiments">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./15_FE_Inter.html" class="pagination-link" aria-label="Interactions">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
