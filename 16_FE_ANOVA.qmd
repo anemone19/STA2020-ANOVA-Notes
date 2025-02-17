@@ -3,6 +3,7 @@
 ## ANOVA 
 
 ```{r setup, include = FALSE}
+library(emmeans)
 data <- data <- read.csv("Exp2DataPlayback.csv")
 model <- aov(Accuracy ~ Speed*Content.Type, data = data)
 ```
@@ -112,7 +113,7 @@ The second approach is an analysis of variance (ANOVA). This usually tests much 
 
 For example, from the ANOVA F-test, we may see no evidence for interactions, but if we look at specific contrasts for interactions, there is evidence. This can happen; it is not a mistake in the methods, it is just a difference in the hypotheses that are being tested.
 
-Often, an ANOVA is expected in journal publications and research reports, even if it does not answer the specific research questions. However, an ANOVA is almost never enough. The more specific questions are answered by constructing confidence intervals or tests for contrasts.
+Often, an ANOVA is expected in journal publications and research reports, even if it does not answer the specific research questions. The more specific questions are answered by constructing confidence intervals or tests for contrasts.
 
 Let's revisit the specific research questions for the working example: 
 
@@ -120,14 +121,71 @@ Let's revisit the specific research questions for the working example:
 2.  Does playback speed have an effect on comprehension?
 3.  Is there an interaction effect of modality and playback speed on comprehension?
 
-With these question, conducting an ANOVA is enough. We simply want to know if there are any main effects or interaction effect. We have answered that with the ANOVA above. But what if the questions were a bit more specific: 
-
+With these question, conducting an ANOVA is enough. We simply want to know if there are any main effects or interaction effects. We have answered that with the ANOVA above. But what if the questions were a bit more specific: 
 
 1.  Does audio-visual content increase comprehension?
 2.  Does increased playback speed decrease comprehension?
-3.  Is the effect of playback speed improved by audio visual content?
+3.  Is the effect of playback speed improved by audio-visual content?
 
-Let's start with the third question, this is the interaction. The contrast for the interaction should compare the *difference between audio-visual and audio only in the two levels of playback speed*:
+So far we have only contrasted two treatments. Sometimes we want to compare groups of treatments to one another. More generally, a contrast is defined as a linear combination of the parameters where the coefficients add up to zero:
+
+$$L = \sum_1^a h_iA_i$$ 
+
+such that $\sum_1^a h_i = 0$. This ensures a fair comparison. For example, in a compairson of two group means we have:
+
+$$ L = \mu_1 - \mu_2 = 1\times \mu + (-1) \times \mu_2$$ 
+Here, the coefficients are $h_1 = +1$ and $h_2 = -1$ which sum to zero. This simple difference is the simplest form of a contrast. Effectively, $\sum_1^a h_i = 0$ represents the null hypothesis, that the difference equals 0. 
+
+Let's start with the first question. Remeber the treatments were: 
+
+1. 1x Audio-Only (1AO)
+2. 2x Audio-Only (2AO)
+3. 1x Audio-Visual (1AV)
+4. 2x Audio-Visual (2AV)
+
+To answer the first question, our contrast should compare the difference between the audio-visual and audio-only. So we want to combine the treatments containing each level of Content.Type and compare these two: 
+
+$$(\mu_{1AV} + \mu_{2AV}) - (\mu_{1AO} + \mu_{2AO})$$ 
+
+
+Now we are comparing groups of means. The first group contains the means for all treatments that included Audio-Visual level and the second contains the Audio-Only level. The coefficients of the contrast sum to zero:  
+
+$$
+\begin{aligned}
+&(\mu_{AV1} + \mu_{AV2}) - (\mu_{AO1} + \mu_{AO2}) \\
+&(1) \mu_{AV1} + (1) \mu_{AV2} + (-1) \mu_{AO1} + (-1) \mu_{AO2} \\ 
+& 1 + 1 -1 -1 = 0
+\end{aligned}
+$$
+This is a linear combination of our model parameters. What does the contrast and coefficients look like for the second question? To answer whether playback speed decreased comprehension, we want to compare the treatments with 1x speed to those with 2x times speed: 
+
+$$(\mu_{1AV} + \mu_{1AO}) - (\mu_{2AO} + \mu_{2AV})$$
+The coefficients sum to zero as before. This might be confusing but we are simply grouping treatments together and comparing them. To do this in R, we first need to refit our model using the function `lm` as we did before when we performed contrasts and then we extract the treatment means with a new function `emmeans` from the package `emmeans`. 
+
+
+```{r}
+
+model_reg <- lm(Accuracy ~ Content.Type * Speed, data = data)
+
+emmeans(model_reg,~Content.Type * Speed)
+
+```
+
+
+
+
+
+```{r}
+
+
+
+```
+
+
+
+Let's start with the third question, this is the interaction. The contrast for the interaction should compare the *difference between audio-visual and audio-only in the two levels of playback speed*:
+
+
 
 
 

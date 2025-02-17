@@ -520,20 +520,56 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>There are two approaches to analysing data from experiments. The first is to construct a set of a-priori contrasts, test these, and perhaps afterwards use unplanned comparisons to see if there are any other interesting treatment effects or differences that we might want to follow up with in a future experiment.</p>
 <p>The second approach is an analysis of variance (ANOVA). This usually tests much more general hypotheses about the presence of main and interaction effects. The two approaches are not mutually exclusive, but if the questions we are interested in are not answered by an analysis of variance, we should concentrate on the contrasts. The two approaches may also give what seem to be different answers.</p>
 <p>For example, from the ANOVA F-test, we may see no evidence for interactions, but if we look at specific contrasts for interactions, there is evidence. This can happen; it is not a mistake in the methods, it is just a difference in the hypotheses that are being tested.</p>
-<p>Often, an ANOVA is expected in journal publications and research reports, even if it does not answer the specific research questions. However, an ANOVA is almost never enough. The more specific questions are answered by constructing confidence intervals or tests for contrasts.</p>
+<p>Often, an ANOVA is expected in journal publications and research reports, even if it does not answer the specific research questions. The more specific questions are answered by constructing confidence intervals or tests for contrasts.</p>
 <p>Let’s revisit the specific research questions for the working example:</p>
 <ol type="1">
 <li>Does lecture modality have an effect on comprehension?</li>
 <li>Does playback speed have an effect on comprehension?</li>
 <li>Is there an interaction effect of modality and playback speed on comprehension?</li>
 </ol>
-<p>With these question, conducting an ANOVA is enough. We simply want to know if there are any main effects or interaction effect. We have answered that with the ANOVA above. But what if the questions were a bit more specific:</p>
+<p>With these question, conducting an ANOVA is enough. We simply want to know if there are any main effects or interaction effects. We have answered that with the ANOVA above. But what if the questions were a bit more specific:</p>
 <ol type="1">
 <li>Does audio-visual content increase comprehension?</li>
 <li>Does increased playback speed decrease comprehension?</li>
-<li>Is the effect of playback speed improved by audio visual content?</li>
+<li>Is the effect of playback speed improved by audio-visual content?</li>
 </ol>
-<p>Let’s start with the third question, this is the interaction. The contrast for the interaction should compare the <em>difference between audio-visual and audio only in the two levels of playback speed</em>:</p>
+<p>So far we have only contrasted two treatments. Sometimes we want to compare groups of treatments to one another. More generally, a contrast is defined as a linear combination of the parameters where the coefficients add up to zero:</p>
+<p><span class="math display">\[L = \sum_1^a h_iA_i\]</span></p>
+<p>such that <span class="math inline">\(\sum_1^a h_i = 0\)</span>. This ensures a fair comparison. For example, in a compairson of two group means we have:</p>
+<p><span class="math display">\[ L = \mu_1 - \mu_2 = 1\times \mu + (-1) \times \mu_2\]</span> Here, the coefficients are <span class="math inline">\(h_1 = +1\)</span> and <span class="math inline">\(h_2 = -1\)</span> which sum to zero. This simple difference is the simplest form of a contrast. Effectively, <span class="math inline">\(\sum_1^a h_i = 0\)</span> represents the null hypothesis, that the difference equals 0.</p>
+<p>Let’s start with the first question. Remeber the treatments were:</p>
+<ol type="1">
+<li>1x Audio-Only (1AO)</li>
+<li>2x Audio-Only (2AO)</li>
+<li>1x Audio-Visual (1AV)</li>
+<li>2x Audio-Visual (2AV)</li>
+</ol>
+<p>To answer the first question, our contrast should compare the difference between the audio-visual and audio-only. So we want to combine the treatments containing each level of Content.Type and compare these two:</p>
+<p><span class="math display">\[(\mu_{1AV} + \mu_{2AV}) - (\mu_{1AO} + \mu_{2AO})\]</span></p>
+<p>Now we are comparing groups of means. The first group contains the means for all treatments that included Audio-Visual level and the second contains the Audio-Only level. The coefficients of the contrast sum to zero:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;(\mu_{AV1} + \mu_{AV2}) - (\mu_{AO1} + \mu_{AO2}) \\
+&amp;(1) \mu_{AV1} + (1) \mu_{AV2} + (-1) \mu_{AO1} + (-1) \mu_{AO2} \\
+&amp; 1 + 1 -1 -1 = 0
+\end{aligned}
+\]</span> This is a linear combination of our model parameters. What does the contrast and coefficients look like for the second question? To answer whether playback speed decreased comprehension, we want to compare the treatments with 1x speed to those with 2x times speed:</p>
+<p><span class="math display">\[(\mu_{1AV} + \mu_{1AO}) - (\mu_{2AO} + \mu_{2AV})\]</span> The coefficients sum to zero as before. This might be confusing but we are simply grouping treatments together and comparing them. To do this in R, we first need to refit our model using the function <code>lm</code> as we did before when we performed contrasts and then we extract the treatment means with a new function <code>emmeans</code> from the package <code>emmeans</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Accuracy <span class="sc">~</span> Content.Type <span class="sc">*</span> Speed, <span class="at">data =</span> data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(model_reg,<span class="sc">~</span>Content.Type <span class="sc">*</span> Speed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Content.Type Speed emmean   SE  df lower.CL upper.CL
+ Audio-Only       1   50.3 2.11 196     46.2     54.5
+ Audio-Visual     1   59.6 2.11 196     55.4     63.7
+ Audio-Only       2   47.9 2.11 196     43.7     52.0
+ Audio-Visual     2   53.4 2.11 196     49.2     57.5
+
+Confidence level used: 0.95 </code></pre>
+</div>
+</div>
+<p>Let’s start with the third question, this is the interaction. The contrast for the interaction should compare the <em>difference between audio-visual and audio-only in the two levels of playback speed</em>:</p>
 
 
 </section>
