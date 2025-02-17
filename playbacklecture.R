@@ -56,6 +56,20 @@ summary(mod1)
 emmeans(reg.mod,~Content.Type * Speed)
 emmeans(reg.mod,~Content.Type | Speed)
 
+# Compute estimated marginal means
+emm <- emmeans(reg.mod, ~ Content.Type * Speed)
+
+# Contrast: Comparing Speed 1 vs Speed 2 across both Content Types
+contrast(emm, list(Speed_Effect = c(-1, -1, 1, 1)))
+
+contrast(emm, "pairwise", by = "Content.Type")
+emm <- emmeans(model_reg, ~ Speed * Content.Type)
+
+contrast(emm, interaction = "pairwise")
+
+
+
+t <-contrast(emm, list(ContentType_Effect = c(1, -1, 1, -1)/2), by = NULL, side ="<")
 
 
 
