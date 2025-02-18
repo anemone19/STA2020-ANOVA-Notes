@@ -346,6 +346,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -443,18 +449,18 @@ window.Quarto = {
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, r1)  <span class="co"># Display the assignments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           r1    
- [1,] "1"  "m0p1"
+ [1,] "1"  "m1p1"
  [2,] "2"  "m1p1"
  [3,] "3"  "m1p0"
- [4,] "4"  "m0p0"
+ [4,] "4"  "m0p1"
  [5,] "5"  "m0p1"
- [6,] "6"  "m1p1"
- [7,] "7"  "m1p1"
- [8,] "8"  "m0p0"
+ [6,] "6"  "m0p0"
+ [7,] "7"  "m0p1"
+ [8,] "8"  "m1p0"
  [9,] "9"  "m0p0"
-[10,] "10" "m1p0"
+[10,] "10" "m1p1"
 [11,] "11" "m1p0"
-[12,] "12" "m0p1"</code></pre>
+[12,] "12" "m0p0"</code></pre>
 </div>
 </div>
 <p>This code assigns treatments randomly and prints the experimental unit number alongside its assigned treatment. If we had blocking, we would repeat the randomization separately for each block.</p>

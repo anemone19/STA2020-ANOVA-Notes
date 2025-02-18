@@ -235,9 +235,6 @@ It is evident that increasing Speed has a negative effect on the response, and s
 ## Conclusion 
 
 
-
-
-
 ```{r, echo=TRUE, results='hide', fig.show='hide'}
 #| code-fold: true
 

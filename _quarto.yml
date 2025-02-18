@@ -1,6 +1,8 @@
 project:
   type: book
 
+execute:
+  freeze: auto
 book:
   title: "STA2020 ANOVA Notes"
   author: "Ané Cloete"
@@ -47,11 +49,7 @@ format:
     number-sections: true
     number-figures: true
     css: custom.css
-  pdf:
-    documentclass: scrreprt
-    number-sections: true
-    number-figures: true
-    keep_tex: true
+    
 reference-location: margin
 citation-location: margin
 editor: visual

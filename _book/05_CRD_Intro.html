@@ -347,6 +347,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -526,11 +532,13 @@ Chen, Ashley, Suchita E Kumar, Rhea Varkhedi, and Dillon H Murphy. 2024. <span>�
 <li>All groups have equal population variances.</li>
 </ol>
 <p>We need to check the validity of these assumptions. There are both formal and informal techniques. Formal techniques (i.e.&nbsp;hypothesis tests) are not always appropriate for several reasons such as small data sets or that testing one assumption usually requires that the other two hold, complicating the order of tests. Informal techniques are more than sufficient and in this course, we stick with them.</p>
-<section id="outliers" class="level3 unnumbered">
+<section id="outliers" class="level3 unnumbered page-columns page-full">
 <h3 class="unnumbered anchored" data-anchor-id="outliers">Outliers</h3>
 <p>Outliers are unusual observations (response values) that deviate substantially from the remaining data points. They can have a large influence on the estimates of our model. Think of statistics such as means and variances, outlying observations will shift the mean towards them and distort the variability of the data.</p>
-<p>If we’re lucky, outliers are artefacts of data recording or entering issues, such as a missing decimal points or incorrect scaling (called error outliers). These types of outliers can be corrected and the analysis can be done as usual. If, however, there are freak observations that are not clearly due to anything like data inputting, then they are likely genuine unusual responses (called interesting outliers) and should not be discarded. There are many ways of identifying and dealing with outliers (<span class="citation" data-cites="outlier">(<a href="#ref-outlier" role="doc-biblioref"><strong>outlier?</strong></a>)</span> found 29 different ways in the literature). Here, it is recommended that the analysis should be run with and without the outliers to see whether the conclusion depends on their inclusion. When dealing with outliers, it is best to be transparent and clear about how they were handled. Simply removing outliers with no explanation is questionable research practice.</p>
-<p>A good way to check for outliers, is to inspect the data visually with a box-plot of your data grouped by treatment.</p>
+<p>If we’re lucky, outliers are artefacts of data recording or entering issues, such as a missing decimal points or incorrect scaling (called error outliers). These types of outliers can be corrected and the analysis can be done as usual. If, however, there are freak observations that are not clearly due to anything like data inputting, then they are likely genuine unusual responses (called interesting outliers) and should not be discarded. There are many ways of identifying and dealing with outliers (<span class="citation" data-cites="outlier1">Aguinis, Gottfredson, and Joo (<a href="#ref-outlier1" role="doc-biblioref">2013</a>)</span> found 29 different ways in the literature). Here, it is recommended that the analysis should be run with and without the outliers to see whether the conclusion depends on their inclusion. When dealing with outliers, it is best to be transparent and clear about how they were handled. Simply removing outliers with no explanation is questionable research practice.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-outlier1" class="csl-entry" role="listitem">
+Aguinis, Herman, Ryan K Gottfredson, and Harry Joo. 2013. <span>“Best-Practice Recommendations for Defining, Identifying, and Handling Outliers.”</span> <em>Organizational Research Methods</em> 16 (2): 270–301.
+</div></div><p>A good way to check for outliers, is to inspect the data visually with a box-plot of your data grouped by treatment.</p>
 <div class="{.cell='{}'}">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Posttest <span class="sc">~</span> Group, <span class="at">data =</span> multitask, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"skyblue"</span>, <span class="st">"lightgreen"</span>, <span class="st">"pink"</span>), </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Posttest Scores by Group"</span>, </span>
