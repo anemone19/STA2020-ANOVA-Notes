@@ -292,6 +292,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -338,8 +344,10 @@ window.Quarto = {
 </header>
 
 
-<p>These notes have been adapted from the STA1007 notes (authored by Dr Res Altwegg and Dr Greg Distiller and some other texbooks.</p>
-<p>Hypothesis testing is a statistical procedure of using sample data to make inferences about populations. Unlike estimation, where the goal is to quantify a parameter, hypothesis testing assesses whether an observed effect is statistically significant. More specifically, a hypothesis test evaluates two mutally exclusive statements about the population and determines which statement the data supports</p>
+<blockquote class="blockquote">
+<p>These notes have been adapted from the STA1007 notes (authored by Dr Res Altwegg and Dr Greg Distiller and some other textbooks.</p>
+</blockquote>
+<p>Hypothesis testing is a statistical procedure of using sample data to make inferences about populations. Unlike estimation, where the goal is to quantify a parameter, hypothesis testing assesses whether an observed effect is statistically significant. More specifically, a hypothesis test evaluates two mutually exclusive statements about the population and determines which statement the data supports.</p>
 <section id="the-general-framework" class="level3">
 <h3 class="anchored" data-anchor-id="the-general-framework">The General Framework</h3>
 <p>Hypothesis testing follows a structured process:</p>
@@ -347,7 +355,12 @@ window.Quarto = {
 <li><strong>State the Hypotheses</strong>: Define the null hypothesis (H₀) and the alternative hypothesis (H₁).</li>
 </ol>
 <p>The basic idea of hypothesis testing is that we set up a so-called null hypothesis and then ask how likely our data are if the null hypothesis were true. If they are unlikely, we conclude that we have found evidence against the null hypothesis, i.e.&nbsp;the null hypothesis is probably not true.</p>
-<p>The alternative hypothesis covers all the possibilities not covered by the null hypothesis. If we conclude that the null hypothesis is probably not true, that means that the alternative hypothesis is probably true. Notice that these two hypotheses are not on equal footing. You can think of the null hypothesis as representing a baseline against which the data are compared, whereas the alternative hypothesis is what we really care about, worry about or want to demonstrate. This is an important asymmetry and will need some careful reflection.</p>
+<p>The alternative hypothesis covers all the possibilities not covered by the null hypothesis. If we conclude that the null hypothesis is probably not true, that means that the alternative hypothesis is probably true. These two hypotheses are not equal in how we treat them:</p>
+<ul>
+<li><p>We start by assuming the null is true and check if the data gives enough evidence to reject it.</p></li>
+<li><p>If the data strongly contradicts the null, we lean toward the alternative hypothesis.</p></li>
+</ul>
+<p>But we never prove the alternative hypothesis outright—we only show that the null is unlikely based on the evidence. You can think of the null hypothesis as representing a baseline against which the data are compared, whereas the alternative hypothesis is what we really care about, worry about or want to demonstrate. This is an important asymmetry and will need some careful reflection.</p>
 <p>Below is an example:</p>
 <p>Null Hypothesis (<span class="math inline">\(H_0\)</span>): “The average weight of chocolate bars is 100g.”</p>
 <p>Null Hypothesis (<span class="math inline">\(H_A\)</span>): “The average weight of chocolate bars is less than 100g.”</p>
@@ -355,18 +368,19 @@ window.Quarto = {
 <ol start="2" type="1">
 <li><strong>Choose a Test Statistic</strong>: Select an appropriate statistic to measure the observed effect.</li>
 </ol>
-<p>A numerical function of the data that quantifies the strength of the observed effect, whose valye determines the result of the test. Examples include the mean difference, proportion difference, or z-score.</p>
+<p>A numerical function of the data that quantifies the strength of the observed effect, whose value determines the result of the test. Examples include the mean difference, proportion difference, or z-score.</p>
 <ol start="3" type="1">
 <li><strong>Determine the Null Distribution:</strong> Establish what the test statistic would look like if H₀ were true.</li>
 </ol>
-<p>In order to say something about the .. The expected distribution of the test statistic under (<span class="math inline">\(H_0\)</span>).</p>
+<p>We have a test statistic and to say something about how likely this test statistic (or more extreme is) under the null hypothesis, we need the null distribution of the test statistic (that is the sampling distribution of the test statistic as if the null hypothesis were true). We then compared the observed value of the test statistic to that null distribution and asked ourselves how unusual it is in light of that distribution.</p>
 <ol start="4" type="1">
 <li><strong>Compute the P-value:</strong> Calculate the probability of obtaining a test statistic as extreme as the observed one under H₀.</li>
 </ol>
 <p>The probability of obtaining a result as extreme as the observed one if H₀ is true. A small P-value (typically &lt;0.05) suggests strong evidence against (<span class="math inline">\(H_0\)</span>).</p>
 <ol start="5" type="1">
-<li><strong>Make a Decision:</strong> Compare the P-value to a predefined significance level () and conclude whether to reject H₀.</li>
+<li><strong>Make a Decision:</strong></li>
 </ol>
+<p>In the approach you have been taught, we compare the P-value to a predefined significance level () and conclude whether to reject <span class="math inline">\(H_0\)</span>. Here we would like to emphasise that the p-value is a measure of evidence against <span class="math inline">\(H_0\)</span> - see below!</p>
 </section>
 <section id="one-sided-vs.-two-sided-tests" class="level2">
 <h2 class="anchored" data-anchor-id="one-sided-vs.-two-sided-tests">One-Sided vs.&nbsp;Two-Sided Tests</h2>
@@ -375,7 +389,7 @@ window.Quarto = {
 </section>
 <section id="decision-making-in-hypothesis-testing" class="level2">
 <h2 class="anchored" data-anchor-id="decision-making-in-hypothesis-testing">Decision Making in Hypothesis Testing</h2>
-<p>A small P -value constitutes evidence against <span class="math inline">\(H_0\)</span>. But how small is small enough? Sometimes, we want to make a firm decision about whether we can believe that the observed pattern is real or not. This requires us to choose a threshold for P. This threshold is called the significance level and denoted by <span class="math inline">\(\alpha\)</span>. If we obtain a P -value that is smaller than <span class="math inline">\(\alpha\)</span>, we say that we have obtained a “statistically significant result” or that “<span class="math inline">\(H_0\)</span> is rejected”. If our P -value is larger than <span class="math inline">\(\alpha\)</span>, we say that our result is “not significant” or that “<span class="math inline">\(H_0\)</span> is not rejected”. In most situations, researchers choose a significance level of <span class="math inline">\(\alpha\)</span> = 0.05, which roughly corresponds to the probability of obtaining five heads in a row when tossing a fair coin, as we have seen. Different values for <span class="math inline">\(\alpha\)</span> are also sometimes used; the next most common significance level is <span class="math inline">\(\alpha\)</span> = 0.01.</p>
+<p>A small P-value constitutes evidence against <span class="math inline">\(H_0\)</span>. But how small is small enough? Sometimes, we want to make a firm decision about whether we can believe that the observed pattern is real or not. This requires us to choose a threshold for P. This threshold is called the significance level and denoted by <span class="math inline">\(\alpha\)</span>. If we obtain a P-value that is smaller than <span class="math inline">\(\alpha\)</span>, we say that we have obtained a “statistically significant result” or that “<span class="math inline">\(H_0\)</span> is rejected”. If our P-value is larger than <span class="math inline">\(\alpha\)</span>, we say that our result is “not significant” or that “<span class="math inline">\(H_0\)</span> is not rejected”. In most situations, researchers choose a significance level of <span class="math inline">\(\alpha\)</span> = 0.05, which roughly corresponds to the probability of obtaining five heads in a row when tossing a fair coin, as we have seen. Different values for <span class="math inline">\(\alpha\)</span> are also sometimes used; the next most common significance level is <span class="math inline">\(\alpha\)</span> = 0.01.</p>
 <p>Before we go further, we want to emphasize that there is nothing magic about a specific value of <span class="math inline">\(\alpha\)</span>. This threshold is an arbitrary choice and should not be taken too seriously. You understand now that there is not much difference between a P-value of 0.051 and 0.049. Both constitute about the same strength of evidence against <span class="math inline">\(H_0\)</span>. Yet, when we apply <span class="math inline">\(\alpha\)</span> = 0.05, we would reach opposite conclusions in the two cases. It is always better to report the exact P-value rather than just state P &gt; 0.05 or P &lt; 0.05 or state that a result is “not significant” or “significant”. And it is particularly important not to imply that a “non-significant” result means that there is no effect (that would be saying <span class="math inline">\(H_0\)</span> is true when we might in fact have some evidence against it)!</p>
 <p>Alas, dividing results into “significant” vs “not significant” is very entrenched in many fields and you will encounter these terms a lot. And used wisely, this distinction can have its merits. So we’ll stick with it.</p>
 

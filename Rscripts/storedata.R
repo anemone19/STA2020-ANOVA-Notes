@@ -36,33 +36,42 @@ dev.off() # Close the graphics
 # Regression 
 
 
-x <- rnorm(35,mean = 35, sd = 5)
-error <- rnorm(35,0,5)
-plot(x)
+# Generate random x values and error term
+set.seed(123)  # Ensures reproducibility
+x <- rnorm(35, mean = 35, sd = 5)
+error <- rnorm(35, mean = 0, sd = 5)
 
+# Define true model parameters
 beta0 <- 2
 beta1 <- 1.5
 
-
+# Generate y values based on the regression model
 y <- beta0 + beta1 * x + error
 
+# Fit a linear regression model
+model <- lm(y ~ x)  # This was missing!
 
+# Select an observation to highlight
 obs_index <- 20  
 x_obs <- x[obs_index]
 y_obs <- y[obs_index]
 y_pred <- predict(model, newdata = data.frame(x = x_obs))  
 
-
-png("storedata3.png", width = 2000, height = 1500, res = 300)
-
+# Scatter plot of data points
 plot(x, y, pch = 16, col = "darkseagreen",
      xlab = "X", ylab = "Y",
      main = "Scatter Plot with Regression Line",
      cex.lab = 1.5, cex.axis = 1.2, cex.main = 1.5)
+
+# Add regression line
 abline(model, col = "black", lwd = 2)
-points(x_obs, y_obs, col = "red", pch = 16, cex = 1.2)  # Observed point in red
+
+# Highlight the observed point
+points(x_obs, y_obs, col = "red", pch = 16, cex = 1.2)  
+
+# Draw a dashed vertical line from the predicted value to the observed value
 segments(x0 = x_obs, x1 = x_obs, y0 = y_pred, y1 = y_obs, col = "red", lwd = 2, lty = 2)
 
-dev.off()
+
 
 

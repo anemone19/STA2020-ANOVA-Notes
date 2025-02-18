@@ -36,7 +36,7 @@ book:
       - 15_FE_Inter.qmd
       - 14_FE_Model.qmd
       - 16_FE_ANOVA.qmd
-    
+      - 17_FE_Contrasts.qmd
     - glossary.qmd
 
 bibliography: references.bib
