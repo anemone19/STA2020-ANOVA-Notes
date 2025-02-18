@@ -1,0 +1,21 @@
+.callout-examplebox {
+  border: 2px solid #007ACC;
+  background-color: #f0f8ff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.callout-examplebox h2 {
+  font-weight: bold;
+  color: #007ACC;
+}
+
+
+
+#btn1 {
+  background-color: #59C3C3;
+}
+
+#btn2 {
+  background-color: #18FFB0;
+}
