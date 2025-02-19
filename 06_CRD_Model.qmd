@@ -135,7 +135,7 @@ where $T2$ and $T3$ are indicator variables (i.e. $T2 = 1$ if observation $i$ is
 These two models are equivalent. The data are exactly the same: in both situations we have $a$ groups and we are interested in the mean response of these groups and the difference between them. The model notation is just slightly different. In the ANOVA model we use $\mu$ and $A_i$ instead of $\beta_0$ and $\beta_i$ which have different meanings.
 
 | Regression | ANOVA |
-|:----------------------------------:|:----------------------------------:|
+|:--:|:--:|
 | $\beta_0$ is the mean of the baseline category | $\mu$ is the overall mean |
 | $\beta_1$ is the difference between the means of category 2 and the baseline category. | $A_i$ is the effect of treatment $i$, i.e. change in mean response relative to the overall mean. |
 
@@ -341,7 +341,7 @@ To estimate these variances we substitute the MSE for $\sigma^2$ as it is an unb
 
 We can assume normal distributions for our estimates because we have assumed a normal linear model and because they are means (or differences between means). This means that confidence intervals for the population treatment means are of the form:
 
-$$ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)$$ 
+$$ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)$$
 
 where $t^{\alpha/2}_v$ is the ${\alpha/2}^{th}$ percentile of the Student's $t$ distribution with $v$ degrees of freedom. The degrees of freedom are the error degrees of freedom, $N-a$ for CRD.
 

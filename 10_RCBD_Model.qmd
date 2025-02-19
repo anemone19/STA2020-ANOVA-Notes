@@ -75,7 +75,7 @@ You can think of the SSE as the variability among experimental units that cannot
 The sums of squares are summarised in an ANOVA table.
 
 | Source | SS | df | MS | F |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | Treatments A | $SS_A = b \sum_i (\bar{Y}_i - \bar{Y}_{..})^2$ | $(a - 1)$ | $\frac{SS_A}{(a-1)}$ | $\frac{MS_A}{MSE}$ |
 | Blocks B | $SS_B = a \sum_j (\bar{Y}_j - \bar{Y}_{..})^2$ | $(b - 1)$ | $\frac{SS_B}{(b-1)}$ |  |
 | Error | $SSE = \sum_{ij} (Y_{ij} - \bar{Y}_{i.} - \bar{Y}_{.j} + \bar{Y}_{..})^2$ | $(a - 1)(b - 1)$ | $\frac{SSE}{(a-1)(b-1)}$ |  |

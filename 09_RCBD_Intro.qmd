@@ -100,7 +100,7 @@ The third unit receive treatment A, the second receives B and so on. We then rep
 
 ## Example: The Pygmalion Effect
 
-The **Pygmalion effect** is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell inlove with a sculpture he created of his ideal woman.
+The **Pygmalion effect** is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell in love with a sculpture he created of his ideal woman.
 
 ::: column-margin
 This article explains the concept nicely and also briefly discusses the study we will use later. https://thedecisionlab.com/biases/the-pygmalion-effect
@@ -139,7 +139,7 @@ First things first! We need to determine the design so we can use the appropriat
 ::: column-margin
 The name of the treatment factor is not always obvious. It is usually something that describes the collection of similar treatments created in response to some research hypothesis or what has been manipulated. In biological or ecological studies, it can be quite clear. For example, if we had treatments high, medium and low rainfall, "Rainfall" is the variable we manipulated.
 
-Also, as before, I've modifed the example slightly. In the original study, there three platoons per compancy with two serving as control and one company only had two. So we have simplied the design so that it is balanced.
+Also, as before, I've modified the example slightly. In the original study, there three platoons per company with two serving as control and one company only had two. So we have simplified the design so that it is balanced.
 :::
 
 -   **Response Variable:** Theoretical specialty knowledge.
@@ -187,7 +187,7 @@ knitr::kable(pyg_wide, "pipe") %>%
   kable_styling("striped", full_width = F) 
 ```
 
-The **long format** represents each observation as a separate row, with treatments recorded in a single column. This format is useful for statistical modeling and visualization since it keeps data structured for comparisons across treatments. You might have noticed that so far alll the datasets we have used when fitting models using `aov` have been in long format. You will struggle to fit the model with a dataset in wide format!
+The **long format** represents each observation as a separate row, with treatments recorded in a single column. This format is useful for statistical modeling and visualization since it keeps data structured for comparisons across treatments. You might have noticed that so far all the data sets we have used when fitting models using `aov` have been in long format. You will struggle to fit the model with a data set in wide format!
 
 The **wide format** organizes data so that each unit (e.g., a company) appears in a single row, with treatments as separate columns. This format is often preferred for paired comparisons and summary tables.
 

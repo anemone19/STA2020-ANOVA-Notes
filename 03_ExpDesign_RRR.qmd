@@ -67,7 +67,7 @@ Blocking variables are nuisance factors that might affect your response or intro
 
 EXAMPLE
 
-Blocking also offers the oopurutnity to test treatments over a wider range of conditions, e.g. if I only use people of one age in my experiment (say students) I cannot generalize my results to older people. However, if i use different age blocks I will be able to tell whether the treatments have similar effects in all age groups or not.
+Blocking also offers the opportunity to test treatments over a wider range of conditions, e.g. if I only use people of one age in my experiment (say students) I cannot generalize my results to older people. However, if i use different age blocks I will be able to tell whether the treatments have similar effects in all age groups or not.
 
 Lastly, if blocking is not feasible, randomization will ensure that at least treatments and nuisance factors are not confounded.
 

@@ -48,7 +48,7 @@ where $n$ is the number of replicates per treatment. The degrees of freedom on t
 The following table summarizes the partitioning of variation:
 
 | Source | SS | df | MS | F |
-|-------------|--------------------|-------------|-------------|-------------|
+|--------------|----------------|--------------|--------------|--------------|
 | A Main Effects | $SS_A = nb \sum_i (\bar{Y}_{i..} - \bar{Y}_{...})^2$ | $(a - 1)$ | $MS_A$ | $\frac{MS_A}{MS_E}$ |
 | C Main Effects | $SS_C = na \sum_j (\bar{Y}_{.j.} - \bar{Y}_{...})^2$ | $(b - 1)$ | $MS_C$ | $\frac{MS_C}{MS_E}$ |
 | AC Interactions | $SS_{AC} = n \sum_{ij} (\bar{Y}_{ij.} - \bar{Y}_{i..} - \bar{Y}_{.j.} + \bar{Y}_{...})^2$ | $(a - 1)(b - 1)$ | $MS_{AC}$ | $\frac{MS_{AC}}{MS_E}$ |
@@ -71,7 +71,7 @@ The **F-ratio** always has the mean square for error in the denominator. As befo
 
 ## Back to the example
 
-Before we inspect the ANOVA table for the working example, we need to check the assumptions about the erros after model fitting. We do this by inspecting the residuals.
+Before we inspect the ANOVA table for the working example, we need to check the assumptions about the errors after model fitting. We do this by inspecting the residuals.
 
 ```{r}
 par(mfrow = c(1,2))

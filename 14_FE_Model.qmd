@@ -85,7 +85,7 @@ and we can calculate the interaction effect:
 
 $$ (\hat{AB})_{13} = \bar{Y}_{13}- (\hat{\mu} + \hat{A}_1 + \hat{B}_3)$$
 
-They are no longer the same thing, they are separable! The interaction effect for this treatment is quite big if you look at the difference visaully. For the last plot, there are also five observations, but now the deviation of the treatment mean from the sum f the main effects is almost zero; it's just due to random variation. The interaction effect is stoo small to detect statistically.
+They are no longer the same thing, they are separable! The interaction effect for this treatment is quite big if you look at the difference visually. For the last plot, there are also five observations, but now the deviation of the treatment mean from the sum f the main effects is almost zero; it's just due to random variation. The interaction effect is too small to detect statistically.
 
 ## Parameter estimation
 
@@ -117,9 +117,9 @@ The main effects are as before, except that now they refer to differences betwee
 
 ## Back to the example
 
-Let's fit this model to the data of the playback and lecture modality experiment. This time, we have access to the actual data collected! Let's explore the data and check our assumptions. The assumptions are the same as in a one-way ANOVA. That is normality of erros, equal population variances, independent errors and no outliers.
+Let's fit this model to the data of the playback and lecture modality experiment. This time, we have access to the actual data collected! Let's explore the data and check our assumptions. The assumptions are the same as in a one-way ANOVA. That is normality of errors, equal population variances, independent errors and no outliers.
 
-As always we start by reading in our data, checking that it has been read in correcly and looking at some descriptive statistics.
+As always we start by reading in our data, checking that it has been read in correctly and looking at some descriptive statistics.
 
 ```{r}
 
@@ -129,7 +129,7 @@ head(data)
 
 ```
 
-The dataset contains 5 columns:
+The data set contains 5 columns:
 
 1.  `Participant.ID` – This column contains a unique identification code for each participant in the study.\
 2.  `Condition` – Indicates the experimental condition or treatment, which includes both playback speed (1x or 2x) and content type (Audio-Only or Audio-Visual).\
@@ -171,7 +171,7 @@ stripchart(Accuracy ~ Condition, data = data, vertical = TRUE, add = TRUE, metho
 
 ```
 
-There are no clear signs of deviation from normality, the boxplots slook relatively symmetric. We could plot Q-Q plots for each treatment as well. Let's do that for two of the treatments.
+There are no clear signs of deviation from normality, the box-plots look relatively symmetric. We could plot Q-Q plots for each treatment as well. Let's do that for two of the treatments.
 
 ```{r, fig.height=4}
 
@@ -185,7 +185,7 @@ qqline(data$Accuracy[data$Condition == "1x Audio-Visual"], col = "red")
 
 ```
 
-No worrisome patterns! Next, the boxplots also suggest that there are no outliers and there are no clear indications that the assumption of equal population variance is not reasonable. Let's have a slook a the standard deviations.
+No worrisome patterns! Next, the box-plots also suggest that there are no outliers and there are no clear indications that the assumption of equal population variance is not reasonable. Let's have a look a the standard deviations.
 
 ```{r}
 
@@ -193,7 +193,7 @@ sort(tapply(data$Accuracy, data$Condition, sd))
 
 ```
 
-The ratio of the smallest to largest is roughly 1.22 which is much smaller than five. Lastly, we need to check the assumption of independence. We start by assuming that the order in which the data are in the dataset is the order in which the measurements were taken and we construct a Cleveland dot chart.
+The ratio of the smallest to largest is roughly 1.22 which is much smaller than five. Lastly, we need to check the assumption of independence. We start by assuming that the order in which the data are in the data set is the order in which the measurements were taken and we construct a Cleveland dot chart.
 
 ```{r}
 
@@ -201,9 +201,9 @@ dotchart(data$Accuracy, ylab = "Order of observation", xlab ="Post treatment tes
 
 ```
 
-No clear patterns in the measurements, so no reason to suspect any dependence between succesive measurements. The students were randomly assigned to each group and there are no other reasons to believe that independence was violated based on the description of the experiment.
+No clear patterns in the measurements, so no reason to suspect any dependence between successive measurements. The students were randomly assigned to each group and there are no other reasons to believe that independence was violated based on the description of the experiment.
 
-With all the assumptions checked, we can move onto fitting the linear model to our data and inspecting the model estimates. first, let's write the model equation:
+With all the assumptions checked, we can move onto fitting the linear model to our data and inspecting the model estimates. Here is the model equation:
 
 $$ \text{Accuracy}_{ijk} = \mu + \text{Speed}_i + \text{Content.Type}_j + \text{(Speed:Content.Type)}_{ij} + e_{ijk} $$
 
