@@ -1,8 +1,7 @@
 project:
   type: book
+  output-dir: docs
 
-execute:
-  freeze: auto
 book:
   title: "STA2020 ANOVA Notes"
   author: "Ané Cloete"

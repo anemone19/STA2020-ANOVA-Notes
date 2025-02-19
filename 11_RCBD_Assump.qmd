@@ -1,5 +1,5 @@
 ```{r setup, include = FALSE}
-pyg_data <- read.csv("pygmalion_data.csv")
+pyg_data <- read.csv("Datasets/pygmalion_data.csv")
 library(tidyverse)
 library(kableExtra)
 
@@ -23,7 +23,7 @@ Simply put, it means that the we assume the treatment effects are similar in all
 ```{r}
 
 # read in data 
-pyg_data <- read.csv("pygmalion_data.csv")
+pyg_data <- read.csv("Datasets/pygmalion_data.csv")
 
 # look at first and last few rows 
 head(pyg_data); tail(pyg_data)

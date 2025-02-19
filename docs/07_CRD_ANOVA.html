@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>crd_anova</title>
+<title>7&nbsp; Analysis of Variance – STA2020 ANOVA Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,11 +78,14 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./08_CRD_Contrasts.html" rel="next">
+<link href="./06_CRD_Model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -91,7 +94,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -153,32 +156,265 @@ window.Quarto = {
 <link rel="stylesheet" href="custom.css">
 </head>
 
-<body>
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./07_CRD_ANOVA.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">STA2020 ANOVA Notes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Experimental Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_ExpDesign_Why.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Experiments and experimental design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_ExpDesign_Term.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Terminology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_ExpDesign_RRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The three R’s of experimental design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_ExpDesign_DesigningExp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Designing an Experiment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Single Factor Completely Randomised Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_CRD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_CRD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_CRD_ANOVA.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_CRD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Randomised Block Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Factorial Experiments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#an-intuitive-explanation" id="toc-an-intuitive-explanation" class="nav-link active" data-scroll-target="#an-intuitive-explanation"><span class="header-section-number">7.1</span> An Intuitive Explanation</a></li>
+  <li><a href="#the-f-test" id="toc-the-f-test" class="nav-link" data-scroll-target="#the-f-test"><span class="header-section-number">7.2</span> The F-test</a></li>
+  <li><a href="#analysis-of-variance-for-crd" id="toc-analysis-of-variance-for-crd" class="nav-link" data-scroll-target="#analysis-of-variance-for-crd"><span class="header-section-number">7.3</span> Analysis of Variance for CRD</a></li>
+  <li><a href="#anova-table" id="toc-anova-table" class="nav-link" data-scroll-target="#anova-table"><span class="header-section-number">7.4</span> ANOVA Table</a>
+  <ul class="collapse">
+  <li><a href="#what-are-degrees-of-freedom" id="toc-what-are-degrees-of-freedom" class="nav-link" data-scroll-target="#what-are-degrees-of-freedom"><span class="header-section-number">7.4.1</span> What Are Degrees of Freedom?</a></li>
+  </ul></li>
+  <li><a href="#back-to-the-constructed-example" id="toc-back-to-the-constructed-example" class="nav-link" data-scroll-target="#back-to-the-constructed-example"><span class="header-section-number">7.5</span> Back to the constructed example</a></li>
+  <li><a href="#the-f-test-in-anova" id="toc-the-f-test-in-anova" class="nav-link" data-scroll-target="#the-f-test-in-anova"><span class="header-section-number">7.6</span> The F-test in ANOVA</a></li>
+  <li><a href="#conclusion-does-social-media-multitasking-impact-academic-performance-of-students" id="toc-conclusion-does-social-media-multitasking-impact-academic-performance-of-students" class="nav-link" data-scroll-target="#conclusion-does-social-media-multitasking-impact-academic-performance-of-students"><span class="header-section-number">7.7</span> Conclusion: Does social media multitasking impact academic performance of students?</a></li>
+  <li><a href="#model-checking" id="toc-model-checking" class="nav-link" data-scroll-target="#model-checking"><span class="header-section-number">7.8</span> Model Checking</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7.9</span> Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./07_CRD_ANOVA.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="analysis-of-variance" class="level1 page-columns page-full" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Analysis of Variance</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment allows us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of squares into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiguously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is called a one-way ANOVA or between-subjects ANOVA or an independent factor ANOVA. It is a generalization of the ‘two-sample t-test assuming equal variances’ to the case of more than two populations.</p>
-<section id="an-intuitive-explanation" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="an-intuitive-explanation"><span class="header-section-number">1.1</span> An Intuitive Explanation</h2>
+<section id="an-intuitive-explanation" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="an-intuitive-explanation"><span class="header-section-number">7.1</span> An Intuitive Explanation</h2>
 <p>Before we consider real data, we first want to look at a constructed example to explain the main ideas behind ANOVA. Assume that we carried out two experiments on plants removing nitrate (NO<span class="math inline">\(_3\)</span>) from storm water. In both experiments, we consider three plant species (un-creatively called ‘A’, ‘B’, and ‘C’). In both experiments, we have three replicates per treatment. We are only interested in comparing the species so there is no control treatment. We obtained the following data:</p>
 <div id="tbl-panel" class="quarto-layout-panel anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Hypothetical Experiment
+Table&nbsp;7.1: Hypothetical Experiment
 </figcaption>
 <div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
@@ -303,8 +539,8 @@ Which experiment has better evidence that the true mean NO<span class="math inli
 <li><p>Small ratios imply the signal (difference among the means) is small relative to the noise, indicating no evidence that the means differ.</p></li>
 </ul>
 </section>
-<section id="the-f-test" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="the-f-test"><span class="header-section-number">1.2</span> The F-test</h2>
+<section id="the-f-test" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="the-f-test"><span class="header-section-number">7.2</span> The F-test</h2>
 <p>When we take the ratio of two variances, it can be shown that the ratio follows an F-distribution with degrees of freedom equal to those of the two variances.</p>
 <p>So, for example, say we want to compare the variability between two independent groups, each with normally distributed observations. We define the test statistic as the ratio of the two sample variances:</p>
 <p><span class="math display">\[
@@ -362,8 +598,8 @@ F = \frac{s_1^2}{s_2^2}
 <li>As the degrees of freedom increase, the F-distribution approaches a normal shape.</li>
 </ul>
 </section>
-<section id="analysis-of-variance-for-crd" class="level2 page-columns page-full" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="analysis-of-variance-for-crd"><span class="header-section-number">1.3</span> Analysis of Variance for CRD</h2>
+<section id="analysis-of-variance-for-crd" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="analysis-of-variance-for-crd"><span class="header-section-number">7.3</span> Analysis of Variance for CRD</h2>
 <p>Let’s go back to the linear model for the single-factor CRD that we examined earlier:</p>
 <p><span class="math display">\[
 Y_{ij} = \mu + \alpha_i + e_{ij}
@@ -403,8 +639,8 @@ SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
 <p><strong>The analysis of variance is based on this identity</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The total sums of squares equals the sum of squares between groups plus the sum of squares within groups.</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;In mathematics, an identity is an equation that is always true, regardless of the values of it’s variables. In other words, the identity is true for all observations.</p></div></div><p>Back to our constructed example. What are the different sums of squares? For Experiment 1, we get: <span class="math inline">\(SS_{\text{total}} = 624; SS_{\text{between groups}} = 600; SS_{\text{within groups}} = 24\)</span>. Verify these numbers and do the same for Experiment 2.</p>
 </section>
-<section id="anova-table" class="level2 page-columns page-full" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="anova-table"><span class="header-section-number">1.4</span> ANOVA Table</h2>
+<section id="anova-table" class="level2 page-columns page-full" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="anova-table"><span class="header-section-number">7.4</span> ANOVA Table</h2>
 <p>This division of the total sums of squares is typically summarised in an analysis of variance table. The first column contains the “source” of the variability with the first entry (the order is not important, although this is the typical order) representing the between-treatment variability (explained variation), second the error (unexplained variation) and lastly the total variation. Here we have used the notation <span class="math inline">\(SS_A\)</span> to represent the sums of squares for treatment factor A. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.</p>
 <table class="caption-top table">
 <colgroup>
@@ -451,8 +687,8 @@ SS_{\text{total}} = SS_{\text{treatment}} + SS_{\text{error}}
 <p><span class="math display">\[ \text{MS} = \frac{SS}{df}\]</span></p>
 <p>This is simply an average and may be seen as an estimate of variance. So when we divide the treatment SS by its degrees of freedom, we get an estimate of the variation due to treatments and similarly, for the the residual SS, we get an estimate of the error variance. You’ve seen this before!</p>
 <p><span class="math display">\[\text{MSE} = \hat{\sigma}^2 = \frac{1}{N-a}\sum_i\sum_j(Y_{ij} - Y_{i.})^2\]</span></p>
-<section id="what-are-degrees-of-freedom" class="level3 page-columns page-full" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="what-are-degrees-of-freedom"><span class="header-section-number">1.4.1</span> What Are Degrees of Freedom?</h3>
+<section id="what-are-degrees-of-freedom" class="level3 page-columns page-full" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="what-are-degrees-of-freedom"><span class="header-section-number">7.4.1</span> What Are Degrees of Freedom?</h3>
 <p>Degrees of freedom (df) represent the number of independent pieces of information available for estimating a parameter. When making statistical calculations, we typically lose one degree of freedom for every estimated parameter before the current calculation.</p>
 <p>For example, when estimating the standard deviation of a data set, we first estimate the mean, thereby reducing the number of independent observations available to calculate variability. This is why the denominator in the variance formula is <span class="math inline">\(N-1\)</span>:</p>
 <p><span class="math display">\[ s^2 = \frac{\sum(Y_i - \bar{Y})^2}{N -1} \]</span> You can think of degrees of freedom as the number of independent deviations around a mean. If we have <span class="math inline">\(n\)</span> observations and their mean, once we know <span class="math inline">\(n-1\)</span> of the values, the last one is fixed—it must take on a specific value to satisfy the mean equation. Therefore, only <span class="math inline">\(n-1\)</span> observations are truly free to vary.</p>
@@ -474,8 +710,8 @@ x_3 &amp;= 8
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Remember, <span class="math inline">\(\mu = \frac{\sum \mu_i}{a}\)</span>.</p></div></div><p>If you look at the treatment sums of squares: <span class="math inline">\(\sum_i \sum_j (Y_{ij} - \bar{Y}_{..})^2\)</span>. We are using <span class="math inline">\(N\)</span> observations and calculating the deviations of these observations around the overall mean. So, only <span class="math inline">\(N-1\)</span> observations are free to vary, the last observation is fixed for the calculated mean to hold true.</p>
 </section>
 </section>
-<section id="back-to-the-constructed-example" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="back-to-the-constructed-example"><span class="header-section-number">1.5</span> Back to the constructed example</h2>
+<section id="back-to-the-constructed-example" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="back-to-the-constructed-example"><span class="header-section-number">7.5</span> Back to the constructed example</h2>
 <p>What does the ANOVA table look like for our constructed example? You’ve already worked out the sums of squares. What are the df’s and Mean squares?</p>
 <p>Let’s have a look at Experiment 1 first.</p>
 <div class="cell">
@@ -509,8 +745,8 @@ Residuals    6   1350     225               </code></pre>
 </div>
 <p>Since the overall mean and the treatment means were the same in both experiment, we expected the <span class="math inline">\(SS_{\text{treatment}}\)</span> to be the same in both experiments. This was indeed the case – they are 600 in both experiments. The sample sizes were also the same in both experiments, so we would expect the df to be the same. With 9 observations, we have 8 df in total. Three treatments (Species) leads to 2 treatment df and 6 df remain for the residuals. The difference between the two experiments is that the observations were much more variable in Experiment 2 than in Experiment 1. Accordingly, we find that <span class="math inline">\(SS_{\text{error}}\)</span> was much larger in Experiment 2, and this led to larger MSE in Experiment 2. How does this affect the conclusions we draw from each of the experiments? This is where the F-ratio comes in.</p>
 </section>
-<section id="the-f-test-in-anova" class="level2 page-columns page-full" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="the-f-test-in-anova"><span class="header-section-number">1.6</span> The F-test in ANOVA</h2>
+<section id="the-f-test-in-anova" class="level2 page-columns page-full" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="the-f-test-in-anova"><span class="header-section-number">7.6</span> The F-test in ANOVA</h2>
 <p>We first set up the null and alternate hypothesis. The null hypothesis is that all treatments have the same mean, or equivalently, that all treatment effects are zero.</p>
 <p><span class="math display">\[H_0: \mu_1 = \mu_2 = \ldots = \mu_a\]</span> And the alternate hypothesis is the opposite of that:</p>
 <p><span class="math display">\[H_A: \text{At least one } \mu_i \text{ is different.}\]</span></p>
@@ -689,8 +925,8 @@ Tip
 <p>Now, how do we use the tables to obtain p-values? The test statistic for the first Experiment was 1.33 and the df’s were 2 (num) and 6 (denom). If we look at the table above, it only goes to 4 denominator degrees of freedom, so we need the continuation of the table.</p>
 <p><img src="images/fdist2.png" class="img-fluid">Now we locate the F-values with 2 and 6 degrees of freedom and compare the test statistic of the second experiment (1.33) to them. The smallest value is 3.46 where the probability to the right of that value is 0.1. Our test statistic is much smaller than this, so lies further to the right and so logically, the right-hand-side probability of this value with be greater than 0.1. So we conclude that the p-value that our p-value is &gt; 0.1 (which it is, we calculated it to be 0.32). With tables we cannot get exact probabilities, but we can say something about the magnitude of the p-value. Try it for the first experiment which had an F-value of 75.</p>
 </section>
-<section id="conclusion-does-social-media-multitasking-impact-academic-performance-of-students" class="level2 page-columns page-full" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="conclusion-does-social-media-multitasking-impact-academic-performance-of-students"><span class="header-section-number">1.7</span> Conclusion: Does social media multitasking impact academic performance of students?</h2>
+<section id="conclusion-does-social-media-multitasking-impact-academic-performance-of-students" class="level2 page-columns page-full" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="conclusion-does-social-media-multitasking-impact-academic-performance-of-students"><span class="header-section-number">7.7</span> Conclusion: Does social media multitasking impact academic performance of students?</h2>
 <p>Let’s revisit the real experiment we started this section with. I repeat the experiment description below.</p>
 <div id="warning-example1" class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -745,8 +981,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>“The manipulation of social media multitasking affected the academic performance of students in this experiment (<span class="math inline">\(F_{2,117} = 27.42\)</span>, <span class="math inline">\(p&lt;0.001\)</span>).”</p>
 <p>But which treatments differed? <strong>We cannot answer that question with this hypothesis.</strong> It only tells us that there is a difference, there is a treatment effect. <strong>It does not tell us where the difference or possible differences lie.</strong> To determine this, we need to use treatment contrasts. Before we do this or present any results, we need to do one last thing.</p>
 </section>
-<section id="model-checking" class="level2 page-columns page-full" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="model-checking"><span class="header-section-number">1.8</span> Model Checking</h2>
+<section id="model-checking" class="level2 page-columns page-full" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="model-checking"><span class="header-section-number">7.8</span> Model Checking</h2>
 <p>Remember that we said some of our assumptions need to be checked after the model is fitted. Our model specifies the error terms are (1) normally distributed, (2) all with the same variance (homoscedastic), and (3) that they are independent. The residuals are estimates of these error terms and we can therefore use them to check the model assumptions. Normally distributed, equal variance and independent really means that there is no discernible pattern or structure left in the residuals. If there is, then the model has failed to pick up an important structure in the data.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;The same concepts apply to linear regression models.</p></div></div><p>We call the function <code>plot</code> on our model object. For our purposes we are only going to look at two of the plots and we inspect them one by one by specifying the plot number with the argument <code>which</code>:</p>
 <div class="cell">
@@ -798,8 +1034,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>There are no patterns at all, the residuals appear randomly distributed. So no indications of dependence.</p>
 </section>
-<section id="summary" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="summary"><span class="header-section-number">1.9</span> Summary</h2>
+<section id="summary" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="summary"><span class="header-section-number">7.9</span> Summary</h2>
 <p>That’s a lot. So let’s summarise what we did in this chapter:</p>
 <p>We introduced Analysis of Variance (ANOVA), which is fundamentally a regression model with categorical variables but parameterised differently. ANOVA allows us to partition total variance into between-treatment and within-treatment variability, helping us determine whether observed differences in the response variable are due to the treatments and not just sampling error.</p>
 <p>We explored ANOVA through a constructed experiment on nitrate removal by plants, demonstrating that variation within treatments influences our ability to detect true treatment effects. The F-ratio, a measure of the signal-to-noise ratio, is central to ANOVA. A large F-ratio suggests that between-group variability is greater than within-group variability, providing evidence that at least one treatment differs.</p>
@@ -814,7 +1050,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 
 
 
-</section>
 </section>
 
 
@@ -1236,6 +1471,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06_CRD_Model.html" class="pagination-link" aria-label="A Simple Model for a CRD">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08_CRD_Contrasts.html" class="pagination-link" aria-label="Contrasts">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Contrasts</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

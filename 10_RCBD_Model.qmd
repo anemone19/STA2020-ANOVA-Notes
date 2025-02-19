@@ -2,7 +2,7 @@
 
 ```{r setup, echo = FALSE, warning = FALSE}
 
-pyg_data <- read.csv("pygmolian_data.csv")
+pyg_data <- read.csv("Datasets/pygmolian_data.csv")
 
 ```
 

@@ -44,7 +44,8 @@ We would analyze differences in song popularity (e.g., number of streams, chart 
 -   Release timing: Songs released during peak listening hours or days may perform better.
 -   Platform demographics: Different platforms cater to different audiences, which might influence engagement.
 
-Since we cannot randomly assign songs to platforms, we cannot be certain that observed differences in popularity are only due to the platform. Instead, they may be influenced by a combination of these external factors. This is an observational study. 
+Since we cannot randomly assign songs to platforms, we cannot be certain that observed differences in popularity are only due to the platform. Instead, they may be influenced by a combination of these external factors. This is an observational study.
+
 ::::
 
 Suppose we study whether different teaching methods (interactive vs. traditional) affect student performance, conducted in public and private schools.
@@ -52,7 +53,7 @@ Suppose we study whether different teaching methods (interactive vs. traditional
 -   Teaching method is the treatment (assigned to students).\
 -   School type is a blocking factor (cannot be randomly assigned).
 
-If private school students perform better, we cannot conclude school type caused the difference due to potential confounders such as socioeconocmic background or teacher quality.
+If private school students perform better, we cannot conclude school type caused the difference due to potential confounders such as socioeconomic background or teacher quality.
 
 Even though we control for school type, observed differences may be due to these external factors, not just the school itself. We cannot be sure that the observed differences are really only due to school type.
 
@@ -69,8 +70,8 @@ Any variable that might affect the response besides treatment factor should be c
 
 -   Geographic location: field, site, regions or cities that share similar economic conditions.
 -   Time: experimental replication over different days or weeks. Blocking for economic cycles or seasonal effects.
--   Subject: person, plant, bussinesses, genotype.
--   Demographic groups: age, gender, income or education level, consumer behaviour segments.\
+-   Subject: person, plant, businesses, phenotype.
+-   Demographic groups: age, gender, income or education level, consumer behavior segments.\
 -   Equipment: container types, growth chambers.
 
 For example, if we are testing the effectiveness of a new advertising campaign, it would be useful to block by city or region to control for differences in local economies, purchasing behavior, or media consumption. Similarly, if an experiment measures the impact of dynamic pricing on sales, it is a good practice to replicate the price changes across multiple days, blocking for daily or weekly variations in consumer spending habits. This way time accounts for these differences rather inflating the error variance.
@@ -163,7 +164,7 @@ Here is the final summary of the design:
 You will typically have access to the data as well to help you identify some aspects of the design. There are two ways the data might be represented, in long format:
 
 ```{r, echo = FALSE}
-pyg_data <- read.csv("pygmalion_data.csv")
+pyg_data <- read.csv("Datasets/pygmalion_data.csv")
 knitr::kable(pyg_data, "pipe") %>%
   kable_styling("striped", full_width = F) %>% 
   scroll_box(height = "350px")

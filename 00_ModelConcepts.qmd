@@ -18,7 +18,9 @@ Statistical models are not perfect predictors of the data, rather they attempt t
 
 $$
 \text{Observed Response} = \text{Model Predicted Response} + \text{Error}
-$$ Mathematically this can be stated as:
+$$ 
+
+Mathematically this can be stated as:
 
 $$ Y = \hat{Y} + e$$
 
@@ -56,7 +58,6 @@ min_x <- jitter(rep(1, sum(storedata$numcust == min_count)))
 points(min_x, min_count, col = "red", pch = 16, cex = 1.2) 
 segments(x0 = min_x, x1 = min_x, y0 = min_count, y1 = means["Store 1"], col = "red", lwd = 2, lty = 2)
 ```
-
 
 Another basic example of this structure is a **linear regression model**:
 
@@ -112,7 +113,6 @@ segments(x0 = x_obs, x1 = x_obs, y0 = y_pred, y1 = y_obs, col = "red", lwd = 2, 
 
 ```
 
-
 ## Notation
 
 When we fit the model to our data, we **estimate** the unknown parameters using observed data. We denote these estimates using **hat notation** to distinguish them from the true (but unknown) population parameters:
@@ -137,4 +137,3 @@ where:
 
 -   $\hat{Y}_i$ is the **fitted (predicted) value**, and
 -   $e_i = Y_i - \hat{Y}_i$ is the **residual**, representing the difference between the observed and predicted values.
-

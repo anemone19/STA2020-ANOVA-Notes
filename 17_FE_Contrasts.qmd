@@ -2,7 +2,7 @@
 
 ```{r setup, include = FALSE}
 library(emmeans)
-data <- data <- read.csv("Exp2DataPlayback.csv")
+data <- data <- read.csv("Datasets/Exp2DataPlayback.csv")
 model <- aov(Accuracy ~ Speed*Content.Type, data = data)
 ```
 

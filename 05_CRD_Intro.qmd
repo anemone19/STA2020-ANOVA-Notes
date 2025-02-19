@@ -51,7 +51,7 @@ In R, we read in the data set and then use some commands to inspect the data set
 
 ```{r eda}
 
-multitask <- read.csv("datasets/multitask_performance.csv")
+multitask <- read.csv("Datasets/multitask_performance.csv")
 nrow(multitask) # check number of rows
 head(multitask) # check first 5 rows 
 tail(multitask) # check last 5 rows 
@@ -201,7 +201,7 @@ A statistical procedure is said to be robust to departures from a model assumpti
 
 2.  No real data set ever meets all assumptions of a model perfectly. As the famous (at least in the world of statistics) quote by George Box goes: "All models are wrong but some are useful." Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from **experience**. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That's best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn't change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.
 
-{{< downloadthis assumptioncheckingsim.R class=styled id=btn1 label="R code">}}
+{{< downloadthis Rscripts/assumptioncheckingsim.R class=styled id=btn1 label="R code">}}
 :::
 
 ## Summary
