@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Introduction – STA2020 ANOVA Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./06_CRD_Model.html" rel="next">
+<link href="./04_ExpDesign_DesigningExp.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="custom.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./05_CRD_Intro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">STA2020 ANOVA Notes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Experimental Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_ExpDesign_Why.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Experiments and experimental design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_ExpDesign_Term.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Terminology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_ExpDesign_RRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The three R’s of experimental design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_ExpDesign_DesigningExp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Designing an Experiment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Single Factor Completely Randomised Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_CRD_Intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_CRD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_CRD_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_CRD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Randomised Block Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Factorial Experiments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#example-the-effect-of-social-media-multitasking-on-classroom-performance." id="toc-example-the-effect-of-social-media-multitasking-on-classroom-performance." class="nav-link active" data-scroll-target="#example-the-effect-of-social-media-multitasking-on-classroom-performance."><span class="header-section-number">5.1</span> Example: The effect of social media multitasking on classroom performance.</a></li>
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda"><span class="header-section-number">5.2</span> Exploratory data analysis (EDA)</a></li>
+  <li><a href="#checking-assumptions" id="toc-checking-assumptions" class="nav-link" data-scroll-target="#checking-assumptions"><span class="header-section-number">5.3</span> Checking assumptions</a>
+  <ul class="collapse">
+  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
+  <li><a href="#equal-population-variance" id="toc-equal-population-variance" class="nav-link" data-scroll-target="#equal-population-variance">Equal population variance</a></li>
+  <li><a href="#normally-distributed-errors" id="toc-normally-distributed-errors" class="nav-link" data-scroll-target="#normally-distributed-errors">Normally distributed errors</a></li>
+  <li><a href="#independent-errors" id="toc-independent-errors" class="nav-link" data-scroll-target="#independent-errors">Independent errors</a></li>
+  <li><a href="#a-quick-note-on-the-robustness-of-anova" id="toc-a-quick-note-on-the-robustness-of-anova" class="nav-link" data-scroll-target="#a-quick-note-on-the-robustness-of-anova">A quick note on the robustness of ANOVA</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.4</span> Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./05_CRD_Intro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Completely Randomized Designs (CRDs) are the simplest experimental designs. They are used when experimental units are uniform enough and we expect them to react similar to a given treatment. In other words, we have no reason to suspect that a group of experimental units might react differently to the treatments. We also don’t expect any effects (besides possibly a treatment effect) to cause any systematic changes in the response. So, we don’t have to block for differing experimental units or any nuisance factors.</p>
+<p>Remember experimental design is the procedure for how experimental units are grouped and treatments are applied. We have already said that there are no blocks in CRDs. So randomisation occurs without restriction and to all experimental units. More generally, the <span class="math inline">\(a\)</span> treatments are randomly assigned to <span class="math inline">\(r\)</span> experimental units, such that each experimental unit is equally likely to receive any of the treatments. This means that there are <span class="math inline">\(N = r \times a\)</span> experimental units in total. We only consider designs that are <em>balanced</em> meaning that there an equal number of experimental units per treatment, i.e.&nbsp;a treatment is applied to <span class="math inline">\(r\)</span> units. The experiment is then said to have <span class="math inline">\(r\)</span> replicates.</p>
+<section id="example-the-effect-of-social-media-multitasking-on-classroom-performance." class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="example-the-effect-of-social-media-multitasking-on-classroom-performance."><span class="header-section-number">5.1</span> Example: The effect of social media multitasking on classroom performance.</h2>
+<p>As a student, I used to believe I could multitask effectively. I would scroll through my phone during lectures, study while texting friends, or listen to podcast while driving. It felt like I was paying attention to everything, but in hindsight, I can barely recall the details of those podcasts. I often had to revisit lectures or restart study sessions because my focus wasn’t truly there. This tendency extends beyond student life. In the average workplace, tasks are frequently interrupted by social media, email checks, or notifications. Many of us feel the constant pull of our phones when trying to concentrate, whether we’re working, studying, or even relaxing.</p>
+<p>In an era of perceived multitasking, where devices and distractions dominate our attention, it’s worth asking: Does social media multitasking impact academic performance of students?</p>
+<div id="warning-example1" class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two researchers from Turkey, <span class="citation" data-cites="multitask2018">Demirbilek and Talan (<a href="#ref-multitask2018" role="doc-biblioref">2018</a>)</span>, conducted a study to try and answer this question. Specifically, they examined the impact of social media multitasking during live lectures on students’ academic performance.</p>
+<p>A total of 120 first-year undergraduate students from the same Turkish University were randomly assigned to one of three groups:</p>
+<ol type="1">
+<li><strong>Control Group:</strong> Students used traditional pen-and-paper note-taking.</li>
+<li><strong>Experimental Group 1 (Exp 1):</strong> Students engaged in SMS texting during the lecture.</li>
+<li><strong>Experimental Group 2 (Exp 2):</strong> Students used Facebook during the lecture.</li>
+</ol>
+<p>Over a three-week period, participants attended the same lectures on Microsoft Excel. To measure academic performance, a standardised test was administered.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"></div><p><strong>The analysis of experimental data is determined by the design.</strong> This is the first thing we need to investigate. The design dictates the terms that we will include in our statistical model and so it is crucial to be able to identify the design and all factors included (blocking and treatment). It is also important to check that randomisation has been done correctly and determine the number of replicates used. In the previous chapter we started doing this by creating a summary of the design and we do the same here. From the description of the study, it is clear that:</p>
+<ul>
+<li><strong>Response Variable:</strong> Academic performance, as measured by test scores.</li>
+<li><strong>Treatment Factor:</strong> Level of social media multitasking.</li>
+<li><strong>Treatment Levels (Groups):</strong> Control, Exp 1, and Exp 2.</li>
+</ul>
+<p>Students were randomly assigned to one of the three groups, and performance was measured for each individual. Although this may seem obvious, they only took one measurement per student, so we don’t have to worry about pseudoreplication. This setup indicates that the students are both the experimental units and the observational units in this study. With a total of 120 experimental units and three treatments, the experiment has 40 replicates. Since only one treatment factor was investigated, and no blocking was performed, this is classified as a <strong>single-factor Completely Randomized Design (CRD).</strong> Here is the study breakdown:</p>
+<ul>
+<li><strong>Response Variable:</strong> Academic Performance<br>
+</li>
+<li><strong>Treatment Factor:</strong> Level of Social Media Multitasking<br>
+</li>
+<li><strong>Treatment Levels:</strong> Control, Experimental 1 (SMS), Experimental 2 (Facebook)<br>
+</li>
+<li><strong>Treatments:</strong> Control, Experiment 1, Experiment 2<br>
+</li>
+<li><strong>Experimental Unit:</strong> Student (120)<br>
+</li>
+<li><strong>Observational Unit:</strong> Student (120)<br>
+</li>
+<li><strong>Replicates:</strong> 40 students per group<br>
+</li>
+<li><strong>Design Type:</strong> Single-Factor Completely Randomized Design (CRD)</li>
+</ul>
+<p>Before we continue, now is the time to note that we won’t be using the real data collected in this experiment. It wasn’t available but I have simulated data to match their results. I’ve also made some other modifications such as the original study included 122 students but to ensure a balanced design I include only 120.</p>
+</section>
+<section id="exploratory-data-analysis-eda" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="exploratory-data-analysis-eda"><span class="header-section-number">5.2</span> Exploratory data analysis (EDA)</h2>
+<p>Before we start any analyses, we have to conduct some exploratory data analysis to get a feel for our data. We start by checking whether it has been read in correctly and then look at some descriptive statistics.</p>
+<p>In R, we read in the data set and then use some commands to inspect the data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>multitask <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Datasets/multitask_performance.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(multitask) <span class="co"># check number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(multitask) <span class="co"># check first 5 rows </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Group Posttest
+1    Exp1 86.39427
+2    Exp1 64.19996
+3    Exp2 52.75394
+4 Control 67.81147
+5    Exp1 52.39911
+6    Exp1 56.58150</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(multitask) <span class="co"># check last 5 rows </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Group Posttest
+115 Control 77.94344
+116 Control 63.58444
+117    Exp1 55.17758
+118    Exp2 67.16150
+119    Exp2 32.58373
+120    Exp2 49.58119</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multitask)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Group              Posttest    
+ Length:120         Min.   :23.38  
+ Class :character   1st Qu.:52.67  
+ Mode  :character   Median :65.01  
+                    Mean   :63.59  
+                    3rd Qu.:76.32  
+                    Max.   :98.78  </code></pre>
+</div>
+</div>
+<p>The data set consists of 120 rows (each row representing a student) and two columns (<code>Group</code> and <code>Posttest</code>). The first column, <code>Groups</code>, contains the treatment the student was assigned and the <code>Posttest</code> column contains the response measure. Using the functions <code>head</code> and <code>tail</code>, we can look at the first and last 5 rows and the function <code>summary</code> provides us with a description of each column. We do this to check that R has read in our data correctly (you can view the whole data set by running <code>view(multitask)</code> as well). The summary tells us that the <code>Group</code> column is of the class “character”. For our analysis, we want it to be read as a factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>multitask<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(multitask<span class="sc">$</span>Group)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multitask)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Group       Posttest    
+ Control:40   Min.   :23.38  
+ Exp1   :40   1st Qu.:52.67  
+ Exp2   :40   Median :65.01  
+              Mean   :63.59  
+              3rd Qu.:76.32  
+              Max.   :98.78  </code></pre>
+</div>
+</div>
+<p>Now, we can see that there are 40 replicates per treatment group, confirming that the experiment is balanced. I have assumed that, based on the results shown, that the <code>Posttest</code> scores were recorded as percentages and using the summary we can quickly check whether there are any observations that are not on the appropriate scale or might be outliers. Looks good so far!</p>
+</section>
+<section id="checking-assumptions" class="level2 page-columns page-full" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="checking-assumptions"><span class="header-section-number">5.3</span> Checking assumptions</h2>
+<p><span class="citation" data-cites="multitask2018">Demirbilek and Talan (<a href="#ref-multitask2018" role="doc-biblioref">2018</a>)</span> had several research questions, but here we only consider the following: Are there any differences in mean academic performance between the three groups?</p>
+<div class="no-row-height column-margin column-container"><div id="ref-multitask2018" class="csl-entry" role="listitem">
+Demirbilek, Muhammet, and Tarik Talan. 2018. <span>“The Effect of Social Media Multitasking on Classroom Performance.”</span> <em>Active Learning in Higher Education</em> 19 (2): 117–29.
+</div><div id="fn1"><p><sup>1</sup>&nbsp;Can’t remember what a <span class="math inline">\(t\)</span>-test is and/or need a refresher on hypothesis testing? Have a look <a href="https://www.youtube.com/watch?v=VekJxtk4BYM" target="_blank">this video on t-tests</a> and document for a brief reminder. <strong>Also, a quick (and cool) sidenote:</strong> This study by <span class="citation" data-cites="chen2024effect">Chen et al. (<a href="#ref-chen2024effect" role="doc-biblioref">2024</a>)</span> used a Completely Randomized Design (CRD), randomly assigning undergraduate students to playback speed groups (1x, 1.5x, 2x, and 2.5x) to measure the effect on comprehension of recorded lectures. Using ANOVA they found that comprehension was preserved up to 2x speed. I personally like to increase the playback speed to 1.5px if I just need to revise something quickly.</p><div id="ref-chen2024effect" class="csl-entry" role="listitem">
+Chen, Ashley, Suchita E Kumar, Rhea Varkhedi, and Dillon H Murphy. 2024. <span>“The Effect of Playback Speed and Distractions on the Comprehension of Audio and Audio-Visual Materials.”</span> <em>Educational Psychology Review</em> 36 (3): 79.
+</div></div></div><p>You might think that we could perform three t-tests (Control vs Exp 1, Control vs Exp 3, Exp 1 vs Exp 2). We could, but the problem with this approach is what we call multiple testing. When conducting many tests, there is an increased risk of making a Type 1 Error (rejecting the null hypothesis when it is in fact true) <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>When we have more than two groups, we can use a one-way analysis of variance (ANOVA) which can be seen as an extension of a <span class="math inline">\(t\)</span>-test and is called “one-way” because there is a single factor being considered. For both of these statistical approaches, the data should meet certain distributional assumptions:</p>
+<ol type="1">
+<li>There are no outliers.</li>
+<li>The errors are independent.</li>
+<li>The errors are normally distributed.</li>
+<li>All groups have equal population variances.</li>
+</ol>
+<p>We need to check the validity of these assumptions. There are both formal and informal techniques. Formal techniques (i.e.&nbsp;hypothesis tests) are not always appropriate for several reasons such as small data sets or that testing one assumption usually requires that the other two hold, complicating the order of tests. Informal techniques are more than sufficient and in this course, we stick with them.</p>
+<section id="outliers" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="outliers">Outliers</h3>
+<p>Outliers are unusual observations (response values) that deviate substantially from the remaining data points. They can have a large influence on the estimates of our model. Think of statistics such as means and variances, outlying observations will shift the mean towards them and distort the variability of the data.</p>
+<p>If we’re lucky, outliers are artefacts of data recording or entering issues, such as a missing decimal points or incorrect scaling (called error outliers). These types of outliers can be corrected and the analysis can be done as usual. If, however, there are freak observations that are not clearly due to anything like data inputting, then they are likely genuine unusual responses (called interesting outliers) and should not be discarded. There are many ways of identifying and dealing with outliers (<span class="citation" data-cites="outlier1">Aguinis, Gottfredson, and Joo (<a href="#ref-outlier1" role="doc-biblioref">2013</a>)</span> found 29 different ways in the literature). Here, it is recommended that the analysis should be run with and without the outliers to see whether the conclusion depends on their inclusion. When dealing with outliers, it is best to be transparent and clear about how they were handled. Simply removing outliers with no explanation is questionable research practice.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-outlier1" class="csl-entry" role="listitem">
+Aguinis, Herman, Ryan K Gottfredson, and Harry Joo. 2013. <span>“Best-Practice Recommendations for Defining, Identifying, and Handling Outliers.”</span> <em>Organizational Research Methods</em> 16 (2): 270–301.
+</div></div><p>A good way to check for outliers, is to inspect the data visually with a box-plot of your data grouped by treatment.</p>
+<div class="{.cell='{}'}">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Posttest <span class="sc">~</span> Group, <span class="at">data =</span> multitask, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"skyblue"</span>, <span class="st">"lightgreen"</span>, <span class="st">"pink"</span>), </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Posttest Scores by Group"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Group"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Posttest Scores"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(Posttest<span class="sc">~</span>Group, <span class="at">data =</span> multitask, <span class="at">vertical =</span> <span class="cn">TRUE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-socialbox-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-socialbox-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05_CRD_Intro_files/figure-html/fig-socialbox-plot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-socialbox-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: box-plots of Post treatment scores by group.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The first line of code plots the box-plot and by inputting <code>Posttest~Groups</code> as the first argument we are say plot the values of <code>Posttest</code> by <code>Groups</code>. There are extra graphical parameters specified to make the plot look a bit nicer. The function <code>stripchart</code> is used to overlay the data points. Based on these plots, there aren’t any obvious outlying observations.</p>
+</section>
+<section id="equal-population-variance" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="equal-population-variance">Equal population variance</h3>
+<p>Since we only have sample data, we would not expect that the sample variances to be exactly the same. If they are different it does not mean the population variances are different. We expect them to differ a bit due to chance simply because we are sampling from populations. Every time we sample from a population, the data set will be different and so will it’s variability. The sample variances need to be similar enough so that our assumption of equal population variance is reasonable.</p>
+<p>To check this assumption, we can inspect the box-plots again and compare the heights. More specifically, we look at the interquartile ranges (IQR). From looking at the plot, the IQRs do not vary widely. If you prefer to look at the actual values, we can use R to obtain them:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">tapply</span>(multitask<span class="sc">$</span>Posttest,multitask<span class="sc">$</span>Group,IQR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Control     Exp2     Exp1 
+14.01068 20.94529 21.97001 </code></pre>
+</div>
+</div>
+<p>Another measure of variability we can look at, are the standard deviations (sd’s). With the same line of code but just replacing the function we want to apply, we obtain the sd’s of each group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">tapply</span>(multitask<span class="sc">$</span>Posttest,multitask<span class="sc">$</span>Group,sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Control     Exp1     Exp2 
+10.82887 14.60601 16.42678 </code></pre>
+</div>
+</div>
+<p>The rule of thumb is to use the ratio of the smallest to largest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group) which is acceptable.</p>
+</section>
+<section id="normally-distributed-errors" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="normally-distributed-errors">Normally distributed errors</h3>
+<p>We can check this assumption by looking at the residuals after model fitting. A common misconception is to think that the response needs to be normally distributed. However, it is only the unexplained variation, i.e.&nbsp;the errors or residuals (estimates of errors), that we assume to be normally distributed. Of course, if the response has a clearly non-normal distribution (e.g.&nbsp;Binomial), then the residuals are likely to be non-normal as well. So, we can check our response values before hand for obvious deviation from normality, but we have to check this assumption again after fitting our model. Things to look for are asymmetric box-plots which indicate skew distributions. We also want to check that the data points tend to cluster around the median. In <a href="#fig-socialbox-plot" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>, there are no signs of any clear deviation from normality. Other graphs we could look at are histograms or Quantile-Quantile (Q-Q) plots. Q-Q plots show the theoretical quantiles of the standard normal distribution against the actual quantiles of our data. We want our data to be as close to the xy line as possible (deviations in the tails are expected).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># First we subset the data for each group</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>control <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Control"</span>]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>exp1 <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Exp1"</span>]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>exp2 <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Exp2"</span>]</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(control, <span class="at">pty =</span> <span class="dv">4</span>, <span class="at">col =</span><span class="st">"blue"</span>, <span class="at">main =</span> <span class="st">"Control"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(control, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(exp1, <span class="at">pty =</span> <span class="dv">4</span>, <span class="at">col =</span><span class="st">"blue"</span>, <span class="at">main =</span> <span class="st">"Exp 1"</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(exp1, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(exp2, <span class="at">pty =</span> <span class="dv">4</span>, <span class="at">col =</span><span class="st">"blue"</span>, <span class="at">main =</span> <span class="st">"Exp 2"</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(exp2, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_CRD_Intro_files/figure-html/qq-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>qqnorm</code> function plots the theoretical quantiles on the x-axis and the sample quantile son the y-axis. So each point on the plot corresponds to a quantile from the sample plotted against the expected quantile from the standard normal distribution. As a reference we add a straight 45-degree line (in red) using the <code>qqline</code> function to indicate what perfect normality would look like.</p>
+</section>
+<section id="independent-errors" class="level3 unnumbered page-columns page-full">
+<h3 class="unnumbered anchored" data-anchor-id="independent-errors">Independent errors</h3>
+<p>The assumption is that the errors are independent. While we can check for certain types of dependence in the residuals after fitting the ANOVA (as we will see later), dependence among observations generally results in dependent residuals. Therefore, before fitting any models, we examine the observations and the experimental design to identify potential violations of independence.</p>
+<p>In statistics, if one observation influences another in some way or another, they are said to be dependent. For the type of data considered here, there are two types of independence we require. Firstly, observations within treatments should be independent and second, observations between samples should be independent. Another way of saying this, is <strong>there should be independence within and among treatments.</strong> Depending on the direction of any violations, the within treatment variance or among treatment variance can either be deflated or inflated and treatment effects can be biased. This has considerable impact on the test statistic (F-ratio for ANOVAs, more on this later) which could lead to misleading results. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;<span class="citation" data-cites="underwood_1996">Underwood (<a href="#ref-underwood_1996" role="doc-biblioref">1996</a>)</span> has a very detailed explanation of the independence assumption (and the others) in the context of ANOVA. The book is for ecological experiments, but much of it pertains to all types of experiments.</p><div id="ref-underwood_1996" class="csl-entry" role="listitem">
+Underwood, A. J. 1996. <span>“Analysis of Variance.”</span> In <em>Experiments in Ecology: Their Logical Design and Interpretation Using Analysis of Variance</em>, 140–97. Cambridge University Press.
+</div></div></div><p>Violations of independence typically occur when the experimental units within or among treatments are connected in some way. Dependence within a sample can occurs when they are taken in a non-random sequence. Doing so typically allows some other variable to introduce dependence between successive observations. For example, measurement drift (when a tool’s reading gradually changes over time), physical effects (e.g.&nbsp;temperature) of the location of experimental units or the experimenter might become better (or worse) at taking the measurement as they move along. If these variables are not taken into account (by including them as factors in the model), it leads to a lack of independence in the errors of our model. Specifically, they lead to auto-correlated residuals; observations made closer together in time or space are more similar to each other than expected (this is what we check after model fitting).</p>
+<p>An informal check we could do, is to plot the data in the order in which they were collected (if this information is available) whether that is temporally or spatially to see if any patterns emerge. To do this in R, we can create a Cleveland dot plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dotchart</span>(multitask<span class="sc">$</span>Posttest, <span class="at">ylab =</span> <span class="st">"Order of observation"</span>, <span class="at">xlab =</span><span class="st">"Post treatment test score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_CRD_Intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We have assumed that the order in which the observations appear in the data set are the order in which they were recorded. If there were any factors that caused systematic trends, (i.e.&nbsp;dependence) in the observations, then there would be some kind of pattern in the dot chart. For our example, there is no clear pattern. After fitting the model, we can also plot the residuals against spatial coordinate or against order to check for obvious patterns. This method, however, only detects violations of independence if observations are related to time or space.</p>
+<p>Dependence between treatments can occur if we apply the treatments to the same group of experimental units or if experimental units from different treatments are able to interact in some way during the experiment. These types of violations including those mentioned above, are ones that we can mostly prevent or control by properly designing the experiment. When we control for factors that might induce dependence, we can include them in our model.</p>
+<p>Other reasons for dependence may not be as obvious or easy to eliminate as we will see below. In the end, they may not have a strong impact on our estimates but it is important to carefully scrutinize your design and the system you are studying to identify possible sources of dependence so that these can be addressed and dealt with properly.</p>
+<p>In our example, within and among group dependence could be caused by the students interacting or influencing each other in some way (by sharing notes for example). During the lectures, this can be controlled by careful monitoring and randomising their position in the lecture theater, but outside of lectures, it is less easy to control. Here we can argue that if students interacted outside of lectures the impact on their academic performance (as measured by the test) would likely be negligible. The integrity of the students is at play. It is not really possible to diagnose this type of dependence after the fact, only with careful design and implementation can these be avoided.</p>
+<p><strong>It is the onus of the experimenter to design and conduct experiments that ensure independence.</strong> With more thought (and if we’re lucky, funding) all well-designed experiments should lead to independent data. If violations are found after the fact, they cannot typically be corrected and then methods that deal specifically with dependent data (if appropriate) should be used<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;A few of these methods are repeated measures ANOVA, mixed-models or hierarchical models.</p></div></div></section>
+<section id="a-quick-note-on-the-robustness-of-anova" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-quick-note-on-the-robustness-of-anova">A quick note on the robustness of ANOVA</h3>
+<p>A statistical procedure is said to be robust to departures from a model assumption if it is valid even when the assumption is not met. The robustness of ANOVA is as follows:</p>
+<ol type="1">
+<li><p>The assumption of normality is not crucial. Only severe departures from normality such long-tailed distributions or skewed distributions when sample sizes are unequal and/or small are particularly problematic.</p></li>
+<li><p>Independence within and among groups is extremely important. ANOVA does not handle dependent data and other analyses should be attempted if there is dependence.</p></li>
+<li><p>The assumption of equal standard deviations is important as well. ??</p></li>
+<li><p>ANOVA is not very resistant to severely outlying observations either.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>In this course, you will always encounter data that has already been collected and the description of the experiment will likely not be very exhaustive. You might be task then with thinking about how the assumption of independence could have been violated, but for the most part we will assume the data are independent, both within and among samples (unless otherwise stated or you are asked if the assumption holds).</p></li>
+<li><p>No real data set ever meets all assumptions of a model perfectly. As the famous (at least in the world of statistics) quote by George Box goes: “All models are wrong but some are useful.” Judging whether a particular data set meets our assumptions reasonably well is therefore a bit of an art. You will likely read and hear that being able to identify violations comes from <strong>experience</strong>. The best way to get experience is to look at lots of data sets where you know how well they meet the assumptions. That’s best done via simulation. We therefore encourage you to use the attached R code to simulate data where various assumptions are violated. Run the code a number of times to get a feeling for how variable your actual sample can be even if the data generating mechanism doesn’t change. You may also want to play around with the sample sizes and you can change the degree to which the assumptions are violated to get a feeling for how these violations show up in the plots.</p></li>
+</ol>
+<p><a href="#btn1" onclick="fetch('data:text/plain;base64,CiMgVGhpcyBzY3JpcHQgd2FzIGNyZWF0ZWQgYnkgUmVzIEFsdHdlZ2csIEJpcmdpdCBFcm5pIGFuZCBHcmVnIERpc3RpbGxlciAKCiMgVGhlIHBpZWNlcyBvZiBjb2RlIGJlbG93IGdlbmVyYXRlIGRhdGEgd2l0aCBwYXJ0aWN1bGFyIHByb2JsZW1zLiAKIyBFYWNoIHBpZWNlIGNvbnNpc3RzIG9mIHR3byBwYXJ0czogZmlyc3Qgd2UgZ2VuZXJhdGUgdGhlIGRhdGEgYW5kIHRoZW4gd2UgZXhwbG9yZSB0aGVtIChzZWUgaG93IHRoZSBwcm9ibGVtcyBsb29rIGxpa2UgaW4gdGhlIHBsb3RzKQoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQojIHRvIHN0YXJ0IHdpdGg6IGFsbCBhc3N1bXB0aW9ucyBhcmUgbWV0ICh0aGUgaWRlYWwgd29ybGQuLi4pCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0Kc2FtcGxlcyA8LSAxMCAgIyBudW1iZXIgb2YgcmVwbGljYXRlcyBwZXIgdHJlYXRtZW50CnRyZWF0IDwtIHJlcChjKCJBIiwiQiIsIkMiLCJEIiwiRSIpLCBlYWNoPXNhbXBsZXMpICAjIHZlY3RvciB3aXRoIHRyZWF0bWVudCBsYWJlbHMKcG9wdWxhdGlvbi5tZWFucyA8LSBjKDExLDE4LDEzLDE3LDE1KSAgIyBwb3B1bGF0aW9uIG1lYW5zCnBvcHVsYXRpb24uc2RzIDwtYyg0LDQsNCw0LDQpICAjIHBvcHVsYXRpb24gc3RhbmRhcmQgZGV2aWF0aW9ucwpyZXNwIDwtIHJub3JtKHNhbXBsZXMqNSwgcmVwKHBvcHVsYXRpb24ubWVhbnMsIGVhY2g9c2FtcGxlcyksIHJlcChwb3B1bGF0aW9uLnNkcywgZWFjaD1zYW1wbGVzKSkgIyBzaW11bGF0ZSByZXNwb25zZQoKZGF0IDwtIGRhdGEuZnJhbWUodHJlYXQsIHJlc3ApICMgcHV0IHRyZWF0bWVudCBsYWJlbHMgYW5kIHNpbXVsYXRlZCByZXNwb25zZSBpbnRvIGEgZGF0YSBmcmFtZQoKIyAtLS0gZGF0YSBleHBsb3JhdGlvbiAtLS0KCmJveHBsb3QoIHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIHJhbmdlPTAsbGFzPTEsCiAgICAgICAgIG5vdGNoPUYsICMgaGVscHMgdG8gY29tcGFyZSBwb3AgbWVhbnMKICAgICAgICAgeGxhYj0nUG90aW9uJywgeWxhYj0nUGVyZm9ybWFuY2UnKQoKc3RyaXBjaGFydChyZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCBhZGQ9VFJVRSwgCiAgICAgICAgICAgdmVydGljYWw9VFJVRSwgbWV0aG9kPSJqaXR0ZXIiLCBqaXR0ZXI9LjEpCgptMSA8LSBhb3YocmVzcH50cmVhdCwgZGF0YT1kYXQpICAjIGZpdCBBTk9WQQpvcDwtcGFyKG1mcm93PWMoMiwyKSkgICMgc2V0IHVwIGdyYXBoIHRvIHBsb3QgNCBwYW5lbHMKcGxvdChtMSkgICMgZGlhZ25vc3RpYyBwbG90cwpwYXIob3ApICAjIHJlc2V0IGdyYXBoaWNhbCBwYXJhbWV0ZXJzIHRvIHdoYXQgdGhleSB3ZXJlIGJlZm9yZQojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQojIHVuZXF1YWwgcG9wdWxhdGlvbiB2YXJpYW5jZXMKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpzYW1wbGVzIDwtIDEwICAjIG51bWJlciBvZiByZXBsaWNhdGVzIHBlciB0cmVhdG1lbnQKdHJlYXQgPC0gcmVwKGMoIkEiLCJCIiwiQyIsIkQiLCJFIiksIGVhY2g9c2FtcGxlcykgICMgdmVjdG9yIHdpdGggdHJlYXRtZW50IGxhYmVscwpwb3B1bGF0aW9uLm1lYW5zIDwtIGMoMTEsMTgsMTMsMTcsMTUpICAjIHBvcHVsYXRpb24gbWVhbnMKcG9wdWxhdGlvbi5zZHMgPC1jKDEsMTAsNSw3LDIpICAjIHBvcHVsYXRpb24gc3RhbmRhcmQgZGV2aWF0aW9ucwpyZXNwIDwtIHJub3JtKHNhbXBsZXMqNSwgcmVwKHBvcHVsYXRpb24ubWVhbnMsIGVhY2g9c2FtcGxlcyksIHJlcChwb3B1bGF0aW9uLnNkcywgZWFjaD1zYW1wbGVzKSkgIyBzaW11bGF0ZSByZXNwb25zZQoKZGF0IDwtIGRhdGEuZnJhbWUodHJlYXQsIHJlc3ApICMgcHV0IHRyZWF0bWVudCBsYWJlbHMgYW5kIHNpbXVsYXRlZCByZXNwb25zZSBpbnRvIGEgZGF0YSBmcmFtZQoKIyAtLS0gZGF0YSBleHBsb3JhdGlvbiAtLS0KCmJveHBsb3QoIHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIHJhbmdlPTAsbGFzPTEsCiAgICAgICAgIG5vdGNoPUYsICMgaGVscHMgdG8gY29tcGFyZSBwb3AgbWVhbnMKICAgICAgICAgeGxhYj0nUG90aW9uJywgeWxhYj0nUGVyZm9ybWFuY2UnKQoKc3RyaXBjaGFydChyZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCBhZGQ9VFJVRSwgCiAgICAgICAgICAgdmVydGljYWw9VFJVRSwgbWV0aG9kPSJqaXR0ZXIiLCBqaXR0ZXI9LjEpCgptMSA8LSBhb3YocmVzcH50cmVhdCwgZGF0YT1kYXQpICAjIGZpdCBBTk9WQQpvcDwtcGFyKG1mcm93PWMoMiwyKSkgICMgc2V0IHVwIGdyYXBoIHRvIHBsb3QgNCBwYW5lbHMKcGxvdChtMSkgICMgZGlhZ25vc3RpYyBwbG90cwpwYXIob3ApICAjIHJlc2V0IGdyYXBoaWNhbCBwYXJhbWV0ZXJzIHRvIHdoYXQgdGhleSB3ZXJlIGJlZm9yZQojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKIyBvdXRsaWVycwojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCnNhbXBsZXMgPC0gMTAgICMgbnVtYmVyIG9mIHJlcGxpY2F0ZXMgcGVyIHRyZWF0bWVudAp0cmVhdCA8LSByZXAoYygiQSIsIkIiLCJDIiwiRCIsIkUiKSwgZWFjaD1zYW1wbGVzKSAgIyB2ZWN0b3Igd2l0aCB0cmVhdG1lbnQgbGFiZWxzCnBvcHVsYXRpb24ubWVhbnMgPC0gYygxMSwxOCwxMywxNywxNSkgICMgcG9wdWxhdGlvbiBtZWFucwpwb3B1bGF0aW9uLnNkcyA8LWMoNCw0LDQsNCw0KSAgIyBwb3B1bGF0aW9uIHN0YW5kYXJkIGRldmlhdGlvbnMKcmVzcCA8LSBybm9ybShzYW1wbGVzKjUsIHJlcChwb3B1bGF0aW9uLm1lYW5zLCBlYWNoPXNhbXBsZXMpLCByZXAocG9wdWxhdGlvbi5zZHMsIGVhY2g9c2FtcGxlcykpICMgc2ltdWxhdGUgcmVzcG9uc2UKCmRhdCA8LSBkYXRhLmZyYW1lKHRyZWF0LCByZXNwKSAjIHB1dCB0cmVhdG1lbnQgbGFiZWxzIGFuZCBzaW11bGF0ZWQgcmVzcG9uc2UgaW50byBhIGRhdGEgZnJhbWUKZGF0JHJlc3BbYyg1LDE2LDE3KV0gPC0gZGF0JHJlc3BbYyg1LDE2LDE3KV0gKiAzICAjIGNoYW5nZSBzb21lIGRhdGEgcG9pbnRzIHNvIHRoZXkgYmVjb21lIG91dGxpZXJzCgojIC0tLSBkYXRhIGV4cGxvcmF0aW9uIC0tLQoKYm94cGxvdCggcmVzcCB+IHRyZWF0LCBkYXRhPWRhdCwgcmFuZ2U9MCxsYXM9MSwKICAgICAgICAgbm90Y2g9RiwgIyBoZWxwcyB0byBjb21wYXJlIHBvcCBtZWFucwogICAgICAgICB4bGFiPSdQb3Rpb24nLCB5bGFiPSdQZXJmb3JtYW5jZScpCgpzdHJpcGNoYXJ0KHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIGFkZD1UUlVFLCAKICAgICAgICAgICB2ZXJ0aWNhbD1UUlVFLCBtZXRob2Q9ImppdHRlciIsIGppdHRlcj0uMSkKCm0xIDwtIGFvdihyZXNwfnRyZWF0LCBkYXRhPWRhdCkgICMgZml0IEFOT1ZBCm9wPC1wYXIobWZyb3c9YygyLDIpKSAgIyBzZXQgdXAgZ3JhcGggdG8gcGxvdCA0IHBhbmVscwpwbG90KG0xKSAgIyBkaWFnbm9zdGljIHBsb3RzCnBhcihvcCkgICMgcmVzZXQgZ3JhcGhpY2FsIHBhcmFtZXRlcnMgdG8gd2hhdCB0aGV5IHdlcmUgYmVmb3JlCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCgojIHNrZXcgZGlzdHJpYnV0aW9ucyAobm9ybWFsaXR5IGFzc3VtcHRpb24gdmlvbGF0ZWQpCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0Kc2FtcGxlcyA8LSAyMCAgIyBudW1iZXIgb2YgcmVwbGljYXRlcyBwZXIgdHJlYXRtZW50CnRyZWF0IDwtIHJlcChjKCJBIiwiQiIsIkMiLCJEIiwiRSIpLCBlYWNoPXNhbXBsZXMpICAjIHZlY3RvciB3aXRoIHRyZWF0bWVudCBsYWJlbHMKcG9wdWxhdGlvbi5tZWFucyA8LSBsb2coYygxMSwxOCwxMywxNywxNSkpICAjIHBvcHVsYXRpb24gbWVhbnMKcG9wdWxhdGlvbi5zZHMgPC1jKDEsMSwxLDEsMSkgICMgcG9wdWxhdGlvbiBzdGFuZGFyZCBkZXZpYXRpb25zCnJlc3AgPC0gZXhwKHJub3JtKHNhbXBsZXMqNSwgcmVwKHBvcHVsYXRpb24ubWVhbnMsIGVhY2g9c2FtcGxlcyksIHJlcChwb3B1bGF0aW9uLnNkcywgZWFjaD1zYW1wbGVzKSkpICMgc2ltdWxhdGUgcmVzcG9uc2UKCmRhdCA8LSBkYXRhLmZyYW1lKHRyZWF0LCByZXNwKSAjIHB1dCB0cmVhdG1lbnQgbGFiZWxzIGFuZCBzaW11bGF0ZWQgcmVzcG9uc2UgaW50byBhIGRhdGEgZnJhbWUKCiMgLS0tIGRhdGEgZXhwbG9yYXRpb24gLS0tCgpib3hwbG90KCByZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCByYW5nZT0wLGxhcz0xLAogICAgICAgICBub3RjaD1GLCAjIGhlbHBzIHRvIGNvbXBhcmUgcG9wIG1lYW5zCiAgICAgICAgIHhsYWI9J1BvdGlvbicsIHlsYWI9J1BlcmZvcm1hbmNlJykKCnN0cmlwY2hhcnQocmVzcCB+IHRyZWF0LCBkYXRhPWRhdCwgYWRkPVRSVUUsIAogICAgICAgICAgIHZlcnRpY2FsPVRSVUUsIG1ldGhvZD0iaml0dGVyIiwgaml0dGVyPS4xKQoKbTEgPC0gYW92KHJlc3B+dHJlYXQsIGRhdGE9ZGF0KSAgIyBmaXQgQU5PVkEKb3A8LXBhcihtZnJvdz1jKDIsMikpICAjIHNldCB1cCBncmFwaCB0byBwbG90IDQgcGFuZWxzCnBsb3QobTEpICAjIGRpYWdub3N0aWMgcGxvdHMKcGFyKG9wKSAgIyByZXNldCBncmFwaGljYWwgcGFyYW1ldGVycyB0byB3aGF0IHRoZXkgd2VyZSBiZWZvcmUKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKCiMgZXJyb3JzIG5vdCBpbmRlcGVuZGVudCAoaW4gdGhpcyBleGFtcGxlOiBkcmlmdCBpbiB0aGUgbWVhc3VyZW1lbnRzIG92ZXIgdGltZSkKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpzYW1wbGVzIDwtIDIwICAjIG51bWJlciBvZiByZXBsaWNhdGVzIHBlciB0cmVhdG1lbnQKdHJlYXQgPC0gcmVwKGMoIkEiLCJCIiwiQyIsIkQiLCJFIiksIGVhY2g9c2FtcGxlcykgICMgdmVjdG9yIHdpdGggdHJlYXRtZW50IGxhYmVscwpwb3B1bGF0aW9uLm1lYW5zIDwtIGMoMTEsMTgsMTMsMTcsMTUpICAjIHBvcHVsYXRpb24gbWVhbnMKcG9wdWxhdGlvbi5zZHMgPC1jKDEsMSwxLDEsMSkgICMgcG9wdWxhdGlvbiBzdGFuZGFyZCBkZXZpYXRpb25zCnJlc3AgPC0gcm5vcm0oc2FtcGxlcyo1LCByZXAocG9wdWxhdGlvbi5tZWFucywgZWFjaD1zYW1wbGVzKSwgcmVwKHBvcHVsYXRpb24uc2RzLCBlYWNoPXNhbXBsZXMpKSAjIHNpbXVsYXRlIHJlc3BvbnNlCgpkYXQgPC0gZGF0YS5mcmFtZSh0cmVhdCwgcmVzcCkgIyBwdXQgdHJlYXRtZW50IGxhYmVscyBhbmQgc2ltdWxhdGVkIHJlc3BvbnNlIGludG8gYSBkYXRhIGZyYW1lCnRpbWUgPC0gc2FtcGxlKDE6bGVuZ3RoKHRyZWF0KSkgICMgYSB2ZWN0b3IgZ2l2aW5nIHRoZSBvcmRlciBpbiB3aGljaCB0aGUgZGF0YSB3ZXJlIGNvbGxlY3RlZCAod2UgYXNzdW1lIHRoYXQgb3JkZXIgd2FzIHJhbmRvbWlzZWQgaW4gdGhpcyBleHBlcmltZW50KQpkYXQkcmVzcCA8LSBkYXQkcmVzcCAqICgxK3RpbWUvMTAwKSAgIyBhZGQgdGVtcG9yYWwgZHJpZnQgZWZmZWN0IHRvIG9ic2VydmF0aW9ucwoKIyAtLS0gZGF0YSBleHBsb3JhdGlvbiAtLS0KCiMgaGFyZCB0byBzZWUgdGhhdCBhbnl0aGluZyBpcyB3cm9uZyBpbiB0aGUgYm94cGxvdHM6CmJveHBsb3QoIHJlc3AgfiB0cmVhdCwgZGF0YT1kYXQsIHJhbmdlPTAsbGFzPTEsCiAgICAgICAgIG5vdGNoPUYsICMgaGVscHMgdG8gY29tcGFyZSBwb3AgbWVhbnMKICAgICAgICAgeGxhYj0nUG90aW9uJywgeWxhYj0nUGVyZm9ybWFuY2UnKQoKc3RyaXBjaGFydChyZXNwIH4gdHJlYXQsIGRhdGE9ZGF0LCBhZGQ9VFJVRSwgCiAgICAgICAgICAgdmVydGljYWw9VFJVRSwgbWV0aG9kPSJqaXR0ZXIiLCBqaXR0ZXI9LjEpCgojIGRvdHBsb3QgKHdlIHBsb3QgdGhlIGRhdGEgaW4gc2VxdWVuY2Ugb2Ygb2JzZXJ2YXRpb24sIGkuZS4gdGltZSk6Cm9kPC1vcmRlcih0aW1lKSAgIyB0aGlzIGdpdmVzIHVzIHRoZSBvcmRlciBvZiB0aGUgb2JzZXJ2YXRpb25zIGluIHRpbWUsIHdoaWNoIHdlJ2xsIHVzZSB0byBzb3J0IHRoZSBvYnNlcnZhdGlvbnMgZm9yIHRoZSBwbG90CmRvdGNoYXJ0KGRhdCRyZXNwW29kXSx5bGFiPSJPcmRlciBvZiBvYnNlcnZhdGlvbiIsIHhsYWI9IlBlcmZvcm1hbmNlIikKCm0xIDwtIGFvdihyZXNwfnRyZWF0LCBkYXRhPWRhdCkgICMgZml0IEFOT1ZBCm9wPC1wYXIobWZyb3c9YygyLDIpKSAgIyBzZXQgdXAgZ3JhcGggdG8gcGxvdCA0IHBhbmVscwpwbG90KG0xKSAjIHJlZ3VsYXIgZGlhZ25vc3RpYyBwbG90cyBhbHNvIGRvbid0IHNob3cgdGhhdCB0aGVyZSBpcyBhIHByb2JsZW0KcGFyKG9wKSAgIyByZXNldCBncmFwaGljYWwgcGFyYW1ldGVycyB0byB3aGF0IHRoZXkgd2VyZSBiZWZvcmUKCnBsb3QodGltZSwgcmVzaWQobTEpKSAgIyBwbG90dGluZyByZXNpZHVhbHMgYWdhaW5zdCB0ZW1wb3JhbCBzZXF1ZW5jZSBzaG93cyB0aGUgcHJvYmxlbTogYSBjbGVhciB0cmVuZCBvdmVyIHRpbWUKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoK').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'file.R'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  styled" id="btn1"><i class="bi bi-download"></i> R code </button></a></p>
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.4</span> Summary</h2>
+<p>Completely Randomized Designs (<strong>CRDs</strong>) are the simplest experimental designs, used when experimental units are <strong>uniform</strong> and expected to react similarly to treatments. Since no nuisance factors are controlled, randomization occurs <strong>without restriction</strong>, and treatments are <strong>evenly assigned</strong> across experimental units (<strong>balanced design</strong>).</p>
+<p>The social media multitasking study served as an example, where 120 students were randomly assigned to three groups (Control, SMS, Facebook) to measure their academic performance. This setup represents a single-factor CRD, where students are both the experimental and observational units with 40 replicates per group.</p>
+<p>Before conducting ANOVA, we:</p>
+<ul>
+<li>Checked the data set for correct structure (120 observations, treatment groups as factors).</li>
+<li>Inspected summary statistics and visualized distributions (box-plots, histograms, Q-Q plots).</li>
+</ul>
+<p>For ANOVA, the following assumptions were examined:</p>
+<ol type="1">
+<li><strong>Outliers</strong>: Check via box-plots.</li>
+<li><strong>Equal variance</strong>: Assess using interquartile ranges and ratio of sample standard deviations.</li>
+<li><strong>Normality of errors</strong>: Verified using Q-Q plots.</li>
+<li><strong>Independence within and between treatment groups</strong>: Considered through study design.</li>
+</ol>
+<p>Proper experimental design ensures valid conclusions. Identifying violations of assumptions early helps prevent biased results.</p>
+
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04_ExpDesign_DesigningExp.html" class="pagination-link" aria-label="Designing an Experiment">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Designing an Experiment</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./06_CRD_Model.html" class="pagination-link" aria-label="A Simple Model for a CRD">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
