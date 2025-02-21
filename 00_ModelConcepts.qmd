@@ -18,7 +18,7 @@ Statistical models are not perfect predictors of the data, rather they attempt t
 
 $$
 \text{Observed Response} = \text{Model Predicted Response} + \text{Error}
-$$ 
+$$
 
 Mathematically this can be stated as:
 

@@ -460,7 +460,7 @@ Example of observational study
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">sample</span>(units,<span class="dv">4</span>), <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4]
-[1,] "4"  "2"  "1"  "3" 
+[1,] "2"  "1"  "3"  "4" 
 [2,] "A"  "B"  "C"  "D" </code></pre>
 </div>
 </div>
@@ -468,7 +468,7 @@ Example of observational study
 </section>
 <section id="example-the-pygmalion-effect" class="level2 page-columns page-full" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="example-the-pygmalion-effect"><span class="header-section-number">9.4</span> Example: The Pygmalion Effect</h2>
-<p>The <strong>Pygmalion effect</strong> is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell inlove with a sculpture he created of his ideal woman.</p>
+<p>The <strong>Pygmalion effect</strong> is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell in love with a sculpture he created of his ideal woman.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>This article explains the concept nicely and also briefly discusses the study we will use later. https://thedecisionlab.com/biases/the-pygmalion-effect</p>
@@ -511,7 +511,7 @@ Example: The Pygmalion Effect in Military Training
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>The name of the treatment factor is not always obvious. It is usually something that describes the collection of similar treatments created in response to some research hypothesis or what has been manipulated. In biological or ecological studies, it can be quite clear. For example, if we had treatments high, medium and low rainfall, “Rainfall” is the variable we manipulated.</p>
-<p>Also, as before, I’ve modifed the example slightly. In the original study, there three platoons per compancy with two serving as control and one company only had two. So we have simplied the design so that it is balanced.</p>
+<p>Also, as before, I’ve modified the example slightly. In the original study, there three platoons per company with two serving as control and one company only had two. So we have simplified the design so that it is balanced.</p>
 </div></div><ul>
 <li><strong>Response Variable:</strong> Theoretical specialty knowledge.</li>
 <li><strong>Treatment Factor:</strong> Pygmalion Treatment.</li>
@@ -722,7 +722,7 @@ Example: The Pygmalion Effect in Military Training
 
 </div>
 </div>
-<p>The <strong>long format</strong> represents each observation as a separate row, with treatments recorded in a single column. This format is useful for statistical modeling and visualization since it keeps data structured for comparisons across treatments. You might have noticed that so far alll the datasets we have used when fitting models using <code>aov</code> have been in long format. You will struggle to fit the model with a dataset in wide format!</p>
+<p>The <strong>long format</strong> represents each observation as a separate row, with treatments recorded in a single column. This format is useful for statistical modeling and visualization since it keeps data structured for comparisons across treatments. You might have noticed that so far all the data sets we have used when fitting models using <code>aov</code> have been in long format. You will struggle to fit the model with a data set in wide format!</p>
 <p>The <strong>wide format</strong> organizes data so that each unit (e.g., a company) appears in a single row, with treatments as separate columns. This format is often preferred for paired comparisons and summary tables.</p>
 <p>Both formats contain the same information but serve different purposes depending on the type of analysis being performed.</p>
 

@@ -30,7 +30,7 @@ So far we have only contrasted two treatments. Sometimes we want to compare grou
 
 $$L = \sum_1^a h_iA_i$$
 
-such that $\sum_1^a h_i = 0$. This ensures a fair comparison. For example, in a compairson of two group means we have:
+such that $\sum_1^a h_i = 0$. This ensures a fair comparison. For example, in a comparison of two group means we have:
 
 $$ L = \mu_1 - \mu_2 = 1\times \mu + (-1) \times \mu_2$$ Here, the coefficients are $h_1 = +1$ and $h_2 = -1$ which sum to zero. This simple difference is the simplest form of a contrast. Effectively, $\sum_1^a h_i = 0$ represents the null hypothesis, that the difference equals 0.
 
@@ -187,7 +187,7 @@ class(means)
 
 ```
 
-It is easy to convert the obejct to a dataframe:
+It is easy to convert the object to a data frame:
 
 ```{r}
 means_data <- data.frame(means)

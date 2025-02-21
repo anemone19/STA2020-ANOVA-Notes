@@ -415,7 +415,7 @@ Y_{ijk} = \mu + A_i + C_j + (AC)_{ij} + e_{ijk}
 <p><span class="math display">\[r_{13k} = Y_{13k} - \bar{Y}_{13}\]</span></p>
 <p>and we can calculate the interaction effect:</p>
 <p><span class="math display">\[ (\hat{AB})_{13} = \bar{Y}_{13}- (\hat{\mu} + \hat{A}_1 + \hat{B}_3)\]</span></p>
-<p>They are no longer the same thing, they are separable! The interaction effect for this treatment is quite big if you look at the difference visaully. For the last plot, there are also five observations, but now the deviation of the treatment mean from the sum f the main effects is almost zero; it’s just due to random variation. The interaction effect is stoo small to detect statistically.</p>
+<p>They are no longer the same thing, they are separable! The interaction effect for this treatment is quite big if you look at the difference visually. For the last plot, there are also five observations, but now the deviation of the treatment mean from the sum f the main effects is almost zero; it’s just due to random variation. The interaction effect is too small to detect statistically.</p>
 </section>
 <section id="parameter-estimation" class="level2" data-number="15.2">
 <h2 data-number="15.2" class="anchored" data-anchor-id="parameter-estimation"><span class="header-section-number">15.2</span> Parameter estimation</h2>
@@ -440,8 +440,8 @@ S = \sum_{ijk} (Y_{ijk} - \mu - \alpha_i - \beta_j - (\alpha\beta)_{ij})^2
 </section>
 <section id="back-to-the-example" class="level2" data-number="15.3">
 <h2 data-number="15.3" class="anchored" data-anchor-id="back-to-the-example"><span class="header-section-number">15.3</span> Back to the example</h2>
-<p>Let’s fit this model to the data of the playback and lecture modality experiment. This time, we have access to the actual data collected! Let’s explore the data and check our assumptions. The assumptions are the same as in a one-way ANOVA. That is normality of erros, equal population variances, independent errors and no outliers.</p>
-<p>As always we start by reading in our data, checking that it has been read in correcly and looking at some descriptive statistics.</p>
+<p>Let’s fit this model to the data of the playback and lecture modality experiment. This time, we have access to the actual data collected! Let’s explore the data and check our assumptions. The assumptions are the same as in a one-way ANOVA. That is normality of errors, equal population variances, independent errors and no outliers.</p>
+<p>As always we start by reading in our data, checking that it has been read in correctly and looking at some descriptive statistics.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Datasets/Exp2DataPlayback.csv"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -456,7 +456,7 @@ S = \sum_{ijk} (Y_{ijk} - \mu - \alpha_i - \beta_j - (\alpha\beta)_{ij})^2
 6     3ca9d09e2e 1x Audio-Visual     2 Audio-Visual       48</code></pre>
 </div>
 </div>
-<p>The dataset contains 5 columns:</p>
+<p>The data set contains 5 columns:</p>
 <ol type="1">
 <li><code>Participant.ID</code> – This column contains a unique identification code for each participant in the study.<br>
 </li>
@@ -531,7 +531,7 @@ S = \sum_{ijk} (Y_{ijk} - \mu - \alpha_i - \beta_j - (\alpha\beta)_{ij})^2
 </div>
 </div>
 </div>
-<p>There are no clear signs of deviation from normality, the boxplots slook relatively symmetric. We could plot Q-Q plots for each treatment as well. Let’s do that for two of the treatments.</p>
+<p>There are no clear signs of deviation from normality, the box-plots look relatively symmetric. We could plot Q-Q plots for each treatment as well. Let’s do that for two of the treatments.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># splitting the plotting window into 1 row with 2 columns</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -548,7 +548,7 @@ S = \sum_{ijk} (Y_{ijk} - \mu - \alpha_i - \beta_j - (\alpha\beta)_{ij})^2
 </div>
 </div>
 </div>
-<p>No worrisome patterns! Next, the boxplots also suggest that there are no outliers and there are no clear indications that the assumption of equal population variance is not reasonable. Let’s have a slook a the standard deviations.</p>
+<p>No worrisome patterns! Next, the box-plots also suggest that there are no outliers and there are no clear indications that the assumption of equal population variance is not reasonable. Let’s have a look a the standard deviations.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">tapply</span>(data<span class="sc">$</span>Accuracy, data<span class="sc">$</span>Condition, sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -556,7 +556,7 @@ S = \sum_{ijk} (Y_{ijk} - \mu - \alpha_i - \beta_j - (\alpha\beta)_{ij})^2
        13.71690        14.01084        14.93064        16.76386 </code></pre>
 </div>
 </div>
-<p>The ratio of the smallest to largest is roughly 1.22 which is much smaller than five. Lastly, we need to check the assumption of independence. We start by assuming that the order in which the data are in the dataset is the order in which the measurements were taken and we construct a Cleveland dot chart.</p>
+<p>The ratio of the smallest to largest is roughly 1.22 which is much smaller than five. Lastly, we need to check the assumption of independence. We start by assuming that the order in which the data are in the data set is the order in which the measurements were taken and we construct a Cleveland dot chart.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dotchart</span>(data<span class="sc">$</span>Accuracy, <span class="at">ylab =</span> <span class="st">"Order of observation"</span>, <span class="at">xlab =</span><span class="st">"Post treatment test score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -567,8 +567,8 @@ S = \sum_{ijk} (Y_{ijk} - \mu - \alpha_i - \beta_j - (\alpha\beta)_{ij})^2
 </div>
 </div>
 </div>
-<p>No clear patterns in the measurements, so no reason to suspect any dependence between succesive measurements. The students were randomly assigned to each group and there are no other reasons to believe that independence was violated based on the description of the experiment.</p>
-<p>With all the assumptions checked, we can move onto fitting the linear model to our data and inspecting the model estimates. first, let’s write the model equation:</p>
+<p>No clear patterns in the measurements, so no reason to suspect any dependence between successive measurements. The students were randomly assigned to each group and there are no other reasons to believe that independence was violated based on the description of the experiment.</p>
+<p>With all the assumptions checked, we can move onto fitting the linear model to our data and inspecting the model estimates. Here is the model equation:</p>
 <p><span class="math display">\[ \text{Accuracy}_{ijk} = \mu + \text{Speed}_i + \text{Content.Type}_j + \text{(Speed:Content.Type)}_{ij} + e_{ijk} \]</span></p>
 <p>where,</p>
 <p><span class="math display">\[

@@ -394,9 +394,9 @@ window.Quarto = {
 </ol>
 <p>So far we have only contrasted two treatments. Sometimes we want to compare groups of treatments to one another. More generally, a contrast is defined as a linear combination of the parameters where the coefficients add up to zero:</p>
 <p><span class="math display">\[L = \sum_1^a h_iA_i\]</span></p>
-<p>such that <span class="math inline">\(\sum_1^a h_i = 0\)</span>. This ensures a fair comparison. For example, in a compairson of two group means we have:</p>
+<p>such that <span class="math inline">\(\sum_1^a h_i = 0\)</span>. This ensures a fair comparison. For example, in a comparison of two group means we have:</p>
 <p><span class="math display">\[ L = \mu_1 - \mu_2 = 1\times \mu + (-1) \times \mu_2\]</span> Here, the coefficients are <span class="math inline">\(h_1 = +1\)</span> and <span class="math inline">\(h_2 = -1\)</span> which sum to zero. This simple difference is the simplest form of a contrast. Effectively, <span class="math inline">\(\sum_1^a h_i = 0\)</span> represents the null hypothesis, that the difference equals 0.</p>
-<p>Let’s start with the first question. Remeber the treatments were:</p>
+<p>Let’s start with the first question. Remember the treatments were:</p>
 <ol type="1">
 <li>1x Audio-Only (1AO)</li>
 <li>2x Audio-Only (2AO)</li>
@@ -460,7 +460,7 @@ P values are right-tailed </code></pre>
 </div>
 </div>
 <p>We supply the emmeans object <code>means</code> and then a list of contrasts we call <code>c1</code> and <code>c2</code> corresponding to the first and second question. Each contrast consists of the coefficients in the order in which the means appear in the <code>means</code> object and the scaling by 2. Then we need to specify <code>by = NULL</code> because we have manually coded the contrasts and don’t need to specify by which factor the contrasts should made. Lastly, we specify the type of test we want, that is, is it one sided or two sided. If it is one-sided, in which direction? We have specifically constructed the contrasts so that both are “one-sided greater than”.</p>
-<p>The output shows the estimate of each contrast, the standard error of the difference in means, t-value and associated p-value. For the first contrast we see the difference in comprehesion scores between the Audio-Vsual and Audio-Only groups was 7.36, this means that the avearge response in the Audio-Visual group was higher than the average response in the Audio-Only group. We see that the p-value to test this contrast is 0.0003 which is extremely small, so it is unlikely that the difference in mean response is due to chance. There is strong evidence to indicate that the audio-visual type increased the mean response, the estimate of this the difference between groups is 7.36% (<span class="math inline">\(t=3.492\)</span>, <span class="math inline">\(df = 196\)</span>, <span class="math inline">\(p = 0.0003\)</span>).</p>
+<p>The output shows the estimate of each contrast, the standard error of the difference in means, t-value and associated p-value. For the first contrast we see the difference in comprehension scores between the Audio-Visual and Audio-Only groups was 7.36, this means that the average response in the Audio-Visual group was higher than the average response in the Audio-Only group. We see that the p-value to test this contrast is 0.0003 which is extremely small, so it is unlikely that the difference in mean response is due to chance. There is strong evidence to indicate that the audio-visual type increased the mean response, the estimate of this the difference between groups is 7.36% (<span class="math inline">\(t=3.492\)</span>, <span class="math inline">\(df = 196\)</span>, <span class="math inline">\(p = 0.0003\)</span>).</p>
 <p>For the second contrast, the p-value still provides sufficient evidence against the null hypothesis that the difference is zero but it is not as strong as for the first contrast. However, we are still satisfied with the evidence against <span class="math inline">\(H_0\)</span>. The 2x speed decreased the average accuracy (averaged over the levels of content type) by 4.32% (<span class="math inline">\(t=-2.050\)</span>, <span class="math inline">\(df = 196\)</span>, <span class="math inline">\(p = 0.021\)</span>).</p>
 <p>When we have factors with two levels (as we do here) and we conduct two sided contrasts, then the contrast is equivalent to testing for the presence of main effects which what the ANOVA table does! Remember we said that the ANOVA is an extension of the t-test and with two levels. Let’s go through this step-by-step:</p>
 <ul>
@@ -518,7 +518,7 @@ P values are right-tailed </code></pre>
 <p>We get the same p-value as in the ANOVA table which indicates a lack of evidence against the null hypothesis, there is no evidence to suggest that the two factors interact (<span class="math inline">\(t=0.892\)</span>, <span class="math inline">\(df = 196\)</span>, <span class="math inline">\(p = 0.374\)</span>).</p>
 <p>In practice, we would test the interaction first and then interpret the main effects if there is evidence to support their presence. Here we have done it this way around purely for educational purposes.</p>
 <p>We can also visualise the interaction (especially useful for understanding the interaction if there is evidence for one!). There is a built-in function in R that can do this for us, but it will be useful to construct the plot from scratch to ensure you understand what it visualises.</p>
-<p>Have a look at the dataset again.</p>
+<p>Have a look at the data set again.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -531,7 +531,7 @@ P values are right-tailed </code></pre>
 6     3ca9d09e2e 1x Audio-Visual     2 Audio-Visual       48</code></pre>
 </div>
 </div>
-<p>We want to visualise the response per treatment for each combination of Speed and Content.Type (which is already combined in the column Condition). We did this with the <code>emmeans</code> function and stored the treatment means in the object <code>means</code>! To use it to visualsie the treatment means we need to convert to a dataframe, currently it is something called a “emmGrid”</p>
+<p>We want to visualise the response per treatment for each combination of Speed and Content.Type (which is already combined in the column Condition). We did this with the <code>emmeans</code> function and stored the treatment means in the object <code>means</code>! To use it to visualise the treatment means we need to convert to a data frame, currently it is something called a “emmGrid”</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>means </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -550,11 +550,11 @@ attr(,"package")
 [1] "emmeans"</code></pre>
 </div>
 </div>
-<p>It is easy to convert the obejct to a dataframe:</p>
+<p>It is easy to convert the object to a data frame:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>means_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We need to decide which factor will be on the x-axis, let’s do Speed. Below, I use a new package called <code>ggplot2</code> to visualise the data. It creates nicer looking plots and is more intutiive in my opinion. If you want to see how to use base R to plot this, see the code at the end of this section.</p>
+<p>We need to decide which factor will be on the x-axis, let’s do Speed. Below, I use a new package called <code>ggplot2</code> to visualise the data. It creates nicer looking plots and is more intuitive in my opinion. If you want to see how to use base R to plot this, see the code at the end of this section.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggplot2")</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>

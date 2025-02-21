@@ -427,8 +427,8 @@ Example 3.1
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># example output</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rand1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "D" "B" "D" "C" "A" "B" "C" "C" "C" "A" "A" "C" "D" "A" "C" "C" "B" "B" "D"
-[20] "A" "D" "D" "B" "A" "B" "B" "D" "D" "A" "B" "A" "C"</code></pre>
+<pre><code> [1] "B" "C" "D" "B" "D" "C" "D" "B" "C" "D" "A" "A" "A" "A" "D" "C" "D" "D" "C"
+[20] "D" "A" "B" "A" "A" "B" "C" "B" "C" "B" "A" "B" "C"</code></pre>
 </div>
 </div>
 <p>Experimental unit 1 recipes the first treatment that appears as the first element in the shuffled vector, experimental unit 2 receives the second and so on.</p>
@@ -439,7 +439,7 @@ Example 3.1
 <p>Unexplained variation (or experimental error variance or within treatment variance) is largely due to inherent differences between experimental units. The larger this unexplained variation, the more difficult it becomes to detect treatment differences (a treatment signal). To minimise experimental error variance we can control extraneous factors (i.e.&nbsp;keeping all else constant) and by choosing homogeneous experimental units. Otherwise, we can <strong>block</strong> experimental units to reduce the variation.</p>
 <p>Blocking variables are nuisance factors that might affect your response or introduce systematic variation in the response and we are typically, not interested in these. Often, they are factors that cannot be randomised, e.g.&nbsp;biological sex of a person, time of day, location of a warehouse etc. We control the effect of such variables on the response by blocking for them so that we can investigate the possible effect of a variable that we are interested in. Usually, in a <strong>complete block</strong> experiment, there are as many experimental units per block as there are treatments, so that each treatment is applied once in every block. Treatments are randomized to the experimental units in the blocks. We can then compare the effects of treatments on similar experimental units, and we can estimate the variation induced in the response due to the differences between blocks. This variation due to blocks can then be removed from the unexplained variation.</p>
 <p>EXAMPLE</p>
-<p>Blocking also offers the oopurutnity to test treatments over a wider range of conditions, e.g.&nbsp;if I only use people of one age in my experiment (say students) I cannot generalize my results to older people. However, if i use different age blocks I will be able to tell whether the treatments have similar effects in all age groups or not.</p>
+<p>Blocking also offers the opportunity to test treatments over a wider range of conditions, e.g.&nbsp;if I only use people of one age in my experiment (say students) I cannot generalize my results to older people. However, if i use different age blocks I will be able to tell whether the treatments have similar effects in all age groups or not.</p>
 <p>Lastly, if blocking is not feasible, randomization will ensure that at least treatments and nuisance factors are not confounded.</p>
 <blockquote class="blockquote">
 <p>“Block what you can, randomize what you cannot.”</p>

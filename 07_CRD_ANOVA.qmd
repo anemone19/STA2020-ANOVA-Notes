@@ -165,7 +165,7 @@ Back to our constructed example. What are the different sums of squares? For Exp
 This division of the total sums of squares is typically summarised in an analysis of variance table. The first column contains the "source" of the variability with the first entry (the order is not important, although this is the typical order) representing the between-treatment variability (explained variation), second the error (unexplained variation) and lastly the total variation. Here we have used the notation $SS_A$ to represent the sums of squares for treatment factor A. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.
 
 | Source | Sums of Squares (SS) | df | Means Squares (MS) | F |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | Treatment | $\sum_i n_i(\bar{Y}_i - \bar{Y})^2$ | $a-1$ | $MS_A = SS_A / (a-1)$ | $MS_A / MSE$ |
 | Residuals (Error) | $\sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2$ | $N-a$ | $MSE = SSE / (N-a)$ |  |
 | Total | $\sum_i \sum_j (Y_{ij} - \bar{Y})^2$ | $N-1$ |  |  |
@@ -458,7 +458,7 @@ Viola! We have our ANOVA table. Inspect the results and make sure you understand
 
 The first two you can answer with the degrees of freedom and the third is answered by conducting the hypothesis test. With three treatments, we have 2 treatment degrees of freedom. We had 40 students per group, the sample size is then 120 which means there are 117 degrees of freedom for the residuals. The treatment MS (5488) was much larger that the MSE (200). This leads to an F-ratio of 27.42 with a p-value of $1.72\times e^{-10}$ (that's extremely small). We have strong evidence that the treatments did result different academic performances across students At least one treatment resulted in a different mean academic performance. In a report, you would write:
 
-"The manipulation of social media multitasking affected the academic performance of students in this experiment ($F_{2,117} = 27.42$, $p<0.001$)."
+"The manipulation of social media multitasking affected the academic performance of students in this experiment ($F_{2,117} = 27.42$, $p=1.72\times e^{-10}$)."
 
 But which treatments differed? **We cannot answer that question with this hypothesis.** It only tells us that there is a difference, there is a treatment effect. **It does not tell us where the difference or possible differences lie.** To determine this, we need to use treatment contrasts. Before we do this or present any results, we need to do one last thing.
 

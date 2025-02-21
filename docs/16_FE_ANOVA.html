@@ -413,11 +413,11 @@ abn - 1 = (a - 1) + (b - 1) + (a - 1)(b - 1) + ab(n - 1)
 <p>The following table summarizes the partitioning of variation:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 27%">
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -479,7 +479,7 @@ abn - 1 = (a - 1) + (b - 1) + (a - 1)(b - 1) + ab(n - 1)
 </section>
 <section id="back-to-the-example" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="back-to-the-example"><span class="header-section-number">16.1</span> Back to the example</h2>
-<p>Before we inspect the ANOVA table for the working example, we need to check the assumptions about the erros after model fitting. We do this by inspecting the residuals.</p>
+<p>Before we inspect the ANOVA table for the working example, we need to check the assumptions about the errors after model fitting. We do this by inspecting the residuals.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">1</span>)</span>
@@ -518,7 +518,7 @@ Residuals          196  43532   222.1
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>Verify that the degrees of freedom are what you expected! First, we look at the interaction. The F-value is quite small which leads to a large p-value of 0.37. This means that we really have no evidence against the null hypothesis that the factors interact. There is some evidence for a man effect of Speed but there is much stronger evidence as indicated by the small p-value for a main effect of lecture modality.</p>
+<p>Verify that the degrees of freedom are what you expected! First, we look at the interaction. The F-value is quite small which leads to a large p-value of 0.37. This means that we really have no evidence against the null hypothesis that the factors interact. There is some evidence for a main effect of Speed but there is much stronger evidence as indicated by the small p-value for a main effect of lecture modality.</p>
 
 
 </section>
