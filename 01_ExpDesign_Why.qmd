@@ -22,4 +22,9 @@ Here are some other reasons for conducting experiments:
 
 Experimental studies and their design are fundamental to science, allowing us to further knowledge and test theories. So lets define them more rigorously. We'll start by introducing some terminology.
 
-INSERT WHAT THEY NEED TO KNOW / MAIN TAKEAWAYS Perhaps?
+## Key points {.unnumbered}
+
+1. Two ways of doing research: observation and expermentation. 
+2. Experimentation is the path to causality.
+3. Experiments actively manipulate variables to isolate their effects on a response while controlling everything else. 
+4. We consider comparative experiments where the aim is to compare treatments. 
