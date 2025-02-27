@@ -412,10 +412,10 @@ Example 3.1
 <ol type="1">
 <li><p>There is no bias on the part of the experimenter, either conscious or unconscious, when assigning treatments to experimental units.</p></li>
 <li><p>No experimental unit is favored to receive a particular treatment.</p></li>
-<li><p>Possible differences between units are equally distributed amongst treatments. If there are clear differences between units, then blocking should be performed and randomisation occurs within blocks. We’ll talk more about this in Chapter INSERT</p></li>
+<li><p>Possible differences between units are equally distributed among treatments. If there are clear differences between units, then blocking should be performed and randomisation occurs within blocks. We’ll talk more about this in Chapter INSERT</p></li>
 <li><p>We can assume independence between observations.</p></li>
 </ol>
-<p>Randomisation is not haphazard. In statistics (and here in the context of experimental design), randomisation has a specific meaning: namely that each experimental unit has the same chance of being allocated any of the treatments. This can be done using random number generators such as with software packgaes, dice or drawing number from a hat (provided the number have been shuffled adequately and have equal chance to be picked).</p>
+<p>Randomisation is not haphazard. In statistics (and here in the context of experimental design), randomisation has a specific meaning: namely that each experimental unit has the same chance of being allocated any of the treatments. This can be done using random number generators such as with software packages, dice or drawing number from a hat (provided the number have been shuffled adequately and have equal chance to be picked).</p>
 <p>Let’s have a look at randomisation in R. Suppose we have 4 treatments (<code>A</code>, <code>B</code>, <code>C</code>, and <code>D</code>) and 32 experimental units. There are no differences between the units, so we don’t have to block, and we can equally split the units across the treatments, which means we have 8 units per treatment, i.e., 8 replicates. In R, we first create a long vector of 8 <code>A</code>s, 8 <code>B</code>s, 8 <code>C</code>s, and 8 <code>D</code>s called <code>all.treat</code>. Then shuffle the vector to obtain a randomisation using the function <code>sample</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># repeat the vector A, B, C, D 8 times </span></span>
@@ -427,8 +427,8 @@ Example 3.1
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># example output</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rand1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "B" "C" "D" "B" "D" "C" "D" "B" "C" "D" "A" "A" "A" "A" "D" "C" "D" "D" "C"
-[20] "D" "A" "B" "A" "A" "B" "C" "B" "C" "B" "A" "B" "C"</code></pre>
+<pre><code> [1] "B" "C" "B" "C" "B" "C" "D" "C" "D" "A" "A" "A" "B" "C" "A" "A" "A" "D" "D"
+[20] "C" "D" "B" "D" "C" "D" "A" "B" "B" "C" "D" "B" "A"</code></pre>
 </div>
 </div>
 <p>Experimental unit 1 recipes the first treatment that appears as the first element in the shuffled vector, experimental unit 2 receives the second and so on.</p>
@@ -438,7 +438,6 @@ Example 3.1
 <h2 data-number="3.3" class="anchored" data-anchor-id="reduction-of-unexplained-variation-blocking"><span class="header-section-number">3.3</span> Reduction of Unexplained Variation (Blocking)</h2>
 <p>Unexplained variation (or experimental error variance or within treatment variance) is largely due to inherent differences between experimental units. The larger this unexplained variation, the more difficult it becomes to detect treatment differences (a treatment signal). To minimise experimental error variance we can control extraneous factors (i.e.&nbsp;keeping all else constant) and by choosing homogeneous experimental units. Otherwise, we can <strong>block</strong> experimental units to reduce the variation.</p>
 <p>Blocking variables are nuisance factors that might affect your response or introduce systematic variation in the response and we are typically, not interested in these. Often, they are factors that cannot be randomised, e.g.&nbsp;biological sex of a person, time of day, location of a warehouse etc. We control the effect of such variables on the response by blocking for them so that we can investigate the possible effect of a variable that we are interested in. Usually, in a <strong>complete block</strong> experiment, there are as many experimental units per block as there are treatments, so that each treatment is applied once in every block. Treatments are randomized to the experimental units in the blocks. We can then compare the effects of treatments on similar experimental units, and we can estimate the variation induced in the response due to the differences between blocks. This variation due to blocks can then be removed from the unexplained variation.</p>
-<p>EXAMPLE</p>
 <p>Blocking also offers the opportunity to test treatments over a wider range of conditions, e.g.&nbsp;if I only use people of one age in my experiment (say students) I cannot generalize my results to older people. However, if i use different age blocks I will be able to tell whether the treatments have similar effects in all age groups or not.</p>
 <p>Lastly, if blocking is not feasible, randomization will ensure that at least treatments and nuisance factors are not confounded.</p>
 <blockquote class="blockquote">

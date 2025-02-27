@@ -1,4 +1,4 @@
-# The three R's of experimental design
+# The three R's of experimental design {.unnumbered}
 
 **Experimental Design** is a detailed procedure for grouping, if blocking is necessary, experimental units and for how treatments are assigned to the experimental units. There are three fundamental principles, known as the 'three R's of experimental design' which are at the core of a good experiment. The following section might feel a bit repetitive, but these concepts cannot be emphasised enough.
 
