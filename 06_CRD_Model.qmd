@@ -135,7 +135,7 @@ where $T2$ and $T3$ are indicator variables (i.e. $T2 = 1$ if observation $i$ is
 These two models are equivalent. The data are exactly the same: in both situations we have $a$ groups and we are interested in the mean response of these groups and the difference between them. The model notation is just slightly different. In the ANOVA model we use $\mu$ and $A_i$ instead of $\beta_0$ and $\beta_i$ which have different meanings.
 
 | Regression | ANOVA |
-|:--:|:--:|
+|:----------------------------------:|:----------------------------------:|
 | $\beta_0$ is the mean of the baseline category | $\mu$ is the overall mean |
 | $\beta_1$ is the difference between the means of category 2 and the baseline category. | $A_i$ is the effect of treatment $i$, i.e. change in mean response relative to the overall mean. |
 
