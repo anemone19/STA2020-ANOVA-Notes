@@ -1,5 +1,4 @@
 
-
 library(tidyverse)
 
 data <- read.csv("Ex2 Data.csv")

@@ -6,9 +6,9 @@ m1 <- aov(Posttest~Group, data = multitask)
 
 # Contrasts
 
-The aim in many experiments is to compare treatments. To do this we contrast one group of means with another, i.e. we compare means, or groups of means, to see if treatments differ, and by how much they differ. A comparison of (groups of) treatments is called a contrast. If the experiment has been conducted as a result of specific research hypotheses, these will already define the contrasts we should construct first.
+The aim in many experiments is to compare treatments. To do this we contrast one group of means with another, i.e. we compare means, or groups of means, to see if treatments differ, and by how much they differ. A comparison of treatments (or groups of treatments) is called a contrast. If the experiment has been conducted as a result of specific research hypotheses, these will already define the contrasts we should construct first.
 
-For single-factor CRD with only two treatments, we could conduct a t-test to compare the two means or construct a confidence interval to estimate the difference. But we know that with more than two treatments, we encounter problems of multiple testing. How do we contrast treatments when we have a factor with more than two levels?
+For a single-factor CRD with only two treatments, we could conduct a t-test to compare the two means or construct a confidence interval to estimate the difference. But we know that with more than two treatments, we encounter problems of multiple testing. How do we contrast treatments when we have a factor with more than two levels?
 
 ## Contrasting pairs of treatment means {.unnumbered}
 
@@ -16,11 +16,41 @@ We wrote the ANOVA model as:
 
 $$Y_{ij} = \mu + A_i + e_{ij}$$
 
+<!-- :::{.column-margin} -->
+
+<!-- Remember: $A_i = \mu_i - \mu$ -->
+
+<!-- ::: -->
+
 with overall mean and the treatment effects as the parameters (as well as the error variance). Because the effects are constrained to sum to zero, i.e. $\sum_i^a A_i = 0$ we call this ANOVA model the *sum-to-zero* parameterisation.
 
 The above parameterisation is useful for constructing ANOVA tables. For estimating differences between treatments, however, a different parameterisation is more useful:
 
 $$Y_{ij} = A_i + e_{ij}$$ In this version, we no longer have the overall mean as a parameter but use only the treatment effects $A_i$. Remember that any model ultimately needs to describe the treatment means. There are a number of different ways in which to do this. One is the so-called *treatment contrast* parameterisation, which R uses as default for regression models. In this parameterisation, $A_1$ estimates the mean of the baseline treatment (by default, R orders the treatments alphabetically and takes the first one as baseline). The other parameters then estimate the difference between each treatment and the baseline treatment: $A_2$ estimates the difference between the second and the first treatment, $A_3$ estimates the difference between the third and the first, etc.
+
+::: column-margin
+Construction of treatmenat means under the *treatment contrast* parameterisation:
+
+$$
+\begin{aligned}
+\mu_1 &= A_1 \\ 
+\mu_2 &= A_1 + A_2 \\
+\vdots& \\
+\mu_a &= A_1 + A_a
+\end{aligned}
+$$
+
+and under the *sum-to-zero* parameterisation:
+
+$$
+\begin{aligned}
+\mu_1 &= \mu + A_1 \\ 
+\mu_2 &= \mu + A_2 \\
+\vdots& \\
+\mu_a &= \mu + A_a
+\end{aligned}
+$$
+:::
 
 To get a better understanding of this, let's fit the model to the social media data with this parameterisation. In R, this is done by using the `lm` function.
 
@@ -36,8 +66,8 @@ This is exactly the same output as you have seen before in the regression sectio
 ```{r}
 model.tables(m1, type = "means")
 
-62.88 - 75.63
-52.24 - 75.63
+62.88 - 75.63 #GroupExp1
+52.24 - 75.63 #GroupExp2 
 
 ```
 
@@ -77,9 +107,9 @@ summary(m1.tc)
 
 Notice that the residual standard error, F-value and other statistics at the end of the output are exactly the same as for Model m1.tc above. The two models are equivalent and provide the same fit to the data. The only difference is that the parameters have different interpretations.
 
-To conclude this section, we present the final results of the social media multitasking experiment. The ANOVA revealed a significant treatment effect on academic performance ($F = 27.42$, $p < 0.0001$). Specifically, students in both experimental conditions performed worse than those in the control group. On average, students in Experiment 1 scored 12% lower ($t = -4.031$, $p < 0.0001$), while those in Experiment 2 scored 24% lower ($t = -7.395$, $p < 0.0001$), with a standard error of 3.163. The difference of roughly 10% (\$t=-3.364\$, $p<0.05$) between the two treatments was found to be significant too. This confirms that multitasking with social media during lectures negatively impacted academic performance in this experiment.
+To conclude this section, we present the final results of the social media multitasking experiment. The ANOVA revealed a significant treatment effect on academic performance ($F = 27.42$, $p = 1.72\times e^{-10}$). Specifically, students in both experimental conditions performed worse than those in the control group. On average, students in Experiment 1 scored 12% lower ($t = -4.031$, $p = 9.92 \times 10^{-5}$), while those in Experiment 2 scored 24% lower ($t = -7.395$, $p = 2.32 \times 10^{-11}$), with a standard error of 3.163. Students in Experiment 2 scored on average 10% less than those in Experiment 1 ($t=-3.364$, $p = 0.001$). This confirms that multitasking with social media during lectures negatively impacted academic performance in this experiment.
 
-It is important to note the experiment was conducted on first year students, so the results are technically not applicable to second years. But I think the message is clear, going on social media during lectures is probably not going to help you learn. In general reducing the time you spend on social media will probably help you. You certainly don't have to delete all social media, but taking intentional breaks and trying to give your full attention when it is required, will certainly make a difference. Here are some videos that have motivated me to improve my focus, decrease my time spent on social media and start reading books again!
+I think the message is clear, going on social media during lectures is probably not going to help you learn. In general reducing the time you spend on social media will probably help you. You certainly don't have to delete all social media apps, but taking intentional breaks and trying to give your full attention when it is required, will certainly make a difference. Here are some videos that have motivated me to improve my focu and decrease my time spent on social media!
 
 -   Why we can't focus <https://www.youtube.com/watch?v=6QltxZ-vPMc>
 

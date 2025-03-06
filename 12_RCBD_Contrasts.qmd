@@ -65,10 +65,8 @@ To recall the experiment's design: The researchers aimed to test the Pygmalion e
 
 The results of a two-way ANOVA provide evidence of a treatment effect ($F = 11.89$, $p = 0.0073$). More precisely, the estimated difference between the control and Pygmalion treatment was 10.78 (s.e. = $3.13$, $t = 3.45$, $p = 0.0073$). This suggests that the Pygmalion effect was successful, as soldiers in the Pygmalion group scored higher on average than those in the control group.
 
-:::{.column-margin}
-
-In an actual analysis, we would not report both the ANOVA and t-test since they are equivalent when we have two treatments. 
-
+::: column-margin
+In an actual analysis, we would not report both the ANOVA and t-test since they are equivalent when we have two treatments.
 :::
 
 Nice! We're done. Before we move on, I'll summarise the results of the actual study. The researcher had four different responses:

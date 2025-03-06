@@ -17,7 +17,7 @@ We will never know, this is the basis of statistical testing. We accept that we 
 
 When we collect samples, we usually want to learn something about the populations from which they were drawn. To do this, we can develop a model for the observations that reflects the different sources of variation believed to be at play.
 
-For Completely Randomised Designs (CRDs), we have $a$ treatments with population means $\mu_1, \mu_2, \mu_3, \ldots, \mu_a$. We are interested in modelling the means of the treatments and the differences between them. Ultimately we want to test whether they are equal which we'll get to in the next section. First, we construct a simple model for each observation $Y_{ij}$:
+For Completely Randomised Designs, we have $a$ treatments which implies $a$ population means $\mu_1, \mu_2, \mu_3, \ldots, \mu_a$. We are interested in modelling the means of the treatments and the differences between them. Ultimately we want to test whether they are equal which we'll get to in the next section. First, we construct a simple model for each observation $Y_{ij}$:
 
 $$
 Y_{ij} = \mu_{i} + e_{ij},
@@ -35,7 +35,7 @@ e_{ij} & = \text{random error with } e_{ij} \sim N(0, \sigma^2)
 \end{aligned}
 $$
 
-That is, each observation is modeled as the sum of its population mean and some random variation, $e_{ij}$. This random variation represents unexplained differences between individual observations within the same group which we assume to follow a normal distribution with mean 0 and constant variance across all treatment groups. [^06_crd_model-1]
+That is, each observation is modeled as the sum of its population mean and some random variation, $e_{ij}$. This random variation represents unexplained differences between individual observations within the same group and we assume that these differences follow a normal distribution with mean 0 and constant variance across all treatment groups. [^06_crd_model-1]
 
 [^06_crd_model-1]: As opposed to non-constant variance across all treatment groups: $e_{ij} \sim N(0, \sigma^2_{i})$ where the $\sigma_i^2$'s are different.
 
@@ -152,6 +152,8 @@ The model can be interpreted as follows:
 
 Each observation, $Y_{ij}$, is the sum of the overall mean ($\mu$), plus the effect of the treatment it belongs to ($A_i$), and some random error ($e_{ij}$). We use two subscripts on the $Y$. One to identify the group (treatment) and the other to identify the subject (experimental unit) within the group:
 
+
+$$
 \begin{equation}
 \begin{aligned}
 Y_{1j} &= \mu + A_1 + e_{1j} \\ 
@@ -160,9 +162,9 @@ Y_{3j} &= \mu + A_3 + e_{3j} \\
 
 &\;\;\vdots \notag \\
 Y_{aj} &= \mu + A_a + e_{aj} \\
-
 \end{aligned}
 \end{equation}
+$$
 
 ## Estimation
 
@@ -170,7 +172,7 @@ Okay, so we have a model which we now need to **fit to our data**. When we do th
 
 [^06_crd_model-5]: error = observed - fitted.
 
-$$ \text{SSE} = \sum_i\sum_j e_{ij}^2 = \sum_i\sum_j (Y_{ij} - \hat{Y}_i)^2 = \sum_i\sum_j (Y_{ij} - \mu - A_i)^2$$
+$$ \text{SSE} = \sum_i\sum_j e_{ij}^2 = \sum_i\sum_j (Y_{ij} - \hat{Y}_{ij})^2 = \sum_i\sum_j (Y_{ij} - \mu - A_i)^2$$
 
 It turns out when we solve for the estimates that minimise the SSE[^06_crd_model-6], we obtain the following estimators:
 
@@ -341,7 +343,7 @@ To estimate these variances we substitute the MSE for $\sigma^2$ as it is an unb
 
 We can assume normal distributions for our estimates because we have assumed a normal linear model and because they are means (or differences between means). This means that confidence intervals for the population treatment means are of the form:
 
-$$ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(estimate)$$
+$$ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(\text{estimate})$$
 
 where $t^{\alpha/2}_v$ is the ${\alpha/2}^{th}$ percentile of the Student's $t$ distribution with $v$ degrees of freedom. The degrees of freedom are the error degrees of freedom, $N-a$ for CRD.
 

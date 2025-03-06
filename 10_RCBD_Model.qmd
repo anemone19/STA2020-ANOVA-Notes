@@ -124,7 +124,7 @@ The next column lists the sums of squares for the three components. The mean squ
 
 So we have an very small p-value which means that we have strong evidence against our null hypothesis of equal treatment means. We cannot conclude that the effects are equal to zero. There is evidence to suggest that at least one treatment resulted in a different mean score. Here, because we have two treatments, the results indicate that the data are not compatible with a null hypothesis of equal means. We make the following conclusion:
 
-"There is evidence to suggest that the two treatment means are different ($F = 11.89$, $p < 0.01$)."
+"There is evidence to suggest that the two treatment means are different ($F = 11.89$, $p = 0.0073$)."
 
 If we had more than two treatment means as is usually the case, we would conclude:
 

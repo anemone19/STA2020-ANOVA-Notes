@@ -5,7 +5,9 @@ m1 <- aov(Posttest~Group, data = multitask)
 
 # Analysis of Variance
 
-The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - ANalysis Of Variance? A well designed experiment allows us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of squares into independent parts, one for each factor in the model (treatment and blocking factors). This allows us unambiguously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments. An ANOVA applied to a single factor CRD is called a one-way ANOVA or between-subjects ANOVA or an independent factor ANOVA. It is a generalization of the ‘two-sample t-test assuming equal variances’ to the case of more than two populations.
+The ANOVA model we have introduced is identical to a regression model with categorical variables, it is just parameterised differently. So why the different names and emphasis on variance - **AN**alysis **O**f **VA**riance? A well designed experiment allows us to estimate the within-treatment variability and between treatment variability. More specifically, it enables the partitioning of the total sum of squares into independent parts, one for each factor in the model (treatment and/or blocking factors). This allows us unambiguously to estimate the variability in the response contributed by each factor and the experimental error variance! We can then use this partitioning to perform hypothesis tests. In other words: by looking at the variation we can find out if the response differs due to the treatments.
+
+An ANOVA applied to a single factor CRD is called a one-way ANOVA or between-subjects ANOVA or an independent factor ANOVA. It is a generalization of the ‘two-sample t-test assuming equal variances’ to the case of more than two populations.
 
 ## An Intuitive Explanation
 
@@ -110,15 +112,15 @@ Key properties of the F-distribution:
 Let’s go back to the linear model for the single-factor CRD that we examined earlier:
 
 $$
-Y_{ij} = \mu + \alpha_i + e_{ij}
+Y_{ij} = \mu + A_i + e_{ij}
 $$
 
-where $\mu$ is the overall mean, $\alpha_i$ are the treatment effects (that is the difference between treatment means and the overall mean), and $e_{ij}$ are the error terms (the differences between the observation and the fitted value, i.e. treatment mean). Remember that the estimated values for these parameters are the observed values:
+where $\mu$ is the overall mean, $A_i$ are the treatment effects (that is the difference between treatment means and the overall mean), and $e_{ij}$ are the error terms (the differences between the observation and the fitted value, i.e. treatment mean). Remember that the estimated values for these parameters are the observed values:
 
 $$
 \begin{aligned}
 \hat{\mu} &= \bar{Y}_{..} \\
-\hat{\alpha}_i &= \bar{Y}_{i.} - \bar{Y}_{..}\\
+\hat{A}_i &= \bar{Y}_{i.} - \bar{Y}_{..}\\
 \hat{e}_{ij} &= Y_{ij} -  \bar{Y}_{i.}
 \end{aligned}
 $$
@@ -162,7 +164,7 @@ Back to our constructed example. What are the different sums of squares? For Exp
 
 ## ANOVA Table
 
-This division of the total sums of squares is typically summarised in an analysis of variance table. The first column contains the "source" of the variability with the first entry (the order is not important, although this is the typical order) representing the between-treatment variability (explained variation), second the error (unexplained variation) and lastly the total variation. Here we have used the notation $SS_A$ to represent the sums of squares for treatment factor A. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.
+This division of the total sums of squares is typically summarised in an analysis of variance table. The first column contains the "source" of the variability with the first entry (the order is not important, although this is the typical order) representing the between-treatment variability (explained variation), second is the error (unexplained variation, variation of experimental units within treatments) and lastly the total variation. Here we have used the notation $SS_A$ to represent the sums of squares for treatment factor A. The second column gives the sums of squares of each source. The third column contains the degrees of freedom.
 
 | Source | Sums of Squares (SS) | df | Means Squares (MS) | F |
 |---------------|---------------|---------------|---------------|---------------|
@@ -184,7 +186,9 @@ Degrees of freedom (df) represent the number of independent pieces of informatio
 
 For example, when estimating the standard deviation of a data set, we first estimate the mean, thereby reducing the number of independent observations available to calculate variability. This is why the denominator in the variance formula is $N-1$:
 
-$$ s^2 = \frac{\sum(Y_i - \bar{Y})^2}{N -1} $$ You can think of degrees of freedom as the number of independent deviations around a mean. If we have $n$ observations and their mean, once we know $n-1$ of the values, the last one is fixed—it must take on a specific value to satisfy the mean equation. Therefore, only $n-1$ observations are truly free to vary.
+$$ s^2 = \frac{\sum(Y_i - \bar{Y})^2}{N -1} $$
+
+You can think of degrees of freedom as the number of independent deviations around a mean. If we have $n$ observations and their mean, once we know $n-1$ of the values, the last one is fixed—it must take on a specific value to satisfy the mean equation. Therefore, only $n-1$ observations are truly free to vary.
 
 **Example: Three Numbers Summing to a Fixed Mean**
 
@@ -248,12 +252,24 @@ Since the overall mean and the treatment means were the same in both experiment,
 
 We first set up the null and alternate hypothesis. The null hypothesis is that all treatments have the same mean, or equivalently, that all treatment effects are zero.
 
-$$H_0: \mu_1 = \mu_2 = \ldots = \mu_a$$ And the alternate hypothesis is the opposite of that:
+$$
+\begin{aligned}
+H_0&: \mu_1 = \mu_2 = \ldots = \mu_a \\
+H_0&: A_1 = A_2 = \ldots = A_a = 0\
+\end{aligned}
+$$
 
-$$H_A: \text{At least one } \mu_i \text{ is different.}$$
+And the alternative hypothesis is the opposite of that:
+
+$$
+\begin{aligned}
+H_A&: \text{At least one } \mu_i \text{ is different.} \\
+H_A&: \text{At least one } A_i \neq 0
+\end{aligned}
+$$
 
 ::: column-margin
-Read that again. The alternative is that at least one treatment is different. It is not that all treatment means are different.
+Read that again. The alternative is that at least one treatment is different, there is a difference somewhere. It is not that all treatment means are different.
 :::
 
 If $H_0$ is true, the among-treatment-means variation should equal the within-treatment variation. We can use the F-ratio to test $H_0$:
@@ -432,9 +448,9 @@ We start with the hypotheses:
 
 $$H_0: \mu_1 = \mu_2 = \ldots = \mu_a$$
 
-In words we say that the average academic performance of students did not different across the treatments (levels of social media multitasking).
+In words we say that the average academic performance of students did not differ across the treatments (levels of social media multitasking).
 
-And the alternate hypothesis is the opposite of that:
+And the alternative hypothesis is the opposite of that:
 
 $$H_A: \text{At least one } \mu_i \text{ is different.}$$
 
@@ -450,7 +466,7 @@ summary(m1)
 
 ```
 
-Viola! We have our ANOVA table. Inspect the results and make sure you understand how each value is obtained and what they represent. By just looking at the table, you should be able to answer the following questions:
+Violà! We have our ANOVA table. Inspect the results and make sure you understand how each value is obtained and what they represent. By just looking at the table, you should be able to answer the following questions:
 
 1.  How many treatments were there?
 2.  How many observations in total?
@@ -494,7 +510,7 @@ hist(resid(m1))
 
 ```
 
-The assumption of independent errors is mostly checked before model fitting and with considering the experimental design. If we suspected auto-correlated residuals, we could plot the residuals against order:
+The assumption of independent errors is mostly checked before model fitting and by consideration of the experimental design. If we suspected auto-correlated residuals, we could plot the residuals against order:
 
 ```{r}
 
@@ -513,13 +529,13 @@ There are no patterns at all, the residuals appear randomly distributed. So no i
 
 That's a lot. So let's summarise what we did in this chapter:
 
-We introduced Analysis of Variance (ANOVA), which is fundamentally a regression model with categorical variables but parameterised differently. ANOVA allows us to partition total variance into between-treatment and within-treatment variability, helping us determine whether observed differences in the response variable are due to the treatments and not just sampling error.
+We introduced Analysis of Variance (ANOVA), which is fundamentally the same as a regression model with categorical variables but parameterised differently. ANOVA allows us to partition total variance into between-treatment and within-treatment variability, helping us determine whether observed differences in the response variable are due to the treatments and not just sampling error.
 
 We explored ANOVA through a constructed experiment on nitrate removal by plants, demonstrating that variation within treatments influences our ability to detect true treatment effects. The F-ratio, a measure of the signal-to-noise ratio, is central to ANOVA. A large F-ratio suggests that between-group variability is greater than within-group variability, providing evidence that at least one treatment differs.
 
-The F-test determines statistical significance, and its p-value is derived from the F-distribution. A small p-value suggests strong evidence against the null hypothesis ($H_0$), indicating at least one group mean differs. The ANOVA table summarises these calculations, including sums of squares (SS), degrees of freedom (df), mean squares (MS), and the F-statistic.
+The F-test determines statistical significance, and its p-value is derived from the F-distribution. A small p-value suggests strong evidence against the null hypothesis ($H_0$), indicating at least one group mean differs. The ANOVA table summarises the calculations of the hypothesis test, including sums of squares (SS), degrees of freedom (df), mean squares (MS), and the F-statistic.
 
-Applying ANOVA to real experimental data, we analyzed the impact of social media multitasking on student performance. With three treatment groups (control, SMS, Facebook), we found a statistically significant effect ($F_{2,117} = 27.42$, $p<0.001$), confirming that at least one treatment influenced academic performance. However, ANOVA does not specify which groups differ and how they differ—this requires post-hoc tests.
+Applying ANOVA to real experimental data, we analysed the impact of social media multitasking on student performance. With three treatment groups (control, SMS, Facebook), we found a statistically significant effect ($F_{2,117} = 27.42$, $p=1.72\times10^{-10}$), confirming that at least one treatment influenced academic performance. However, ANOVA does not specify which groups differ and how they differ — this requires post-hoc tests.
 
 Finally, we validated model assumptions:
 

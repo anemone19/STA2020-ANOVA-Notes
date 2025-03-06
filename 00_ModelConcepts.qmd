@@ -22,7 +22,7 @@ $$
 
 Mathematically this can be stated as:
 
-$$ Y = \hat{Y} + e$$
+$$Y = \hat{Y} + e$$
 
 A simple example of a statistical model you may have encountered is the **mean** as a predictor. Suppose you measure the number of customers entering two stores over 20 days. The observed counts for each store fluctuate daily, but you may want to summarize the data using the average number of customers.
 

@@ -19,37 +19,27 @@ book:
         
     - part: "Single Factor Completely Randomised Designs"
       chapters:
-      - 05_CRD_Intro.qmd
-      - 06_CRD_Model.qmd
-      - 07_CRD_ANOVA.qmd
-      - 08_CRD_Contrasts.qmd
+        - 05_CRD_Intro.qmd
+        - 06_CRD_Model.qmd
+        - 07_CRD_ANOVA.qmd
+        - 08_CRD_Contrasts.qmd
     
-    - part: "Randomised Block Designs"
-      chapters:
-      - 09_RCBD_Intro.qmd
-      - 11_RCBD_Assump.qmd
-      - 10_RCBD_Model.qmd
-      - 12_RCBD_Contrasts.qmd
-
-    - part: "Factorial Experiments"
-      chapters:
-      - 13_FE_Intro.qmd
-      - 15_FE_Inter.qmd
-      - 14_FE_Model.qmd
-      - 16_FE_ANOVA.qmd
-      - 17_FE_Contrasts.qmd
-    - glossary.qmd
-
+ 
 bibliography: references.bib
 
 format:
   html:
     theme: cosmo
-    number-sections: true
-    number-figures: true
+    # number-sections: true
+    # number-figures: true
     css: custom.css
-    
-reference-location: margin
-citation-location: margin
-editor: visual
+
+  pdf:
+    documentclass: book
+    keep-tex: true
+    output-file: pdf-book
+    fig-pos: "H"  # Forces figures to stay close to the code
+    link-citations: true
+    highlight-style: tango  # Improves syntax highlighting
+    keep-md: true
 

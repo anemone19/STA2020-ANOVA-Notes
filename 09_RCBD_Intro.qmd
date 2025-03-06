@@ -98,7 +98,7 @@ rbind(sample(units,4), rep(c("A","B","C","D")))
 
 The third unit receive treatment A, the second receives B and so on. We then repeat this for every block.
 
-## Example: The Pygmalion Effect
+## The Pygmalion Effect
 
 The **Pygmalion effect** is a psychological phenomenon that suggests when people are held to high expectations, they tend to perform better. This applies to, for example, teachers and students, managers and employees or coaches and athletes. It is named after a mythological king of Cyprus, Pygmalion, who fell in love with a sculpture he created of his ideal woman.
 
