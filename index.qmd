@@ -27,4 +27,4 @@ mean(x) # Computes the mean of a set of numbers
 
 R is consistently used to visualize, illustrate, and demonstrate key methods and concepts. Running the code yourself will greatly enhance your understanding, so I encourage you to do so.
 
-> Some parts of these notes have been adapted from the STA1007 notes, authored by Dr. Res Altwegg and Dr. Birgit Erni, as well as from various textbooks.
+> Some parts of these notes have been adapted from the STA2007 notes, authored by Dr. Res Altwegg and Dr. Birgit Erni, as well as from various textbooks.
