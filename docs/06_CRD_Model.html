@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; A Simple Model for a CRD – STA2020 ANOVA Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07_CRD_ANOVA.html" rel="next">
+<link href="./05_CRD_Intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="custom.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./06_CRD_Model.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">STA2020 ANOVA Notes</a> 
+        <div class="sidebar-tools-main">
+    <a href="./STA2020-ANOVA-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Experimental Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_ExpDesign_Why.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Experiments and experimental design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_ExpDesign_Term.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Terminology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_ExpDesign_RRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The three R’s of experimental design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_ExpDesign_DesigningExp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Experiment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Single Factor Completely Randomised Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_CRD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_CRD_Model.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_CRD_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_CRD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Randomised Block Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Factorial Experiments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link active" data-scroll-target="#the-model"><span class="header-section-number">5.1</span> The model</a></li>
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation"><span class="header-section-number">5.2</span> Estimation</a></li>
+  <li><a href="#in-context-of-the-social-media-multitasking-example" id="toc-in-context-of-the-social-media-multitasking-example" class="nav-link" data-scroll-target="#in-context-of-the-social-media-multitasking-example"><span class="header-section-number">5.3</span> In context of the social media multitasking example</a></li>
+  <li><a href="#standard-errors-and-confidence-intervals" id="toc-standard-errors-and-confidence-intervals" class="nav-link" data-scroll-target="#standard-errors-and-confidence-intervals"><span class="header-section-number">5.4</span> Standard errors and confidence intervals</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.5</span> Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./06_CRD_Model.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>To analyse data collected from a Completely Randomised Design we could use <span class="math inline">\(t\)</span>-tests and compare the samples two at a time. This approach is problematic for two reasons. Firstly, the test statistic of a <span class="math inline">\(t\)</span>-test is calculated with a standard deviation based only on the two samples it considers. We want our test statistic to consider the variability in all samples collected. Second, when we conduct multiple tests the overall Type 1 Error rate increases. That is, when doing many tests, the chance of making <em>at least one wrong conclusion</em> increases with the number of tests (if you want to know more see the box below). To avoid this, we will use the ANOVA method which was specifically developed for comparing multiple means.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Multiple Testing / Comparisons
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>When we conduct a test, there is always a possibility that a significant result is due to chance and not actually a real difference. In first year, you were taught the Neyman-Pearson approach to hypothesis testing, which entails setting a significance level (<span class="math inline">\(\alpha\)</span>) for the test you will conduct. This significance level is the Type 1 error rate (probability of falsely rejecting <span class="math inline">\(H_0\)</span>). A common <span class="math inline">\(\alpha\)</span> is 0.05, meaning that 5% of the time we will reject the null hypothesis even if it is true. That means when we find a significant result, one of two things have happened:</p>
+<ol type="1">
+<li>Either we genuinely found a significant result or,</li>
+<li>We were that unlucky, that our result is one of those 5% cases.</li>
+</ol>
+<p>We will never know, this is the basis of statistical testing. We accept that we cannot tell which of our conclusions are Type 1 Errors. When we conduct many tests, the overall Type 1 Error rate increases. That is the overall chance of <em>at least one wrong conclusion</em> increases with the number of tests conducted. This is not good! We already might be wrong 5% and we don’t want to increase that risk even further when conducting multiple tests.</p>
+</div>
+</div>
+</div>
+<section id="the-model" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-model"><span class="header-section-number">5.1</span> The model</h2>
+<p>When we collect samples, we usually want to learn something about the populations from which they were drawn. To do this, we can develop a model for the observations that reflects the different sources of variation believed to be at play.</p>
+<p>For Completely Randomised Designs, we have <span class="math inline">\(a\)</span> treatments which implies <span class="math inline">\(a\)</span> population means <span class="math inline">\(\mu_1, \mu_2, \mu_3, \ldots, \mu_a\)</span>. We are interested in modelling the means of the treatments and the differences between them. Ultimately we want to test whether they are equal which we’ll get to in the next section. First, we construct a simple model for each observation <span class="math inline">\(Y_{ij}\)</span>:</p>
+<p><span class="math display">\[
+Y_{ij} = \mu_{i} + e_{ij},
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+i &amp; = 1, \dots, a \quad (a = \text{number of treatments}) \\
+j &amp; = 1, \dots, r \quad (r = \text{number of replicates}) \\
+Y_{ij} &amp; = \text{observation of the } j^{th} \text{ unit receiving treatment } i \\
+\mu_i &amp; = \text{mean of treatment } i \\
+e_{ij} &amp; = \text{random error with } e_{ij} \sim N(0, \sigma^2)
+\end{aligned}
+\]</span></p>
+<p>That is, each observation is modeled as the sum of its population mean and some random variation, <span class="math inline">\(e_{ij}\)</span>. This random variation represents unexplained differences between individual observations within the same group and we assume that these differences follow a normal distribution with mean 0 and constant variance across all treatment groups. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>We can change the notation slightly by arbitrarily dividing each mean into a sum of two components: the overall mean <span class="math inline">\(\mu\)</span> (the mean of the entire data set, which is the same as the mean of the <span class="math inline">\(a\)</span> means<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>) and the difference between the population mean and the overall mean. In symbols, this translates to:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mu_1 &amp;= \mu + (\mu_1 - \mu) \\
+\mu_2 &amp;= \mu + (\mu_2 - \mu) \\
+&amp;\;\;\vdots \notag \\
+\mu_a &amp;= \mu + (\mu_a - \mu)
+\end{aligned}
+\]</span></p>
+<p>The difference <span class="math inline">\((\mu_i - \mu)\)</span> is the <strong>effect of treatment</strong> <span class="math inline">\(i\)</span>, denoted by <span class="math inline">\(A_i\)</span>. So each population mean is the sum of the overall mean and the part that we attribute to the particular treatment (<span class="math inline">\(A_i\)</span>):</p>
+<p><span class="math display">\[
+\mu_i = \mu + A_i, \quad i = 1, 2, \dots, a,
+\]</span></p>
+<p>where <span class="math inline">\(\sum A_i = 0\)</span>.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why the <span class="math inline">\(\sum A_i = 0\)</span> constraint?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>This constraint ensures that the treatment effects are expressed as deviations from the overall mean. To see why this holds, take the sum of both sides of the equation:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{a} \mu_i = \sum_{i=1}^{a} (\mu + A_i).
+\]</span></p>
+<p>Expanding the right-hand side:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{a} \mu_i = a\mu + \sum_{i=1}^{a} A_i.
+\]</span></p>
+<p>By definition, the overall mean <span class="math inline">\(\mu\)</span> is the mean of the treatment means:</p>
+<p><span class="math display">\[
+\mu = \frac{1}{a} \sum_{i=1}^{a} \mu_i.
+\]</span></p>
+<p>Multiplying both sides by <span class="math inline">\(a\)</span> gives:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{a} \mu_i = a\mu.
+\]</span></p>
+<p>Comparing this with our earlier equation:</p>
+<p><span class="math display">\[
+a\mu = a\mu + \sum_{i=1}^{a} A_i.
+\]</span></p>
+<p>Subtracting <span class="math inline">\(a\mu\)</span> from both sides, we get:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{a} A_i = 0.
+\]</span></p>
+<p>This constraint is standard in ANOVA models to ensure that the treatment effects are relative to the overall mean rather than being arbitrarily defined. It is not an additional assumption; any <span class="math inline">\(a\)</span> means can be written in this way.</p>
+</div>
+</div>
+</div>
+<p>Replacing <span class="math inline">\(\mu_i\)</span> in the model above leads to the common parameterisation of a single-factor ANOVA model<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<p><span class="math display">\[
+Y_{ij} = \mu + A_{i} + e_{ij}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+i &amp; = 1, \dots, a \quad (a = \text{number of treatments}) \\
+j &amp; = 1, \dots, r \quad (r = \text{number of replicates}) \\
+Y_{ij} &amp; = \text{observation of the } j^{th} \text{ unit receiving treatment } i \\
+\mu &amp; = \text{overall or general mean} \\
+A_i &amp; = \text{effect of the } i^{th} \text{ level of treatment factor A} \\
+e_{ij} &amp; = \text{random error with } e_{ij} \sim N(0, \sigma^2)
+\end{aligned}
+\]</span></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comparison to regression
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>If you wanted to, you could rewrite this with the regression notation you’ve encountered before as a regression model with a single categorical explanatory variable:</p>
+<p><span class="math display">\[ Y_i = \beta_0 + \beta_1 T2_i + \beta_2 T3_i + e_i \]</span></p>
+<p>where <span class="math inline">\(T2\)</span> and <span class="math inline">\(T3\)</span> are indicator variables (i.e.&nbsp;<span class="math inline">\(T2 = 1\)</span> if observation <span class="math inline">\(i\)</span> is from treatment 2 and 0 otherwise). The intercept estimates the mean of the baseline category, here it is <span class="math inline">\(T1\)</span>.</p>
+<p>These two models are equivalent. The data are exactly the same: in both situations we have <span class="math inline">\(a\)</span> groups and we are interested in the mean response of these groups and the difference between them. The model notation is just slightly different. In the ANOVA model we use <span class="math inline">\(\mu\)</span> and <span class="math inline">\(A_i\)</span> instead of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_i\)</span> which have different meanings.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Regression</th>
+<th style="text-align: center;">ANOVA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\beta_0\)</span> is the mean of the baseline category</td>
+<td style="text-align: center;"><span class="math inline">\(\mu\)</span> is the overall mean</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\beta_1\)</span> is the difference between the means of category 2 and the baseline category.</td>
+<td style="text-align: center;"><span class="math inline">\(A_i\)</span> is the effect of treatment <span class="math inline">\(i\)</span>, i.e.&nbsp;change in mean response relative to the overall mean.</td>
+</tr>
+</tbody>
+</table>
+<p>When all the explanatory variables are categorical, which is mostly the case in comparative experimental data, it is more convenient to write the model in the ANOVA form, for two reasons:</p>
+<ol type="1">
+<li><p>The <span class="math inline">\(A_i\)</span> notation is more concise, because we don’t have to add all the dummy variables. This makes it easier to read and understand because there is only one term per factor.</p></li>
+<li><p>Mathematically it is more convenient. In this format all terms are deviations from a mean. This leads directly to sums of squares<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> (squared deviations from a mean) and analysis of variance. We will see later that we can partition the total sum of squares into one part for every factor in the model. This allows us to investigate the variability in the response contributed by every model term (or factor).</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>The model can be interpreted as follows:</p>
+<p>Each observation, <span class="math inline">\(Y_{ij}\)</span>, is the sum of the overall mean (<span class="math inline">\(\mu\)</span>), plus the effect of the treatment it belongs to (<span class="math inline">\(A_i\)</span>), and some random error (<span class="math inline">\(e_{ij}\)</span>). We use two subscripts on the <span class="math inline">\(Y\)</span>. One to identify the group (treatment) and the other to identify the subject (experimental unit) within the group:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_{1j} &amp;= \mu + A_1 + e_{1j} \\
+Y_{2j} &amp;= \mu + A_2 + e_{2j} \\
+Y_{3j} &amp;= \mu + A_3 + e_{3j} \\
+&amp;\;\;\vdots \notag \\
+Y_{aj} &amp;= \mu + A_a + e_{aj} \\
+\end{aligned}
+\]</span></p>
+</section>
+<section id="estimation" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="estimation"><span class="header-section-number">5.2</span> Estimation</h2>
+<p>Okay, so we have a model which we now need to <strong>fit to our data</strong>. When we do this, we estimate the model parameters using our data. The parameters we want to estimate are <span class="math inline">\(\mu\)</span> (the overall mean), the treatment effects (<span class="math inline">\(A_i\)</span>) and <span class="math inline">\(\sigma^2\)</span> (the error variance). As for regression, we find <strong>least squares estimates</strong> for the parameters which minimise the residual or error sum of squares<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>:</p>
+<p><span class="math display">\[ \text{SSE} = \sum_i\sum_j e_{ij}^2 = \sum_i\sum_j (Y_{ij} - \hat{Y}_{ij})^2 = \sum_i\sum_j (Y_{ij} - \mu - A_i)^2\]</span></p>
+<p>It turns out when we solve for the estimates that minimise the SSE<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, we obtain the following estimators:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{\mu} = \bar{Y}_{..} \\
+\hat{\mu}_i = \bar{Y}_{i.}
+\end{aligned}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\hat{A}_i =  \bar{Y}_{i.} - \bar{Y}_{..}\]</span></p>
+<p>From linear model theory we know that the above are unbiased estimates<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> of <span class="math inline">\(\mu\)</span> and the <span class="math inline">\(A_i\)</span>’s. What does this tell you? It tells you that we can use the sample means as estimates for the true means. The estimated mean response for treatment <span class="math inline">\(i\)</span> is the observed sample mean of treatment <span class="math inline">\(i\)</span> and the observed overall mean is the estimated grand mean.</p>
+<p>For the last parameter, the error variance, an unbiased estimator is found by dividing the minimised SSE (i.e.&nbsp;calculated with the least squares estimates) by its degrees of freedom:</p>
+<p><span class="math display">\[ s^2 = \frac{1}{N-a}\sum_{ij}(Y_{ij} - \bar{Y}_{i.})^2 \]</span></p>
+<p>This quantity is called the Mean Squares for Error (MSE) or residual mean square. It has <span class="math inline">\((N-a)\)</span> degrees of freedom since we have <span class="math inline">\(N\)</span> observations and have estimated <span class="math inline">\(a\)</span> means. If you look at the formula you’ll notice that it is an average of the observed variability from the different treatment groups.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Compare this with regression
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Compare this with the equations you saw in the regression section. Barring the extra subscript, the only difference is the equation for calculating the fitted/predicted value.</p>
+<p>In regression, the fitted value is:</p>
+<p><span class="math display">\[ \hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1X_i \]</span></p>
+<p>and here it is:</p>
+<p><span class="math display">\[ \hat{Y}_{ij} = \bar{Y}_{i.} = \hat{\mu} + \hat{A}_i \]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="in-context-of-the-social-media-multitasking-example" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="in-context-of-the-social-media-multitasking-example"><span class="header-section-number">5.3</span> In context of the social media multitasking example</h2>
+<p>Let’s take what we’ve learned so far and apply it to our example. We had <span class="math inline">\(a = 3\)</span> treatments each with <span class="math inline">\(r=40\)</span> replicates. The model equation is:</p>
+<p><span class="math display">\[ Y_{ij} = \mu + A_{i} + e_{ij}  \]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+i &amp; = 1, \dots, 3  \\
+j &amp; = 1, \dots, 40 \\
+\end{aligned}
+\]</span></p>
+<p>If we write the model out for each treatment, we get:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_{Cj} &amp;= \mu + A_C + e_{Cj} \\
+Y_{E1j} &amp;= \mu + A_{E1} + e_{E1j} \\
+Y_{E2j} &amp;= \mu + A_{E2} + e_{E2j} \\
+\end{aligned}
+\]</span></p>
+<p>and when we fit the model to the data, the predicted means for the treatments are:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{Y}_{C} &amp;= \hat{\mu} + \hat{A}_C = \bar{Y}_{C.}\\
+\hat{Y}_{E1} &amp;= \hat{\mu} + \hat{A}_{E1} = \bar{Y}_{E1.}\\
+\hat{Y}_{E2} &amp;= \hat{\mu} + \hat{A}_{E2} = \bar{Y}_{E2.}
+\end{aligned}
+\]</span></p>
+<p>To fit this model in R, we use the <code>aov</code> function and then use another function to extract the estimated parameters. By specifying type = “effects”, the function returns the <span class="math inline">\(\hat{A_i}\)</span>’s</p>
+<p>This tells us that the average score for students in the control group is roughly 12% higher than the overall average<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. Both experimental groups performed worse, with students in the second group scoring, on average, about 11% less than the mean across all groups. We can also extract the overall mean and the treatment means by specifying type = “means”:</p>
+<p>The grand mean (i.e.&nbsp;average of all test scores) was 64% in this experiment. The control group scored on average 76% which is 12% higher than the overall mean and so on. So we have the estimates for the effects, grand mean and treatment means.</p>
+<p>The last parameter we need to estimate is the error variance <span class="math inline">\(\sigma^2\)</span>. Have a look at the formula again:</p>
+<p><span class="math display">\[ s^2 = \frac{1}{N-a}\sum_{ij}(Y_{ij} - \bar{Y}_{i.})^2 \]</span></p>
+<p>If we focus on the sum and break into sums of squares for each treatment <span class="math inline">\(i\)</span>, we get for the first treatment (let’s say that is the control group):</p>
+<p><span class="math display">\[ \sum_{j}(Y_{1j} - \bar{Y}_{1.})^2 \]</span> Which is the sum of the squared differences between the observations in the control group and the mean score of the control group. We can easily calculated that in R:</p>
+<p>First, we subset the data set for the scores in the control group. Then we find the mean and calculate the squared differences, which is all summed together to give the sums of squares for treatment group 1. We can repeat this for the remaining treatments and sum the three sum of squares together and divide by <span class="math inline">\(N-a\)</span> to get the MSE.</p>
+<p>Later we will see that we can extract this quantity easily from the ANOVA table. But for now, this is a useful exercise to make sure you understand the formula. So, <span class="math inline">\(\hat{\sigma^2} = s^2 = 200\)</span> (rounded off to the nearest integer) and <span class="math inline">\(\hat{\sigma} = s = 14\)</span>. This is the estimate of variance we will use to conduct an hypothesis to determine if there are any difference in the treatment means. Now you can see that it takes into account the variability of all our samples.</p>
+</section>
+<section id="standard-errors-and-confidence-intervals" class="level2 page-columns page-full" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="standard-errors-and-confidence-intervals"><span class="header-section-number">5.4</span> Standard errors and confidence intervals</h2>
+<p>In the previous section we saw how the parameters of the ANOVA model are estimated. We also need a measure of uncertainty for each of these estimates (in the form of a standard error, variance, or confidence interval). Let’s start with the variance of a treatment mean estimate:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>Variance, Standard Deviation and Standard Error: what’s all this again?</strong> The variance (Var) is a good way of measuring variability. The Standard Deviation (SD) is the square root of the variance of a sample or population. The Standard Error (SE) is the SD of an estimate (read that again).</p>
+</div></div><p><span class="math display">\[Var(\mu_i) = \frac{\sigma^2}{n_i} \]</span></p>
+<p>Remember that the sampling distribution of the mean is <span class="math inline">\(N(\mu,\frac{\sigma^2}{n})\)</span> and here we assumed that the groups have equal population variances.</p>
+<p>If we assume that two treatment means are independent, the variance of the difference between two means is:</p>
+<p><span class="math display">\[
+Var(\hat{\mu}_i - \hat{\mu}_j) = Var(\hat{\mu}_i) + Var(\hat{\mu}_j) = \frac{\sigma^2}{n_i} + \frac{\sigma^2}{n_j}
+\]</span></p>
+<p>To estimate these variances we substitute the MSE for <span class="math inline">\(\sigma^2\)</span> as it is an unbiased estimate of the error variance (the variability within each group). The standard errors of the estimates are found by taking the square root of the variances. The standard error is the standard deviation of an estimated quantity, and is a measure of its precision (uncertainty); how much it would vary in repeated sampling.</p>
+<p>We can assume normal distributions for our estimates because we have assumed a normal linear model and because they are means (or differences between means). This means that confidence intervals for the population treatment means are of the form:</p>
+<p><span class="math display">\[ \text{estimate} \pm t^{\alpha/2}_v \times \text{SE}(\text{estimate})\]</span></p>
+<p>where <span class="math inline">\(t^{\alpha/2}_v\)</span> is the <span class="math inline">\({\alpha/2}^{th}\)</span> percentile of the Student’s <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(v\)</span> degrees of freedom. The degrees of freedom are the error degrees of freedom, <span class="math inline">\(N-a\)</span> for CRD.</p>
+<p>What are the standard errors associated with the parameter estimates in the social media example? We can easily extract this by specifying an extra argument to the <code>model.tables</code> function.</p>
+<p>Standard error of the effects:</p>
+<p>and for the treatment means:</p>
+<p>So, now we have parameter estimates and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we fitted and the parameters we estimated, how do we test this? The answer is with an ANOVA table.</p>
+</section>
+<section id="summary" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.5</span> Summary</h2>
+<p>This chapter introduces the Completely Randomized Design (CRD) model and explains why ANOVA is preferred over multiple t-tests, which inflate the Type 1 Error rate.</p>
+<p>In ANOVA, each observation is modeled as:</p>
+<p><span class="math display">\[
+Y_{ij} = \mu + A_{i} + e_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the overall mean, <span class="math inline">\(A_{i}\)</span> is the treatment effect (difference between treatment mean <span class="math inline">\(\mu_i\)</span> and the overall mean), and <span class="math inline">\(e_{ij}\)</span> is random error which normally distributed with mean 0 and variance (<span class="math inline">\(\sigma^2\)</span>).</p>
+<p>Parameters are estimated using least squares, with the mean squares error (MSE) providing an estimate of variance (<span class="math inline">\(\sigma^2\)</span>).</p>
+<p>Applying ANOVA to the social media multitasking study, we estimated treatment means and effects together with their standard errors, setting the stage for hypothesis testing using an ANOVA table.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>As opposed to non-constant variance across all treatment groups: <span class="math inline">\(e_{ij} \sim N(0, \sigma^2_{i})\)</span> where the <span class="math inline">\(\sigma_i^2\)</span>’s are different.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="math inline">\(\mu = \frac{\sum\mu_i}{a}\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Often called <strong>Model I</strong>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>In statistics, sums of squares is a measure of variability and refers to squared deviations from a mean or expected value. For example, the residual sums of squares (sum of squared deviations of the observations from the fitted values).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>error = observed - fitted.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Another name for this is the residual sums of squares (RSS).<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Unbiased means that the expected value of these statistics equals the parameter being estimated. In other words, the statistic equals the true parameter on average.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Remember: <span class="math inline">\(\mu_i = \mu + A_i\)</span><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./05_CRD_Intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07_CRD_ANOVA.html" class="pagination-link" aria-label="Analysis of Variance">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

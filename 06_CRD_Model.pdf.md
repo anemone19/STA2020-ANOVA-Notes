@@ -43,14 +43,14 @@ We can change the notation slightly by arbitrarily dividing each mean into a sum
 
 [^06_crd_model-2]: $\mu = \frac{\sum\mu_i}{a}$
 
-\begin{equation}
+$$
 \begin{aligned}
 \mu_1 &= \mu + (\mu_1 - \mu) \\
 \mu_2 &= \mu + (\mu_2 - \mu) \\
 &\;\;\vdots \notag \\
 \mu_a &= \mu + (\mu_a - \mu)
 \end{aligned}
-\end{equation}
+$$
 
 The difference $(\mu_i - \mu)$ is the **effect of treatment** $i$, denoted by $A_i$. So each population mean is the sum of the overall mean and the part that we attribute to the particular treatment ($A_i$):
 
@@ -112,7 +112,7 @@ $$
 
 where
 
-\begin{equation}
+$$
 \begin{aligned}
 i & = 1, \dots, a \quad (a = \text{number of treatments}) \\
 j & = 1, \dots, r \quad (r = \text{number of replicates}) \\
@@ -121,7 +121,7 @@ Y_{ij} & = \text{observation of the } j^{th} \text{ unit receiving treatment } i
 A_i & = \text{effect of the } i^{th} \text{ level of treatment factor A} \\
 e_{ij} & = \text{random error with } e_{ij} \sim N(0, \sigma^2)
 \end{aligned}
-\end{equation}
+$$
 
 ::: {.callout-caution icon="false" collapse="false"}
 ## Comparison to regression
@@ -154,16 +154,13 @@ Each observation, $Y_{ij}$, is the sum of the overall mean ($\mu$), plus the eff
 
 
 $$
-\begin{equation}
 \begin{aligned}
 Y_{1j} &= \mu + A_1 + e_{1j} \\ 
 Y_{2j} &= \mu + A_2 + e_{2j} \\ 
 Y_{3j} &= \mu + A_3 + e_{3j} \\
-
 &\;\;\vdots \notag \\
 Y_{aj} &= \mu + A_a + e_{aj} \\
 \end{aligned}
-\end{equation}
 $$
 
 ## Estimation
@@ -221,32 +218,32 @@ $$ Y_{ij} = \mu + A_{i} + e_{ij}  $$
 
 where
 
-\begin{equation}
+$$
 \begin{aligned}
 i & = 1, \dots, 3  \\
 j & = 1, \dots, 40 \\
 \end{aligned}
-\end{equation}
+$$
 
 If we write the model out for each treatment, we get:
 
-\begin{equation}
+$$
 \begin{aligned}
 Y_{Cj} &= \mu + A_C + e_{Cj} \\ 
 Y_{E1j} &= \mu + A_{E1} + e_{E1j} \\ 
 Y_{E2j} &= \mu + A_{E2} + e_{E2j} \\
 \end{aligned}
-\end{equation}
+$$
 
 and when we fit the model to the data, the predicted means for the treatments are:
 
-\begin{equation}
+$$
 \begin{aligned}
 \hat{Y}_{C} &= \hat{\mu} + \hat{A}_C = \bar{Y}_{C.}\\ 
 \hat{Y}_{E1} &= \hat{\mu} + \hat{A}_{E1} = \bar{Y}_{E1.}\\ 
 \hat{Y}_{E2} &= \hat{\mu} + \hat{A}_{E2} = \bar{Y}_{E2.}
 \end{aligned}
-\end{equation}
+$$
 
 To fit this model in R, we use the `aov` function and then use another function to extract the estimated parameters. By specifying type = "effects", the function returns the $\hat{A_i}$'s
 
@@ -261,25 +258,6 @@ To fit this model in R, we use the `aov` function and then use another function 
 
 ::: {.cell}
 
-```{.r .cell-code}
-m1 <- aov(Posttest~Group, data = multitask)
-
-model.tables(m1, type = "effects")
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-Tables of effects
-
- Group 
-Group
-Control    Exp1    Exp2 
- 12.049  -0.703 -11.345 
-```
-
-
-:::
 :::
 
 
@@ -298,26 +276,6 @@ This tells us that the average score for students in the control group is roughl
 
 ::: {.cell}
 
-```{.r .cell-code}
-model.tables(m1, type = "means")
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-Tables of means
-Grand mean
-         
-63.58527 
-
- Group 
-Group
-Control    Exp1    Exp2 
-  75.63   62.88   52.24 
-```
-
-
-:::
 :::
 
 
@@ -342,12 +300,6 @@ $$ \sum_{j}(Y_{1j} - \bar{Y}_{1.})^2 $$ Which is the sum of the squared differen
 
 ::: {.cell}
 
-```{.r .cell-code}
-control_scores <- multitask$Posttest[multitask$Group == "Control"] # extract all scores for control group
-mean_control_scores <- mean(control_scores) # calculate bar Y_1. - that is the mean score for control group
-
-control_sum_squares <- sum((control_scores - mean_control_scores)^2) # calculate sum of squares (not square of sum!)
-```
 :::
 
 
@@ -364,35 +316,6 @@ First, we subset the data set for the scores in the control group. Then we find 
 
 ::: {.cell}
 
-```{.r .cell-code}
-# Expermiment 1 
-exp1_scores <- multitask$Posttest[multitask$Group == "Exp1"]
-mean_exp1_scores <- mean(exp1_scores)
-exp1_sum_squares <- sum((exp1_scores - mean_exp1_scores)^2)
-
-# Expermiment 2 
-exp2_scores <- multitask$Posttest[multitask$Group == "Exp2"]
-mean_exp2_scores <- mean(exp2_scores)
-exp2_sum_squares <- sum((exp2_scores - mean_exp2_scores)^2)
-
-# Total sums of sqaures
-sum_squares <- sum(control_sum_squares + exp1_sum_squares + exp2_sum_squares)
-
-N <- nrow(multitask) # number of observations overall
-a <- 3 # number of treatment groups 
-
-
-sum_squares/(N-a) # MSE 
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-[1] 200.1463
-```
-
-
-:::
 :::
 
 
@@ -439,28 +362,6 @@ Standard error of the effects:
 
 ::: {.cell}
 
-```{.r .cell-code}
-model.tables(m1, type = "effects", se = TRUE)
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-Tables of effects
-
- Group 
-Group
-Control    Exp1    Exp2 
- 12.049  -0.703 -11.345 
-
-Standard errors of effects
-        Group
-        2.237
-replic.    40
-```
-
-
-:::
 :::
 
 
@@ -477,31 +378,6 @@ and for the treatment means:
 
 ::: {.cell}
 
-```{.r .cell-code}
-model.tables(m1, type = "means", se = TRUE)
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-Tables of means
-Grand mean
-         
-63.58527 
-
- Group 
-Group
-Control    Exp1    Exp2 
-  75.63   62.88   52.24 
-
-Standard errors for differences of means
-        Group
-        3.163
-replic.    40
-```
-
-
-:::
 :::
 
 

@@ -9,14 +9,14 @@ $$
 where $Y_{ijk}$ is the $k^{th}$ observation on the $(ij)^{th}$ treatment combination and
 
 $$
-\begin{align*}
+\begin{aligned}
     Y_{ij} &= \text{observation on treatment } i \text{ in block } j \\
     \mu &= \text{general/overall mean} \\
     A_i &= \text{main effect of the } i^{th} \text{ level of A} \\
     A_i &= \text{main effect of the } j^{th} \text{ level of C} \\
     (AC)_{ij} &= \text{interaction between the }i^{th}\text{ level of A and the }j^{th}\text{ level of C.} \\
     e_{ijk} &= \text{random error with } e_{ijk} \sim N(0, \sigma^2) \\
-\end{align*}
+\end{aligned}
 $$
 
 **Note that (AC) is a single symbol and does not mean the interpaction is the product of the two main effects.**
@@ -341,10 +341,10 @@ $$ \text{Accuracy}_{ijk} = \mu + \text{Speed}_i + \text{Content.Type}_j + \text{
 where,
 
 $$
-\begin{align*}
+\begin{aligned}
     i &= 1,2\text{ and }j = 1,2\\
     e_{ijk} &= \text{random error with } e_{ijk} \sim N(0, \sigma^2) \\
-\end{align*}
+\end{aligned}
 $$
 
 In R, we fit the model like this:

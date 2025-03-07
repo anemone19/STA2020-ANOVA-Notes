@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>10&nbsp; Linear model &amp; ANOVA – STA2020 ANOVA Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./12_RCBD_Contrasts.html" rel="next">
+<link href="./11_RCBD_Assump.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="custom.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_RCBD_Intro.html">Randomised Block Designs</a></li><li class="breadcrumb-item"><a href="./10_RCBD_Model.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">STA2020 ANOVA Notes</a> 
+        <div class="sidebar-tools-main">
+    <a href="./STA2020-ANOVA-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_ModelConcepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_HypoTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A brief guideline to hypothesis testing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Experimental Design</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_ExpDesign_Why.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Experiments and experimental design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_ExpDesign_Term.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Terminology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_ExpDesign_RRR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The three R’s of experimental design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_ExpDesign_DesigningExp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Experiment</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Single Factor Completely Randomised Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_CRD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_CRD_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_CRD_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_CRD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Randomised Block Designs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Factorial Experiments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#linear-model" id="toc-linear-model" class="nav-link active" data-scroll-target="#linear-model">Linear model</a></li>
+  <li><a href="#sums-of-squares-and-analysis-of-variance" id="toc-sums-of-squares-and-analysis-of-variance" class="nav-link" data-scroll-target="#sums-of-squares-and-analysis-of-variance">Sums of squares and Analysis of variance</a></li>
+  <li><a href="#what-about-the-f-test-for-the-blocking-variable" id="toc-what-about-the-f-test-for-the-blocking-variable" class="nav-link" data-scroll-target="#what-about-the-f-test-for-the-blocking-variable">What about the F-test for the blocking variable?</a></li>
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_RCBD_Intro.html">Randomised Block Designs</a></li><li class="breadcrumb-item"><a href="./10_RCBD_Model.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="linear-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="linear-model">Linear model</h2>
+<p>We wish to compare <span class="math inline">\(a\)</span> treatments and have <span class="math inline">\(N\)</span> experimental units arranged in <span class="math inline">\(b\)</span> blocks each containing <span class="math inline">\(a\)</span> homogeneous experimental units: <span class="math inline">\(N = ab\)</span>. The <span class="math inline">\(a\)</span> treatments are assigned to the units in the <span class="math inline">\(j^{th}\)</span> block at random. The design (blocking and treatment factors and the randomisation) determine the structural part of the model.</p>
+<p>A linear model for the RBD is:</p>
+<p><span class="math display">\[Y_{ij} = \mu + A_i + B_j  +e_{ij}\]</span></p>
+<p>where,</p>
+<p><span class="math display">\[
+\begin{aligned}
+    Y_{ij} &amp;= \text{observation on treatment } i \text{ in block } j \\
+    i &amp;= 1, \dots, a \text{ and } j = 1, \dots, b \\
+    \mu &amp;= \text{general/overall mean} \\
+    A_i &amp;= \text{effect of the } i^{th} \text{ treatment} \\
+    B_j &amp;= \text{effect of the } j^{th} \text{ block} \\
+    e_{ij} &amp;= \text{random error with } e_{ij} \sim N(0, \sigma^2) \\
+    \sum_{i=1}^{a} A_i &amp;= \sum_{j=1}^{b} B_j = 0
+\end{aligned}
+\]</span></p>
+<p>This model says that each observation is made up of an overall mean, a treatment effect, a block effect, and an error part. The block effect is interpreted in the same way as the treatment effect, it is the difference between block mean <span class="math inline">\(j\)</span> and the overall mean <span class="math inline">\(\mu\)</span>.</p>
+<p>It also says that these effects are additive. Additivity means that the effect of the <span class="math inline">\(i^{th}\)</span> treatment on the response (<span class="math inline">\(A_i\)</span>) is the same regardless of the block in which the treatment is used. Similarly, the effect of the <span class="math inline">\(j^{th}\)</span> block is the same (<span class="math inline">\(B_j\)</span>) regardless of the treatment. The additional constraint of <span class="math inline">\(\sum_{j=1}^{b} \beta_j = 0\)</span> follows the same logic as explained before.</p>
+<p>Let’s fit this model to the Pygmalion data. For the Pygmalion experiment, the researchers compared control to Pygmalion treatment so we have <span class="math inline">\(a=2\)</span> treatments. The number of blocks, <span class="math inline">\(b\)</span>, was 10. In R, on the right-hand-side of the formula, we have the treatment factor + blocking factor. The code looks exactly the same as before, except we <strong>add</strong> the Company (blocking) variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pyg_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Score <span class="sc">~</span> Treat <span class="sc">+</span> Company, <span class="at">data =</span> pyg_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can again extract the model estimates with <code>model.table</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(pyg_model, <span class="at">type =</span> <span class="st">"means"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of means
+Grand mean
+      
+73.31 
+
+ Treat 
+Treat
+  Control Pygmalion 
+    67.92     78.70 
+
+ Company 
+Company
+   C1   C10    C2    C3    C4    C5    C6    C7    C8    C9 
+71.60 73.70 73.50 72.20 68.00 80.85 84.35 68.35 69.65 70.90 
+
+Standard errors for differences of means
+        Treat Company
+        3.126   6.990
+replic.    10       2</code></pre>
+</div>
+</div>
+<p>First we see the grand mean of 73.31 followed by the treatment means. Then, we have ten block means, these are the mean scores within each block. Lastly, we see the standard errors for the differences of means.</p>
+</section>
+<section id="sums-of-squares-and-analysis-of-variance" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="sums-of-squares-and-analysis-of-variance">Sums of squares and Analysis of variance</h2>
+<p>Now we have three sources of variability: differences between treatments, differences between blocks and experimental error. The total sum of squares can be split into three sums of squares: for treatments, blocks, and error respectively.</p>
+<p><span class="math display">\[
+SS_{total} = SS_A + SS_B + SSE
+\]</span></p>
+<p>with degrees of freedom</p>
+<p><span class="math display">\[
+(ab - 1) = (a - 1) + (b - 1) + (a - 1)(b - 1)
+\]</span></p>
+<p>The advantage of blocking becomes apparent here. If we had not blocked, i.e.&nbsp;used a completely randomised design, for example, the <span class="math inline">\(SS_A\)</span> (sums of squares for treatment) would be the same. However, in the completely randomised design, we would not be able to separate <span class="math inline">\(SS_B\)</span> from <span class="math inline">\(SSE\)</span> and the combined <span class="math inline">\(SSE\)</span> would therefore be larger.</p>
+<p>When using a RBD, part of the unexplained variation is now explained and can be captured in the block sum of squares, <span class="math inline">\(SS_B\)</span>. A small <span class="math inline">\(SSE\)</span> has the advantage of smaller standard errors, i.e.&nbsp;more precise estimates (for treatment effects and treatment means) and thus it is easier to detect differences between treatments.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>You can think of the SSE as the variability among experimental units that cannot be accounted for by blocks or treatments.</p>
+</div></div><p>The sums of squares are summarised in an ANOVA table.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>SS</th>
+<th>df</th>
+<th>MS</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treatments A</td>
+<td><span class="math inline">\(SS_A = b \sum_i (\bar{Y}_i - \bar{Y}_{..})^2\)</span></td>
+<td><span class="math inline">\((a - 1)\)</span></td>
+<td><span class="math inline">\(\frac{SS_A}{(a-1)}\)</span></td>
+<td><span class="math inline">\(\frac{MS_A}{MSE}\)</span></td>
+</tr>
+<tr class="even">
+<td>Blocks B</td>
+<td><span class="math inline">\(SS_B = a \sum_j (\bar{Y}_j - \bar{Y}_{..})^2\)</span></td>
+<td><span class="math inline">\((b - 1)\)</span></td>
+<td><span class="math inline">\(\frac{SS_B}{(b-1)}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Error</td>
+<td><span class="math inline">\(SSE = \sum_{ij} (Y_{ij} - \bar{Y}_{i.} - \bar{Y}_{.j} + \bar{Y}_{..})^2\)</span></td>
+<td><span class="math inline">\((a - 1)(b - 1)\)</span></td>
+<td><span class="math inline">\(\frac{SSE}{(a-1)(b-1)}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td><span class="math inline">\(SS_{total} = \sum (Y_{ij} - \bar{Y}_{..})^2\)</span></td>
+<td><span class="math inline">\(ab - 1\)</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Much of the table remains the same as in a one-way ANOVA, but now it includes an additional row for the blocking variable. The sum of squares for the blocking factor is calculated similarly to that of the treatment factor—by summing the squared deviations of observations within each block from the block’s mean response. The residual sum of squares is also slightly different, but you don’t need to worry too much about that<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Since the total SS is simply the sum of the treatment, block, and residual SS, you can always compute SSE by subtraction.</p>
+<p>From this ANOVA table, we can test the hypothesis of no differences between the treatment means as before.</p>
+<p><span class="math display">\[H_0: \mu_! = \mu_2 = \ldots =\mu_a\]</span></p>
+<p>Which is equivalent to testing:</p>
+<p><span class="math display">\[
+H_0 : \alpha_1 = \alpha_2 = \dots = \alpha_a = 0
+\]</span></p>
+<p>using the F-test which compares the mean square for treatments with the mean square for error:</p>
+<p><span class="math display">\[
+F = \frac{MS_A}{MSE} \sim F_{a-1, (a-1)(b-1)}
+\]</span></p>
+<p>Notice the degrees of freedom!</p>
+<p>What does the ANOVA table look like for the Pygmalion data? Again, we use the <code>summary</code> function on the model object to obtain the table.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pyg_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+Treat        1  581.0   581.0   11.89 0.00729 **
+Company      9  510.2    56.7    1.16 0.41433   
+Residuals    9  439.8    48.9                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Let’s first look at the degrees of freedom:</p>
+<ul>
+<li>We had <span class="math inline">\(a \times b = 2 \times 10 = 20\)</span> experimental units, so we should have <span class="math inline">\(a \times b - 1\)</span> total degrees of freedom.</li>
+<li>The treatment degrees of freedom are <span class="math inline">\(a-1 = 2-1 = 1\)</span> and similarity, there are <span class="math inline">\(b-1 = 10 -1=9\)</span> degrees of freedom of the block effect.</li>
+<li>That leaves <span class="math inline">\((a-1)(b-1) = 1 \times 9\)</span> degrees of freedom for the error term.</li>
+</ul>
+<p>It is always a good idea to check that the df’s match with what you expected them to be. One serious error that happens easily is one of the factor is fitted as continuous covariate because the levels were labelled using numbers. Hence why we converted the categorical variables (Treat and Company) to factors.</p>
+<p>The next column lists the sums of squares for the three components. The mean squares are calculated as <span class="math inline">\(\frac{SS}{df}\)</span>, e.g.&nbsp;<span class="math inline">\(\frac{581}{1} = 581\)</span> for the treatment. The <span class="math inline">\(F\)</span>-value for the treatment variable is the ratio of <span class="math inline">\(MS_{treat}\)</span> to the <span class="math inline">\(MSE\)</span>. This is the same as in the one-way ANOVA. R then looks up the corresponding p-value, which is <span class="math inline">\(0.00729\)</span>.</p>
+<p>So we have an very small p-value which means that we have strong evidence against our null hypothesis of equal treatment means. We cannot conclude that the effects are equal to zero. There is evidence to suggest that at least one treatment resulted in a different mean score. Here, because we have two treatments, the results indicate that the data are not compatible with a null hypothesis of equal means. We make the following conclusion:</p>
+<p>“There is evidence to suggest that the two treatment means are different (<span class="math inline">\(F = 11.89\)</span>, <span class="math inline">\(p = 0.0073\)</span>).”</p>
+<p>If we had more than two treatment means as is usually the case, we would conclude:</p>
+<p>“There is evidence to suggest that at least one treatment resulted in a different mean response, there is evidence for a treatment effect (<span class="math inline">\(F = 11.89\)</span>, <span class="math inline">\(p = 0.0073\)</span>).”</p>
+<p>There are many different ways to say that there is a difference somewhere. For example:</p>
+<ul>
+<li>One or more treatments had a mean response that differed from the others.</li>
+<li>Not all treatment means are the same; at least one is significantly different.</li>
+<li>The results indicate that not all treatment means are equal.</li>
+</ul>
+<p>You get the idea! As long as it is clear that a ‘significant’ result indicates that there is a difference somewhere, we don’t know where, but there is evidence for a treatment effect.</p>
+</section>
+<section id="what-about-the-f-test-for-the-blocking-variable" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="what-about-the-f-test-for-the-blocking-variable">What about the F-test for the blocking variable?</h2>
+<p>We see that the blocks accounted for a similar fraction of the sums of squares as the other two components (just over a third). If we did not block, this variation would be part of the SSE but then the error degrees of freedom would also be larger (the 9 degrees of freedom would be part of the error degrees of freedom). In fact, here, the blocking did not significantly reduce the unexplained variability, since the F-value is close to one. The variability explained by the blocks is close to what would be expected due to random noise.</p>
+<p>Remember, we aren’t particularity interested in formal inference about block effects (we knew or suspected that they were different) and we should always be careful about interpreting the F-test for the blocking variable (as blocks typically cannot be randomised to experimental units - see the previous chapter). We might, however, be interested in whether blocking increased the efficiency of the design by reducing the unexplained variation (SSE). There exists a more thorough method of assessing the relative efficiency of blocking - that is, relative to if a simpler design (i.e.&nbsp;CRD) was used instead<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Here, however, we focus on a simple and quick check of block efficiency using the F-ratio.</p>
+<p>We would like the block factor to explain a lot of variation. If the mean square of the blocking variable is larger than the error mean square we conclude that blocking was effective (compared to a CRD).</p>
+<ul>
+<li><p>If <span class="math inline">\(F &gt; 1\)</span> then blocking did reduce unexplained error variance.</p></li>
+<li><p>If <span class="math inline">\(F \approx 1\)</span> then the blocks did not improve the power of the experiment and you would have been equally well off with a CRD.</p></li>
+<li><p>If <span class="math inline">\(F&lt;1\)</span> which happens rarely, it means that blocking did not account for much of the variability because experimental units within blocks are more heterogeneous than between blocks (or there are strong interactions between blocks and treatments). Blocks actually reduced the power of the experiment but this should really not happen if you choose your blocks sensibly.</p></li>
+</ul>
+<p>If blocking was not efficient, we would still leave the block factor in the model (<strong>design dictates analysis</strong>), but we might decide not to use blocking in a similar experiment in the future because it didn’t assist in reducing experimental error variance and only cost us degrees of freedom.</p>
+</section>
+<section id="estimation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="estimation">Estimation</h2>
+<p>To obtain estimates for the treatment and block effects, we minimize the error sum of squares (method of least squares).</p>
+<p><span class="math display">\[
+SSE = \sum_i \sum_j (Y_{ij} - \mu - A_i - B_j)^2
+\]</span></p>
+<p><span class="math inline">\(Y_{ij} - \mu - \alpha_i - \beta_j\)</span> is the observed value minus the expected value (the structural part of the model). This difference is just the error <span class="math inline">\(e_{ij}\)</span>. If we minimise the error sum of squares we obtain the following estimates:</p>
+<p><span class="math display">\[
+\hat{\mu} = \bar{Y}_{..}
+\]</span></p>
+<p><span class="math display">\[
+\hat{A_i} = \bar{Y}_{i.} - \bar{Y}_{..}, \quad i = 1 \dots a
+\]</span></p>
+<p><span class="math display">\[
+\hat{B_j} = \bar{Y}_{.j} - \bar{Y}_{..}, \quad j = 1 \dots b
+\]</span></p>
+<p>To estimate the <span class="math inline">\(i^{th}\)</span> treatment effect we take the observed treatment mean minus the overall mean, similarly to obtain block effect estimates.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-kuehl2000design" class="csl-entry" role="listitem">
+Kuehl, Robert O. 2000. <span>“Design of Experiments: Statistical Principles of Research Design and Analysis.”</span> <em>(No Title)</em>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>You can easily get there by rearranging the model equation so that <span class="math inline">\(e_{ij}\)</span> is on the right-hand-side, replacing the effects with the difference in terms of means and simplifying.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="citation" data-cites="kuehl2000design">Kuehl (<a href="#ref-kuehl2000design" role="doc-biblioref">2000</a>)</span> wrote a great textbook (freely available) that explains the relative efficiency check in detail.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11_RCBD_Assump.html" class="pagination-link" aria-label="Assumptions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./12_RCBD_Contrasts.html" class="pagination-link" aria-label="Contrasts">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

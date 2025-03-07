@@ -5,7 +5,8 @@ project:
 book:
   title: "STA2020 ANOVA Notes"
   author: "Ané Cloete"
-  date: "12/17/2024"
+  downloads: [pdf]
+  search: true
   chapters:
     - index.qmd
     - 00_ModelConcepts.qmd
@@ -24,7 +25,21 @@ book:
         - 07_CRD_ANOVA.qmd
         - 08_CRD_Contrasts.qmd
     
- 
+    - part: "Randomised Block Designs"
+      chapters:
+        - 09_RCBD_Intro.qmd
+        - 11_RCBD_Assump.qmd
+        - 10_RCBD_Model.qmd
+        - 12_RCBD_Contrasts.qmd
+
+    - part: "Factorial Experiments"
+      chapters:
+        - 13_FE_Intro.qmd
+        - 15_FE_Inter.qmd
+        - 14_FE_Model.qmd
+        - 16_FE_ANOVA.qmd
+        - 17_FE_Contrasts.qmd
+
 bibliography: references.bib
 
 format:
@@ -42,4 +57,5 @@ format:
     link-citations: true
     highlight-style: tango  # Improves syntax highlighting
     keep-md: true
+
 

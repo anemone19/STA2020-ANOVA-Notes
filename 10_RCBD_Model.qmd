@@ -17,7 +17,7 @@ $$Y_{ij} = \mu + A_i + B_j  +e_{ij}$$
 where,
 
 $$
-\begin{align*}
+\begin{aligned}
     Y_{ij} &= \text{observation on treatment } i \text{ in block } j \\
     i &= 1, \dots, a \text{ and } j = 1, \dots, b \\
     \mu &= \text{general/overall mean} \\
@@ -25,7 +25,7 @@ $$
     B_j &= \text{effect of the } j^{th} \text{ block} \\
     e_{ij} &= \text{random error with } e_{ij} \sim N(0, \sigma^2) \\
     \sum_{i=1}^{a} A_i &= \sum_{j=1}^{b} B_j = 0
-\end{align*}
+\end{aligned}
 $$
 
 This model says that each observation is made up of an overall mean, a treatment effect, a block effect, and an error part. The block effect is interpreted in the same way as the treatment effect, it is the difference between block mean $j$ and the overall mean $\mu$.
