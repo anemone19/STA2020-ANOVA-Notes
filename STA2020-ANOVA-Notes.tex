@@ -768,11 +768,6 @@ experiment controls and holds constant (as best we can) all other
 factors that might affect the response, so we can be sure the result is
 caused by the variable we manipulated.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Establishing causality through observation is possible, but a bit more
-difficult.}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
-
-\end{tcolorbox}
-
 Imagine a company wants to determine whether their voluntary employee
 training program (the explanatory variable) increases productivity (the
 response). They decide to track the productivity of employees who chose
@@ -838,6 +833,29 @@ Here are some other reasons for conducting experiments:
 Experimental studies and their design are fundamental to science,
 allowing us to further knowledge and test theories. So lets define them
 more rigorously. We'll start by introducing some terminology.
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Establishing causality through observation is possible, but a bit more
+difficult.}, arc=.35mm, titlerule=0mm, opacityback=0]
+
+Experiments are the most reliable way to establish causation because
+they involve direct manipulation of variables and control for other
+factors that might influence the outcome. By ensuring that differences
+in results are due to the specific factor being studied, experiments
+help avoid misleading conclusions caused by external influences or
+chance associations.
+
+However, in some cases, causation can still be inferred from
+observational studies, especially when there is a well-understood
+relationship between cause and effect, consistent patterns across
+different settings, and no plausible alternative explanations. For
+example, the link between smoking and lung cancer was established
+through observational data, where researchers accounted for other
+possible influences and found strong, consistent evidence that smoking
+increases cancer risk. While experiments are preferred, careful analysis
+and logical reasoning can sometimes provide enough evidence for causal
+claims without direct intervention.
+
+\end{tcolorbox}
 
 \section*{Key points}\label{key-points}
 \addcontentsline{toc}{section}{Key points}
@@ -914,7 +932,7 @@ represent the treatments, which are specific combinations of the levels
 of Temperature and Pressure. Each treatment is labeled with the
 corresponding combination of levels (e.g., `50, Low' or `10, High').
 
-\begin{tcolorbox}[enhanced jigsaw, title={Example 1}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Example 1}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Three groups of students, 5 in each group, were receiving therapy for
 severe test anxiety. Group 1 received 5 hours, group 2 received 10 hours
@@ -1051,7 +1069,7 @@ each block is its own mini-experiment. This way we account for the
 differences between blocks and can better isolate the effect of the
 treatments.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Example 2}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Example 2}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Imagine you're testing the effectiveness of two marketing strategies (A
 and B) to increase sales at a chain of coffee shops. The coffee shops
@@ -1120,7 +1138,7 @@ have the following summary:
   \textbf{Replicates:} 5
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Creating a summary like this, is a handy exercise for any experiment you
 come across, and we'll keep doing it for every experiment in this book.
@@ -1259,8 +1277,8 @@ obtain a randomisation using the function \texttt{sample}.
 \end{Shaded}
 
 \begin{verbatim}
- [1] "D" "D" "C" "A" "D" "C" "B" "D" "A" "D" "B" "D" "C" "C" "B" "C" "B" "A" "D"
-[20] "D" "A" "B" "A" "B" "A" "B" "A" "C" "A" "B" "C" "C"
+ [1] "C" "D" "A" "B" "B" "C" "A" "B" "A" "D" "C" "C" "A" "D" "D" "C" "C" "B" "D"
+[20] "C" "C" "B" "B" "A" "B" "D" "D" "B" "A" "A" "A" "D"
 \end{verbatim}
 
 Experimental unit 1 recipes the first treatment that appears as the
@@ -1433,7 +1451,7 @@ In an era of perceived multitasking, where devices and distractions
 dominate our attention, it's worth asking: Does social media
 multitasking impact academic performance of students?
 
-\begin{tcolorbox}[enhanced jigsaw, title={Example 5.1}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Example 5.1}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Two researchers from Turkey, Demirbilek and Talan
 (\citeproc{ref-multitask2018}{2018}), conducted a study to try and
@@ -1986,7 +2004,7 @@ not met. The robustness of ANOVA is as follows:
   ANOVA is not very resistant to severely outlying observations either.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Note}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Note}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2079,7 +2097,7 @@ of tests (if you want to know more see the box below). To avoid this, we
 will use the ANOVA method which was specifically developed for comparing
 multiple means.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Multiple Testing / Comparisons}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, title={Multiple Testing / Comparisons}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 When we conduct a test, there is always a possibility that a significant
 result is due to chance and not actually a real difference. In first
@@ -2176,7 +2194,7 @@ overall mean and the part that we attribute to the particular treatment
 
 where \(\sum A_i = 0\).
 
-\begin{tcolorbox}[enhanced jigsaw, title={Why the \(\sum A_i = 0\) constraint?}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, title={Why the \(\sum A_i = 0\) constraint?}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 This constraint ensures that the treatment effects are expressed as
 deviations from the overall mean. To see why this holds, take the sum of
@@ -2245,7 +2263,7 @@ e_{ij} & = \text{random error with } e_{ij} \sim N(0, \sigma^2)
 \end{aligned}
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, title={Comparison to regression}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, title={Comparison to regression}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 If you wanted to, you could rewrite this with the regression notation
 you've encountered before as a regression model with a single
@@ -2377,7 +2395,7 @@ observations and have estimated \(a\) means. If you look at the formula
 you'll notice that it is an average of the observed variability from the
 different treatment groups.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Compare this with regression}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, title={Compare this with regression}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Compare this with the equations you saw in the regression section.
 Barring the extra subscript, the only difference is the equation for
@@ -2646,9 +2664,9 @@ three species had the same mean in the two experiments. However, the
 measurements were much more variable in Experiment 2 than in Experiment
 1.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Which experiment has better evidence that the true mean NO\(_3\) removal
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, title={Which experiment has better evidence that the true mean NO\(_3\) removal
 rate differs between species? \textbf{Pause and think about this before
-reading on.}}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm]
+reading on.}}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Intuitively, we would say that Experiment 1 shows much stronger evidence
 for a true effect than Experiment 2. Why? Both experiments show the same
@@ -3207,7 +3225,7 @@ distribution, there is a 33\% chance of observing this test statistic or
 more extreme if the null hypothesis is true. We do not have strong
 evidence against the null hypothesis of equal means.
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Caution}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Caution}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 A large p-value does not mean that \(H_0\) is true!
 
@@ -3228,7 +3246,7 @@ A large p-value does not mean that \(H_0\) is true!
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 You can round the p-value if you need to enter the value to a certain
 number of decimals in a quiz or test using the function \texttt{round}.
@@ -3354,7 +3372,7 @@ students?}\label{conclusion-does-social-media-multitasking-impact-academic-perfo
 Let's revisit the real experiment we started this section with. I repeat
 the experiment description below.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Example 5.1}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Example 5.1}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Two researchers from Turkey, Demirbilek and Talan
 (\citeproc{ref-multitask2018}{2018}), conducted a study to try and
@@ -3911,7 +3929,7 @@ be much more cautious when inferring causality from block-level
 differences or from any factor that we cannot randomise (as is the case
 in observational studies).
 
-\begin{tcolorbox}[enhanced jigsaw, title={Example of observational study}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Example of observational study}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Suppose we are studying whether different music streaming platforms
 (e.g., Spotify, Apple Music, YouTube Music) influence a song's
@@ -4065,7 +4083,7 @@ treatments to the units within one block like this:
 
 \begin{verbatim}
      [,1] [,2] [,3] [,4]
-[1,] "2"  "1"  "3"  "4" 
+[1,] "3"  "2"  "4"  "1" 
 [2,] "A"  "B"  "C"  "D" 
 \end{verbatim}
 
@@ -4109,7 +4127,7 @@ They achieved this by applying the high expectation to an entire group
 and not selected individuals within a group. Let's have a look the exact
 experiment!
 
-\begin{tcolorbox}[enhanced jigsaw, title={Example: The Pygmalion Effect in Military Training}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Example: The Pygmalion Effect in Military Training}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 A study conducted by Eden (1990) examined whether raising leaders'
 expectations of their trainees would enhance performance, without
@@ -5282,18 +5300,18 @@ Completely Randomized Design (CRD) as follows:
 
 \begin{verbatim}
            r1    
- [1,] "1"  "m1p0"
- [2,] "2"  "m1p1"
- [3,] "3"  "m0p1"
- [4,] "4"  "m0p1"
- [5,] "5"  "m1p1"
- [6,] "6"  "m0p0"
- [7,] "7"  "m0p0"
- [8,] "8"  "m0p1"
- [9,] "9"  "m0p0"
-[10,] "10" "m1p1"
+ [1,] "1"  "m0p1"
+ [2,] "2"  "m1p0"
+ [3,] "3"  "m0p0"
+ [4,] "4"  "m0p0"
+ [5,] "5"  "m0p0"
+ [6,] "6"  "m1p1"
+ [7,] "7"  "m0p1"
+ [8,] "8"  "m1p1"
+ [9,] "9"  "m1p1"
+[10,] "10" "m1p0"
 [11,] "11" "m1p0"
-[12,] "12" "m1p0"
+[12,] "12" "m0p1"
 \end{verbatim}
 
 This code assigns treatments randomly and prints the experimental unit
@@ -5312,7 +5330,7 @@ lecture at double speed, is there difference in comprehension? to answer
 this question, researchers from the University of California conducted a
 \(2\times2\) factorial experiment.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Lecture modality and playback speed}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Lecture modality and playback speed}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Chen et al. (\citeproc{ref-chen2024effect}{2024}) conducted an
 experiment to find out whether visual information improves comprehension
@@ -5585,7 +5603,7 @@ to see how many words they actually remembered. The researchers wanted
 to find out if walking before studying could boost memory and whether
 students were aware of any benefits.
 
-\begin{tcolorbox}[enhanced jigsaw, title={Warning}, opacitybacktitle=0.6, breakable, titlerule=0mm, left=2mm, leftrule=.75mm, opacityback=0, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, toprule=.15mm, coltitle=black, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, toprule=.15mm, bottomtitle=1mm, breakable, leftrule=.75mm, rightrule=.15mm, left=2mm, colback=white, coltitle=black, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, title={Warning}, arc=.35mm, titlerule=0mm, opacityback=0]
 
 Salas, Minakata, and Kelemen (\citeproc{ref-walking2011}{2011})
 conducted a study to examine whether a brief bout of aerobic exercise

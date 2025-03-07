@@ -63,8 +63,8 @@ rand1
 ::: {.cell-output .cell-output-stdout}
 
 ```
- [1] "D" "D" "C" "A" "D" "C" "B" "D" "A" "D" "B" "D" "C" "C" "B" "C" "B" "A" "D"
-[20] "D" "A" "B" "A" "B" "A" "B" "A" "C" "A" "B" "C" "C"
+ [1] "C" "D" "A" "B" "B" "C" "A" "B" "A" "D" "C" "C" "A" "D" "D" "C" "C" "B" "D"
+[20] "C" "C" "B" "B" "A" "B" "D" "D" "B" "A" "A" "A" "D"
 ```
 
 

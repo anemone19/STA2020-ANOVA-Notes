@@ -4,17 +4,6 @@ There are two fundamental ways to obtain information in research: by *observatio
 
 That is, by designing and conducting an experiment properly, if we observe a result such as a change in variable A leads to a change in our response (say variable B), we can confidently conclude that A **caused** this change in B. If we were to merely study variable B and observe that as variable A changes, B also changes without conducting an experiment, then we can only say that variable A and B are associated. We could not easily conclude that any change in B is due to A. It could be some other factor that is correlated with A or it could be that B caused the change in A! The key is that a well-designed experiment controls and holds constant (as best we can) all other factors that might affect the response, so we can be sure the result is caused by the variable we manipulated.
 
-::: {#warning-example1 .callout-warning icon="false"}
-
-## Establishing causality through observation is possible, but a bit more difficult. 
-
-Experiments are the most reliable way to establish causation because they involve direct manipulation of variables and control for other factors that might influence the outcome. By ensuring that differences in results are due to the specific factor being studied, experiments help avoid misleading conclusions caused by external influences or chance associations.
-
-However, in some cases, causation can still be inferred from observational studies, especially when there is a well-understood relationship between cause and effect, consistent patterns across different settings, and no plausible alternative explanations. For example, the link between smoking and lung cancer was established through observational data, where researchers accounted for other possible influences and found strong, consistent evidence that smoking increases cancer risk. While experiments are preferred, careful analysis and logical reasoning can sometimes provide enough evidence for causal claims without direct intervention.
-:::
-
-
-
 Imagine a company wants to determine whether their voluntary employee training program (the explanatory variable) increases productivity (the response). They decide to track the productivity of employees who chose to complete the training and those who did not. They note that, on average, trained employees are more productive. Can we confidently conclude that the training program caused increased productivity?
 
 This is an observational study since no variable was actively manipulated, they merely observed and recorded the productivity of two groups of employees. So, we cannot conclude that completing the training program increases productivity - we cannot infer causality. It could be due to many other factors, either observed or unobserved, such as maybe employees who choose to do the training program are inherently more motivated and thus productive. Can you think of any other factors?
@@ -32,6 +21,15 @@ Here are some other reasons for conducting experiments:
 3.  In an experiment we can choose exactly those settings or **treatment levels** we are interested in, e.g. we can investigate the effect of different shift lengths (6, 8 or 9 hours) on employee productivity or test specific price points (R100, R150, R200) to determine which price maximizes sales or revenue. We can actively manipulate the variable(s) to the levels we are interested in.
 
 Experimental studies and their design are fundamental to science, allowing us to further knowledge and test theories. So lets define them more rigorously. We'll start by introducing some terminology.
+
+::: {#warning-example1 .callout-warning icon="false"}
+
+## Establishing causality through observation is possible, but a bit more difficult. 
+
+Experiments are the most reliable way to establish causation because they involve direct manipulation of variables and control for other factors that might influence the outcome. By ensuring that differences in results are due to the specific factor being studied, experiments help avoid misleading conclusions caused by external influences or chance associations.
+
+However, in some cases, causation can still be inferred from observational studies, especially when there is a well-understood relationship between cause and effect, consistent patterns across different settings, and no plausible alternative explanations. For example, the link between smoking and lung cancer was established through observational data, where researchers accounted for other possible influences and found strong, consistent evidence that smoking increases cancer risk. While experiments are preferred, careful analysis and logical reasoning can sometimes provide enough evidence for causal claims without direct intervention.
+:::
 
 ## Key points {.unnumbered}
 
