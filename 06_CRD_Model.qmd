@@ -248,12 +248,14 @@ $$
 To fit this model in R, we use the `aov` function and then use another function to extract the estimated parameters. By specifying type = "effects", the function returns the $\hat{A_i}$'s
 
 ```{r, echo = FALSE}
-
+multitask <- read.csv("Datasets/multitask_performance.csv")
 ```
 
 ```{r modelfit}
 
+m1 <- aov(Posttest~Group, data = multitask)
 
+model.tables(m1, type = "effects")
 
 
 ```
@@ -264,8 +266,7 @@ This tells us that the average score for students in the control group is roughl
 
 ```{r means}
 
-
-
+model.tables(m1, type = "means")
 
 ```
 
@@ -281,6 +282,10 @@ $$ \sum_{j}(Y_{1j} - \bar{Y}_{1.})^2 $$ Which is the sum of the squared differen
 
 ```{r}
 
+control_scores <- multitask$Posttest[multitask$Group == "Control"] # extract all scores for control group
+mean_control_scores <- mean(control_scores) # calculate bar Y_1. - that is the mean score for control group
+
+control_sum_squares <- sum((control_scores - mean_control_scores)^2) # calculate sum of squares (not square of sum!)
 
 
 ```
@@ -289,7 +294,24 @@ First, we subset the data set for the scores in the control group. Then we find 
 
 ```{r}
 
+# Expermiment 1 
+exp1_scores <- multitask$Posttest[multitask$Group == "Exp1"]
+mean_exp1_scores <- mean(exp1_scores)
+exp1_sum_squares <- sum((exp1_scores - mean_exp1_scores)^2)
 
+# Expermiment 2 
+exp2_scores <- multitask$Posttest[multitask$Group == "Exp2"]
+mean_exp2_scores <- mean(exp2_scores)
+exp2_sum_squares <- sum((exp2_scores - mean_exp2_scores)^2)
+
+# Total sums of sqaures
+sum_squares <- sum(control_sum_squares + exp1_sum_squares + exp2_sum_squares)
+
+N <- nrow(multitask) # number of observations overall
+a <- 3 # number of treatment groups 
+
+
+sum_squares/(N-a) # MSE 
 
 ```
 
@@ -326,13 +348,13 @@ What are the standard errors associated with the parameter estimates in the soci
 Standard error of the effects:
 
 ```{r}
-
+model.tables(m1, type = "effects", se = TRUE)
 ```
 
 and for the treatment means:
 
 ```{r}
-
+model.tables(m1, type = "means", se = TRUE)
 ```
 
 So, now we have parameter estimates and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we fitted and the parameters we estimated, how do we test this? The answer is with an ANOVA table.
