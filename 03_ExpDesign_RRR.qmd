@@ -10,7 +10,7 @@ Confounding means that is not possible to separate the effects of two (or more) 
 
 Consider the first row of the data from Example 1. It looks like the student in group 2 scored the highest, followed by group 3 and then group 1. So does longer therapy sessions lead to higher test anxiety? Likely not! With only one student per treatment, we are not able to say that any differences in the response are due to the treatments. It could be due to any differences between the individuals. Maybe the student in group 3 tends to score higher on anxiety tests regardless of the treatment, or perhaps the student in group 1 was unusually calm that day. Without replication, these individual differences could mask (or mimic) the true effects of the treatments.
 
-By replicating the treatments across multiple students, we can average out these individual differences and gain a clearer picture of whether therapy duration truly impacts test anxiety. With five students per group, we might observe that group 1 consistently scores lower than group 3. This consistency would provide stronger evidence that the treatments, and not just individual variation, are responsible for the observed differences. So by replication, we can compare within treatment variation to variation between treatments.
+By replicating the treatments across multiple students, we can quantify these individual differences and gain a clearer picture of whether therapy duration truly impacts test anxiety. With five students per group, we might observe that group 1 consistently scores lower than group 3. This consistency would provide stronger evidence that the treatments, and not just individual variation, are responsible for the observed differences. So by replication, we can compare within treatment variation to variation between treatments.
 
 | Treatment 1 | Treatment 2 | Treatment 3 |
 |:-----------:|:-----------:|:-----------:|
@@ -25,6 +25,8 @@ By replicating the treatments across multiple students, we can average out these
 
 <!-- Maybe the co2 uptake data? -->
 <!-- ::: -->
+
+Replication ensures that the variation between two or more experimental units receiving the same treatment can be estimated and valid comparisons can be made between treatments. In other words, replication allows us to separate variation due to differences between treatments from variation within treatments. 
 
 ## Randomisation {.unnumbered}
 
