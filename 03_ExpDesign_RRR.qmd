@@ -1,8 +1,8 @@
-# The three R's of experimental design {.unnumbered}
+# The three R's of experimental design 
 
 **Experimental Design** is a detailed procedure for grouping, if blocking is necessary, experimental units and for how treatments are assigned to the experimental units. There are three fundamental principles, known as the 'three R's of experimental design' which are at the core of a good experiment. The following section might feel a bit repetitive, but these concepts cannot be emphasised enough.
 
-## Replication
+## Replication {.unnumbered}
 
 Let's define it again: replication is when each treatment is applied to several experimental units. This ensures that the variation between two or more units receiving the same treatment can be estimated and valid comparisons can be made between treatments. In other words, replication allows us to separate variation due to differences between treatments from variation within treatments. For true replication, each treatment should be **independently** applied to several experimental units. If this is not the case, treatment effects become confounded with other factors.
 
@@ -26,7 +26,7 @@ By replicating the treatments across multiple students, we can average out these
 <!-- Maybe the co2 uptake data? -->
 <!-- ::: -->
 
-## Randomisation
+## Randomisation {.unnumbered}
 
 Randomisation refers to the process of randomly assigning treatments to experimental units such that each experimental unit has equal chance of receiving a specific treatment. Randomisation ensures that:
 
@@ -57,7 +57,7 @@ rand1
 
 Experimental unit 1 recipes the first treatment that appears as the first element in the shuffled vector, experimental unit 2 receives the second and so on.
 
-## Reduction of Unexplained Variation (Blocking)
+## Reduction of Unexplained Variation (Blocking) {.unnumbered}
 
 Unexplained variation (or experimental error variance or within treatment variance) is largely due to inherent differences between experimental units. The larger this unexplained variation, the more difficult it becomes to detect treatment differences (a treatment signal). To minimise experimental error variance we can control extraneous factors (i.e. keeping all else constant) and by choosing homogeneous experimental units. Otherwise, we can block experimental units to reduce the variation.
 
