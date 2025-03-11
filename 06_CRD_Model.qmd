@@ -325,7 +325,7 @@ In the previous section we saw how the parameters of the ANOVA model are estimat
 **Variance, Standard Deviation and Standard Error: what’s all this again?** The variance (Var) is a good way of measuring variability. The Standard Deviation (SD) is the square root of the variance of a sample or population. The Standard Error (SE) is the SD of an estimate (read that again).
 :::
 
-$$Var(\mu_i) = \frac{\sigma^2}{n_i} $$
+$$Var(\hat{\mu}_i) = \frac{\sigma^2}{n_i} $$
 
 Remember that the sampling distribution of the mean is $N(\mu,\frac{\sigma^2}{n})$ and here we assumed that the groups have equal population variances.
 
