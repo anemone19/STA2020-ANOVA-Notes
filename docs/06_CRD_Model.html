@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; A Simple Model for a CRD – STA2020 ANOVA Notes</title>
+<title>6&nbsp; A Simple Model for a CRD – STA2020 ANOVA Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -111,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./06_CRD_Model.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./06_CRD_Model.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,13 +215,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_ExpDesign_RRR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The three R’s of experimental design</span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The three R’s of experimental design</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_ExpDesign_DesigningExp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Designing an Experiment</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Designing an Experiment</span></span></a>
   </div>
 </li>
       </ul>
@@ -204,25 +238,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_CRD_Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_CRD_Model.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_CRD_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08_CRD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -239,25 +273,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09_RCBD_Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11_RCBD_Assump.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Assumptions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_RCBD_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Linear model &amp; ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_RCBD_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -274,31 +308,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13_FE_Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15_FE_Inter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interactions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14_FE_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model for Factorial Experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16_FE_ANOVA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ANOVA</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./17_FE_Contrasts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Contrasts</span></span></a>
   </div>
 </li>
       </ul>
@@ -313,20 +347,20 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-model" id="toc-the-model" class="nav-link active" data-scroll-target="#the-model"><span class="header-section-number">5.1</span> The model</a></li>
-  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation"><span class="header-section-number">5.2</span> Estimation</a></li>
-  <li><a href="#in-context-of-the-social-media-multitasking-example" id="toc-in-context-of-the-social-media-multitasking-example" class="nav-link" data-scroll-target="#in-context-of-the-social-media-multitasking-example"><span class="header-section-number">5.3</span> In context of the social media multitasking example</a></li>
-  <li><a href="#standard-errors-and-confidence-intervals" id="toc-standard-errors-and-confidence-intervals" class="nav-link" data-scroll-target="#standard-errors-and-confidence-intervals"><span class="header-section-number">5.4</span> Standard errors and confidence intervals</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.5</span> Summary</a></li>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link active" data-scroll-target="#the-model"><span class="header-section-number">6.1</span> The model</a></li>
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation"><span class="header-section-number">6.2</span> Estimation</a></li>
+  <li><a href="#in-context-of-the-social-media-multitasking-example" id="toc-in-context-of-the-social-media-multitasking-example" class="nav-link" data-scroll-target="#in-context-of-the-social-media-multitasking-example"><span class="header-section-number">6.3</span> In context of the social media multitasking example</a></li>
+  <li><a href="#standard-errors-and-confidence-intervals" id="toc-standard-errors-and-confidence-intervals" class="nav-link" data-scroll-target="#standard-errors-and-confidence-intervals"><span class="header-section-number">6.4</span> Standard errors and confidence intervals</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.5</span> Summary</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./06_CRD_Model.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_CRD_Intro.html">Single Factor Completely Randomised Designs</a></li><li class="breadcrumb-item"><a href="./06_CRD_Model.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">A Simple Model for a CRD</span></h1>
 </div>
 
 
@@ -365,8 +399,8 @@ Multiple Testing / Comparisons
 </div>
 </div>
 </div>
-<section id="the-model" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="the-model"><span class="header-section-number">5.1</span> The model</h2>
+<section id="the-model" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="the-model"><span class="header-section-number">6.1</span> The model</h2>
 <p>When we collect samples, we usually want to learn something about the populations from which they were drawn. To do this, we can develop a model for the observations that reflects the different sources of variation believed to be at play.</p>
 <p>For Completely Randomised Designs, we have <span class="math inline">\(a\)</span> treatments which implies <span class="math inline">\(a\)</span> population means <span class="math inline">\(\mu_1, \mu_2, \mu_3, \ldots, \mu_a\)</span>. We are interested in modelling the means of the treatments and the differences between them. Ultimately we want to test whether they are equal which we’ll get to in the next section. First, we construct a simple model for each observation <span class="math inline">\(Y_{ij}\)</span>:</p>
 <p><span class="math display">\[
@@ -510,8 +544,8 @@ Y_{aj} &amp;= \mu + A_a + e_{aj} \\
 \end{aligned}
 \]</span></p>
 </section>
-<section id="estimation" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="estimation"><span class="header-section-number">5.2</span> Estimation</h2>
+<section id="estimation" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="estimation"><span class="header-section-number">6.2</span> Estimation</h2>
 <p>Okay, so we have a model which we now need to <strong>fit to our data</strong>. When we do this, we estimate the model parameters using our data. The parameters we want to estimate are <span class="math inline">\(\mu\)</span> (the overall mean), the treatment effects (<span class="math inline">\(A_i\)</span>) and <span class="math inline">\(\sigma^2\)</span> (the error variance). As for regression, we find <strong>least squares estimates</strong> for the parameters which minimise the residual or error sum of squares<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>:</p>
 <p><span class="math display">\[ \text{SSE} = \sum_i\sum_j e_{ij}^2 = \sum_i\sum_j (Y_{ij} - \hat{Y}_{ij})^2 = \sum_i\sum_j (Y_{ij} - \mu - A_i)^2\]</span></p>
 <p>It turns out when we solve for the estimates that minimise the SSE<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, we obtain the following estimators:</p>
@@ -548,8 +582,8 @@ Compare this with regression
 </div>
 </div>
 </section>
-<section id="in-context-of-the-social-media-multitasking-example" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="in-context-of-the-social-media-multitasking-example"><span class="header-section-number">5.3</span> In context of the social media multitasking example</h2>
+<section id="in-context-of-the-social-media-multitasking-example" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="in-context-of-the-social-media-multitasking-example"><span class="header-section-number">6.3</span> In context of the social media multitasking example</h2>
 <p>Let’s take what we’ve learned so far and apply it to our example. We had <span class="math inline">\(a = 3\)</span> treatments each with <span class="math inline">\(r=40\)</span> replicates. The model equation is:</p>
 <p><span class="math display">\[ Y_{ij} = \mu + A_{i} + e_{ij}  \]</span></p>
 <p>where</p>
@@ -576,22 +610,78 @@ Y_{E2j} &amp;= \mu + A_{E2} + e_{E2j} \\
 \end{aligned}
 \]</span></p>
 <p>To fit this model in R, we use the <code>aov</code> function and then use another function to extract the estimated parameters. By specifying type = “effects”, the function returns the <span class="math inline">\(\hat{A_i}\)</span>’s</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(Posttest<span class="sc">~</span>Group, <span class="at">data =</span> multitask)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"effects"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of effects
+
+ Group 
+Group
+Control    Exp1    Exp2 
+ 12.049  -0.703 -11.345 </code></pre>
+</div>
+</div>
 <p>This tells us that the average score for students in the control group is roughly 12% higher than the overall average<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. Both experimental groups performed worse, with students in the second group scoring, on average, about 11% less than the mean across all groups. We can also extract the overall mean and the treatment means by specifying type = “means”:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"means"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of means
+Grand mean
+         
+63.58527 
+
+ Group 
+Group
+Control    Exp1    Exp2 
+  75.63   62.88   52.24 </code></pre>
+</div>
+</div>
 <p>The grand mean (i.e.&nbsp;average of all test scores) was 64% in this experiment. The control group scored on average 76% which is 12% higher than the overall mean and so on. So we have the estimates for the effects, grand mean and treatment means.</p>
 <p>The last parameter we need to estimate is the error variance <span class="math inline">\(\sigma^2\)</span>. Have a look at the formula again:</p>
 <p><span class="math display">\[ s^2 = \frac{1}{N-a}\sum_{ij}(Y_{ij} - \bar{Y}_{i.})^2 \]</span></p>
 <p>If we focus on the sum and break into sums of squares for each treatment <span class="math inline">\(i\)</span>, we get for the first treatment (let’s say that is the control group):</p>
 <p><span class="math display">\[ \sum_{j}(Y_{1j} - \bar{Y}_{1.})^2 \]</span> Which is the sum of the squared differences between the observations in the control group and the mean score of the control group. We can easily calculated that in R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>control_scores <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Control"</span>] <span class="co"># extract all scores for control group</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mean_control_scores <span class="ot">&lt;-</span> <span class="fu">mean</span>(control_scores) <span class="co"># calculate bar Y_1. - that is the mean score for control group</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>control_sum_squares <span class="ot">&lt;-</span> <span class="fu">sum</span>((control_scores <span class="sc">-</span> mean_control_scores)<span class="sc">^</span><span class="dv">2</span>) <span class="co"># calculate sum of squares (not square of sum!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>First, we subset the data set for the scores in the control group. Then we find the mean and calculate the squared differences, which is all summed together to give the sums of squares for treatment group 1. We can repeat this for the remaining treatments and sum the three sum of squares together and divide by <span class="math inline">\(N-a\)</span> to get the MSE.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expermiment 1 </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>exp1_scores <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Exp1"</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mean_exp1_scores <span class="ot">&lt;-</span> <span class="fu">mean</span>(exp1_scores)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>exp1_sum_squares <span class="ot">&lt;-</span> <span class="fu">sum</span>((exp1_scores <span class="sc">-</span> mean_exp1_scores)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Expermiment 2 </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>exp2_scores <span class="ot">&lt;-</span> multitask<span class="sc">$</span>Posttest[multitask<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"Exp2"</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>mean_exp2_scores <span class="ot">&lt;-</span> <span class="fu">mean</span>(exp2_scores)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>exp2_sum_squares <span class="ot">&lt;-</span> <span class="fu">sum</span>((exp2_scores <span class="sc">-</span> mean_exp2_scores)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Total sums of sqaures</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>sum_squares <span class="ot">&lt;-</span> <span class="fu">sum</span>(control_sum_squares <span class="sc">+</span> exp1_sum_squares <span class="sc">+</span> exp2_sum_squares)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(multitask) <span class="co"># number of observations overall</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># number of treatment groups </span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>sum_squares<span class="sc">/</span>(N<span class="sc">-</span>a) <span class="co"># MSE </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 200.1463</code></pre>
+</div>
+</div>
 <p>Later we will see that we can extract this quantity easily from the ANOVA table. But for now, this is a useful exercise to make sure you understand the formula. So, <span class="math inline">\(\hat{\sigma^2} = s^2 = 200\)</span> (rounded off to the nearest integer) and <span class="math inline">\(\hat{\sigma} = s = 14\)</span>. This is the estimate of variance we will use to conduct an hypothesis to determine if there are any difference in the treatment means. Now you can see that it takes into account the variability of all our samples.</p>
 </section>
-<section id="standard-errors-and-confidence-intervals" class="level2 page-columns page-full" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="standard-errors-and-confidence-intervals"><span class="header-section-number">5.4</span> Standard errors and confidence intervals</h2>
+<section id="standard-errors-and-confidence-intervals" class="level2 page-columns page-full" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="standard-errors-and-confidence-intervals"><span class="header-section-number">6.4</span> Standard errors and confidence intervals</h2>
 <p>In the previous section we saw how the parameters of the ANOVA model are estimated. We also need a measure of uncertainty for each of these estimates (in the form of a standard error, variance, or confidence interval). Let’s start with the variance of a treatment mean estimate:</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><strong>Variance, Standard Deviation and Standard Error: what’s all this again?</strong> The variance (Var) is a good way of measuring variability. The Standard Deviation (SD) is the square root of the variance of a sample or population. The Standard Error (SE) is the SD of an estimate (read that again).</p>
-</div></div><p><span class="math display">\[Var(\mu_i) = \frac{\sigma^2}{n_i} \]</span></p>
+</div></div><p><span class="math display">\[Var(\hat{\mu}_i) = \frac{\sigma^2}{n_i} \]</span></p>
 <p>Remember that the sampling distribution of the mean is <span class="math inline">\(N(\mu,\frac{\sigma^2}{n})\)</span> and here we assumed that the groups have equal population variances.</p>
 <p>If we assume that two treatment means are independent, the variance of the difference between two means is:</p>
 <p><span class="math display">\[
@@ -603,11 +693,46 @@ Var(\hat{\mu}_i - \hat{\mu}_j) = Var(\hat{\mu}_i) + Var(\hat{\mu}_j) = \frac{\si
 <p>where <span class="math inline">\(t^{\alpha/2}_v\)</span> is the <span class="math inline">\({\alpha/2}^{th}\)</span> percentile of the Student’s <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(v\)</span> degrees of freedom. The degrees of freedom are the error degrees of freedom, <span class="math inline">\(N-a\)</span> for CRD.</p>
 <p>What are the standard errors associated with the parameter estimates in the social media example? We can easily extract this by specifying an extra argument to the <code>model.tables</code> function.</p>
 <p>Standard error of the effects:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"effects"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of effects
+
+ Group 
+Group
+Control    Exp1    Exp2 
+ 12.049  -0.703 -11.345 
+
+Standard errors of effects
+        Group
+        2.237
+replic.    40</code></pre>
+</div>
+</div>
 <p>and for the treatment means:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model.tables</span>(m1, <span class="at">type =</span> <span class="st">"means"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tables of means
+Grand mean
+         
+63.58527 
+
+ Group 
+Group
+Control    Exp1    Exp2 
+  75.63   62.88   52.24 
+
+Standard errors for differences of means
+        Group
+        3.163
+replic.    40</code></pre>
+</div>
+</div>
 <p>So, now we have parameter estimates and their standard errors. Equipped with these, we are closer to answering the original question: Does social media multitasking impact academic performance of students? Based on the model we fitted and the parameters we estimated, how do we test this? The answer is with an ANOVA table.</p>
 </section>
-<section id="summary" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.5</span> Summary</h2>
+<section id="summary" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">6.5</span> Summary</h2>
 <p>This chapter introduces the Completely Randomized Design (CRD) model and explains why ANOVA is preferred over multiple t-tests, which inflate the Type 1 Error rate.</p>
 <p>In ANOVA, each observation is modeled as:</p>
 <p><span class="math display">\[
@@ -1054,12 +1179,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./05_CRD_Intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./07_CRD_ANOVA.html" class="pagination-link" aria-label="Analysis of Variance">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
