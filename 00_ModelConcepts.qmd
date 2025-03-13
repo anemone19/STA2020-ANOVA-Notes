@@ -1,5 +1,15 @@
 # Statistical Modelling {.unnumbered}
 
+What do we mean by modelling? There are different kinds of models. There are mathematical models and statistical models. And then we have some other models. 
+
+When we speak about models, we mean a representation of the thing we are interested in. Models share some features with the ‘real thing’, e.g. model aeroplanes can fly and look like real aeroplanes. However, they are a simplification and do not have all the features of the ‘real thing’. For example, these model aeroplanes cannot carry people. Models have some advantages: even though they can crash like a real aeroplane, model aeroplanes are less likely to hurt people in the process; and, because they are simpler, they are easier to understand and fix.
+
+
+Mathematical and statistical models, in analogy to the model aeroplanes, are a simplified representation of a complex system we would like to understand. These models are not meant to represent the original system exactly but should provide useful abstractions. Their value is that they are easier to study and understand than the real system. Since models necessarily simplify reality, they are usually good for studying certain aspects of the real system but they fail at explaining other features. The art of modelling is therefore
+to come up with a simple representation that helps you understand the particular aspect you are interested in. To go back to the analogy of model planes: if you are interested in understanding aerodynamics, a disconnected wing may give you answers to some questions and a toy aeroplane with the right shape and proportions may give you answers to other questions. If you want to learn to fly a real aeroplane, a simulator may be a better model for you.
+
+Likewise, you need to choose the appropriate mathematical and statistical model to answer  your question. In this course, you will learn the basic steps to do so. The eminent statistician George Box famously said "All models are wrong but some are useful". Remember this quote. The conclusions you will draw from data always also depend on the models you used to obtain your results. It is incorrect to say "my data show...". You can say "in the light of my model, the data show...". As a data analyst, you will hear people complain that your model is wrong. Of course it is wrong; it is meant to be. If reality was simple you would not need a model to understand it and if your model is as complex as reality, it won’t help you understand anything. However, you are responsible for ensuring that your model is useful. This is in no way guaranteed. 
+
 ## What is a Model?
 
 A **statistical model** is a mathematical representation of how data is generated. It describes the relationship between observed data and underlying factors (parameters) while accounting for random variation. Suppose that we are interested in estimating the age of a tree from its stem diameter. To do this we need to know by how much the stem diameter increases per year. We could describe this relationship or process as follows:
@@ -11,6 +21,17 @@ With the chosen parameter values, diameter increases linearly with age. Of cours
 $$D = \alpha + \beta \times Age_i + e_i$$
 
 The response that we observe is then described by an average behaviour, but the actual observed value will vary around this average. To summarise, the statistical model has a stochastic component which captures variability in the response that cannot be explained by the deterministic part of the model. Another distinguishing feature of statistical modelling is that we obtain estimates of the parameter values from the data, e.g. by fitting a line to the observations, i.e. we learn from data.
+
+## Steps in statistical modelling
+
+Statistics is an integral part of the scientific method and should be involved in all parts of the scientific process. A summary of the steps involved in scientific research:
+
+1. Interesting scientific question.
+2. Come up with a number of working hypotheses.
+3. Plan / design study / experiment.
+4. Data collection: field, experiment, observations.
+5. Analysis: confront hypotheses with data.
+6. New scientific questions, update working hypotheses.
 
 ## More generally
 
@@ -137,3 +158,7 @@ where:
 
 -   $\hat{Y}_i$ is the **fitted (predicted) value**, and
 -   $e_i = Y_i - \hat{Y}_i$ is the **residual**, representing the difference between the observed and predicted values.
+
+
+
+> These notes are largely from STA2007 notes (authored by Dr Res Altwegg and Dr Birgit Erni and some other textbooks.

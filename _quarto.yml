@@ -39,6 +39,10 @@ book:
         - 14_FE_Model.qmd
         - 16_FE_ANOVA.qmd
         - 17_FE_Contrasts.qmd
+        
+    - part: "Extra resources"
+      chapters:
+        - 18_ExtraExp.qmd
 
 bibliography: references.bib
 

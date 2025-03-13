@@ -1,7 +1,5 @@
 ## A brief guideline to hypothesis testing {.unnumbered}
 
-> These notes have been adapted from the STA1007 notes (authored by Dr Res Altwegg and Dr Greg Distiller and some other textbooks.
-
 Hypothesis testing is a statistical procedure of using sample data to make inferences about populations. Unlike estimation, where the goal is to quantify a parameter, hypothesis testing assesses whether an observed effect is statistically significant. More specifically, a hypothesis test evaluates two mutually exclusive statements about the population and determines which statement the data supports.
 
 ### The General Framework
@@ -57,3 +55,6 @@ A small P-value constitutes evidence against $H_0$. But how small is small enoug
 Before we go further, we want to emphasize that there is nothing magic about a specific value of $\alpha$. This threshold is an arbitrary choice and should not be taken too seriously. There is not much difference between a P-value of 0.051 and 0.049. Both constitute about the same strength of evidence against $H_0$. Yet, when we apply $\alpha$ = 0.05, we would reach opposite conclusions in the two cases. It is always better to report the exact P-value rather than just state P $>$ 0.05 or P $<$ 0.05 or state that a result is “not significant” or “significant”. And it is particularly important not to imply that a “non-significant” result means that there is no effect (that would be saying $H_0$ is true when we might in fact have some evidence against it)!
 
 Alas, dividing results into “significant” vs “not significant” is very entrenched in many fields and you will encounter these terms a lot. And used wisely, this distinction can have its merits. So we'll stick with it.
+
+> These notes have been adapted from the STA1007 notes (authored by Dr Res Altwegg and Dr Greg Distiller and some other textbooks.
+
