@@ -168,7 +168,7 @@ This division of the total sums of squares is typically summarised in an analysi
 
 | Source | Sums of Squares (SS) | df | Means Squares (MS) | F |
 |---------------|---------------|---------------|---------------|---------------|
-| Treatment | $\sum_i n_i(\bar{Y}_i - \bar{Y})^2$ | $a-1$ | $MS_A = SS_A / (a-1)$ | $MS_A / MSE$ |
+| Treatment | $\sum_i n(\bar{Y}_i - \bar{Y})^2$ | $a-1$ | $MS_A = SS_A / (a-1)$ | $MS_A / MSE$ |
 | Residuals (Error) | $\sum_i \sum_j (Y_{ij} - \bar{Y}_i)^2$ | $N-a$ | $MSE = SSE / (N-a)$ |  |
 | Total | $\sum_i \sum_j (Y_{ij} - \bar{Y})^2$ | $N-1$ |  |  |
 

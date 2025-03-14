@@ -10,8 +10,9 @@ When we conduct a test, there is always a possibility that a significant result 
 1.  Either we genuinely found a significant result or,
 2.  We were that unlucky, that our result is one of those 5% cases.
 
-We will never know, this is the basis of statistical testing. We accept that we cannot tell which of our conclusions are Type 1 Errors. When we conduct many tests, the overall Type 1 Error rate increases. That is the overall chance of *at least one wrong conclusion* increases with the number of tests conducted. This is not good! We already might be wrong 5% and we don't want to increase that risk even further when conducting multiple tests.
+We will never know, this is the basis of statistical testing. We accept that we cannot tell which of our conclusions are Type 1 Errors. When we conduct many tests, the overall Type 1 Error rate increases. That is the overall chance of *at least one wrong conclusion* increases with the number of tests conducted. This is not good! We already might be wrong 5% of time and we don't want to increase that risk even further when conducting multiple tests.
 :::
+
 
 ## The model
 
