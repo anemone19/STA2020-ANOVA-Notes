@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ané Cloete">
 
-<title>STA2020 ANOVA Notes</title>
+<title>19&nbsp; Manual Calculation of One-Way ANOVA Table – STA2020 ANOVA Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00_ModelConcepts.html" rel="next">
+<link href="./18_ExtraExp.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -116,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./18_ExtraExp.html">Extra resources</a></li><li class="breadcrumb-item"><a href="./19_AnovabyHand.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Manual Calculation of One-Way ANOVA Table</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -325,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19_AnovabyHand.html" class="sidebar-item-text sidebar-link">
+  <a href="./19_AnovabyHand.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Manual Calculation of One-Way ANOVA Table</span></span></a>
   </div>
 </li>
@@ -341,28 +369,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#example-data" id="toc-example-data" class="nav-link active" data-scroll-target="#example-data"><span class="header-section-number">19.1</span> <strong>Example Data</strong></a></li>
+  <li><a href="#step-1-compute-the-overall-mean" id="toc-step-1-compute-the-overall-mean" class="nav-link" data-scroll-target="#step-1-compute-the-overall-mean"><span class="header-section-number">19.2</span> <strong>Step 1: Compute the Overall Mean</strong></a></li>
+  <li><a href="#step-2-compute-the-treatment-means" id="toc-step-2-compute-the-treatment-means" class="nav-link" data-scroll-target="#step-2-compute-the-treatment-means"><span class="header-section-number">19.3</span> <strong>Step 2: Compute the Treatment Means</strong></a></li>
+  <li><a href="#step-3-compute-sum-of-squares" id="toc-step-3-compute-sum-of-squares" class="nav-link" data-scroll-target="#step-3-compute-sum-of-squares"><span class="header-section-number">19.4</span> <strong>Step 3: Compute Sum of Squares</strong></a></li>
+  <li><a href="#step-4-compute-mean-squares" id="toc-step-4-compute-mean-squares" class="nav-link" data-scroll-target="#step-4-compute-mean-squares"><span class="header-section-number">19.5</span> <strong>Step 4: Compute Mean Squares</strong></a></li>
+  <li><a href="#step-5-compute-f-statistic" id="toc-step-5-compute-f-statistic" class="nav-link" data-scroll-target="#step-5-compute-f-statistic"><span class="header-section-number">19.6</span> <strong>Step 5: Compute F-statistic</strong></a></li>
+  <li><a href="#step-6-interpretation" id="toc-step-6-interpretation" class="nav-link" data-scroll-target="#step-6-interpretation"><span class="header-section-number">19.7</span> <strong>Step 6: Interpretation</strong></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./18_ExtraExp.html">Extra resources</a></li><li class="breadcrumb-item"><a href="./19_AnovabyHand.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Manual Calculation of One-Way ANOVA Table</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">STA2020 ANOVA Notes</h1>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Manual Calculation of One-Way ANOVA Table</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ané Cloete </p>
-          </div>
-  </div>
     
   
     
@@ -373,35 +401,271 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p><em>Welcome to the Experimental Design and ANOVA section of STA2020.</em></p>
-<p>This book is not an exhaustive guide to designing experiments or conducting ANOVA. Instead, it has been tailored specifically to align with the learning outcomes and methods covered in STA2020.</p>
-<p>This module consists of four main sections:</p>
+<p>This tutorial walks through the manual calculation of a One-Way ANOVA table step by step. The goal is to understand the decomposition of variance and statistical significance testing. It does not cover checking the assumptions or model fitting.</p>
+<section id="example-data" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="example-data"><span class="header-section-number">19.1</span> <strong>Example Data</strong></h2>
+<p>We analyse the effect of study environment on student performance. The dataset contains test scores from students studying in different environments. Below the data are shown in long format and in wide format. You should be able to use both formats.</p>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;19.1: Data in two formats.
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-first" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Long Format
+</figcaption>
+<div aria-describedby="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Library</td>
+<td style="text-align: left;">78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Library</td>
+<td style="text-align: left;">80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Library</td>
+<td style="text-align: left;">75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Library</td>
+<td style="text-align: left;">82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Library</td>
+<td style="text-align: left;">77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CoffeeShop</td>
+<td style="text-align: left;">70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CoffeeShop</td>
+<td style="text-align: left;">74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CoffeeShop</td>
+<td style="text-align: left;">72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CoffeeShop</td>
+<td style="text-align: left;">69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CoffeeShop</td>
+<td style="text-align: left;">73</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;">82</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;">85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;">79</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;">81</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;">80</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-second" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Wide Format
+</figcaption>
+<div aria-describedby="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">CoffeeShop</th>
+<th style="text-align: left;">Home</th>
+<th style="text-align: left;">Library</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">70</td>
+<td style="text-align: left;">82</td>
+<td style="text-align: left;">78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">74</td>
+<td style="text-align: left;">85</td>
+<td style="text-align: left;">80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">72</td>
+<td style="text-align: left;">79</td>
+<td style="text-align: left;">75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">69</td>
+<td style="text-align: left;">81</td>
+<td style="text-align: left;">82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">73</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">77</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</section>
+<section id="step-1-compute-the-overall-mean" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="step-1-compute-the-overall-mean"><span class="header-section-number">19.2</span> <strong>Step 1: Compute the Overall Mean</strong></h2>
+<p><span class="math display">\[
+\bar{Y}_{..} = \frac{\sum Y_{ij}}{N}
+\]</span> where <span class="math inline">\(Y_{ij}\)</span> are individual observations and <span class="math inline">\(N\)</span> is the total number of observations.</p>
+<p><span class="math display">\[
+\bar{Y}_{..} = \frac{78+80+75+82+77+70+74+72+69+73+82+85+79+81+80}{15} = 77.07
+\]</span></p>
+</section>
+<section id="step-2-compute-the-treatment-means" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="step-2-compute-the-treatment-means"><span class="header-section-number">19.3</span> <strong>Step 2: Compute the Treatment Means</strong></h2>
+<p>For each group: <span class="math display">\[
+\bar{Y}_{i.} = \frac{\sum Y_{ij}}{n_i}
+\]</span></p>
+<p>where <span class="math inline">\(n_i\)</span> is the number of replicates per treatment.</p>
+<p>For Library: <span class="math display">\[
+\bar{Y}_1 = \frac{78+80+75+82+77}{5} = 78.4
+\]</span></p>
+<p>For Coffee Shop: <span class="math display">\[
+\bar{Y}_2 = \frac{70+74+72+69+73}{5} = 71.6
+\]</span></p>
+<p>For Home: <span class="math display">\[
+\bar{Y}_3 = \frac{82+85+79+81+80}{5} = 81.4
+\]</span></p>
+</section>
+<section id="step-3-compute-sum-of-squares" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="step-3-compute-sum-of-squares"><span class="header-section-number">19.4</span> <strong>Step 3: Compute Sum of Squares</strong></h2>
+<p><u>Treatment Sum of Squares (SSB or sometimes $SS_T$)</u></p>
+<p><span class="math display">\[
+SSB = r \sum (\bar{Y}_{i.} - \bar{Y}_{..})^2
+\]</span></p>
+<p><span class="math display">\[
+SSB = 5 [(78.4 - 77.07)^2 + (71.6 - 77.07)^2 + (81.4 - 77.07)^2]
+\]</span></p>
+<p><span class="math display">\[
+SSB = 5 [(1.33)^2 + (-5.47)^2 + (4.33)^2] = 5 [1.77 + 29.91 + 18.75] = 5(50.43) = 252.15
+\]</span></p>
+<p><u>Total Sum of Squares (SSTotal)</u></p>
+<p><span class="math display">\[
+SST = \sum (Y_{ij} - \bar{Y}_{..})^2
+\]</span></p>
+<p>Computing each squared difference:</p>
+<p><span class="math display">\[
+(78-77.07)^2 + (80-77.07)^2 + (75-77.07)^2 + (82-77.07)^2 + (77-77.07)^2 +
+\]</span></p>
+<p><span class="math display">\[
+(70-77.07)^2 + (74-77.07)^2 + (72-77.07)^2 + (69-77.07)^2 + (73-77.07)^2 +
+\]</span></p>
+<p><span class="math display">\[
+(82-77.07)^2 + (85-77.07)^2 + (79-77.07)^2 + (81-77.07)^2 + (80-77.07)^2
+\]</span></p>
+<p>Summing these values:</p>
+<p><span class="math display">\[
+(0.86 + 8.56 + 4.29 + 24.29 + 0.005) + (49.98 + 9.43 + 26.17 + 65.17 + 16.56) + (24.29 + 63.17 + 4.17 + 15.48 + 8.56) = 321.96
+\]</span></p>
+<p><u>Error Sum of Squares (SSE)</u></p>
+<p><span class="math display">\[
+SS_E = SST - SSB = 321.96 - 252.15 = 69.81
+\]</span></p>
+</section>
+<section id="step-4-compute-mean-squares" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="step-4-compute-mean-squares"><span class="header-section-number">19.5</span> <strong>Step 4: Compute Mean Squares</strong></h2>
+<p><u>Treatment Mean Square (MST/MSB)</u></p>
+<p><span class="math display">\[
+MS_T = \frac{SS_T}{df_T} = \frac{252.15}{2} = 126.08
+\]</span></p>
+<p><u>Error Mean Square (MSE)</u></p>
+<p><span class="math display">\[
+MS_E = \frac{SS_E}{df_E} = \frac{69.81}{12} = 5.82
+\]</span></p>
+</section>
+<section id="step-5-compute-f-statistic" class="level2" data-number="19.6">
+<h2 data-number="19.6" class="anchored" data-anchor-id="step-5-compute-f-statistic"><span class="header-section-number">19.6</span> <strong>Step 5: Compute F-statistic</strong></h2>
+<p><span class="math display">\[
+F = \frac{MS_T}{MS_E} = \frac{126.08}{5.82} = 21.67
+\]</span></p>
+<p>Compare <span class="math inline">\(F\)</span> to the critical value from an F-distribution table or get p-value. The null distribution of this F test statistic is:</p>
+<p><span class="math display">\[F\sim F_{df1,df2} = F_{2,12}\]</span></p>
+<p><u>Using tables:</u></p>
+<p><img src="images/fdist3ann.jpg" class="img-fluid"></p>
 <ol type="1">
-<li>Experimental Design</li>
-<li>Completely Randomized Designs</li>
-<li>Randomized Complete Block Designs</li>
-<li>Factorial Experiments</li>
+<li>Critical value approach (using the F-tables that are under the main Resources tab in the folder Statistical tables and formulae)</li>
 </ol>
-<p>The first two chapters lay the groundwork for the module. Once you grasp these concepts, the remaining sections should be easier to follow. Before diving into these topics, there are two preliminary sections:</p>
+<p>Go along the column (numerator df) and look for 2. Then go down the rows and stop at the row for 12 denominator degrees of freedom (this is on the third page of F-tables and the section is highlighted in green above).</p>
+<p>At 5% significance level, the critical value is 3.89. Our test statistic of 21.67 is much larger than 3.89. We do no have evidence against H0.</p>
+<ol start="2" type="1">
+<li>P-value</li>
+</ol>
+<p>Focusing in on the same set of F-values on the table (so 2 numerator df and 12 denominator df), we see that there 4 F-values - each corresponding to a different probability in the upper tail. The last value is 6.93 which is associated with an area to the right of 0.01. In other words, the probability of an F-value of 6.93 or more extreme under the null hypothesis is 0.01. Our test statistic is much larger than this value, so we can deduce that the p-value (the probability of observing our test statistic or more extreme under the null hypothesis) is smaller than 0.01.</p>
+<p><u>In R</u></p>
 <ol type="1">
-<li>A brief introduction to statistical modeling</li>
-<li>A guide to hypothesis testing</li>
+<li>Critical value</li>
 </ol>
-<p>I encourage you to read through these first, as they provide essential context for the rest of the material.</p>
-<p>Throughout the book, you will find R code presented in chunks like this:</p>
+<p>This line of code gives us the critical F value for a significance value of 0.05.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) <span class="co"># Computes the mean of a set of numbers  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.05</span>,<span class="dv">2</span>,<span class="dv">12</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
+<pre><code>[1] 3.885294</code></pre>
 </div>
 </div>
-<p>R is consistently used to visualize, illustrate, and demonstrate key methods and concepts. Running the code yourself will greatly enhance your understanding, so I encourage you to do so.</p>
-<blockquote class="blockquote">
-<p>Some parts of these notes have been adapted from the STA2007 notes, authored by Dr.&nbsp;Res Altwegg and Dr.&nbsp;Birgit Erni, as well as from various textbooks.</p>
-</blockquote>
+<ol start="2" type="1">
+<li>P-value</li>
+</ol>
+<p>Using R we can get an exact p-value and we see that it is indeed smaller than 0.01.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">21.67</span>, <span class="dv">2</span>, <span class="dv">12</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0001039567</code></pre>
+</div>
+</div>
+</section>
+<section id="step-6-interpretation" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="step-6-interpretation"><span class="header-section-number">19.7</span> <strong>Step 6: Interpretation</strong></h2>
+<p>There is strong evidence against the null hypothesis of equal means (F = 21.67, p-value = 0.0001). We conclude that the treatment (study environment) did result in at least one different mean score between the different environments.</p>
+<p>Remember, the alternative is not that all means are different. Only that there is a difference somewhere.</p>
 
 
 </section>
@@ -826,11 +1090,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./18_ExtraExp.html" class="pagination-link" aria-label="ANOVA Model Explanation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ANOVA Model Explanation</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00_ModelConcepts.html" class="pagination-link" aria-label="Statistical Modelling">
-        <span class="nav-page-text">Statistical Modelling</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -337,6 +337,29 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18_ExtraExp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ANOVA Model Explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19_AnovabyHand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Manual Calculation of One-Way ANOVA Table</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -379,7 +402,7 @@ window.Quarto = {
 <p>What do we mean by modelling? There are different kinds of models. There are mathematical models and statistical models. And then we have some other models.</p>
 <p>When we speak about models, we mean a representation of the thing we are interested in. Models share some features with the ‘real thing’, e.g.&nbsp;model aeroplanes can fly and look like real aeroplanes. However, they are a simplification and do not have all the features of the ‘real thing’. For example, these model aeroplanes cannot carry people. Models have some advantages: even though they can crash like a real aeroplane, model aeroplanes are less likely to hurt people in the process; and, because they are simpler, they are easier to understand and fix.</p>
 <p>Mathematical and statistical models, in analogy to the model aeroplanes, are a simplified representation of a complex system we would like to understand. These models are not meant to represent the original system exactly but should provide useful abstractions. Their value is that they are easier to study and understand than the real system. Since models necessarily simplify reality, they are usually good for studying certain aspects of the real system but they fail at explaining other features. The art of modelling is therefore to come up with a simple representation that helps you understand the particular aspect you are interested in. To go back to the analogy of model planes: if you are interested in understanding aerodynamics, a disconnected wing may give you answers to some questions and a toy aeroplane with the right shape and proportions may give you answers to other questions. If you want to learn to fly a real aeroplane, a simulator may be a better model for you.</p>
-<p>Likewise, you need to choose the appropriate mathematical and statistical model to answer your question. In this course, you will learn the basic steps to do so. The eminent statistician George Box famously said “All models are wrong but some are useful”. Remember this quote. The conclusions you will draw from data always also depend on the models you used to obtain your results. It is incorrect to say “my data show…”. You can say “in the light of my model, the data show…”. As a data analyst, you will hear people complain that your model is wrong. Of course it is wrong; it is meant to be. If reality was simple you would not need a model to understand it and if your model is as complex as reality, it won’t help you understand anything. However, you are responsible for ensuring that your model is useful. This is in no way guaranteed.</p>
+<p>Likewise, you need to choose the appropriate mathematical and statistical model to answer your question. The eminent statistician George Box famously said “All models are wrong but some are useful”. Remember this quote. The conclusions you will draw from data always also depend on the models you used to obtain your results. It is incorrect to say “my data show…”. You can say “in the light of my model, the data show…”. As a data analyst, you will hear people complain that your model is wrong. Of course it is wrong; it is meant to be. If reality was simple you would not need a model to understand it and if your model is as complex as reality, it won’t help you understand anything. However, you are responsible for ensuring that your model is useful. This is in no way guaranteed.</p>
 <section id="what-is-a-model" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-model">What is a Model?</h2>
 <p>A <strong>statistical model</strong> is a mathematical representation of how data is generated. It describes the relationship between observed data and underlying factors (parameters) while accounting for random variation. Suppose that we are interested in estimating the age of a tree from its stem diameter. To do this we need to know by how much the stem diameter increases per year. We could describe this relationship or process as follows:</p>

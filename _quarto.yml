@@ -43,6 +43,7 @@ book:
     - part: "Extra resources"
       chapters:
         - 18_ExtraExp.qmd
+        - 19_AnovabyHand.qmd
 
 bibliography: references.bib
 
