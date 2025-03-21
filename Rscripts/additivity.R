@@ -4,7 +4,7 @@ library(dplyr)
 # Set parameters
 set.seed(123)
 pop.mean <- 95
-treatment.effects <- c(6, 2, 6)  # Effects for 3 treatments
+treatment.effects <- c(80, 85, 77)  # Effects for 3 treatments
 block.effects <- c(3, 2, 1, 2,1,3)  # Effects for 3 blocks
 
 # Generate full factorial design
@@ -72,3 +72,53 @@ ggplot(rcbd_data, aes(x = Treatment, y = Score, color = Block, group = Block)) +
   labs(title = "",
        x = "Treatment", y = "Response") +
   theme_bw()
+
+# function 
+
+simulate_rcbd <- function(seed = 123, pop.mean = 95, 
+                          treatment.effects = c(6, 2, 6), 
+                          block.effects = c(3, 2, 1, 2, 1, 3),
+                          error.sd = 2) {
+  
+  # Set seed for reproducibility
+  set.seed(seed)
+  
+  # Number of treatments and blocks
+  num_treatments <- length(treatment.effects)
+  num_blocks <- length(block.effects)
+  
+  # Generate full factorial design
+  treatments <- rep(1:num_treatments, each = num_blocks)
+  blocks <- rep(1:num_blocks, times = num_treatments)
+  
+  # Define a fixed interaction effects matrix (hardcoded inside function)
+  interaction.effects <- matrix(c(
+    0, 0.5, 0,  
+    0.4, 0, 1.25,  
+    0.1, 1, 0,  
+    0, 0, 0.25,
+    1, 0, 0.8,
+    0, 0.6, 0
+  ), nrow = num_blocks, byrow = TRUE)
+  
+  # Generate observed scores (Additive model without user-defined interactions)
+  score_additive <- pop.mean + 
+    treatment.effects[treatments] + 
+    block.effects[blocks] + 
+    interaction.effects[cbind(blocks, treatments)] +
+    rnorm(length(treatments), mean = 0, sd = error.sd)  # Add random error
+  
+  # Create a dataframe
+  rcbd_data <- data.frame(
+    Block = factor(blocks),
+    Treatment = factor(treatments),
+    Score = score_additive
+  )
+  
+  return(rcbd_data)
+}
+
+# Example Usage:
+simulated_data <- simulate_rcbd()
+print(head(simulated_data))
+

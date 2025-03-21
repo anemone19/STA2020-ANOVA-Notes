@@ -8,7 +8,7 @@ In regression, the effect of a continuous explanatory variable is measured by th
 
 In experiments, when using an ANOVA model, the effect of a treatment is mostly measured as the change in response relative to an overall mean response.
 
-There are different kinds of effects: **main effects, interaction effects, and random effects**.
+There are different kinds of effects: **main effects and interaction effects.**
 
 The **main effect** of a treatment measures the average change in response, averaged over all levels of the other factors, relative to the overall mean. When there is only a single factor in an experiment, we only have main effects.
 
@@ -102,21 +102,3 @@ grid.arrange(
 ```
 
 Interaction effects are calculated as the difference between the treatment mean and the sum of the main effects. To express this more precisely, it is useful to write down the model.
-
-## Can going for a brief walk help with memory performance?
-
-We often hear about the benefits of exercise for physical health, but what about its impact on learning and memory? Would taking a brisk 10-minute walk before studying help us to remember more?
-
-Researchers set out to explore this question by testing whether a short bout of exercise before learning could enhance memory performance. They had students either walk or sit before studying a list of words and then predict how well they would remember them. Later, the students took a recall test to see how much they actually retained.
-
-Before studying, some students took a 10-minute brisk walk, while others remained seated and inactive. After this, everyone studied a list of words and rated how well they thought they would remember them (Judgements of Learning, or JOLs). Later, they took a free recall test to see how many words they actually remembered. The researchers wanted to find out if walking before studying could boost memory and whether students were aware of any benefits.
-
-::: {.callout-warning icon="false"}
-@walking2011 conducted a study to examine whether a brief bout of aerobic exercise influences memory performance and judgements of learning (JOLs).
-
-A total of 80 college students participated in a 2 × 2 factorial between-subjects design where they were randomly assigned to one of four conditions:
-
-Walking-Walking: Participants walked before both encoding and retrieval. Walking-Sitting: Participants walked before encoding but sat before retrieval. Sitting-Walking: Participants sat before encoding but walked before retrieval. Sitting-Sitting (Control): Participants sat before both encoding and retrieval.
-
-After the activity, all students studied 30 English nouns, provided immediate JOLs, and then took a free recall test
-:::

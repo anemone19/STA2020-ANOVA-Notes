@@ -58,9 +58,9 @@ cbind(1:12, r1)  # Display the assignments
 
 This code assigns treatments randomly and prints the experimental unit number alongside its assigned treatment. If we had blocking, we would repeat the randomization separately for each block.
 
-## Is comprehension affect by playback speed and lecture modality?
+## Is comprehension affected by playback speed and lecture modality?
 
-In keeping with the theme of students, learning and teaching. Have you ever wondered whether playback speed affects your comprehension of a lecture? Or whether your comprehension is better with audio-only lectures such as podcast versus recorded lectures with visuals? What about if you listen to a podcast at double speed versus a recorded lecture at double speed, is there difference in comprehension? to answer this question, researchers from the University of California conducted a $2\times2$ factorial experiment.
+In keeping with the theme of students, learning and teaching. Have you ever wondered whether playback speed affects your comprehension of a lecture? Or whether your comprehension is better with audio-only lectures such as podcast versus recorded lectures with visuals? What about if you listen to a podcast at double speed versus a recorded lecture at double speed, is there difference in comprehension? To answer this question, researchers from the University of California conducted a $2\times2$ factorial experiment.
 
 ::: {#warning-example1 .callout-warning icon="false"}
 ## Lecture modality and playback speed
