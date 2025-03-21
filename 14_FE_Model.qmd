@@ -31,7 +31,9 @@ If we only have one observation per treatment, that observation becomes the trea
 
 In factorial experiments, the situation gets even worse when we don't replicate treatments. Specifically, we can't calculate the interaction effect. In general, the interaction effect is calculated as the difference between the treatment mean and the sum of the main effects and the overall mean:
 
-$$(AC)_{ij} = \bar{Y}_{ij} - (\mu + A_i + C_j) $$ Now consider the first plot in the series below. There is only one observation in the hypothetical treat $i = 1$ and $j = 3$. That means that the treatment mean $\bar{Y}_{ij}$ is just the mean of this single observation. We can't calculate any deviations from this mean with only one observation as we usually would for the error variance. We always need to calculate an error term and this is always calculated as the deviation of the observation to the next closest mean. With only one observation per treatment, the next closest mean to that observation is the sum of the main effects: $\mu + A_i + B_j$. But wait, that means the error term is also the interaction term since the treatment mean and the observation are the same? Jup! Now you see the problem. With no replication, the error term and the interaction effect are confounded.
+$$(AC)_{ij} = \bar{Y}_{ij} - (\mu + A_i + C_j) $$ 
+
+Now consider the first plot in the series below. There is only one observation in the hypothetical treat $i = 1$ and $j = 3$. That means that the treatment mean $\bar{Y}_{ij}$ is just the mean of this single observation. We can't calculate any deviations from this mean with only one observation as we usually would for the error variance. We always need to calculate an error term and this is always calculated as the deviation of the observation to the next closest mean. With only one observation per treatment, the next closest mean to that observation is the sum of the main effects: $\mu + A_i + B_j$. But wait, that means the error term is also the interaction term since the treatment mean and the observation are the same? Jup! Now you see the problem. With no replication, the error term and the interaction effect are confounded.
 
 ```{r, echo =FALSE, fig.width=13, fig.height=5, fig.fullwidth=TRUE, fig.cap= "How is the interaction effect calculated? (a) only one observation, interaction effect confounded with error term, cannot estimate interaction effect; (b) large interaction present; (c) interaction statistically not discernable (very small)."}
 
@@ -54,7 +56,7 @@ plot(1, max(data2$Response), pch = 16, col = "red", xlim = c(0.8, 1.2), ylim = y
 text(1.05, max(data2$Response), expression(bar(Y)[13]), col = "red", cex = cex.spec)
 text(0.95, max(data2$Response), expression(Y[13]), col = "black", cex = cex.spec)
 segments(x0 = 0.9, x1 = 1.1, y0 = 2, y1 = 2, lwd = 3)
-text(1, 1, expression(mu + alpha[1] + beta[3]), cex = cex.spec)
+text(1, 1, expression(mu + A[1] + C[3]), cex = cex.spec)
 
 ## PLOT 2: Multiple Observations (Replication Introduced)
 plot(rep(1, 5), data2$Response, pch = 16, col = "red", xlim = c(0.8, 1.2), ylim = y_lim, xaxt = "n",
@@ -63,7 +65,7 @@ text(1.1, mean(data2$Response), expression(bar(Y)[13]), col = "red", cex = cex.s
 text(0.95, max(data2$Response), expression(Y[131]), col = "black", cex = cex.spec)
 segments(x0 = 0.95, x1 = 1.05, y0 = mean(data2$Response), y1 = mean(data2$Response), lwd = 3, col = "red")
 segments(x0 = 0.9, x1 = 1.1, y0 = 2, y1 = 2, lwd = 3)
-text(1, 1, expression(mu + alpha[1] + beta[3]), cex =cex.spec)
+text(1, 1, expression(mu + A[1] + C[3]), cex =cex.spec)
 
 ## PLOT 3: Lower Response Values
 plot(rep(1, 5), data3$Response, pch = 16, col = "red", xlim = c(0.8, 1.2), ylim = y_lim, xaxt = "n",
@@ -72,7 +74,7 @@ text(1.1, mean(data3$Response), expression(bar(Y)[13]), col = "red", cex = cex.s
 text(0.95, max(data3$Response), expression(Y[131]), col = "black", cex = cex.spec)
 segments(x0 = 0.95, x1 = 1.05, y0 = mean(data3$Response), y1 = mean(data3$Response), lwd = 3, col = "red")
 segments(x0 = 0.9, x1 = 1.1, y0 = 2, y1 = 2, lwd = 3)
-text(1, 1, expression(mu + alpha[1] + beta[3]), cex = cex.spec)
+text(1, 1, expression(mu + A[1] + C[3]), cex = cex.spec)
 
 
 ```

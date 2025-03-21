@@ -57,9 +57,9 @@ The following table summarizes the partitioning of variation:
 
 There are three F-tests in this ANOVA table.
 
-1.  $H_{AB} : (\alpha\beta)_{ij} = 0$ for all $i$ and $j$ (Factors A and B do not interact)
-2.  $H_A : \alpha_i = 0 \quad i = 1, \dots, a$ (Factor A has no main effects)
-3.  $H_B : \beta_j = 0 \quad j = 1, \dots, b$ (Factor B has no main effects)
+1.  $H_{AC} : (AC)_{ij} = 0$ for all $i$ and $j$ (Factors A and B do not interact)
+2.  $H_A : A_i = 0 \quad i = 1, \dots, a$ (Factor A has no main effects)
+3.  $H_B : B_j = 0 \quad j = 1, \dots, b$ (Factor B has no main effects)
 
 The alternative hypothesis is, in each case, that at least one of the parameters considered is non-zero.
 
