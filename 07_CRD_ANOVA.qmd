@@ -215,7 +215,7 @@ If you look at the treatment sums of squares: $\sum_i n_i (\bar{Y}_{i.} - \bar{Y
 
 [^07_crd_anova-2]: Remember, $\mu = \frac{\sum \mu_i}{a}$.
 
-If you look at the treatment sums of squares: $\sum_i \sum_j (Y_{ij} - \bar{Y}_{..})^2$. We are using $N$ observations and calculating the deviations of these observations around the overall mean. So, only $N-1$ observations are free to vary, the last observation is fixed for the calculated mean to hold true.
+If you look at the total sums of squares: $\sum_i \sum_j (Y_{ij} - \bar{Y}_{..})^2$. We are using $N$ observations and calculating the deviations of these observations around the overall mean. So, only $N-1$ observations are free to vary, the last observation is fixed for the calculated mean to hold true.
 
 ## Back to the constructed example
 
