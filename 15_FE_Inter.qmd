@@ -36,7 +36,7 @@ So does this mean that A and B have no effect on the response? No, they both aff
 
 Plot (e) demonstrates clearly why sometimes main effects cannot be understood or interpreted when interactions are present. In such a case, the interaction plot is very helpful to illustrate the effects. Try deciding for the other plots whether there are main effects for factor A and B and whether A and B interact. The answers are given in the figure caption.
 
-```{r, echo = FALSE, warning = FALSE, fig.cap = "Interaction plots for six hypothetical $2 \\times 2$ factorial experiments. (a) only main effect of B, (b) no main effects and no interaction effects, (c) only main effect of A, (d) main effect of A and main effect of B, (e) interaction between A and B, but both main effects are 0, (f) main effect of B, small main effect of A, A and B interact."}
+```{r, echo = FALSE, warning = FALSE, fig.cap = "Interaction plots for six hypothetical $2 \\times 2$ factorial experiments. (a) only main effects of B, (b) main effects of A and B and interaction effect, (c) main effects of A and B, (d) main effects of A and B, (e) interaction between A and B, but both main effects are 0, (f) main effect of A and B, A and B interact."}
 
 # Load necessary libraries
 library(ggplot2)
