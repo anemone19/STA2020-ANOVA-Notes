@@ -153,7 +153,7 @@ Here is the final summary of the design:
 
 -   **Response Variable:** Theoretical specialty knowledge.
 -   **Treatment Factor:** Pygmalion Treatment.
--   **Treatment Levels (Groups):** Control, Pygmalion \ 
+-   **Treatment Levels (Groups):** Control, Pygmalion 
 -   **Treatments:** Control, Pygmalion \
 -   **Experimental Unit:** Platoon (20)\
 -   **Observational Unit:** Soldier\
