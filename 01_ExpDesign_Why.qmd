@@ -10,7 +10,7 @@ This is an observational study since no variable was actively manipulated, they 
 
 If they actively manipulate the explanatory variable, training program, by randomly assigning employees to complete the training program or not and control other factors by ensuring the employees are as similar as possible accross the groups (i.e. conducted an experiment). Any differences in productivity between the two groups could then be ascribed to the training program. If they happen to find that the employees who were assigned the training program are more productive, they can confidently say that the program caused increased productivity (and perhaps make it compulsory for all employees!).
 
-Experimental studies are extremely important in research and in practice. They are almost the only way in which one can control all factors to such an extent as to eliminate any other possible explanation for a change in a response other than the variable actively manipulated. In this course, we only consider experimental studies and those which aim to compare the effects of a number of **treatments** (comparative experiments).
+Experimental studies are extremely important in research and in practice. They are almost the only way in which one can control all factors to such an extent as to eliminate any other possible explanation for a change in a response other than the variable actively manipulated. In this section, we only consider experimental studies and those which aim to compare the effects of a number of **treatments** (comparative experiments).
 
 Here are some other reasons for conducting experiments:
 
@@ -20,7 +20,7 @@ Here are some other reasons for conducting experiments:
 
 3.  In an experiment we can choose exactly those settings or **treatment levels** we are interested in, e.g. we can investigate the effect of different shift lengths (6, 8 or 9 hours) on employee productivity or test specific price points (R100, R150, R200) to determine which price maximizes sales or revenue. We can actively manipulate the variable(s) to the levels we are interested in.
 
-Experimental studies and their design are fundamental to science, allowing us to further knowledge and test theories. So lets define them more rigorously. We'll start by introducing some terminology.
+Experimental studies and their design are fundamental to understanding the world around us, allowing us to further knowledge and test theories. So lets define them more rigorously. We'll start by introducing some terminology.
 
 ::: {#warning-example1 .callout-warning icon="false"}
 
@@ -36,4 +36,4 @@ However, in some cases, causation can still be inferred from observational studi
 1. Two ways of doing research: observation and expermentation. 
 2. Experimentation is the path to causality.
 3. Experiments actively manipulate variables to isolate their effects on a response while controlling everything else. 
-4. We consider comparative experiments where the aim is to compare treatments. 
+4. We consider comparative experiments where the aim is to compare the mean response between treatments. 

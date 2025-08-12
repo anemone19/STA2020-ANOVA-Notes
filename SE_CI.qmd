@@ -1,4 +1,0 @@
-# Standard errors and confidence interval calculations in ANOVA 
-
-
-
