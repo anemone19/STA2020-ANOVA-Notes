@@ -358,6 +358,29 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18_ExtraExp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ANOVA Model Explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19_AnovabyHand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Manual Calculation of One-Way ANOVA Table</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -404,7 +427,7 @@ window.Quarto = {
 </header>
 
 
-<p>Completely Randomized Designs (CRDs) are the simplest experimental designs. They are used when experimental units are uniform enough and we expect them to react similar to a given treatment. In other words, we have no reason to suspect that a group of experimental units might react differently to the treatments. We also don’t expect any effects (besides possibly a treatment effect) to cause any systematic changes in the response. So, we don’t have to block for differing experimental units or any nuisance factors.</p>
+<p>Completely Randomized Designs (CRDs) are the simplest experimental designs. They are used when experimental units are uniform enough and we expect them to react similar to any given treatment. In other words, we have no reason to suspect that a group of experimental units might react differently to the treatments. We also don’t expect any effects (besides possibly a treatment effect) to cause any systematic changes in the response. So, we don’t have to block for differing experimental units or any nuisance factors.</p>
 <p>Remember experimental design is the procedure for how experimental units are grouped and treatments are applied. We have already said that there are no blocks in CRDs. So randomisation occurs without restriction and to all experimental units. More generally, each of the <span class="math inline">\(a\)</span> treatments are randomly assigned to <span class="math inline">\(r\)</span> experimental units, such that each experimental unit is equally likely to receive any of the treatments. This means that there are <span class="math inline">\(N = r \times a\)</span> experimental units in total. We only consider designs that are <em>balanced</em> meaning that there an equal number of experimental units per treatment, i.e.&nbsp;a treatment is applied to <span class="math inline">\(r\)</span> units. The experiment is then said to have <span class="math inline">\(r\)</span> replicates.</p>
 <p>The aim when analysing CRDs is to determine whether there is an effect of the treatment factor. We accomplish this by testing for differences in the treatment means (mean of response values in each treatment) through analyses different sources of variation in the response. This will become clear as we progress.</p>
 <section id="example-the-effect-of-social-media-multitasking-on-classroom-performance." class="level2" data-number="5.1">
@@ -526,7 +549,7 @@ Example 5.1
 <li>The errors are normally distributed.</li>
 <li>All groups have equal population variances.</li>
 </ol>
-<p>We need to check the validity of these assumptions. There are both formal and informal techniques. Formal techniques (i.e.&nbsp;hypothesis tests) are not always appropriate for several reasons such as small data sets or that testing one assumption usually requires that the other two hold, complicating the order of tests. Informal techniques are more than sufficient and in this course, we stick with them.</p>
+<p>We need to check the validity of these assumptions. There are both formal and informal techniques. Formal techniques (i.e.&nbsp;hypothesis tests) are not always appropriate for several reasons such as small data sets or that testing one assumption usually requires that the other two hold, complicating the order of tests. Informal techniques are more than sufficient and in this section, we stick with them.</p>
 <section id="outliers" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="outliers">Outliers</h3>
 <p>Outliers are unusual observations (response values) that deviate substantially from the remaining data points. They can have a large influence on the estimates of our model. Think of statistics such as means and variances, outlying observations will shift the mean towards them and distort the variability of the data.</p>
@@ -574,7 +597,7 @@ Figure&nbsp;5.1: Box-plots of Post treatment scores by group.
 10.82887 14.60601 16.42678 </code></pre>
 </div>
 </div>
-<p>The rule of thumb is to use the ratio of the smallest to largest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group) which is acceptable.</p>
+<p>The rule of thumb is to use the ratio of the largest to smallest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group) which is acceptable.</p>
 </section>
 <section id="normally-distributed-errors" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="normally-distributed-errors">Normally distributed errors</h3>

@@ -308,6 +308,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18_ExtraExp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ANOVA Model Explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19_AnovabyHand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Manual Calculation of One-Way ANOVA Table</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -349,9 +372,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Experimental Design</strong> is a detailed procedure for grouping, if blocking is necessary, experimental units and for how treatments are assigned to the experimental units. There are three fundamental principles, known as the ‘three R’s of experimental design’ which are at the core of a good experiment. The following section might feel a bit repetitive, but these concepts cannot be emphasised enough.</p>
 <section id="replication" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="replication">Replication</h2>
-<p>Let’s define it again: replication is when each treatment is applied to several experimental units. This ensures that the variation between two or more units receiving the same treatment can be estimated and valid comparisons can be made between treatments. In other words, replication allows us to separate variation due to differences between treatments from variation within treatments. For true replication, each treatment should be <strong>independently</strong> applied to several experimental units. If this is not the case, treatment effects become confounded with other factors.</p>
+<p>Let’s define it again: replication is when each treatment is applied to several experimental units. This ensures that the variation between two or more units receiving the same treatment (think two students receiving the same hours of therapy) can be estimated and valid comparisons can be made between treatments. In other words, replication allows us to separate variation due to differences between treatments from variation within treatments. For true replication, each treatment should be <strong>independently</strong> applied to several experimental units. If this is not the case, treatment effects become confounded with other factors.</p>
+<p>Let’s apply this to the test anxiety example. Variation between treatments would differences in the mean test anxiety between the three groups of students receiving different hours of therapy. Variation within treatments would be the differences in test anxiety scores among students within each group, e.g.&nbsp;some students in group 1 might have higher or lower anxiety scores than others in the same group due to inherent differences between the students, such as personality traits, previous experiences, or even the time of day they took the test.</p>
 <p>Confounding means that is not possible to separate the effects of two (or more) factors on the response, i.e.&nbsp;it is not possible to say which of the two factors is responsible for any changes in the response. This is what happened in the Example 1 when groups are the experimental units. With only one replicate per treatment, the effect of therapy is confounded with the experimental unit or the effect of group on test anxiety. The reason why this is a problem is that any difference between the treatments could be due to any differences between the groups and not just the number of therapy hours. The same would be true if we only had one student per group. Why? Take a moment to think about this.</p>
-<p>Consider the first row of the data from Example 1. It looks like the student in group 2 scored the highest, followed by group 3 and then group 1. So does longer therapy sessions lead to higher test anxiety? Likely not! With only one student per treatment, we are not able to say that any differences in the response are due to the treatments. It could be due to any differences between the individuals. Maybe the student in group 3 tends to score higher on anxiety tests regardless of the treatment, or perhaps the student in group 1 was unusually calm that day. Without replication, these individual differences could mask (or mimic) the true effects of the treatments.</p>
+<p>Consider the only first row of the data from Example 1. It looks like the student in group 2 scored the highest, followed by group 3 and then group 1. So does longer therapy sessions lead to higher test anxiety? Likely not! With only one student per treatment, we are not able to say that any differences in the response are due to the treatments. It could be due to any differences between the individuals. Maybe the student in group 3 tends to score higher on anxiety tests regardless of the treatment, or perhaps the student in group 1 was unusually calm that day. Without replication, these individual differences could mask (or mimic) the true effects of the treatments.</p>
 <p>By replicating the treatments across multiple students, we can quantify these individual differences and gain a clearer picture of whether therapy duration truly impacts test anxiety. With five students per group, we might observe that group 1 consistently scores lower than group 3. This consistency would provide stronger evidence that the treatments, and not just individual variation, are responsible for the observed differences. So by replication, we can compare within treatment variation to variation between treatments.</p>
 <table class="caption-top table">
 <thead>
@@ -416,8 +440,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># example output</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rand1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "A" "D" "A" "D" "C" "C" "D" "D" "B" "B" "D" "B" "B" "C" "A" "A" "A" "C" "A"
-[20] "D" "A" "D" "A" "B" "C" "B" "C" "C" "B" "B" "C" "D"</code></pre>
+<pre><code> [1] "A" "A" "C" "A" "B" "D" "A" "B" "D" "D" "C" "D" "C" "C" "C" "B" "B" "D" "B"
+[20] "D" "C" "A" "B" "D" "A" "C" "B" "A" "B" "C" "A" "D"</code></pre>
 </div>
 </div>
 <p>Experimental unit 1 recipes the first treatment that appears as the first element in the shuffled vector, experimental unit 2 receives the second and so on.</p>
