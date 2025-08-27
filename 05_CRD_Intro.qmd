@@ -130,7 +130,7 @@ Another measure of variability we can look at, are the standard deviations (sd's
 sort(tapply(multitask$Posttest,multitask$Group,sd))
 ```
 
-The rule of thumb is to use the ratio of the smallest to largest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group) which is acceptable.
+The rule of thumb is to use the ratio of the largest to smallest standard deviation and check whether it is smaller than five. In our case, the smallest sd (of the Control group) is about 1.5 times smaller than the largest sd (of the Exp 2 group) which is acceptable.
 
 ### Normally distributed errors {.unnumbered}
 
