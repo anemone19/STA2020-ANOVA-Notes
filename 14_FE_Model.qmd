@@ -19,7 +19,7 @@ $$
 \end{aligned}
 $$
 
-**Note that (AC) is a single symbol and does not mean the interpaction is the product of the two main effects.**
+**Note that (AC) is a single symbol and does not mean the interaction is the product of the two main effects.**
 
 $\mu + A_i + C_j + (AC)_{ij}$ is the structural part of the model which describes the mean or expected response with treatment $ij$, i.e. at the $i^{th}$ level of factor A and $j^{th}$ level of factor C. Depending on the estimates for the main effects, each treatment will have a different estimated mean response. For every level of A there is a main effect, the $A_i$'s. For every level of factor B there is a main effect, $B_i$. For every combination of A and B levels there is an interaction effect, $(AC)_{ij}$. So the model implies that each treatment mean is made up of an overall mean, two main effects and and interaction term.
 
