@@ -18,18 +18,20 @@ If there are multiple factors in an experiment, and the effects of one factor de
 
 The figure below illustrates a number of possible interaction situations in a $2 \times 2$ factorial experiment, with treatment factor A having levels a1 and a2, and factor B having levels b1 and b2. To determine whether main effects of A are present, we must ask whether the average response changes when moving from a1 to a2, and similarly for main effects of B.
 
-To determine whether **interaction effects** are present, we must ask whether the change in response when moving from a1 to a2 depends on the level of B. Main effects and interaction effects can both be present simultaneously.
+To determine whether **interaction effects** are present, we must ask whether the change in response when moving from a1 to a2 depends on the level of B. Main effects and interaction effects can be present simultaneously.
 
 Before we do anything, orient yourself. What is represented by each axis, how is the graph differentiating between treatment factors? In the figure below, the response is on the y-axis and we have the levels of treatment factor A on the x-axis, the levels of B are denoted by the colour of the line.
 
-Let's start with (a). The main effect of A is the average change in response - averaged over all levels of the other factors. Essentially, we need to determine what happens to the response when we ignore the levels of B. To do this, we have to calculate the average of the points at a1 and separately, at a2. When points in a line are eveny distributed, the average is the mid-point. If you do this for both levels of A and connect the dots, you will have drawn a flat horizontal line. Now, going from a1 to a2, what happens to the response? In other words, does the average response change? No, there is n change which means there is no main effect of factor A.
+Let's start with (a). The main effect of A is the average change in response - averaged over all levels of the other factors. Essentially, we need to determine what happens to the response when we ignore the levels of B. To do this, we have to calculate the average of the points at a1 and separately, at a2. When points in a line are eveny distributed, the average is the mid-point. If you do this for both levels of A and connect the dots, you will have drawn a flat horizontal line. Now, going from a1 to a2, what happens to the response? In other words, does the average response change? No, there is no change which means there is no main effect of factor A.
 
-Going through the same motions for factor B, reveals that going from b1 to b2 increases the mean response. There is a main effect of factor B. What about an interaction effect? We ask: does the effect of A on the response change when we consider the levels of the other factor? now we do not avearge over the other factor, we take it into account. Looking at the plot, if we focus on the red line and go from a1 to a2, nothing happens to the response. If we focus on the black line, the same (i.e. nothing) happens to the response as well. If we reverse this and focus on the points at a1, going from b1 (red) to b2 (black) increases the response. At a2, the response increases as well by the same amount. So nothing changed when we considered the other factors, there is no interaction.
+Going through the same motions for factor B, reveals that going from b1 to b2 increases the mean response. There is a main effect of factor B. 
+
+What about an interaction effect? We ask: does the effect of A on the response change when we consider the levels of the other factor? Now we do not average over the other factor, we take it into account. Looking at the plot, if we focus on the red line and go from a1 to a2, nothing happens to the response. If we focus on the black line, the same (i.e. nothing) happens to the response as well. If we reverse this and focus on the points at a1, going from b1 (red) to b2 (black) increases the response. At a2, the response increases as well by the same amount. So nothing changed when we considered the other factors, there is no interaction.
 
 Now, consider plot (e).
 
--   Averaging the response at a1 and a2 results in a horizontal line again. No main effect of factor A.
--   Averaging the response at b1 and b2, leads to the same conclusion as before. There are no main effects of factor B.
+-   Averaging the response at a1 and a2, and connecting the dots, results in a horizontal line again. No main effect of factor A.
+-   Averaging the response at b1 and b2, and connecting the dots, leads to the same conclusion. There are no main effects of factor B.
 -   If we focus on the red line (b1), going from a1 to a2 increases the response. However, at b2, going from a1 to a2 decreases the response! The effect of treatment factor A depends on the level of B, they interact with each other.
 
 So does this mean that A and B have no effect on the response? No, they both affect the response, their effects, however, depend on the level of the other factor present.
